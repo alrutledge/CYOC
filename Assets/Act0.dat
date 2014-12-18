@@ -1,0 +1,90 @@
+{
+	"Name":"Act 1",
+	"EntryList":[
+		{
+			"ID":0,
+			"Text":"  You received a telegram last night. It said that an uncle you didn't know you had recently passed, and that you are now the proud owner of 15607 Old Hill Rd. \n\n  You've set aside some time to go out today and see your new home, hoping that it, or maybe something inside, will be worth something.",
+			"Choices":
+			[
+				{"Text":"Take the drive out to 15607 Old Hill Rd.", "Actions":[{"Type":"GOTO", "ID":1}]}
+			]
+		},
+		{
+			"ID":1,
+			"Text":"  You are standing in front of a large house. The front door is closed in front of you. A path leads around one side to the back.",
+			"Choices":
+			[
+				{"Text":"Go to the front door.", "Actions":[{"Type":"GOTO", "ID":2}]},
+				{"Text":"Walk around back.", "Actions":[{"Type":"GOTO", "ID":3}]}
+			]
+		},
+		{
+			"ID":2,
+			"Text":"  You walk up to the front door. It is closed.",
+			"Choices":
+			[
+				{"Text":"Knock on the door.", "Actions":[{"Type":"GOTO", "ID":4}]},
+				{"Text":"Try to open the door.", "Actions":[{"Type":"GOTO", "ID":5}]},
+				{"Text":"Walk around back.", "Actions":[{"Type":"GOTO", "ID":3}]}
+			]
+		},
+		{
+			"ID":3,
+			"Text":"  You walk around to the back and find a back door.",
+			"Choices":
+			[
+				{"Text":"Walk around front.", "Actions":[{"Type":"GOTO", "ID":2}]},
+				{"Text":"Try the back door.", "Actions":[{"Type":"GOTO", "ID":7}]}
+			]
+		},
+		{
+			"ID":4,
+			"Text":"  You knock, but after a few minutes, no one comes to the door.",
+			"Choices":
+			[
+				{"Text":"Try to open the door.", "Actions":[{"Type":"GOTO", "ID":5}]},
+				{"Text":"Kick the door down.", "Actions":[{"Type":"GOTO", "ID":6}]},
+				{"Text":"Walk around back.", "Actions":[{"Type":"GOTO", "ID":3}]}
+			]
+		},
+		{
+			"ID":5,
+			"Text":"  You reach for the handle and try to turn it, but it is locked.",
+			"Choices":
+			[
+
+				{"Text":"Knock on the door.", "Actions":[{"Type":"GOTO", "ID":4}]},
+				{"Text":"Kick the door down.", "Actions":[{"Type":"GOTO", "ID":6}]},
+				{"Text":"Walk around back.", "Actions":[{"Type":"GOTO", "ID":3}]}
+			]
+		},
+		{
+			"ID":6,
+			"Text":"  You rear back and kick as hard as you can. The door doesn't budge, and your leg throbs in pain.",
+			"Choices":
+			[
+				{"Text":"Try to open the door with, you know, the handle.", "Actions":[{"Type":"GOTO", "ID":5}]},
+				{"Text":"Knock on the door.", "Actions":[{"Type":"GOTO", "ID":4}]},
+				{"Text":"Walk around back.", "Actions":[{"Type":"GOTO", "ID":3}]}
+			]
+		},
+		{
+			"ID":7,
+			"Text":"  You reach for the knob and begin to turn it, when a scraping noise rattles the door on its frame. A huff of some sort, like breath or maybe a growl emits from under the crack of the door.",
+			"Choices":
+			[
+				{"Text":"Screw that, there is a dog or something in there. Walk back around front.", "Actions":[{"Type":"GOTO", "ID":2}]},
+				{"Text":"I can handle a dog. Open the door regardless.", "Actions":[{"Type":"GOTO", "ID":8}]}
+			]
+		},
+		{
+			"ID":8,
+			"Text":"  You open the door and see the large dog standing on the other side. Its fur is matted in blood, and it bares its teeth at you before launching itself in your direction.\n\n  You start awake in bed, glance at the telegram again and try to push the nightmare aside.",
+			"Choices":
+			[
+				{"Text":"Your nerves rattled, but otherwise undetered you take a trip to your new home.", "Actions":[{"Type":"GOTO", "ID":1}]}
+			]
+		}
+
+	]
+}
