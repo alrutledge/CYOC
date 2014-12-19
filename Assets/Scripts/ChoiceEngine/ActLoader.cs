@@ -33,7 +33,7 @@ namespace Assets.Scripts.ChoiceEngine
             LoadedAct = se.Deserialize<Act>(reader);
             LoadedAct.ConvertEntries();
             ActLoaded = true;
-            MessageSystem.BroadcastMessage(new ActLoadedMessage(LoadedAct.Entries[0], LoadedAct));
+            MessageSystem.BroadcastMessage(new ActLoadedMessage(LoadedAct.Entries[command.EntryToLoad], LoadedAct));
         }
     }
 }

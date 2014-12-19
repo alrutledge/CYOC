@@ -3,6 +3,8 @@ using System.Collections;
 using Assets.Scripts.ICG.Messaging;
 using Assets.Scripts.ChoiceEngine.Messages;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using Assets.Scripts.ChoiceEngine;
 
 namespace Assets.Scripts.CYOC.UI
 {
@@ -12,12 +14,18 @@ namespace Assets.Scripts.CYOC.UI
         private GameObject m_actSelect;
         private GameObject m_characterSelect;
         private GameObject m_characterInformation;
+        private Button m_loadGameButon;
 
         private Text m_characterName;
         private Text m_characterProfession;
         private Text m_characterDescription;
         private Text m_characterAge;
+        private Text m_characterPrimary;
+        private Text m_characterSecondary;
+        private Text m_characterTertiary;
         private Image m_image;
+
+        private Dictionary<PlayerStat, int> m_playersStats;
 
         void Start()
         {
@@ -29,16 +37,28 @@ namespace Assets.Scripts.CYOC.UI
             m_characterProfession = GameObject.Find("CharacterProfession").GetComponent<Text>();
             m_characterDescription = GameObject.Find("CharacterDescription").GetComponent<Text>();
             m_characterAge = GameObject.Find("CharacterAge").GetComponent<Text>();
+            m_characterPrimary = GameObject.Find("CharacterPrimary").GetComponent<Text>();
+            m_characterSecondary = GameObject.Find("CharacterSecondary").GetComponent<Text>();
+            m_characterTertiary = GameObject.Find("CharacterTertiary").GetComponent<Text>();
             m_image = GameObject.Find("CharacterImage").GetComponent<Image>();
+            m_loadGameButon = GameObject.Find("LoadGameButton").GetComponent<Button>();
             m_characterInformation.SetActive(false);
             m_actSelect.SetActive(false);
             m_characterSelect.SetActive(false);
+            SaveGameAnswer answer = MessageSystem.BroadcastQuery<SaveGameAnswer, SaveGameQuery>(new SaveGameQuery());
+            if (!answer.Exists)
+            {
+                m_loadGameButon.interactable = false;
+            }
+            else
+            {
+                m_loadGameButon.interactable = true;
+            }
         }
 
         public void LoadPressed()
         {
-            // load the save game
-            MessageSystem.BroadcastMessage(new LoadActCommand("Act0"));
+            MessageSystem.BroadcastMessage(new LoadGameCommand());
         }
 
         public void NewPressed()
@@ -54,6 +74,13 @@ namespace Assets.Scripts.CYOC.UI
             m_characterDescription.text = "The Professor with the mostest...";
             m_characterAge.text = "48";
             m_characterInformation.SetActive(true);
+            m_playersStats = new Dictionary<PlayerStat, int>();
+            m_playersStats[PlayerStat.MaxMental] = 50;
+            m_playersStats[PlayerStat.MaxSocial] = 40;
+            m_playersStats[PlayerStat.MaxPhysical] = 30;
+            m_characterPrimary.text = "Mental";
+            m_characterSecondary.text = "Social";
+            m_characterTertiary.text = "Physical";
         }
 
         public void StudentPressed()
@@ -63,6 +90,13 @@ namespace Assets.Scripts.CYOC.UI
             m_characterDescription.text = "The Student with the mostest...";
             m_characterAge.text = "22";
             m_characterInformation.SetActive(true);
+            m_playersStats = new Dictionary<PlayerStat, int>();
+            m_playersStats[PlayerStat.MaxMental] = 30;
+            m_playersStats[PlayerStat.MaxSocial] = 40;
+            m_playersStats[PlayerStat.MaxPhysical] = 50;
+            m_characterPrimary.text = "Physical";
+            m_characterSecondary.text = "Social";
+            m_characterTertiary.text = "Mental";
         }
 
         public void DilettantePressed()
@@ -72,6 +106,13 @@ namespace Assets.Scripts.CYOC.UI
             m_characterDescription.text = "The bachelor with the mostest...";
             m_characterAge.text = "23";
             m_characterInformation.SetActive(true);
+            m_playersStats = new Dictionary<PlayerStat, int>();
+            m_playersStats[PlayerStat.MaxMental] = 30;
+            m_playersStats[PlayerStat.MaxSocial] = 50;
+            m_playersStats[PlayerStat.MaxPhysical] = 40;
+            m_characterPrimary.text = "Social";
+            m_characterSecondary.text = "Physical";
+            m_characterTertiary.text = "Mental";
         }
 
         public void ReporterPressed()
@@ -81,11 +122,34 @@ namespace Assets.Scripts.CYOC.UI
             m_characterDescription.text = "The reporter with the mostest...";
             m_characterAge.text = "31";
             m_characterInformation.SetActive(true);
+            m_playersStats = new Dictionary<PlayerStat, int>();
+            m_playersStats[PlayerStat.MaxMental] = 40;
+            m_playersStats[PlayerStat.MaxSocial] = 50;
+            m_playersStats[PlayerStat.MaxPhysical] = 30;
+            m_characterPrimary.text = "Social";
+            m_characterSecondary.text = "Mental";
+            m_characterTertiary.text = "Physical";
+
         }
             
         public void SelectCharacterPressed()
         {
+            m_loadGameButon.interactable = true;
+            CharacterSelectedMessage message = new CharacterSelectedMessage();
 
+            message.Name = m_characterName.text;
+            message.Profession = m_characterProfession.text;
+            message.Description = m_characterDescription.text;
+            message.Age = System.Int32.Parse(m_characterAge.text);
+
+            m_playersStats[PlayerStat.CurrentMental] = m_playersStats[PlayerStat.MaxMental];
+            m_playersStats[PlayerStat.CurrentPhysical] = m_playersStats[PlayerStat.MaxPhysical];
+            m_playersStats[PlayerStat.CurrentSocial] = m_playersStats[PlayerStat.MaxSocial];
+            m_playersStats[PlayerStat.MythosKnowledge] = 0;
+
+            message.Stats = m_playersStats;
+
+            MessageSystem.BroadcastMessage(message);
             m_characterSelect.SetActive(false);
             MessageSystem.BroadcastMessage(new LoadActCommand("Act0"));
         }

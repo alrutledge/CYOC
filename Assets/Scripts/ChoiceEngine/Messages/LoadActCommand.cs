@@ -8,10 +8,12 @@ namespace Assets.Scripts.ChoiceEngine.Messages
     public class LoadActCommand
     {
         public string ActToLoad { get; set; }
+        public int EntryToLoad { get; set; }
 
-        public LoadActCommand(string actToLoad)
+        public LoadActCommand(string actToLoad, int entryToLoad = 0)
         {
             ActToLoad = actToLoad;
+            EntryToLoad = entryToLoad;
         }
     }
 }

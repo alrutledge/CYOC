@@ -14,8 +14,6 @@ public class MainFlow : MonoBehaviour
         m_mainMenu = GameObject.Find("MainMenu");
         m_gamePlay = GameObject.Find("GamePlay");
         m_splashScreen = GameObject.Find("SplashScreen");
-        m_mainMenu.SetActive(false);
-        m_gamePlay.SetActive(false);
         MessageSystem.SubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
 	}
 
@@ -26,6 +24,8 @@ public class MainFlow : MonoBehaviour
 
     private void Start()
     {
+        m_mainMenu.SetActive(false);
+        m_gamePlay.SetActive(false);
         StartCoroutine(RemoveSplashScreen(1.0f));
     }
 	

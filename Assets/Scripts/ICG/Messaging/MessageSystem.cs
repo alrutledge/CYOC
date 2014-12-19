@@ -69,15 +69,15 @@ namespace Assets.Scripts.ICG.Messaging
             return default(REPLY);
         }
 
-        //public static R BroadcastQuery<R, T>(T message)
-        //{
-        //    if (Instance.m_querySubscriptions.ContainsKey(typeof(T)))
-        //    {
-        //        MessageReceiverList<R, T> list = (MessageReceiverList<R, T>)Instance.m_querySubscriptions[typeof(T)];
-        //        return list.SendMessage(message); // dubious
-        //    }
-        //    return default(R);
-        //}
+        public static R BroadcastQuery<R, T>(T message)
+        {
+            if (Instance.m_querySubscriptions.ContainsKey(typeof(T)))
+            {
+                MessageReceiverList<R, T> list = (MessageReceiverList<R, T>)Instance.m_querySubscriptions[typeof(T)];
+                return list.SendMessage(message); // dubious sends back only the first response
+            }
+            return default(R);
+        }
 
         public static void BroadcastMessage<MESSAGE>(MESSAGE message)
         {
