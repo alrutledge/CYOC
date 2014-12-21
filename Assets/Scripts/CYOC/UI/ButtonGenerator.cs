@@ -1,18 +1,14 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Assets.Scripts.ICG.Messaging;
 using Assets.Scripts.ChoiceEngine.Messages;
 using Assets.Scripts.ChoiceEngine;
 using UnityEngine.UI;
-using Assets.Scripts.ICG.Messaging.UnityMessageComponents.TransformMessaging;
 
 namespace Assets.Scripts.CYOC.UI
 {
     public class ButtonGenerator : MonoBehaviour
     {
         private GameObject[] m_buttons = new GameObject[4];
-        private GameObject m_entryPanel;
-        private Transform m_transform;
 
         private void Awake()
         {
@@ -21,8 +17,6 @@ namespace Assets.Scripts.CYOC.UI
                 GameObject buttonObject = GameObject.Find("Choice" + i.ToString());
                 m_buttons[i-1] = buttonObject;
             }
-            m_entryPanel = gameObject;
-            m_transform = gameObject.GetComponent<Transform>();
             MessageSystem.SubscribeMessage<EntryLoadedMessage>(MessageSystem.ServiceContext, OnEntryLoaded);
         }
 
@@ -37,9 +31,18 @@ namespace Assets.Scripts.CYOC.UI
             foreach(Choice choice in message.LoadedEntry.Choices)
             {
                 count++;
-                
+                bool meetsAllRequirements = true;
+                foreach (ChoiceRequirement requirement in choice.Requirements)
+                {
+                    RequirementReply reply = MessageSystem.BroadcastQuery<RequirementReply, RequirementQuery>(new RequirementQuery(requirement));
+                    if (!reply.RequirementMet)
+                    {
+                        meetsAllRequirements = false;
+                        break;
+                    }
+                }
                 m_buttons[count-1].SetActive(true);
-                Button button = m_buttons[count-1].GetComponent<Button>();
+                m_buttons[count - 1].GetComponent<Button>().interactable = meetsAllRequirements;
                 Text text = m_buttons[count-1].GetComponentInChildren<Text>();
                 text.text = choice.Text;
                 ChoiceButton choiceButtonComponent = m_buttons[count - 1].GetComponent<ChoiceButton>();

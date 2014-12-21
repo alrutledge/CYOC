@@ -6,13 +6,13 @@ namespace Assets.Scripts.ChoiceEngine
 {
     public enum PlayerStat
     {
-        MaxMental,
-        MaxPhysical,
-        MaxSocial,
-        CurrentMental,
-        CurrentPhysical,
-        CurrentSocial,
-        MythosKnowledge
+        MAX_MENTAL,
+        MAX_PHYSICAL,
+        MAX_SOCIAL,
+        CURRENT_MENTAL,
+        CURRENT_PHYSICAL,
+        CURRENT_SOCIAL,
+        MYTHOS_KNOWLEDGE
     }
 
     [System.Serializable]

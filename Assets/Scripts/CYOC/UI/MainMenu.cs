@@ -75,9 +75,9 @@ namespace Assets.Scripts.CYOC.UI
             m_characterAge.text = "48";
             m_characterInformation.SetActive(true);
             m_playersStats = new Dictionary<PlayerStat, int>();
-            m_playersStats[PlayerStat.MaxMental] = 50;
-            m_playersStats[PlayerStat.MaxSocial] = 40;
-            m_playersStats[PlayerStat.MaxPhysical] = 30;
+            m_playersStats[PlayerStat.MAX_MENTAL] = 50;
+            m_playersStats[PlayerStat.MAX_SOCIAL] = 40;
+            m_playersStats[PlayerStat.MAX_PHYSICAL] = 30;
             m_characterPrimary.text = "Mental";
             m_characterSecondary.text = "Social";
             m_characterTertiary.text = "Physical";
@@ -91,9 +91,9 @@ namespace Assets.Scripts.CYOC.UI
             m_characterAge.text = "22";
             m_characterInformation.SetActive(true);
             m_playersStats = new Dictionary<PlayerStat, int>();
-            m_playersStats[PlayerStat.MaxMental] = 30;
-            m_playersStats[PlayerStat.MaxSocial] = 40;
-            m_playersStats[PlayerStat.MaxPhysical] = 50;
+            m_playersStats[PlayerStat.MAX_MENTAL] = 30;
+            m_playersStats[PlayerStat.MAX_SOCIAL] = 40;
+            m_playersStats[PlayerStat.MAX_PHYSICAL] = 50;
             m_characterPrimary.text = "Physical";
             m_characterSecondary.text = "Social";
             m_characterTertiary.text = "Mental";
@@ -107,9 +107,9 @@ namespace Assets.Scripts.CYOC.UI
             m_characterAge.text = "23";
             m_characterInformation.SetActive(true);
             m_playersStats = new Dictionary<PlayerStat, int>();
-            m_playersStats[PlayerStat.MaxMental] = 30;
-            m_playersStats[PlayerStat.MaxSocial] = 50;
-            m_playersStats[PlayerStat.MaxPhysical] = 40;
+            m_playersStats[PlayerStat.MAX_MENTAL] = 30;
+            m_playersStats[PlayerStat.MAX_SOCIAL] = 50;
+            m_playersStats[PlayerStat.MAX_PHYSICAL] = 40;
             m_characterPrimary.text = "Social";
             m_characterSecondary.text = "Physical";
             m_characterTertiary.text = "Mental";
@@ -123,9 +123,9 @@ namespace Assets.Scripts.CYOC.UI
             m_characterAge.text = "31";
             m_characterInformation.SetActive(true);
             m_playersStats = new Dictionary<PlayerStat, int>();
-            m_playersStats[PlayerStat.MaxMental] = 40;
-            m_playersStats[PlayerStat.MaxSocial] = 50;
-            m_playersStats[PlayerStat.MaxPhysical] = 30;
+            m_playersStats[PlayerStat.MAX_MENTAL] = 40;
+            m_playersStats[PlayerStat.MAX_SOCIAL] = 50;
+            m_playersStats[PlayerStat.MAX_PHYSICAL] = 30;
             m_characterPrimary.text = "Social";
             m_characterSecondary.text = "Mental";
             m_characterTertiary.text = "Physical";
@@ -142,10 +142,10 @@ namespace Assets.Scripts.CYOC.UI
             message.Description = m_characterDescription.text;
             message.Age = System.Int32.Parse(m_characterAge.text);
 
-            m_playersStats[PlayerStat.CurrentMental] = m_playersStats[PlayerStat.MaxMental];
-            m_playersStats[PlayerStat.CurrentPhysical] = m_playersStats[PlayerStat.MaxPhysical];
-            m_playersStats[PlayerStat.CurrentSocial] = m_playersStats[PlayerStat.MaxSocial];
-            m_playersStats[PlayerStat.MythosKnowledge] = 0;
+            m_playersStats[PlayerStat.CURRENT_MENTAL] = m_playersStats[PlayerStat.MAX_MENTAL];
+            m_playersStats[PlayerStat.CURRENT_PHYSICAL] = m_playersStats[PlayerStat.MAX_PHYSICAL];
+            m_playersStats[PlayerStat.CURRENT_SOCIAL] = m_playersStats[PlayerStat.MAX_SOCIAL];
+            m_playersStats[PlayerStat.MYTHOS_KNOWLEDGE] = 0;
 
             message.Stats = m_playersStats;
 

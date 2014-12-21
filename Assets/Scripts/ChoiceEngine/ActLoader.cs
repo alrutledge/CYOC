@@ -56,6 +56,14 @@ namespace Assets.Scripts.ChoiceEngine
                     action.ID = System.Int32.Parse(choiceParts[2]);
                     m_currentChoice.Actions.Add(action);
                 }
+                else if (line.StartsWith("Requirement:"))
+                {
+                    ChoiceRequirement requirement = new ChoiceRequirement();
+                    string[] requirementParts = line.Split(':');
+                    requirement.Type = (ChoiceRequirementType)System.Enum.Parse(typeof (ChoiceRequirementType), requirementParts[1]);
+                    requirement.Requirement = System.Int32.Parse(requirementParts[2]);
+                    m_currentChoice.Requirements.Add(requirement);
+                }
             }
 
             file.Close();

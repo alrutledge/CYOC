@@ -2,7 +2,6 @@
 
 namespace Assets.Scripts.ChoiceEngine
 {
-    [System.Serializable]
     public class Entry
     {
         public int ID { get;  set; }

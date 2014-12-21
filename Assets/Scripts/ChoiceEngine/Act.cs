@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 
-
 namespace Assets.Scripts.ChoiceEngine
 {
-    [System.Serializable]
     public class Act
     {
         public List<Entry> EntryList { get; set; }

@@ -32,6 +32,7 @@ namespace Assets.Scripts.ChoiceEngine
             MessageSystem.SubscribeMessage<LoadGameCommand>(MessageSystem.ServiceContext, OnLoadGame);
             MessageSystem.SubscribeMessage<GotoEntryCommand>(MessageSystem.ServiceContext, OnEntryLoaded);
             MessageSystem.SubscribeQuery<SaveGameAnswer, SaveGameQuery>(gameObject, OnSaveGameQuery);
+            MessageSystem.SubscribeQuery<RequirementReply, RequirementQuery>(gameObject, OnRequirementQuery);
         }
 
         private void Start()
@@ -44,6 +45,68 @@ namespace Assets.Scripts.ChoiceEngine
             MessageSystem.UnsubscribeMessage<LoadGameCommand>(MessageSystem.ServiceContext, OnLoadGame);
             MessageSystem.UnsubscribeMessage<GotoEntryCommand>(MessageSystem.ServiceContext, OnEntryLoaded);
             MessageSystem.UnsubscribeQuery<SaveGameAnswer, SaveGameQuery>(gameObject, OnSaveGameQuery);
+            MessageSystem.UnsubscribeQuery<RequirementReply, RequirementQuery>(gameObject, OnRequirementQuery);
+        }
+
+        private RequirementReply OnRequirementQuery(RequirementQuery message)
+        {
+            RequirementReply reply = new RequirementReply();
+            reply.RequirementMet = false;
+            switch (message.Requirement.Type)
+            {
+                case ChoiceRequirementType.ATTRIBUTE_CURRENT_MENTAL:
+                    if (m_player.Stats[PlayerStat.CURRENT_MENTAL] >= message.Requirement.Requirement)
+                    {
+                        reply.RequirementMet = true;
+                    }
+                    break;
+
+                case ChoiceRequirementType.ATTRIBUTE_CURRENT_PHYSICAL:
+                    if (m_player.Stats[PlayerStat.CURRENT_PHYSICAL] >= message.Requirement.Requirement)
+                    {
+                        reply.RequirementMet = true;
+                    }
+                    break;
+
+                case ChoiceRequirementType.ATTRIBUTE_CURRENT_SOCIAL:
+                    if (m_player.Stats[PlayerStat.CURRENT_SOCIAL] >= message.Requirement.Requirement)
+                    {
+                        reply.RequirementMet = true;
+                    }
+                    break;
+
+                case ChoiceRequirementType.ATTRIBUTE_MAX_MENTAL:
+                    if (m_player.Stats[PlayerStat.MAX_MENTAL] >= message.Requirement.Requirement)
+                    {
+                        reply.RequirementMet = true;
+                    }
+                    break;
+
+                case ChoiceRequirementType.ATTRIBUTE_MAX_PHYSICAL:
+                    if (m_player.Stats[PlayerStat.MAX_PHYSICAL] >= message.Requirement.Requirement)
+                    {
+                        reply.RequirementMet = true;
+                    }
+                    break;
+
+                case ChoiceRequirementType.ATTRIBUTE_MAX_SOCIAL:
+                    if (m_player.Stats[PlayerStat.MAX_SOCIAL] >= message.Requirement.Requirement)
+                    {
+                        reply.RequirementMet = true;
+                    }
+                    break;
+
+                case ChoiceRequirementType.ATTRIBUTE_MYTHOS_KNOWLEDGE:
+                    if (m_player.Stats[PlayerStat.MYTHOS_KNOWLEDGE] >= message.Requirement.Requirement)
+                    {
+                        reply.RequirementMet = true;
+                    }
+                    break;
+
+                case ChoiceRequirementType.INVENTORY:
+                    break;
+            }
+            return reply;
         }
 
         private void OnEntryLoaded(GotoEntryCommand message)

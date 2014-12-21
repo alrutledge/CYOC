@@ -39,6 +39,7 @@ Choice:Try to open the door.
 Action:GOTO:5
 Choice:Kick the door down.
 Action:GOTO:6
+Requirement:ATTRIBUTE_CURRENT_PHYSICAL:40
 Choice:Walk around back.
 Action:GOTO:3
 
@@ -49,6 +50,7 @@ Choice:Knock on the door.
 Action:GOTO:4
 Choice:Kick the door down.
 Action:GOTO:6
+Requirement:ATTRIBUTE_CURRENT_PHYSICAL:40
 Choice:Walk around back.
 Action:GOTO:3
 

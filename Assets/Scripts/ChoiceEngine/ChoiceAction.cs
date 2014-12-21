@@ -9,7 +9,6 @@
         REMOVE_GEAR
     }
 
-    [System.Serializable]
     public class ChoiceAction
     {
         public ChoiceActionType Type { get;  set; }
