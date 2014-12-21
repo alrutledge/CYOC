@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Assets.Scripts.ChoiceEngine
+﻿namespace Assets.Scripts.ChoiceEngine
 {
     public enum ChoiceActionType
     {
@@ -14,6 +9,7 @@ namespace Assets.Scripts.ChoiceEngine
         REMOVE_GEAR
     }
 
+    [System.Serializable]
     public class ChoiceAction
     {
         public ChoiceActionType Type { get;  set; }

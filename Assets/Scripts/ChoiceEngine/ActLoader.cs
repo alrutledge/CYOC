@@ -1,8 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using Newtonsoft.Json;
-using System.IO;
-using System.Collections.Generic;
 using Assets.Scripts.ICG.Messaging;
 using Assets.Scripts.ChoiceEngine.Messages;
 
@@ -11,12 +7,11 @@ namespace Assets.Scripts.ChoiceEngine
     public class ActLoader : MonoBehaviour
     {
         public Act LoadedAct { get; set; }
-        public bool ActLoaded { get; set; }
-
+        private Entry m_currentEntry;
+        private Choice m_currentChoice;
 
         private void Awake()
         {
-            ActLoaded = false;
             MessageSystem.SubscribeMessage<LoadActCommand>(MessageSystem.ServiceContext, OnLoadActCommand);
         }
 
@@ -27,13 +22,45 @@ namespace Assets.Scripts.ChoiceEngine
 
         void OnLoadActCommand(LoadActCommand command)
         {
-            StreamReader re = new StreamReader("Assets\\" + command.ActToLoad + ".dat");
-            JsonTextReader reader = new JsonTextReader(re);
-            JsonSerializer se = new JsonSerializer();
-            LoadedAct = se.Deserialize<Act>(reader);
-            LoadedAct.ConvertEntries();
-            ActLoaded = true;
+            string line;
+            System.IO.StreamReader file = new System.IO.StreamReader("Assets\\" + command.ActToLoad + ".act");
+
+            while ((line = file.ReadLine()) != null)
+            {
+                if (line.StartsWith("ActName:"))
+                {
+                    LoadedAct = new Act(line.Substring(line.IndexOf(':') + 1));
+                }
+                else if (line.StartsWith("EntryID:"))
+                {
+                    m_currentEntry = new Entry(System.Int32.Parse(line.Substring(line.IndexOf(':') + 1)));
+                    LoadedAct.Entries[m_currentEntry.ID] = m_currentEntry;
+                }
+
+                else if (line.StartsWith("EntryText:"))
+                {
+                    m_currentEntry.Text = line.Substring(line.IndexOf(':') + 1);
+                }
+
+                else if (line.StartsWith("Choice:"))
+                {
+                    m_currentChoice = new Choice();
+                    m_currentChoice.Text = line.Substring(line.IndexOf(':') + 1);
+                    m_currentEntry.Choices.Add(m_currentChoice);
+                }
+                else if (line.StartsWith("Action:"))
+                {
+                    ChoiceAction action = new ChoiceAction();
+                    string[] choiceParts = line.Split(':');
+                    action.Type = (ChoiceActionType)System.Enum.Parse(typeof(ChoiceActionType), choiceParts[1]);
+                    action.ID = System.Int32.Parse(choiceParts[2]);
+                    m_currentChoice.Actions.Add(action);
+                }
+            }
+
+            file.Close();
             MessageSystem.BroadcastMessage(new ActLoadedMessage(LoadedAct.Entries[command.EntryToLoad], LoadedAct));
+
         }
     }
 }

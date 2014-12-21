@@ -3,9 +3,10 @@ using System.Collections;
 using Assets.Scripts.ICG.Messaging;
 using Assets.Scripts.ChoiceEngine.Messages;
 using System.IO;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 namespace Assets.Scripts.ChoiceEngine
@@ -18,6 +19,8 @@ namespace Assets.Scripts.ChoiceEngine
         private Text m_age;
         private Text m_profession;
         private Text m_name;
+        private BinaryFormatter m_formatter = new BinaryFormatter();
+        private FileStream m_file;
 
         private void Awake()
         {
@@ -66,20 +69,19 @@ namespace Assets.Scripts.ChoiceEngine
 
         private void SerializePlayer()
         {
-            string json = JsonConvert.SerializeObject(m_player, Formatting.None);
-            File.WriteAllText("savegame.dat", json);
+            m_file = File.Open(Application.persistentDataPath + "/savegame.dat", FileMode.OpenOrCreate);
+            m_formatter.Serialize(m_file, m_player);
+            m_file.Close();
         }
 
         private void OnLoadGame(LoadGameCommand command)
         {
-            StreamReader re = new StreamReader("savegame.dat");
-            JsonTextReader reader = new JsonTextReader(re);
-            JsonSerializer serializer = new JsonSerializer();
-            m_player = serializer.Deserialize<Player>(reader);
+            m_file = File.Open(Application.persistentDataPath + "/savegame.dat", FileMode.Open);
+            m_player = (Player) m_formatter.Deserialize(m_file);
+            m_file.Close();
             SetPlayerDescriptors();
             BroadcastStats();
             MessageSystem.BroadcastMessage(new LoadActCommand("Act" + m_player.CurrentAct.ToString(), m_player.CurrentEntry));
-            re.Close();
         }
 
         private void SetPlayerDescriptors()
@@ -100,7 +102,7 @@ namespace Assets.Scripts.ChoiceEngine
 
         private SaveGameAnswer OnSaveGameQuery(SaveGameQuery message)
         {
-            FileInfo info = new FileInfo("savegame.dat");
+            FileInfo info = new FileInfo(Application.persistentDataPath + "/savegame.dat");
             if (info == null || info.Exists == false)
             {
                 return new SaveGameAnswer(false);

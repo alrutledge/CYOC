@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System;
 
 namespace Assets.Scripts.ICG.Messaging
 {
@@ -88,8 +87,8 @@ namespace Assets.Scripts.ICG.Messaging
             }
         }
 
-        private Dictionary<Type, IMessageReceiverList> m_messageSubscriptions = new Dictionary<Type, IMessageReceiverList>();
-        private Dictionary<Type, IMessageReceiverList> m_querySubscriptions = new Dictionary<Type, IMessageReceiverList>();
+        private Dictionary<System.Type, IMessageReceiverList> m_messageSubscriptions = new Dictionary<System.Type, IMessageReceiverList>();
+        private Dictionary<System.Type, IMessageReceiverList> m_querySubscriptions = new Dictionary<System.Type, IMessageReceiverList>();
 
         private void Update()
         {

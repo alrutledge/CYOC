@@ -1,0 +1,719 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pack",
+				"packNumber"
+			],
+			[
+				"silver",
+				"silverRank"
+			],
+			[
+				"silv",
+				"silverSaleCost"
+			],
+			[
+				"man",
+				"manufacturerId"
+			],
+			[
+				"item",
+				"itemInformation"
+			],
+			[
+				"quan",
+				"quantityPerPurchase"
+			],
+			[
+				"Log",
+				"LoginViewModel"
+			],
+			[
+				"appl",
+				"applyBindings"
+			],
+			[
+				"go",
+				"goldRank"
+			],
+			[
+				"sil",
+				"silverRank"
+			],
+			[
+				"newGo",
+				"newGoldRank"
+			],
+			[
+				"newS",
+				"newSilverRank"
+			],
+			[
+				"newI",
+				"newItemType"
+			],
+			[
+				"itemT",
+				"itemType"
+			],
+			[
+				"newP",
+				"newPurchaseDependency"
+			],
+			[
+				"pu",
+				"purchaseDependency"
+			],
+			[
+				"m",
+				"max"
+			],
+			[
+				"M",
+				"manufacturerId"
+			],
+			[
+				"G",
+				"GoPlatEnvironment"
+			],
+			[
+				"user",
+				"useremail"
+			],
+			[
+				"qu",
+				"quantityPerPurchase"
+			],
+			[
+				"nu",
+				"numberItemsUpdated"
+			],
+			[
+				"itemi",
+				"itemid"
+			],
+			[
+				"parse",
+				"parseInt"
+			],
+			[
+				"str",
+				"stripeToken"
+			],
+			[
+				"foun",
+				"foundChangeRequest"
+			],
+			[
+				"change",
+				"changeRequest"
+			],
+			[
+				"Us",
+				"UserPasswordChangeRequest"
+			],
+			[
+				"ne",
+				"newUserVerification"
+			],
+			[
+				"veri",
+				"verificationId"
+			],
+			[
+				"ver",
+				"verification"
+			],
+			[
+				"creat",
+				"createNewInventory"
+			],
+			[
+				"new",
+				"newUser"
+			],
+			[
+				"User",
+				"UserVerification"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"S",
+				"SmtpTransport"
+			],
+			[
+				"currenc",
+				"currencyEntry"
+			],
+			[
+				"cu",
+				"currencyEntry"
+			],
+			[
+				"find",
+				"findWhere"
+			],
+			[
+				"email",
+				"emailAddress"
+			],
+			[
+				"pl",
+				"PlatformPort"
+			],
+			[
+				"plat",
+				"platformUrl"
+			],
+			[
+				"Pl",
+				"PlatformPort"
+			],
+			[
+				"p",
+				"platformUrl"
+			],
+			[
+				"send",
+				"sendAuthenticate"
+			],
+			[
+				"server",
+				"serverpassword"
+			],
+			[
+				"to",
+				"toUpperCase"
+			],
+			[
+				"acc",
+				"accessGranted"
+			],
+			[
+				"add",
+				"addedToken"
+			],
+			[
+				"con",
+				"continuation"
+			],
+			[
+				"tok",
+				"expiredToken"
+			],
+			[
+				"se",
+				"serverError"
+			],
+			[
+				"toek",
+				"tokenFound"
+			],
+			[
+				"toe",
+				"tokenFound"
+			],
+			[
+				"token",
+				"tokenFound"
+			],
+			[
+				"return",
+				"returnCode"
+			],
+			[
+				"ret",
+				"retrieveServerItems"
+			],
+			[
+				"dir",
+				"dirtyFlag"
+			],
+			[
+				"obe",
+				"observableItems"
+			],
+			[
+				"sta",
+				"startingItems"
+			],
+			[
+				"num",
+				"numberItemsUpdate"
+			],
+			[
+				"g",
+				"goldSaleCost"
+			],
+			[
+				"ex",
+				"existingItem"
+			],
+			[
+				"it",
+				"itemToAddOrUpdate"
+			],
+			[
+				"respon",
+				"responseContinuation"
+			],
+			[
+				"dit",
+				"dirtyFlag"
+			],
+			[
+				"is",
+				"isActive"
+			],
+			[
+				"gold",
+				"goldSaleCost"
+			],
+			[
+				"o",
+				"originalAuthorization"
+			],
+			[
+				"game",
+				"gameHash"
+			],
+			[
+				"authen",
+				"authenticateWithPassword"
+			],
+			[
+				"auth",
+				"authenticateContinuation"
+			],
+			[
+				"resp",
+				"responseContinuation"
+			],
+			[
+				"pw",
+				"pwdContinuate"
+			],
+			[
+				"au",
+				"authenticateWithPassword"
+			],
+			[
+				"xp",
+				"xplatContinuation"
+			],
+			[
+				"Plat",
+				"PlatformPort"
+			],
+			[
+				"platform",
+				"PlatformURL"
+			],
+			[
+				"hash",
+				"hashString"
+			],
+			[
+				"player",
+				"playerId"
+			],
+			[
+				"ad",
+				"addLocal"
+			],
+			[
+				"updat",
+				"updatedRecord"
+			],
+			[
+				"userI",
+				"userIdentifier"
+			],
+			[
+				"os",
+				"osHash"
+			],
+			[
+				"inven",
+				"inventoryRecord"
+			],
+			[
+				"pla",
+				"playerid"
+			],
+			[
+				"get",
+				"getContinuation"
+			],
+			[
+				"tim",
+				"timestamp"
+			],
+			[
+				"time",
+				"timestampArray"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Act0.act",
+			"settings":
+			{
+				"buffer_size": 2424,
+				"line_ending": "Windows",
+				"name": "ActName:\"Act 0\""
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 114.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Jared/Downloads/documents-export-2014-08-06/GalaxyFactory.cs",
+		"/C/Users/Jared/Downloads/documents-export-2014-08-06/Galaxy.cs",
+		"/C/Users/Jared/Downloads/documents-export-2014-08-06/AsteroidBelt.cs",
+		"/C/Users/Jared/Desktop/Act0.dat",
+		"/C/Dev/OUServer/models/item.js",
+		"/C/Users/Jared/Documents/GitHub/Space/4xSpace/ProjectSettings/InputManager.asset",
+		"/C/Users/Jared/Desktop/Random notes",
+		"/C/Dev/OUServer/routes/purchase.js",
+		"/C/Dev/OUServer/models/score.js",
+		"/C/Dev/OUServer/routes/score.js",
+		"/C/Dev/OUServer/routes/inventory.js",
+		"/C/Dev/OUServer/platform.js",
+		"/C/Dev/OUServer/routes/items.js",
+		"/C/Dev/OUServer/public/scripts/outdoorUnlimitedServer.js",
+		"/C/Dev/OUServer/models/goldPack.js",
+		"/C/Dev/Platform/GO_Platform_Application.js",
+		"/C/Dev/Platform/tests/RequestHelper.py",
+		"/C/Users/Jared/nexus7.log",
+		"/C/Dev/OUServer/public/index.html",
+		"/C/Dev/OUServer/deployTest.bat",
+		"/C/Dev/OUServer/deployLive.bat",
+		"/C/Dev/OUServer/deployDev.bat",
+		"/C/Dev/OUServer/test.package.json",
+		"/C/Dev/OUServer/dev.package.json",
+		"/C/Dev/OUServer/live.package.json",
+		"/C/Dev/OUServer/public/scripts/baseUrl.js",
+		"/C/Dev/Platform/routes/users.js",
+		"/C/Dev/Platform/routes/tokens.js",
+		"/C/Dev/Platform/tests/utilityAddDropHelper.py",
+		"/C/Dev/Platform/tests/EnvironmentSwitcher.py",
+		"/C/Dev/OUServer/OU_Server_Application.js",
+		"/C/Users/Jared/Downloads/jquery-validation-1.12.0/README.md",
+		"/C/Dev/OUServer/public/scripts/jquery.cookie.js",
+		"/C/Users/Jared/Desktop/OU Item List 1.csv",
+		"/C/Users/Jared/Downloads/SSU1- Content Database for GO - Master Item List.csv",
+		"/C/Dev/OUServer/tests/utilityAddDropHelper.py",
+		"/C/Dev/Platform/dev.package.json",
+		"/C/Dev/Platform/routes/transactions.js",
+		"/C/Dev/Platform/tests/testUsers.py",
+		"/C/Dev/Platform/events.js",
+		"/C/Dev/OUServer/events.js",
+		"/C/Dev/Platform/routes/time.js",
+		"/C/Dev/Platform/test.package.json",
+		"/C/Dev/Platform/live.package.json",
+		"/C/Dev/Platform/logger.js",
+		"/C/Dev/Platform/config.js",
+		"/C/Dev/OUServer/tests/testInventory.py",
+		"/C/Dev/Platform/models/user.js",
+		"/C/Dev/Platform/models/userVerifications.js",
+		"/C/Dev/Platform/models/userPasswordChangeRequest.js",
+		"/C/Dev/Platform/routes/purchase.js",
+		"/C/Dev/Platform/routes/userVerifications.js",
+		"/C/Dev/OUServer/tests/RequestHelper.py",
+		"/C/Dev/OUServer/models/inventory.js",
+		"/C/Dev/OUServer/tests/testScore.py",
+		"/C/Dev/OUServer/routes/experience.js",
+		"/C/Dev/OUServer/models/experience.js",
+		"/C/Dev/OUServer/models/silver.js",
+		"/C/Dev/OUServer/models/gold.js",
+		"/C/Dev/OUServer/tests/EnvironmentSwitcher.py",
+		"/C/Dev/OUServer/routes/gold.js",
+		"/C/Dev/OUServer/routes/silver.js",
+		"/C/Dev/Platform/models/transaction.js",
+		"/C/Dev/Platform/routes/index.js",
+		"/C/Dev/Platform/tests/testTransactions.py",
+		"/C/Dev/Platform/routes/crossPlatformAuthentication.js",
+		"/C/Dev/Platform/tests/testUserPassword.py",
+		"/C/Dev/Platform/models/token.js",
+		"/C/Dev/OUServer/tests/testExperience.py",
+		"/C/Dev/OUServer/tests/runAllTests.py",
+		"/C/Dev/OUServer/node_modules/request/request.js",
+		"/C/Dev/OUServer/tests/testGold.py",
+		"/C/Dev/OUServer/tests/testSIlver.py",
+		"/C/Dev/Platform/tests/testTimeEndPoint.py",
+		"/C/Dev/OUServer/node_modules/request/README.md",
+		"/C/Users/Jared/Documents/iEntPlatform/routes/silver.js",
+		"/C/Users/Jared/Documents/iEntPlatform/routes/experience.js",
+		"/C/Users/Jared/Documents/iEntPlatform/routes/gold.js",
+		"/C/Users/Jared/Documents/iEntPlatform/models/score.js",
+		"/C/Users/Jared/Documents/iEntPlatform/dev.package.json",
+		"/C/Users/Jared/Documents/iEntPlatform/routes/users.js",
+		"/C/Users/Jared/Documents/iEntPlatform/app.js",
+		"/C/Users/Jared/Documents/iEntPlatform/models/item.js",
+		"/C/Users/Jared/Documents/iEntPlatform/routes/index.js",
+		"/C/Users/Jared/Documents/iEntPlatform/tests/dateScrap.py",
+		"/C/Users/Jared/Documents/iEntPlatform/models/user.js",
+		"/C/Users/Jared/Documents/iEntPlatform/tests/testUsers.py",
+		"/C/Users/Jared/Documents/iEntPlatform/tests/utilityAddDropHelper.py",
+		"/C/Users/Jared/Documents/iEntPlatform/routes/crossPlatformAuthentication.js",
+		"/C/Users/Jared/Documents/iEntPlatform/deployTest.bat",
+		"/C/Users/Jared/Documents/iEntPlatform/test.package.json",
+		"/C/Users/Jared/Documents/iEntPlatform/.gitignore",
+		"/C/Users/Jared/Documents/iEntPlatform/tests/RequestHelper.py",
+		"/C/Users/Jared/Documents/iEntPlatform/routes/score.js",
+		"/C/Users/Jared/Documents/iEntPlatform/tests/testSIlver.py",
+		"/C/Program Files (x86)/iEnt/Outdoors Unlimited/Data/Startup.lua",
+		"/C/Program Files (x86)/iEnt/Outdoors Unlimited/Data/AmmoData.dat",
+		"/C/Users/Jared/Documents/iEntPlatform/package.json",
+		"/C/Users/Jared/Documents/iEntPlatform/routes/objectId.js",
+		"/C/Users/Jared/Documents/iEntPlatform/tests/testSIlver",
+		"/C/Users/Jared/Documents/iEntPlatform/routes/transactions.js",
+		"/C/Users/Jared/Documents/iEntPlatform/routes/inventory.js",
+		"/C/Users/Jared/Desktop/RequestHelper - Copy.py",
+		"/C/Users/Jared/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Jared/Documents/iEntPlatform/tests/testExperience.py",
+		"/C/Users/Jared/Documents/iEntPlatform/models/inventory.js",
+		"/C/Users/Jared/Documents/iEntPlatform/tests/testInventory.py",
+		"/C/Users/Jared/Documents/iEntPlatform/tests/runAllTests.py",
+		"/C/Users/Jared/Documents/iEntPlatform/tests/testTimeEndPoint.py",
+		"/C/Users/Jared/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Jared/AppData/Roaming/Sublime Text 3/Packages/User/Python.sublime-settings",
+		"/C/Users/Jared/AppData/Roaming/Sublime Text 3/Packages/User/JSON.sublime-settings",
+		"/C/Users/Jared/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript.sublime-settings",
+		"/C/Users/Jared/AppData/Roaming/Sublime Text 3/Packages/User/Distraction Free.sublime-settings",
+		"/C/Users/Jared/Downloads/isodate-0.5.0.tar/dist/isodate-0.5.0/isodate-0.5.0/src/isodate/isotime.py",
+		"/C/Users/Jared/Downloads/isodate-0.5.0.tar/dist/isodate-0.5.0/isodate-0.5.0/src/isodate/isodatetime.py",
+		"/C/Users/Jared/Downloads/isodate-0.5.0.tar/dist/isodate-0.5.0/isodate-0.5.0/README.rst",
+		"/C/Users/Jared/Downloads/isodate-0.5.0.tar/dist/isodate-0.5.0/isodate-0.5.0/src/isodate/tests/test_datetime.py",
+		"/C/Users/Jared/Downloads/isodate-0.5.0.tar/dist/isodate-0.5.0/isodate-0.5.0/src/isodate/tests/test_duration.py",
+		"/C/Users/Jared/Downloads/isodate-0.5.0.tar/dist/isodate-0.5.0/isodate-0.5.0/src/isodate/tests/test_strf.py",
+		"/C/Users/Jared/Downloads/isodate-0.5.0.tar/dist/isodate-0.5.0/isodate-0.5.0/src/isodate/tests/test_pickle.py",
+		"/C/Users/Jared/Downloads/isodate-0.5.0.tar/dist/isodate-0.5.0/isodate-0.5.0/src/isodate/tests/test_time.py",
+		"/C/Users/Jared/Downloads/isodate-0.5.0.tar/dist/isodate-0.5.0/isodate-0.5.0/src/isodate/tests/test_date.py",
+		"/C/Users/Jared/Downloads/isodate-0.5.0.tar/dist/isodate-0.5.0/isodate-0.5.0/src/isodate/tests/__init__.py",
+		"/C/Users/Jared/Documents/iEntPlatform/tests/testAddInventory.py",
+		"/C/Users/Jared/Documents/iEntPlatform/models/transaction.js",
+		"/C/Users/Jared/Documents/iEntPlatform/models/gold.js",
+		"/C/Users/Jared/Documents/iEntPlatform/models/experience.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\Dev\\Platform",
+			"C:\\Dev\\OUServer",
+			"C:\\Dev\\Platform",
+			"C:\\Dev\\OUServer",
+			"C:\\Dev\\Platform",
+			"C:\\Dev\\OUServer\\routes",
+			"<open folders>,C:\\Users\\Jared\\Documents\\iEntPlatform\\routes",
+			"<open folders>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\"",
+			"addTransaction",
+			"add",
+			"Transactions.addLocalTransaction",
+			"console.log",
+			"metric",
+			"mygogames.squarespace.com",
+			"body",
+			"unable to find silver",
+			".addTransaction",
+			"Platform.authenticate",
+			".verify",
+			"addTransaction",
+			"json",
+			"userIdentifier",
+			"request, response, user",
+			");\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Act0.act",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2424,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								783,
+								783
+							]
+						],
+						"settings":
+						{
+							"auto_name": "ActName:\"Act 0\"",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 117.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 29.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "CYOC_Acts.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		]
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 322.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
