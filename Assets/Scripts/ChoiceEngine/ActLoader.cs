@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.ChoiceEngine.ChoiceActions;
+using UnityEngine;
 using Assets.Scripts.ICG.Messaging;
 using Assets.Scripts.ChoiceEngine.Messages;
 
@@ -9,6 +10,7 @@ namespace Assets.Scripts.ChoiceEngine
         public Act LoadedAct { get; set; }
         private Entry m_currentEntry;
         private Choice m_currentChoice;
+        private ChoiceAction m_currentAction;
 
         private void Awake()
         {
@@ -50,11 +52,22 @@ namespace Assets.Scripts.ChoiceEngine
                 }
                 else if (line.StartsWith("Action:"))
                 {
-                    ChoiceAction action = new ChoiceAction();
                     string[] choiceParts = line.Split(':');
-                    action.Type = (ChoiceActionType)System.Enum.Parse(typeof(ChoiceActionType), choiceParts[1]);
-                    action.ID = System.Int32.Parse(choiceParts[2]);
-                    m_currentChoice.Actions.Add(action);
+                    m_currentAction = ActionFactory.ParseAction(choiceParts);
+                    m_currentChoice.Actions.Add(m_currentAction);
+                }
+                else if (line.StartsWith("ActionCheckSuccess:"))
+                {
+                    string[] choiceParts = line.Split(':');
+                    ChoiceAction action = ActionFactory.ParseAction(choiceParts);
+                    ((RequirementCheckAction) m_currentAction).SuccessAction = action;
+                }
+                else if (line.StartsWith("ActionCheckFailure:"))
+                {
+                    string[] choiceParts = line.Split(':');
+                    ChoiceAction action = ActionFactory.ParseAction(choiceParts);
+                    ((RequirementCheckAction)m_currentAction).FailureAction = action;
+
                 }
                 else if (line.StartsWith("Requirement:"))
                 {

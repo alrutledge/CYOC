@@ -38,8 +38,9 @@ EntryText:  You knock, but after a few minutes, no one comes to the door.
 Choice:Try to open the door.
 Action:GOTO:5
 Choice:Kick the door down.
-Action:GOTO:6
-Requirement:ATTRIBUTE_CURRENT_PHYSICAL:40
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_PHYSICAL:40
+ActionCheckSuccess:GOTO:9
+ActionCheckFailure:GOTO:6
 Choice:Walk around back.
 Action:GOTO:3
 
@@ -49,8 +50,9 @@ EntryText:  You reach for the handle and try to turn it, but it is locked.
 Choice:Knock on the door.
 Action:GOTO:4
 Choice:Kick the door down.
-Action:GOTO:6
-Requirement:ATTRIBUTE_CURRENT_PHYSICAL:40
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_PHYSICAL:40
+ActionCheckSuccess:GOTO:9
+ActionCheckFailure:GOTO:6
 Choice:Walk around back.
 Action:GOTO:3
 
@@ -71,9 +73,16 @@ Choice:Screw that, there is a dog or something in there. Walk back around front.
 Action:GOTO:2
 Choice:I can handle a dog. Open the door regardless.
 Action:GOTO:8
+Requirement:ATTRIBUTE_CURRENT_PHYSICAL:40
 
 EntryID:8
 EntryText:  You open the door and see the large dog standing on the other side. Its fur is matted in blood, and it bares its teeth at you before launching itself in your direction.\n\n  You start awake in bed, glance at the telegram again and try to push the nightmare aside.
+
+Choice:Your nerves rattled, but otherwise undetered you take a trip to your new home.
+Action:GOTO:1
+
+EntryID:9
+EntryText:  You rear back and kick as hard as you can, and are satisified to hear the wood of your new front door splintering as it swings in. There is a loud bark from the back of the house, and massive dog comes racing from the back. Its fur is matted in blood and it lunges at you.\n\n  You start awake in bed, glance at the telegram again and try to push the nightmare aside.
 
 Choice:Your nerves rattled, but otherwise undetered you take a trip to your new home.
 Action:GOTO:1

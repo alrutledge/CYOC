@@ -367,7 +367,7 @@
 			"file": "Act0.act",
 			"settings":
 			{
-				"buffer_size": 2424,
+				"buffer_size": 3144,
 				"line_ending": "Windows",
 				"name": "ActName:\"Act 0\""
 			}
@@ -536,7 +536,7 @@
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 21.0
 	},
 	"find_in_files":
 	{
@@ -602,15 +602,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2424,
+						"buffer_size": 3144,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								783,
-								783
+								2221,
+								2263
 							]
 						],
 						"settings":
@@ -621,7 +621,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 117.0,
+						"translation.y": 312.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -668,7 +668,7 @@
 	"project": "CYOC_Acts.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 38.0
 	},
 	"save_all_on_build": true,
 	"select_file":

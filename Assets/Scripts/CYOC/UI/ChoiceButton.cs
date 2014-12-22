@@ -14,13 +14,7 @@ namespace Assets.Scripts.CYOC.UI
         {
             foreach(ChoiceAction action in CurrentChoice.Actions)
             {
-                switch(action.Type)
-                {
-                    case ChoiceActionType.GOTO:
-                        MessageSystem.BroadcastMessage(new GotoEntryCommand(action.ID));
-                        break;
-
-                }
+                action.PerformAction();
             }
         }
     }

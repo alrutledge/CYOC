@@ -16,5 +16,13 @@
     {
         public ChoiceRequirementType Type { get; set; }
         public int Requirement { get; set; }
+
+        public ChoiceRequirement(){}
+
+        public ChoiceRequirement(ChoiceRequirementType type, int value)
+        {
+            Type = type;
+            Requirement = value;
+        }
     }
 }
