@@ -20,6 +20,9 @@ namespace Assets.Scripts.ChoiceEngine
                     action = new RequirementCheckAction((ChoiceRequirementType)System.Enum.Parse(typeof(ChoiceRequirementType), choiceParts[2]),
                         System.Int32.Parse(choiceParts[3]));
                     break;
+                case ChoiceActionType.MODIFY_ATTRIBUTE:
+                    action = new ModifyAttributeAction((PlayerStat)System.Enum.Parse(typeof(PlayerStat), choiceParts[2]), System.Int32.Parse(choiceParts[3]));
+                    break;
                 default:
                     action = null;
                     break;

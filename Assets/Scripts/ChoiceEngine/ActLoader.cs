@@ -60,14 +60,13 @@ namespace Assets.Scripts.ChoiceEngine
                 {
                     string[] choiceParts = line.Split(':');
                     ChoiceAction action = ActionFactory.ParseAction(choiceParts);
-                    ((RequirementCheckAction) m_currentAction).SuccessAction = action;
+                    ((RequirementCheckAction) m_currentAction).SuccessActions.Add(action);
                 }
                 else if (line.StartsWith("ActionCheckFailure:"))
                 {
                     string[] choiceParts = line.Split(':');
                     ChoiceAction action = ActionFactory.ParseAction(choiceParts);
-                    ((RequirementCheckAction)m_currentAction).FailureAction = action;
-
+                    ((RequirementCheckAction)m_currentAction).FailureActions.Add(action);
                 }
                 else if (line.StartsWith("Requirement:"))
                 {

@@ -1,5 +1,11 @@
 ActName:Act 0
 
+EntryID:-1
+EntryText:  You have gone insane. Your adventure has ended. Welcome to a padded room.
+
+EntryID:-2
+EntryText:  You collapse from your wounds, exhaustion, or pain. Your adventure has ended. Welcome to a pine box.
+
 EntryID:0
 EntryText:  You received a telegram last night. It said that an uncle you didn't know you had recently passed, and that you are now the proud owner of 15607 Old Hill Rd. \n\n  You've set aside some time to go out today and see your new home, hoping that it, or maybe something inside, will be worth something.
 
@@ -39,7 +45,9 @@ Choice:Try to open the door.
 Action:GOTO:5
 Choice:Kick the door down.
 Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_PHYSICAL:40
+ActionCheckSuccess:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:5
 ActionCheckSuccess:GOTO:9
+ActionCheckFailure:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:10
 ActionCheckFailure:GOTO:6
 Choice:Walk around back.
 Action:GOTO:3
@@ -51,7 +59,9 @@ Choice:Knock on the door.
 Action:GOTO:4
 Choice:Kick the door down.
 Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_PHYSICAL:40
+ActionCheckSuccess:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:5
 ActionCheckSuccess:GOTO:9
+ActionCheckFailure:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:10
 ActionCheckFailure:GOTO:6
 Choice:Walk around back.
 Action:GOTO:3

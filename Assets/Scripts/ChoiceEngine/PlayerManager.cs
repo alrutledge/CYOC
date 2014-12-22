@@ -31,6 +31,7 @@ namespace Assets.Scripts.ChoiceEngine
             MessageSystem.SubscribeMessage<CharacterSelectedMessage>(MessageSystem.ServiceContext, OnCharacterSelected);
             MessageSystem.SubscribeMessage<LoadGameCommand>(MessageSystem.ServiceContext, OnLoadGame);
             MessageSystem.SubscribeMessage<GotoEntryCommand>(MessageSystem.ServiceContext, OnEntryLoaded);
+            MessageSystem.SubscribeMessage<ModifyAttributeCommand>(MessageSystem.ServiceContext, OnModifyAttributeCommand);
             MessageSystem.SubscribeQuery<SaveGameAnswer, SaveGameQuery>(gameObject, OnSaveGameQuery);
             MessageSystem.SubscribeQuery<RequirementReply, RequirementQuery>(gameObject, OnRequirementQuery);
         }
@@ -44,8 +45,54 @@ namespace Assets.Scripts.ChoiceEngine
             MessageSystem.UnsubscribeMessage<CharacterSelectedMessage>(MessageSystem.ServiceContext, OnCharacterSelected);
             MessageSystem.UnsubscribeMessage<LoadGameCommand>(MessageSystem.ServiceContext, OnLoadGame);
             MessageSystem.UnsubscribeMessage<GotoEntryCommand>(MessageSystem.ServiceContext, OnEntryLoaded);
+            MessageSystem.UnsubscribeMessage<ModifyAttributeCommand>(MessageSystem.ServiceContext, OnModifyAttributeCommand);
             MessageSystem.UnsubscribeQuery<SaveGameAnswer, SaveGameQuery>(gameObject, OnSaveGameQuery);
             MessageSystem.UnsubscribeQuery<RequirementReply, RequirementQuery>(gameObject, OnRequirementQuery);
+        }
+
+        private void OnModifyAttributeCommand(ModifyAttributeCommand command)
+        {
+            int initialStat = m_player.Stats[command.PlayerStat];
+            m_player.Stats[command.PlayerStat] = m_player.Stats[command.PlayerStat] + command.Delta;
+
+            if (command.PlayerStat == PlayerStat.CURRENT_MENTAL)
+            {
+                if (m_player.Stats[command.PlayerStat] > m_player.Stats[PlayerStat.MAX_MENTAL])
+                {
+                    m_player.Stats[command.PlayerStat] = m_player.Stats[PlayerStat.MAX_MENTAL];
+                }
+
+                // check for insanity
+                if (m_player.Stats[PlayerStat.CURRENT_MENTAL] <=0)
+                {
+                    MessageSystem.BroadcastMessage(new GotoEntryCommand(-1));
+                }
+            }
+            else if (command.PlayerStat == PlayerStat.CURRENT_PHYSICAL)
+            {
+                if (m_player.Stats[command.PlayerStat] > m_player.Stats[PlayerStat.MAX_PHYSICAL])
+                {
+                    m_player.Stats[command.PlayerStat] = m_player.Stats[PlayerStat.MAX_PHYSICAL];
+                }
+                // check for death
+                if (m_player.Stats[PlayerStat.CURRENT_PHYSICAL] <= 0)
+                {
+                    MessageSystem.BroadcastMessage(new GotoEntryCommand(-2));
+                }
+            }
+            else if (command.PlayerStat == PlayerStat.CURRENT_SOCIAL)
+            {
+                if (m_player.Stats[command.PlayerStat] > m_player.Stats[PlayerStat.MAX_SOCIAL])
+                {
+                    m_player.Stats[command.PlayerStat] = m_player.Stats[PlayerStat.MAX_SOCIAL];
+                }
+            }
+
+            if (initialStat != m_player.Stats[command.PlayerStat])
+            {
+                MessageSystem.BroadcastMessage(new PlayerStatChangedMessage(command.PlayerStat, m_player.Stats[command.PlayerStat]));
+            }
+
         }
 
         private RequirementReply OnRequirementQuery(RequirementQuery message)

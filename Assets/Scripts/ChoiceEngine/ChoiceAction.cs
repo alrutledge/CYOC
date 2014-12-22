@@ -3,8 +3,7 @@
     public enum ChoiceActionType
     {
         GOTO,
-        RAISE_ATTRIBUTE,
-        LOWER_ATTRIBUTE,
+        MODIFY_ATTRIBUTE,
         GRANT_GEAR,
         REMOVE_GEAR,
         REQUIREMENT_CHECK
