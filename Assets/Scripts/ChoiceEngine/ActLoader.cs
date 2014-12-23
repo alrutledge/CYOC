@@ -46,7 +46,7 @@ namespace Assets.Scripts.ChoiceEngine
 
                 else if (line.StartsWith("EntryText:"))
                 {
-                    m_currentEntry.Text = line.Substring(line.IndexOf(':') + 1);
+                    m_currentEntry.Text += line.Substring(line.IndexOf(':') + 1)+"\n\n";
                 }
 
                 else if (line.StartsWith("Choice:"))

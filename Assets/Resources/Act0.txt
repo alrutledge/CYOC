@@ -7,7 +7,8 @@ EntryID:-2
 EntryText:  You collapse from your wounds, exhaustion, or pain. Your adventure has ended. Welcome to a pine box.
 
 EntryID:0
-EntryText:  You received a telegram last night. It said that an uncle you didn't know you had recently passed, and that you are now the proud owner of 15607 Old Hill Rd. \n\n  You've set aside some time to go out today and see your new home, hoping that it, or maybe something inside, will be worth something.
+EntryText:  You received a telegram last night. It said that an uncle you didn't know you had recently passed, and that you are now the proud owner of 15607 Old Hill Rd. 
+EntryText:  You've set aside some time to go out today and see your new home, hoping that it, or maybe something inside, will be worth something.
 
 Choice:Take the drive out to 15607 Old Hill Rd.
 Action:GOTO:1
@@ -86,13 +87,15 @@ Action:GOTO:8
 Requirement:ATTRIBUTE_CURRENT_PHYSICAL:40
 
 EntryID:8
-EntryText:  You open the door and see the large dog standing on the other side. Its fur is matted in blood, and it bares its teeth at you before launching itself in your direction.\n\n  You start awake in bed, glance at the telegram again and try to push the nightmare aside.
+EntryText:  You open the door and see the large dog standing on the other side. Its fur is matted in blood, and it bares its teeth at you before launching itself in your direction.
+EntryText:  You start awake in bed, glance at the telegram again and try to push the nightmare aside.
 
 Choice:Your nerves rattled, but otherwise undetered you take a trip to your new home.
 Action:GOTO:1
 
 EntryID:9
-EntryText:  You rear back and kick as hard as you can, and are satisified to hear the wood of your new front door splintering as it swings in. There is a loud bark from the back of the house, and massive dog comes racing from the back. Its fur is matted in blood and it lunges at you.\n\n  You start awake in bed, glance at the telegram again and try to push the nightmare aside.
+EntryText:  You rear back and kick as hard as you can, and are satisified to hear the wood of your new front door splintering as it swings in. There is a loud bark from the back of the house, and massive dog comes racing from the back. Its fur is matted in blood and it lunges at you.
+EntryText:  You start awake in bed, glance at the telegram again and try to push the nightmare aside.
 
 Choice:Your nerves rattled, but otherwise undetered you take a trip to your new home.
 Action:GOTO:1
