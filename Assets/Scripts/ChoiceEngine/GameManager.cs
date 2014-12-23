@@ -14,14 +14,12 @@ namespace Assets.Scripts.ChoiceEngine
         {
             MessageSystem.SubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
             MessageSystem.SubscribeMessage<GotoEntryCommand>(MessageSystem.ServiceContext, OnGotoEntryCommand);
-            //MessageSystem.SubscribeQuery<CurrentStateReply, CurrentStateQuery>(gameObject, OnCurrentStateQuery);
         }
         
         private void OnDestroy()
         {
             MessageSystem.UnsubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
             MessageSystem.UnsubscribeMessage<GotoEntryCommand>(MessageSystem.ServiceContext, OnGotoEntryCommand);
-            //MessageSystem.UnsubscribeQuery<CurrentStateReply, CurrentStateQuery>(gameObject, OnCurrentStateQuery);
         }
 
         private void OnGotoEntryCommand(GotoEntryCommand message)
