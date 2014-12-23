@@ -153,5 +153,29 @@ namespace Assets.Scripts.CYOC.UI
             m_characterSelect.SetActive(false);
             MessageSystem.BroadcastMessage(new LoadActCommand("Act0"));
         }
+
+        public void OnExitClicked()
+        {
+            if (!m_main.activeInHierarchy)
+            {
+                m_characterSelect.SetActive(false);
+                m_main.SetActive(true);
+            }
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (!m_main.activeInHierarchy)
+                {
+                    OnExitClicked();
+                }
+                else
+                {
+                    //m_exitGame.SetActive(false);
+                }
+            }
+        }
     }
 }

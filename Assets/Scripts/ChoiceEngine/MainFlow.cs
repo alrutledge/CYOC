@@ -10,6 +10,7 @@ public class MainFlow : MonoBehaviour
     private GameObject m_gamePlay;
     private GameObject m_splashScreen;
     private GameObject m_exitGame;
+    private GameObject m_characterSelect;
 
 	private void Awake () 
     {
@@ -17,6 +18,7 @@ public class MainFlow : MonoBehaviour
         m_gamePlay = GameObject.Find("GamePlay");
         m_splashScreen = GameObject.Find("SplashScreen");
         m_exitGame = GameObject.Find("ConfirmGameExitPanel");
+        m_characterSelect = GameObject.Find("CharacterSelect");
         MessageSystem.SubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
         MessageSystem.SubscribeMessage<ExitToMainMenuCommand>(MessageSystem.ServiceContext, OnExitToMainMenuCommand);
 	}
@@ -40,7 +42,15 @@ public class MainFlow : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!m_exitGame.activeInHierarchy)
+            if(m_characterSelect.activeInHierarchy)
+            {
+
+            }
+            else if (m_gamePlay.activeInHierarchy)
+            {
+
+            }
+            else if (!m_exitGame.activeInHierarchy)
             {
                 OnExitClicked();
             }
