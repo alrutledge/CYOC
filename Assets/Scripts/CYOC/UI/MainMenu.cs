@@ -14,6 +14,8 @@ namespace Assets.Scripts.CYOC.UI
         private GameObject m_actSelect;
         private GameObject m_characterSelect;
         private GameObject m_characterInformation;
+        private GameObject m_introDescription;
+
         private Button m_loadGameButon;
 
         private Text m_characterName;
@@ -40,11 +42,13 @@ namespace Assets.Scripts.CYOC.UI
             m_characterPrimary = GameObject.Find("CharacterPrimary").GetComponent<Text>();
             m_characterSecondary = GameObject.Find("CharacterSecondary").GetComponent<Text>();
             m_characterTertiary = GameObject.Find("CharacterTertiary").GetComponent<Text>();
+            m_introDescription = GameObject.Find("IntroInformation");
             m_image = GameObject.Find("CharacterImage").GetComponent<Image>();
             m_loadGameButon = GameObject.Find("LoadGameButton").GetComponent<Button>();
             m_characterInformation.SetActive(false);
             m_actSelect.SetActive(false);
             m_characterSelect.SetActive(false);
+            m_introDescription.SetActive(false);
             SaveGameAnswer answer = MessageSystem.BroadcastQuery<SaveGameAnswer, SaveGameQuery>(new SaveGameQuery());
             if (!answer.Exists)
             {
@@ -65,10 +69,13 @@ namespace Assets.Scripts.CYOC.UI
         {
             m_characterSelect.SetActive(true);
             m_main.SetActive(false);
+            m_introDescription.SetActive(true);
+            m_characterInformation.SetActive(false);
         }
 
         public void ProfessorPressed()
         {
+            m_introDescription.SetActive(false);
             m_characterName.text = "Joseph Allred";
             m_characterProfession.text = "Professor";
             m_characterDescription.text = "The Professor with the mostest...";
@@ -85,6 +92,7 @@ namespace Assets.Scripts.CYOC.UI
 
         public void StudentPressed()
         {
+            m_introDescription.SetActive(false);
             m_characterName.text = "Anne Delent";
             m_characterProfession.text = "Student";
             m_characterDescription.text = "The Student with the mostest...";
@@ -101,6 +109,7 @@ namespace Assets.Scripts.CYOC.UI
 
         public void DilettantePressed()
         {
+            m_introDescription.SetActive(false);
             m_characterName.text = "Stephen Mallory III";
             m_characterProfession.text = "Unemployed";
             m_characterDescription.text = "The bachelor with the mostest...";
@@ -117,6 +126,7 @@ namespace Assets.Scripts.CYOC.UI
 
         public void ReporterPressed()
         {
+            m_introDescription.SetActive(false);
             m_characterName.text = "Megan Ash";
             m_characterProfession.text = "Reporter";
             m_characterDescription.text = "The reporter with the mostest...";

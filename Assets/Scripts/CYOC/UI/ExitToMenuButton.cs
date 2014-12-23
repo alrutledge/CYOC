@@ -7,9 +7,11 @@ namespace Assets.Scripts.CYOC.UI
     public class ExitToMenuButton : MonoBehaviour
     {
         private GameObject m_exitGamePlay;
+        private Animator m_animator;
 
         public void Start()
         {
+            m_animator = GameObject.Find("MainGamePlay").GetComponent<Animator>();
             m_exitGamePlay = GameObject.Find("ConfirmExitPanel");
             m_exitGamePlay.SetActive(false);
         }
@@ -20,7 +22,7 @@ namespace Assets.Scripts.CYOC.UI
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && m_animator.GetBool("InventoryIsOffscreen") && m_animator.GetBool("CharacterIsOffscreen"))
             {
                 if (!m_exitGamePlay.activeInHierarchy)
                 {
