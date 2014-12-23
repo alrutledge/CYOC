@@ -25,9 +25,14 @@ namespace Assets.Scripts.ChoiceEngine
         void OnLoadActCommand(LoadActCommand command)
         {
             string line;
-            System.IO.StreamReader file = new System.IO.StreamReader("Assets\\" + command.ActToLoad + ".act");
+            TextAsset asset = Resources.Load(command.ActToLoad, typeof(TextAsset)) as TextAsset;
 
-            while ((line = file.ReadLine()) != null)
+            if (asset == null) return;
+
+            System.IO.StringReader tr = null;
+            tr = new System.IO.StringReader(asset.text); 
+
+            while ((line = tr.ReadLine()) != null)
             {
                 if (line.StartsWith("ActName:"))
                 {
@@ -78,9 +83,7 @@ namespace Assets.Scripts.ChoiceEngine
                 }
             }
 
-            file.Close();
             MessageSystem.BroadcastMessage(new ActLoadedMessage(LoadedAct.Entries[command.EntryToLoad], LoadedAct));
-
         }
     }
 }

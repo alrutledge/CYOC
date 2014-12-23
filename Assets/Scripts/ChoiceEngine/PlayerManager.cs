@@ -55,7 +55,8 @@ namespace Assets.Scripts.ChoiceEngine
             int initialStat = m_player.Stats[command.PlayerStat];
             m_player.Stats[command.PlayerStat] = m_player.Stats[command.PlayerStat] + command.Delta;
 
-            if (command.PlayerStat == PlayerStat.CURRENT_MENTAL)
+            if (command.PlayerStat == PlayerStat.CURRENT_MENTAL) 
+
             {
                 if (m_player.Stats[command.PlayerStat] > m_player.Stats[PlayerStat.MAX_MENTAL])
                 {
