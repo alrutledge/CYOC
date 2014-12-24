@@ -1,10 +1,11 @@
 ﻿using Assets.Scripts.ChoiceEngine.ChoiceActions;
+using Assets.Scripts.ChoiceEngine.EntryActions;
 
 namespace Assets.Scripts.ChoiceEngine
 {
     public class ActionFactory
     {
-        public static ChoiceAction ParseAction(string[] choiceParts)
+        public static ChoiceAction ParseChoiceAction(string[] choiceParts)
         {
             ChoiceAction action;
             
@@ -21,7 +22,31 @@ namespace Assets.Scripts.ChoiceEngine
                         System.Int32.Parse(choiceParts[3]));
                     break;
                 case ChoiceActionType.MODIFY_ATTRIBUTE:
-                    action = new ModifyAttributeAction((PlayerStat)System.Enum.Parse(typeof(PlayerStat), choiceParts[2]), System.Int32.Parse(choiceParts[3]));
+                    action = new ChoiceModifyAttributeAction((PlayerStat)System.Enum.Parse(typeof(PlayerStat), choiceParts[2]), System.Int32.Parse(choiceParts[3]));
+                    break;
+                default:
+                    action = null;
+                    break;
+            }
+
+            if (action != null)
+            {
+                action.Type = type;
+            }
+            return action;
+        }
+
+        public static EntryAction ParseEntryAction(string[] choiceParts)
+        {
+            EntryAction action;
+
+
+            EntryActionType type = (EntryActionType)System.Enum.Parse(typeof(EntryActionType), choiceParts[1]);
+
+            switch (type)
+            {
+                case EntryActionType.MODIFY_ATTRIBUTE:
+                    action = new EntryModifyAttributeAction((PlayerStat)System.Enum.Parse(typeof(PlayerStat), choiceParts[2]), System.Int32.Parse(choiceParts[3]));
                     break;
                 default:
                     action = null;

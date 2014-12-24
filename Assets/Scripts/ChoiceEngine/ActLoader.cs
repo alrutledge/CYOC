@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.ChoiceEngine.ChoiceActions;
+using Assets.Scripts.ChoiceEngine.EntryActions;
 using UnityEngine;
 using Assets.Scripts.ICG.Messaging;
 using Assets.Scripts.ChoiceEngine.Messages;
@@ -49,6 +50,13 @@ namespace Assets.Scripts.ChoiceEngine
                     m_currentEntry.Text += line.Substring(line.IndexOf(':') + 1)+"\n\n";
                 }
 
+                else if (line.StartsWith("EntryAction:"))
+                {
+                    string[] choiceParts = line.Split(':');
+                    EntryAction action = ActionFactory.ParseEntryAction(choiceParts);
+                    m_currentEntry.Actions.Add(action);
+                }
+
                 else if (line.StartsWith("Choice:"))
                 {
                     m_currentChoice = new Choice();
@@ -58,19 +66,19 @@ namespace Assets.Scripts.ChoiceEngine
                 else if (line.StartsWith("Action:"))
                 {
                     string[] choiceParts = line.Split(':');
-                    m_currentAction = ActionFactory.ParseAction(choiceParts);
+                    m_currentAction = ActionFactory.ParseChoiceAction(choiceParts);
                     m_currentChoice.Actions.Add(m_currentAction);
                 }
                 else if (line.StartsWith("ActionCheckSuccess:"))
                 {
                     string[] choiceParts = line.Split(':');
-                    ChoiceAction action = ActionFactory.ParseAction(choiceParts);
+                    ChoiceAction action = ActionFactory.ParseChoiceAction(choiceParts);
                     ((RequirementCheckAction) m_currentAction).SuccessActions.Add(action);
                 }
                 else if (line.StartsWith("ActionCheckFailure:"))
                 {
                     string[] choiceParts = line.Split(':');
-                    ChoiceAction action = ActionFactory.ParseAction(choiceParts);
+                    ChoiceAction action = ActionFactory.ParseChoiceAction(choiceParts);
                     ((RequirementCheckAction)m_currentAction).FailureActions.Add(action);
                 }
                 else if (line.StartsWith("Requirement:"))

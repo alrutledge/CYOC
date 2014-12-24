@@ -1,25 +1,32 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Assets.Scripts.ICG.Messaging;
 using Assets.Scripts.ChoiceEngine.Messages;
+using Assets.Scripts.ChoiceEngine.EntryActions;
 
 namespace Assets.Scripts.ChoiceEngine
 {
     public class GameManager : MonoBehaviour
     {
-        private Entry CurrentEntry;
         private Act CurrentAct;
+        private DelayedGotoEntryCommand m_delayedGotoEntry;
 
         private void Awake()
         {
             MessageSystem.SubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
             MessageSystem.SubscribeMessage<GotoEntryCommand>(MessageSystem.ServiceContext, OnGotoEntryCommand);
+            MessageSystem.SubscribeMessage<DelayedGotoEntryCommand>(MessageSystem.ServiceContext, OnDelayedGotoEntryCommand);
         }
         
         private void OnDestroy()
         {
             MessageSystem.UnsubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
             MessageSystem.UnsubscribeMessage<GotoEntryCommand>(MessageSystem.ServiceContext, OnGotoEntryCommand);
+            MessageSystem.UnsubscribeMessage<DelayedGotoEntryCommand>(MessageSystem.ServiceContext, OnDelayedGotoEntryCommand);
+        }
+
+        private void OnDelayedGotoEntryCommand(DelayedGotoEntryCommand message)
+        {
+            m_delayedGotoEntry = message;
         }
 
         private void OnGotoEntryCommand(GotoEntryCommand message)
@@ -29,14 +36,26 @@ namespace Assets.Scripts.ChoiceEngine
 
         private void OnActLoaded(ActLoadedMessage message)
         {
-            LoadEntry(message.FirstEntry);
             CurrentAct = message.CurrentAct;
+            LoadEntry(message.FirstEntry);
         }
 
         private void LoadEntry(Entry entry)
         {
-            CurrentEntry = entry;
+            foreach (EntryAction action in entry.Actions)
+            {
+                action.PerformAction();
+            }
             MessageSystem.BroadcastMessage(new EntryLoadedMessage(entry));
+        }
+
+        private void Update()
+        {
+            if (m_delayedGotoEntry != null)
+            {
+                MessageSystem.BroadcastMessage(new GotoEntryCommand(m_delayedGotoEntry.ID));
+                m_delayedGotoEntry = null;
+            }
         }
     }
 }
