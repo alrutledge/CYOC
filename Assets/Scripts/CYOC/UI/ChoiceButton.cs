@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using Assets.Scripts.ChoiceEngine;
-using Assets.Scripts.ICG.Messaging;
-using Assets.Scripts.ChoiceEngine.Messages;
+using Assets.Scripts.ChoiceEngine.ChoiceActions;
 
 namespace Assets.Scripts.CYOC.UI
 {

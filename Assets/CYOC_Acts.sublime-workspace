@@ -364,12 +364,11 @@
 	"buffers":
 	[
 		{
-			"file": "Act0.act",
+			"file": "Resources/Act0.txt",
 			"settings":
 			{
-				"buffer_size": 3144,
-				"line_ending": "Windows",
-				"name": "ActName:\"Act 0\""
+				"buffer_size": 3605,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -405,6 +404,8 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Jared/Documents/CYOC/Assets/Resources/Act0.txt",
+		"/C/Users/Jared/Documents/CYOC/Assets/Act0.act",
 		"/C/Users/Jared/Downloads/documents-export-2014-08-06/GalaxyFactory.cs",
 		"/C/Users/Jared/Downloads/documents-export-2014-08-06/Galaxy.cs",
 		"/C/Users/Jared/Downloads/documents-export-2014-08-06/AsteroidBelt.cs",
@@ -530,9 +531,7 @@
 		"/C/Users/Jared/Downloads/isodate-0.5.0.tar/dist/isodate-0.5.0/isodate-0.5.0/src/isodate/tests/test_date.py",
 		"/C/Users/Jared/Downloads/isodate-0.5.0.tar/dist/isodate-0.5.0/isodate-0.5.0/src/isodate/tests/__init__.py",
 		"/C/Users/Jared/Documents/iEntPlatform/tests/testAddInventory.py",
-		"/C/Users/Jared/Documents/iEntPlatform/models/transaction.js",
-		"/C/Users/Jared/Documents/iEntPlatform/models/gold.js",
-		"/C/Users/Jared/Documents/iEntPlatform/models/experience.js"
+		"/C/Users/Jared/Documents/iEntPlatform/models/transaction.js"
 	],
 	"find":
 	{
@@ -598,30 +597,27 @@
 			[
 				{
 					"buffer": 0,
-					"file": "Act0.act",
+					"file": "Resources/Act0.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3144,
+						"buffer_size": 3605,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2221,
-								2263
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"auto_name": "ActName:\"Act 0\"",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 312.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

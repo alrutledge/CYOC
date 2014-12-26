@@ -3,12 +3,12 @@ using Assets.Scripts.ICG.Messaging;
 
 namespace Assets.Scripts.ChoiceEngine.ChoiceActions
 {
-    public class ModifyAttributeAction : ChoiceAction
+    public class ChoiceModifyAttributeAction : ChoiceAction
     {
         public PlayerStat PlayerStat {get; set;}
         public int Delta { get; set; }
 
-        public ModifyAttributeAction(PlayerStat playerStat, int delta)
+        public ChoiceModifyAttributeAction(PlayerStat playerStat, int delta)
         {
             PlayerStat = playerStat;
             Delta = delta;

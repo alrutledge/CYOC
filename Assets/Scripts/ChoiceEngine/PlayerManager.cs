@@ -66,7 +66,7 @@ namespace Assets.Scripts.ChoiceEngine
                 // check for insanity
                 if (m_player.Stats[PlayerStat.CURRENT_MENTAL] <=0)
                 {
-                    MessageSystem.BroadcastMessage(new GotoEntryCommand(-1));
+                    MessageSystem.BroadcastMessage(new DelayedGotoEntryCommand(-1));
                 }
             }
             else if (command.PlayerStat == PlayerStat.CURRENT_PHYSICAL)
@@ -78,7 +78,7 @@ namespace Assets.Scripts.ChoiceEngine
                 // check for death
                 if (m_player.Stats[PlayerStat.CURRENT_PHYSICAL] <= 0)
                 {
-                    MessageSystem.BroadcastMessage(new GotoEntryCommand(-2));
+                    MessageSystem.BroadcastMessage(new DelayedGotoEntryCommand(-2));
                 }
             }
             else if (command.PlayerStat == PlayerStat.CURRENT_SOCIAL)

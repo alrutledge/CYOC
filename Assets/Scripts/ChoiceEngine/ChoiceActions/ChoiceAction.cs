@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.ChoiceEngine
+﻿namespace Assets.Scripts.ChoiceEngine.ChoiceActions
 {
     public enum ChoiceActionType
     {

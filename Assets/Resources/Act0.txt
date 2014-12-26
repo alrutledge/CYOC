@@ -48,7 +48,6 @@ Choice:Kick the door down.
 Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_PHYSICAL:40
 ActionCheckSuccess:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-5
 ActionCheckSuccess:GOTO:9
-ActionCheckFailure:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-10
 ActionCheckFailure:GOTO:6
 Choice:Walk around back.
 Action:GOTO:3
@@ -62,13 +61,14 @@ Choice:Kick the door down.
 Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_PHYSICAL:40
 ActionCheckSuccess:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-5
 ActionCheckSuccess:GOTO:9
-ActionCheckFailure:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-10
 ActionCheckFailure:GOTO:6
 Choice:Walk around back.
 Action:GOTO:3
 
 EntryID:6
 EntryText:  You rear back and kick as hard as you can. The door doesn't budge, and your leg throbs in pain.
+EntryText:  <color=maroon>Current Physical -10</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-10
 
 Choice:Try to open the door with, you know, the handle.
 Action:GOTO:5
