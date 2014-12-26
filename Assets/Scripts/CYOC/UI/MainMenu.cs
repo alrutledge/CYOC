@@ -28,6 +28,7 @@ namespace Assets.Scripts.CYOC.UI
         private Image m_image;
 
         private Dictionary<PlayerStat, int> m_playersStats;
+        private List<Item> m_startingInventory;
 
         void Start()
         {
@@ -88,6 +89,9 @@ namespace Assets.Scripts.CYOC.UI
             m_characterPrimary.text = "Mental";
             m_characterSecondary.text = "Social";
             m_characterTertiary.text = "Physical";
+            m_startingInventory = new List<Item>();
+            Item startingItem = new Item("Local History Book", "A small tome on the history of the local area.", "smallItemSample", "smallItemSample");
+            m_startingInventory.Add(startingItem);
         }
 
         public void StudentPressed()
@@ -105,6 +109,9 @@ namespace Assets.Scripts.CYOC.UI
             m_characterPrimary.text = "Physical";
             m_characterSecondary.text = "Social";
             m_characterTertiary.text = "Mental";
+            m_startingInventory = new List<Item>();
+            Item startingItem = new Item("A tattered notebook", "Your favorite school notebook, great for taking notes.", "smallItemSample", "smallItemSample");
+            m_startingInventory.Add(startingItem);
         }
 
         public void DilettantePressed()
@@ -122,6 +129,9 @@ namespace Assets.Scripts.CYOC.UI
             m_characterPrimary.text = "Social";
             m_characterSecondary.text = "Physical";
             m_characterTertiary.text = "Mental";
+            m_startingInventory = new List<Item>();
+            Item startingItem = new Item("A silver flask", "Your best friend, always available when you need a nip.", "smallItemSample", "smallItemSample");
+            m_startingInventory.Add(startingItem);
         }
 
         public void ReporterPressed()
@@ -139,6 +149,9 @@ namespace Assets.Scripts.CYOC.UI
             m_characterPrimary.text = "Social";
             m_characterSecondary.text = "Mental";
             m_characterTertiary.text = "Physical";
+            m_startingInventory = new List<Item>();
+            Item startingItem = new Item("Camera", "A sturdy model that has made you quite a name.", "smallItemSample", "smallItemSample");
+            m_startingInventory.Add(startingItem);
 
         }
             
@@ -158,6 +171,7 @@ namespace Assets.Scripts.CYOC.UI
             m_playersStats[PlayerStat.MYTHOS_KNOWLEDGE] = 0;
 
             message.Stats = m_playersStats;
+            message.Inventory = m_startingInventory;
 
             MessageSystem.BroadcastMessage(message);
             m_characterSelect.SetActive(false);

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.ICG.Messaging;
+using Assets.Scripts.ChoiceEngine.Messages;
 
 namespace Assets.Scripts.CYOC.UI
 {
@@ -25,7 +27,14 @@ namespace Assets.Scripts.CYOC.UI
         private void ToggleInventory()
         {
             bool IsOffscreen = m_animator.GetBool("InventoryIsOffscreen");
+
+            if (IsOffscreen)
+            {
+                SetupInventory();
+            }
+
             m_animator.SetBool("InventoryIsOffscreen", !IsOffscreen);
+            
         }
 
 
@@ -35,6 +44,11 @@ namespace Assets.Scripts.CYOC.UI
             {
                 ToggleInventory();
             }
+        }
+
+        private void SetupInventory()
+        {
+            MessageSystem.BroadcastMessage(new ProcessInventoryCommand());
         }
     }
 }

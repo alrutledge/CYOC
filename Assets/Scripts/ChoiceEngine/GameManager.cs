@@ -7,7 +7,6 @@ namespace Assets.Scripts.ChoiceEngine
 {
     public class GameManager : MonoBehaviour
     {
-        private Entry CurrentEntry;
         private Act CurrentAct;
 
         private void Awake()
@@ -35,7 +34,6 @@ namespace Assets.Scripts.ChoiceEngine
 
         private void LoadEntry(Entry entry)
         {
-            CurrentEntry = entry;
             MessageSystem.BroadcastMessage(new EntryLoadedMessage(entry));
         }
     }

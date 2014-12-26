@@ -24,6 +24,7 @@ namespace Assets.Scripts.ChoiceEngine
         public int Age { get; set; }
 
         public Dictionary<PlayerStat, int> Stats { get; set; }
+        public List<Item> Inventory { get; set; }
 
         public int CurrentAct { get; set; }
         public int CurrentEntry { get; set; }
