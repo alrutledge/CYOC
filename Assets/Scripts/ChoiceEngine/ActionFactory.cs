@@ -19,7 +19,7 @@ namespace Assets.Scripts.ChoiceEngine
                     break;
                 case ChoiceActionType.REQUIREMENT_CHECK:
                     action = new RequirementCheckAction((ChoiceRequirementType)System.Enum.Parse(typeof(ChoiceRequirementType), choiceParts[2]),
-                        System.Int32.Parse(choiceParts[3]));
+                        choiceParts[3]);
                     break;
                 case ChoiceActionType.MODIFY_ATTRIBUTE:
                     action = new ChoiceModifyAttributeAction((PlayerStat)System.Enum.Parse(typeof(PlayerStat), choiceParts[2]), System.Int32.Parse(choiceParts[3]));
@@ -47,6 +47,12 @@ namespace Assets.Scripts.ChoiceEngine
             {
                 case EntryActionType.MODIFY_ATTRIBUTE:
                     action = new EntryModifyAttributeAction((PlayerStat)System.Enum.Parse(typeof(PlayerStat), choiceParts[2]), System.Int32.Parse(choiceParts[3]));
+                    break;
+                case EntryActionType.GRANT_ITEM:
+                    action = new AddItemAction(choiceParts[2], choiceParts[5], choiceParts[3], choiceParts[4]);
+                    break;
+                case EntryActionType.REMOVE_ITEM:
+                    action = new RemoveItemAction(choiceParts[2]);
                     break;
                 default:
                     action = null;

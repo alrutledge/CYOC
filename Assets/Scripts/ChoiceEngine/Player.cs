@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Assets.Scripts.ChoiceEngine.Messages;
+using Assets.Scripts.ICG.Messaging;
+using System.Collections.Generic;
 
 namespace Assets.Scripts.ChoiceEngine
 {
@@ -24,7 +24,7 @@ namespace Assets.Scripts.ChoiceEngine
         public int Age { get; set; }
 
         public Dictionary<PlayerStat, int> Stats { get; set; }
-        public List<Item> Inventory { get; set; }
+        public Dictionary<string, Item> Inventory { get; set; }
 
         public int CurrentAct { get; set; }
         public int CurrentEntry { get; set; }

@@ -6,12 +6,12 @@ namespace Assets.Scripts.ChoiceEngine.ChoiceActions
 {
     public class RequirementCheckAction : ChoiceAction
     {
-        private int m_value;
+        private string m_value;
         private ChoiceRequirementType m_requirementToCheck;
         public List<ChoiceAction> SuccessActions { get; set; }
         public List<ChoiceAction> FailureActions { get; set; }
 
-        public RequirementCheckAction(ChoiceRequirementType requirementToCheck, int value)
+        public RequirementCheckAction(ChoiceRequirementType requirementToCheck, string value)
         {
             m_requirementToCheck = requirementToCheck;
             m_value = value;

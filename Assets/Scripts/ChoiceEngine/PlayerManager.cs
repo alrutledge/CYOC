@@ -34,10 +34,7 @@ namespace Assets.Scripts.ChoiceEngine
             MessageSystem.SubscribeMessage<ModifyAttributeCommand>(MessageSystem.ServiceContext, OnModifyAttributeCommand);
             MessageSystem.SubscribeQuery<SaveGameAnswer, SaveGameQuery>(gameObject, OnSaveGameQuery);
             MessageSystem.SubscribeQuery<RequirementReply, RequirementQuery>(gameObject, OnRequirementQuery);
-        }
-
-        private void Start()
-        {
+            MessageSystem.SubscribeQuery<GetInventoryReply, GetInventoryQuery>(MessageSystem.ServiceContext, OnGetInventoryQuery);
         }
 
         private void OnDestroy()
@@ -48,6 +45,7 @@ namespace Assets.Scripts.ChoiceEngine
             MessageSystem.UnsubscribeMessage<ModifyAttributeCommand>(MessageSystem.ServiceContext, OnModifyAttributeCommand);
             MessageSystem.UnsubscribeQuery<SaveGameAnswer, SaveGameQuery>(gameObject, OnSaveGameQuery);
             MessageSystem.UnsubscribeQuery<RequirementReply, RequirementQuery>(gameObject, OnRequirementQuery);
+            MessageSystem.UnsubscribeQuery<GetInventoryReply, GetInventoryQuery>(MessageSystem.ServiceContext, OnGetInventoryQuery);
         }
 
         private void OnModifyAttributeCommand(ModifyAttributeCommand command)
@@ -103,55 +101,66 @@ namespace Assets.Scripts.ChoiceEngine
             switch (message.Requirement.Type)
             {
                 case ChoiceRequirementType.ATTRIBUTE_CURRENT_MENTAL:
-                    if (m_player.Stats[PlayerStat.CURRENT_MENTAL] >= message.Requirement.Requirement)
+                    if (m_player.Stats[PlayerStat.CURRENT_MENTAL] >= System.Int32.Parse(message.Requirement.Requirement))
                     {
                         reply.RequirementMet = true;
                     }
                     break;
 
                 case ChoiceRequirementType.ATTRIBUTE_CURRENT_PHYSICAL:
-                    if (m_player.Stats[PlayerStat.CURRENT_PHYSICAL] >= message.Requirement.Requirement)
+                    if (m_player.Stats[PlayerStat.CURRENT_PHYSICAL] >= System.Int32.Parse(message.Requirement.Requirement))
                     {
                         reply.RequirementMet = true;
                     }
                     break;
 
                 case ChoiceRequirementType.ATTRIBUTE_CURRENT_SOCIAL:
-                    if (m_player.Stats[PlayerStat.CURRENT_SOCIAL] >= message.Requirement.Requirement)
+                    if (m_player.Stats[PlayerStat.CURRENT_SOCIAL] >= System.Int32.Parse(message.Requirement.Requirement))
                     {
                         reply.RequirementMet = true;
                     }
                     break;
 
                 case ChoiceRequirementType.ATTRIBUTE_MAX_MENTAL:
-                    if (m_player.Stats[PlayerStat.MAX_MENTAL] >= message.Requirement.Requirement)
+                    if (m_player.Stats[PlayerStat.MAX_MENTAL] >= System.Int32.Parse(message.Requirement.Requirement))
                     {
                         reply.RequirementMet = true;
                     }
                     break;
 
                 case ChoiceRequirementType.ATTRIBUTE_MAX_PHYSICAL:
-                    if (m_player.Stats[PlayerStat.MAX_PHYSICAL] >= message.Requirement.Requirement)
+                    if (m_player.Stats[PlayerStat.MAX_PHYSICAL] >= System.Int32.Parse(message.Requirement.Requirement))
                     {
                         reply.RequirementMet = true;
                     }
                     break;
 
                 case ChoiceRequirementType.ATTRIBUTE_MAX_SOCIAL:
-                    if (m_player.Stats[PlayerStat.MAX_SOCIAL] >= message.Requirement.Requirement)
+                    if (m_player.Stats[PlayerStat.MAX_SOCIAL] >= System.Int32.Parse(message.Requirement.Requirement))
                     {
                         reply.RequirementMet = true;
                     }
                     break;
 
                 case ChoiceRequirementType.ATTRIBUTE_MYTHOS_KNOWLEDGE:
-                    if (m_player.Stats[PlayerStat.MYTHOS_KNOWLEDGE] >= message.Requirement.Requirement)
+                    if (m_player.Stats[PlayerStat.MYTHOS_KNOWLEDGE] >= System.Int32.Parse(message.Requirement.Requirement))
                     {
                         reply.RequirementMet = true;
                     }
                     break;
 
-                case ChoiceRequirementType.INVENTORY:
+                case ChoiceRequirementType.HAVE_ITEM:
+                    if (m_player.Inventory.ContainsKey(message.Requirement.Requirement))
+                    {
+                        reply.RequirementMet = true;
+                    }
+                    break;
+
+                case ChoiceRequirementType.NOT_HAVE_ITEM:
+                    if (!m_player.Inventory.ContainsKey(message.Requirement.Requirement))
+                    {
+                        reply.RequirementMet = true;
+                    }
                     break;
             }
             return reply;
@@ -171,11 +180,17 @@ namespace Assets.Scripts.ChoiceEngine
             m_player.Profession = message.Profession;
             m_player.Name = message.Name;
             m_player.Stats = message.Stats;
+            m_player.Inventory = message.Inventory;
             m_player.CurrentAct = 0;
             m_player.CurrentEntry = 0;
             SetPlayerDescriptors();
             BroadcastStats();
             SerializePlayer();
+        }
+
+        private GetInventoryReply OnGetInventoryQuery(GetInventoryQuery message)
+        {
+            return new GetInventoryReply(m_player.Inventory);
         }
 
         private void SerializePlayer()

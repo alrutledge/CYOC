@@ -11,6 +11,6 @@ namespace Assets.Scripts.ChoiceEngine.Messages
         public string Description { get; set; }
         public int Age { get; set; }
         public Dictionary<PlayerStat, int> Stats { get; set; }
-        public List<Item> Inventory { get; set; }
+        public Dictionary<string, Item> Inventory { get; set; }
     }
 }

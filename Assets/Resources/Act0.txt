@@ -17,13 +17,18 @@ EntryID:1
 EntryText:  You are standing in front of a large house. The front door is closed in front of you. A path leads around one side to the back.
 
 Choice:Go to the front door.
-Action:GOTO:2
+Action:REQUIREMENT_CHECK:HAVE_ITEM:Glass Bottle
+ActionCheckSuccess:GOTO:11
+ActionCheckFailure:GOTO:2
 Choice:Walk around back.
 Action:GOTO:3
 
 EntryID:2
-EntryText:  You walk up to the front door. It is closed.
+EntryText:  You walk up to the front door. It is closed. You find a glass bottle on the porch.
 
+Choice:Take the glass bottle.
+Action:GOTO:10
+Requirement:NOT_HAVE_ITEM:Glass Bottle
 Choice:Knock on the door.
 Action:GOTO:4
 Choice:Try to open the door.
@@ -35,7 +40,9 @@ EntryID:3
 EntryText:  You walk around to the back and find a back door.
 
 Choice:Walk around front.
-Action:GOTO:2
+Action:REQUIREMENT_CHECK:HAVE_ITEM:Glass Bottle
+ActionCheckSuccess:GOTO:11
+ActionCheckFailure:GOTO:2
 Choice:Try the back door.
 Action:GOTO:7
 
@@ -99,3 +106,23 @@ EntryText:  You start awake in bed, glance at the telegram again and try to push
 
 Choice:Your nerves rattled, but otherwise undetered you take a trip to your new home.
 Action:GOTO:1
+
+EntryID:10
+EntryText:  You tuck the glass bottle away.
+EntryAction:GRANT_ITEM:Glass Bottle:smallItemSample:smallItemSample:A small glass bottle with a slight sticky residue inside. You don't think you would drink from it, but it might be useful for something.
+Choice:Knock on the door.
+Action:GOTO:4
+Choice:Try to open the door.
+Action:GOTO:5
+Choice:Walk around back.
+Action:GOTO:3
+
+EntryID:11
+EntryText:  You walk up to the front door. It is closed.
+
+Choice:Knock on the door.
+Action:GOTO:4
+Choice:Try to open the door.
+Action:GOTO:5
+Choice:Walk around back.
+Action:GOTO:3

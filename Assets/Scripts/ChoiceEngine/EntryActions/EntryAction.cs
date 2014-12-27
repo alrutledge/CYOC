@@ -3,8 +3,8 @@
     public enum EntryActionType
     {
         MODIFY_ATTRIBUTE,
-        GRANT_GEAR,
-        REMOVE_GEAR,
+        GRANT_ITEM,
+        REMOVE_ITEM,
         CHANGE_PICTURE
     }
 

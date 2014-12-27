@@ -3,8 +3,8 @@ namespace Assets.Scripts.ChoiceEngine.Messages
 {
     public class GetInventoryReply
     {
-        public List<Item> Items { get; set; }
-        public GetInventoryReply(List<Item> items)
+        public Dictionary<string, Item> Items { get; set; }
+        public GetInventoryReply(Dictionary<string, Item> items)
         {
             Items = items;
         }

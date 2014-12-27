@@ -9,17 +9,18 @@
         ATTRIBUTE_CURRENT_PHYSICAL,
         ATTRIBUTE_CURRENT_SOCIAL,
         ATTRIBUTE_MYTHOS_KNOWLEDGE,
-        INVENTORY
+        HAVE_ITEM,
+        NOT_HAVE_ITEM
     }
 
     public class ChoiceRequirement
     {
         public ChoiceRequirementType Type { get; set; }
-        public int Requirement { get; set; }
+        public string Requirement { get; set; }
 
         public ChoiceRequirement(){}
 
-        public ChoiceRequirement(ChoiceRequirementType type, int value)
+        public ChoiceRequirement(ChoiceRequirementType type, string value)
         {
             Type = type;
             Requirement = value;
