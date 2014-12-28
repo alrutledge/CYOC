@@ -93,14 +93,14 @@ ActionCheckSuccess:GOTO:11
 ActionCheckFailure:GOTO:2
 Choice:I can handle a dog. Open the door regardless.
 Action:GOTO:8
-Requirement:ATTRIBUTE_CURRENT_PHYSICAL:40
 
 EntryID:8
 EntryText:  You open the door and see the large dog standing on the other side. Its fur is matted in blood, and it bares its teeth at you before launching itself in your direction.
-EntryText:  You start awake in bed, glance at the telegram again and try to push the nightmare aside.
-
-Choice:Your nerves rattled, but otherwise undetered you take a trip to your new home.
-Action:GOTO:1
+Choice:Smash the bottle on the dog's head.
+Requirement:HAVE_ITEM:Glass Bottle
+Action:GOTO:13
+Choice:Oh no! Argh my face!
+Action:GOTO:12
 
 EntryID:9
 EntryText:  You rear back and kick as hard as you can, and are satisified to hear the wood of your new front door splintering as it swings in. There is a loud bark from the back of the house, and massive dog comes racing from the back. Its fur is matted in blood and it lunges at you.
@@ -129,3 +129,19 @@ Choice:Try to open the door.
 Action:GOTO:5
 Choice:Walk around back.
 Action:GOTO:3
+
+EntryID:12
+EntryText:  You start awake in bed, glance at the telegram again and try to push the nightmare aside.
+
+Choice:Your nerves rattled, but otherwise undetered you take a trip to your new home.
+Action:GOTO:1
+
+EntryID:13
+EntryText:  You smash the bottle on the dog's head, and it slumps to the floor in front of you with a whimper.
+EntryAction:REMOVE_ITEM:Glass Bottle
+EntryText:  The room around you is a mess, but there is a door that leads to what looks like the basement stairs. It is awfully dark down there. 
+EntryText:  You proceed down the steps, but something brushes your ankle and you find yourself plummetting forward. 
+EntryText:  You start awake in bed, glance at the telegram again and try to push the nightmare aside.
+
+Choice:Your nerves rattled, but otherwise undetered you take a trip to your new home.
+Action:GOTO:1
