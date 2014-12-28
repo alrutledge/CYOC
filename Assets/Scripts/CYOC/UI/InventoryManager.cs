@@ -95,7 +95,7 @@ namespace Assets.Scripts.CYOC.UI
                     itemButton.LinkedItem = null;
                     slotGO.GetComponent<Button>().interactable = false;
                     Image image = slotGO.GetComponent<Image>();
-                    image.sprite = null;
+                    image.sprite = Resources.Load("paper64", typeof(Sprite)) as Sprite;
                 }
                 m_inventoryChanged = false;
             }
