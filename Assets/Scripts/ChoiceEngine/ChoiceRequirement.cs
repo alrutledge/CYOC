@@ -10,7 +10,9 @@
         ATTRIBUTE_CURRENT_SOCIAL,
         ATTRIBUTE_MYTHOS_KNOWLEDGE,
         HAVE_ITEM,
-        NOT_HAVE_ITEM
+        NOT_HAVE_ITEM,
+        HAVE_FLAG,
+        NOT_HAVE_FLAG
     }
 
     public class ChoiceRequirement

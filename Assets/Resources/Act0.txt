@@ -17,7 +17,7 @@ EntryID:1
 EntryText:  You are standing in front of a large house. The front door is closed in front of you. A path leads around one side to the back.
 
 Choice:Go to the front door.
-Action:REQUIREMENT_CHECK:HAVE_ITEM:Glass Bottle
+Action:REQUIREMENT_CHECK:HAVE_FLAG:Glass Bottle
 ActionCheckSuccess:GOTO:11
 ActionCheckFailure:GOTO:2
 Choice:Walk around back.
@@ -28,7 +28,7 @@ EntryText:  You walk up to the front door. It is closed. You find a glass bottle
 
 Choice:Take the glass bottle.
 Action:GOTO:10
-Requirement:NOT_HAVE_ITEM:Glass Bottle
+Requirement:NOT_HAVE_FLAG:Glass Bottle
 Choice:Knock on the door.
 Action:GOTO:4
 Choice:Try to open the door.
@@ -40,7 +40,7 @@ EntryID:3
 EntryText:  You walk around to the back and find a back door.
 
 Choice:Walk around front.
-Action:REQUIREMENT_CHECK:HAVE_ITEM:Glass Bottle
+Action:REQUIREMENT_CHECK:HAVE_FLAG:Glass Bottle
 ActionCheckSuccess:GOTO:11
 ActionCheckFailure:GOTO:2
 Choice:Try the back door.
@@ -88,7 +88,9 @@ EntryID:7
 EntryText:  You reach for the knob and begin to turn it, when a scraping noise rattles the door on its frame. A huff of some sort, like breath or maybe a growl emits from under the crack of the door.
 
 Choice:Screw that, there is a dog or something in there. Walk back around front.
-Action:GOTO:2
+Action:REQUIREMENT_CHECK:HAVE_FLAG:Glass Bottle
+ActionCheckSuccess:GOTO:11
+ActionCheckFailure:GOTO:2
 Choice:I can handle a dog. Open the door regardless.
 Action:GOTO:8
 Requirement:ATTRIBUTE_CURRENT_PHYSICAL:40
@@ -110,6 +112,7 @@ Action:GOTO:1
 EntryID:10
 EntryText:  You tuck the glass bottle away.
 EntryAction:GRANT_ITEM:Glass Bottle:smallItemSample:smallItemSample:A small glass bottle with a slight sticky residue inside. You don't think you would drink from it, but it might be useful for something.
+EntryAction:ADD_FLAG:Glass Bottle
 Choice:Knock on the door.
 Action:GOTO:4
 Choice:Try to open the door.

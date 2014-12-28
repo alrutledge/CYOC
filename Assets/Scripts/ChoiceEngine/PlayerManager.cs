@@ -32,6 +32,8 @@ namespace Assets.Scripts.ChoiceEngine
             MessageSystem.SubscribeMessage<LoadGameCommand>(MessageSystem.ServiceContext, OnLoadGame);
             MessageSystem.SubscribeMessage<GotoEntryCommand>(MessageSystem.ServiceContext, OnEntryLoaded);
             MessageSystem.SubscribeMessage<ModifyAttributeCommand>(MessageSystem.ServiceContext, OnModifyAttributeCommand);
+            MessageSystem.SubscribeMessage<AddFlagCommand>(MessageSystem.ServiceContext, OnAddFlag);
+            MessageSystem.SubscribeMessage<RemoveFlagCommand>(MessageSystem.ServiceContext, OnRemoveFlag);
             MessageSystem.SubscribeQuery<SaveGameAnswer, SaveGameQuery>(gameObject, OnSaveGameQuery);
             MessageSystem.SubscribeQuery<RequirementReply, RequirementQuery>(gameObject, OnRequirementQuery);
             MessageSystem.SubscribeQuery<GetInventoryReply, GetInventoryQuery>(MessageSystem.ServiceContext, OnGetInventoryQuery);
@@ -43,9 +45,25 @@ namespace Assets.Scripts.ChoiceEngine
             MessageSystem.UnsubscribeMessage<LoadGameCommand>(MessageSystem.ServiceContext, OnLoadGame);
             MessageSystem.UnsubscribeMessage<GotoEntryCommand>(MessageSystem.ServiceContext, OnEntryLoaded);
             MessageSystem.UnsubscribeMessage<ModifyAttributeCommand>(MessageSystem.ServiceContext, OnModifyAttributeCommand);
+            MessageSystem.UnsubscribeMessage<AddFlagCommand>(MessageSystem.ServiceContext, OnAddFlag);
+            MessageSystem.UnsubscribeMessage<RemoveFlagCommand>(MessageSystem.ServiceContext, OnRemoveFlag);
             MessageSystem.UnsubscribeQuery<SaveGameAnswer, SaveGameQuery>(gameObject, OnSaveGameQuery);
             MessageSystem.UnsubscribeQuery<RequirementReply, RequirementQuery>(gameObject, OnRequirementQuery);
             MessageSystem.UnsubscribeQuery<GetInventoryReply, GetInventoryQuery>(MessageSystem.ServiceContext, OnGetInventoryQuery);
+        }
+
+        private void OnRemoveFlag(RemoveFlagCommand message)
+        {
+            if (m_player.Flags.ContainsKey(message.Name))
+            {
+                m_player.Flags.Remove(message.Name);
+            }
+        }
+
+        private void OnAddFlag(AddFlagCommand message)
+        {
+            if (m_player.Flags.ContainsKey(message.Name)) return;
+            m_player.Flags.Add(message.Name, true);
         }
 
         private void OnModifyAttributeCommand(ModifyAttributeCommand command)
@@ -162,6 +180,19 @@ namespace Assets.Scripts.ChoiceEngine
                         reply.RequirementMet = true;
                     }
                     break;
+                case ChoiceRequirementType.HAVE_FLAG:
+                    if (m_player.Flags.ContainsKey(message.Requirement.Requirement))
+                    {
+                        reply.RequirementMet = true;
+                    }
+                    break;
+
+                case ChoiceRequirementType.NOT_HAVE_FLAG:
+                    if (!m_player.Flags.ContainsKey(message.Requirement.Requirement))
+                    {
+                        reply.RequirementMet = true;
+                    }
+                    break;
             }
             return reply;
         }
@@ -183,6 +214,7 @@ namespace Assets.Scripts.ChoiceEngine
             m_player.Inventory = message.Inventory;
             m_player.CurrentAct = 0;
             m_player.CurrentEntry = 0;
+            m_player.Flags = new Dictionary<string, bool>();
             SetPlayerDescriptors();
             BroadcastStats();
             SerializePlayer();

@@ -25,6 +25,7 @@ namespace Assets.Scripts.ChoiceEngine
 
         public Dictionary<PlayerStat, int> Stats { get; set; }
         public Dictionary<string, Item> Inventory { get; set; }
+        public Dictionary<string, bool> Flags { get; set; } 
 
         public int CurrentAct { get; set; }
         public int CurrentEntry { get; set; }

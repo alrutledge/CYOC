@@ -54,6 +54,12 @@ namespace Assets.Scripts.ChoiceEngine
                 case EntryActionType.REMOVE_ITEM:
                     action = new RemoveItemAction(choiceParts[2]);
                     break;
+                case EntryActionType.ADD_FLAG:
+                    action = new AddFlagAction(choiceParts[2]);
+                    break;
+                case EntryActionType.REMOVE_FLAG:
+                    action = new RemoveFlagAction(choiceParts[2]);
+                    break;
                 default:
                     action = null;
                     break;
