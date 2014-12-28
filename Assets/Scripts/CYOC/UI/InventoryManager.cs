@@ -88,7 +88,7 @@ namespace Assets.Scripts.CYOC.UI
                     image.sprite = Resources.Load(item.SmallImage, typeof(Sprite)) as Sprite;
                     slot++;
                 }
-                for (int i = slot; i <= 12; i++)
+                for (int i = slot; i <= 10; i++)
                 {
                     GameObject slotGO = GameObject.Find("InventorySlot" + i.ToString());
                     ItemButton itemButton = slotGO.GetComponent<ItemButton>();

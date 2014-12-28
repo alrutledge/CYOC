@@ -101,7 +101,7 @@ namespace Assets.Scripts.CYOC.UI
             m_characterSecondary.text = "Social";
             m_characterTertiary.text = "Physical";
             m_startingInventory = new Dictionary<string, Item>();
-            Item startingItem = new Item("Local History Book", "A small tome on the history of the local area.", "smallItemSample", "smallItemSample");
+            Item startingItem = new Item("Local History Book", "A small tome on the history of the local area.", "book64", "book256");
             m_startingInventory.Add(startingItem.Name, startingItem);
         }
 
@@ -121,7 +121,7 @@ namespace Assets.Scripts.CYOC.UI
             m_characterSecondary.text = "Social";
             m_characterTertiary.text = "Mental";
             m_startingInventory = new Dictionary<string, Item>();
-            Item startingItem = new Item("A tattered notebook", "Your favorite school notebook, great for taking notes.", "smallItemSample", "smallItemSample");
+            Item startingItem = new Item("A tattered notebook", "Your favorite school notebook, great for taking notes.", "notebook64", "notebook256");
             m_startingInventory.Add(startingItem.Name, startingItem);
         }
 
