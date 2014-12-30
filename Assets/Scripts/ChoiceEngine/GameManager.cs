@@ -37,14 +37,17 @@ namespace Assets.Scripts.ChoiceEngine
         private void OnActLoaded(ActLoadedMessage message)
         {
             CurrentAct = message.CurrentAct;
-            LoadEntry(message.FirstEntry);
+            LoadEntry(message.FirstEntry, false);
         }
 
-        private void LoadEntry(Entry entry)
+        private void LoadEntry(Entry entry, bool runActions = true)
         {
-            foreach (EntryAction action in entry.Actions)
+            if (runActions)
             {
-                action.PerformAction();
+                foreach (EntryAction action in entry.Actions)
+                {
+                    action.PerformAction();
+                }
             }
             MessageSystem.BroadcastMessage(new EntryLoadedMessage(entry));
         }
