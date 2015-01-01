@@ -367,7 +367,7 @@
 			"file": "Resources/Act0.txt",
 			"settings":
 			{
-				"buffer_size": 3605,
+				"buffer_size": 5328,
 				"line_ending": "Windows"
 			}
 		}
@@ -601,15 +601,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3605,
+						"buffer_size": 5328,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								4488,
+								4488
 							]
 						],
 						"settings":
@@ -617,7 +617,7 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1022.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
