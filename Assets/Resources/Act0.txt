@@ -7,141 +7,82 @@ EntryID:-2
 EntryText:  You collapse from your wounds, exhaustion, or pain. Your adventure has ended. Welcome to a pine box.
 
 EntryID:0
-EntryText:  You received a telegram last night. It said that an uncle you didn't know you had recently passed, and that you are now the proud owner of 15607 Old Hill Rd. 
-EntryText:  You've set aside some time to go out today and see your new home, hoping that it, or maybe something inside, will be worth something.
+EntryText:  It is 1925. 
+EntryText:  A telegram arrived for you late last night. An uncle you did not even know you had apparently passed recently. In his will, he left his entire estate to you.
+EntryText:  Apparently the estate consists of the home and lands at 15607 Old Hill Rd just outside of town. 
+EntryText:  As luck would have it, you had no other plans for the day, so you have decided that you should drive out there and examine your new property. 
+EntryText:  Maybe it, or something within, will be worth something to you. At least, you will be able to learn more about this uncle that you did not even know you had.
+EntryText:  As you pack your things for a day trip and get into your car, it occurs to you that perhaps before you go out to the house you could do a bit of research to find out more about the place.
 
-Choice:Take the drive out to 15607 Old Hill Rd.
+Choice:Research the house before going out there.
 Action:GOTO:1
+Choice:Take the drive out to 15607 Old Hill Rd.
+Action:GOTO:20
 
 EntryID:1
-EntryText:  You are standing in front of a large house. The front door is closed in front of you. A path leads around one side to the back.
+EntryText:  Two places within town immediately come to mind. The library and the Arkham Advertiser, the local newspaper. Either might have more information.
+EntryText:  At the library, you know you can pour over many old texts about Arkham and its surroundings. It would take some time, but nothing some dogged determination can't handle.
+EntryText:  The Arkham Advertiser on the other hand means dealing with the local reporters, editors, or archivists. Getting them to give up information when there is no story to be had will take some convincing.
+EntryText:  Of course, you are burning daylight, and you have a bit of a drive ahead of you. Perhaps it would best to skip all this and head out to the house. After all, it is just a house, what more would you need to know than that?
 
-Choice:Go to the front door.
-Action:REQUIREMENT_CHECK:HAVE_FLAG:Glass Bottle
-ActionCheckSuccess:GOTO:11
-ActionCheckFailure:GOTO:2
-Choice:Walk around back.
-Action:GOTO:3
+Choice:Nevermind the research. You decide to head out to the house.
+Action:GOTO:20
+Choice:The library sounds up your speed with its dusty old tomes and research.
+Action:GOTO:2
+Choice:The Arkham Advertiser is the better choice. If there is information to be had, reporters will know!
+Action:GOTO:10
 
 EntryID:2
-EntryText:  You walk up to the front door. It is closed. You find a glass bottle on the porch.
+Note:Library
+EntryText:  You pull up outside the library and step out of your car, just as a thunderclap sounds overhead. Dark storm clouds have been gathering all morning and it looks like they will finally let loose the rain soon.
+EntryText:  Managing to get inside just before the rain hits, you settle into to dig through the ancient books and periodicals. The hours go by, and most of what you find is rather dull. Nothing really sparks your interest immediately.
+EntryText:  You are reshelving a book on the history of Arkham and its surrounding areas when you get the feeling that something is watching you. You turn to look, but nothing is there but rows upon rows of books. 
+EntryText:  Shaking off the feeling you dive back into the search, hoping that something fruitful will turn up soon.
 
-Choice:Take the glass bottle.
-Action:GOTO:10
-Requirement:NOT_HAVE_FLAG:Glass Bottle
-Choice:Knock on the door.
-Action:GOTO:4
-Choice:Try to open the door.
-Action:GOTO:5
-Choice:Walk around back.
-Action:GOTO:3
+Choice:Continue
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_MENTAL:40
+ActionCheckSuccess:GOTO:3
+ActionCheckFailure:GOTO:4
 
 EntryID:3
-EntryText:  You walk around to the back and find a back door.
+Note:Library Success
+EntryText:  You find one interesting article tucked away in the archives. It is from five years back. Apparently your uncle paid a large sum to Miskatonic University for them to perform an archaelogical dig on his land. 
+EntryText:  It turns out the land was a former native burial ground. The dig was mildly successful in uncovering several artifacts including a ceremonial mask. 
+EntryText:  Unfortunately, before the dig could be completed, things started going wrong. First there was an accident on the site. Then several of the key artifacts were stolen. Eventually your uncle decided to stop funding the dig.
+EntryText:  
+EntryText:  <color=green>Current and Max Mental +2 (Research)</color>
+EntryAction:MODIFY_ATTRIBUTE:MAX_MENTAL:2
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:2
 
-Choice:Walk around front.
-Action:REQUIREMENT_CHECK:HAVE_FLAG:Glass Bottle
-ActionCheckSuccess:GOTO:11
-ActionCheckFailure:GOTO:2
-Choice:Try the back door.
-Action:GOTO:7
+Choice:This was interesting, but its time to get out of here.
+Action:GOTO:5
 
 EntryID:4
-EntryText:  You knock, but after a few minutes, no one comes to the door.
+Note:Library Fail
+EntryText:  Try as you might, you can't seem to find anything very interesting about the house or the land surrounding it. You find yourself struggling to stay focused on the task and eventually give up in frustration. 
+EntryText:  
+EntryText:  <color=maroon>Current Mental -1 (Frustration)</color>
+EntryText:  <color=green>Max Mental +1 (Research)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-1
+EntryAction:MODIFY_ATTRIBUTE:MAX_MENTAL:1
 
-Choice:Try to open the door.
+Choice:This was a waste, time to get out of here.
 Action:GOTO:5
-Choice:Kick the door down.
-Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_PHYSICAL:40
-ActionCheckSuccess:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-5
-ActionCheckSuccess:GOTO:9
-ActionCheckFailure:GOTO:6
-Choice:Walk around back.
-Action:GOTO:3
 
 EntryID:5
-EntryText:  You reach for the handle and try to turn it, but it is locked.
+EntryText:  As you reshelve the final book you turn to find a man standing in the shadows of the rack of books ahead of you. Shadows cover his features, and he slowly shakes his head. 
+EntryText:  Lightning flashes, and when his face is illuminated, it is a horror to behold. The eyes are sunken in, the skin is taut, and his lips are pulled back in a snarl. You start back as the lightning flash fades and run into a librarian walking through the stacks.
+EntryText:  She starts as you bump into her and says, "Oh, terribly sorry. Are you alright?"
+EntryText:  You look back to where the figure was standing, but he is gone. Swallowing away the fear, you shake your head and straight your clothes, "Yes, fine, thank you. Excuse me." 
+EntryText:  
+EntryText:  <color=maroon>Current Mental -1 (Fear)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-1
 
-Choice:Knock on the door.
-Action:GOTO:4
-Choice:Kick the door down.
-Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_PHYSICAL:40
-ActionCheckSuccess:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-5
-ActionCheckSuccess:GOTO:9
-ActionCheckFailure:GOTO:6
-Choice:Walk around back.
-Action:GOTO:3
-
-EntryID:6
-EntryText:  You rear back and kick as hard as you can. The door doesn't budge, and your leg throbs in pain.
-EntryText:  <color=maroon>Current Physical -10</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-10
-
-Choice:Try to open the door with, you know, the handle.
-Action:GOTO:5
-Choice:Knock on the door.
-Action:GOTO:4
-Choice:Walk around back.
-Action:GOTO:3
-
-EntryID:7
-EntryText:  You reach for the knob and begin to turn it, when a scraping noise rattles the door on its frame. A huff of some sort, like breath or maybe a growl emits from under the crack of the door.
-
-Choice:Screw that, there is a dog or something in there. Walk back around front.
-Action:REQUIREMENT_CHECK:HAVE_FLAG:Glass Bottle
-ActionCheckSuccess:GOTO:11
-ActionCheckFailure:GOTO:2
-Choice:I can handle a dog. Open the door regardless.
-Action:GOTO:8
-
-EntryID:8
-EntryText:  You open the door and see the large dog standing on the other side. Its fur is matted in blood, and it bares its teeth at you before launching itself in your direction.
-Choice:Smash the bottle on the dog's head.
-Requirement:HAVE_ITEM:Glass Bottle
-Action:GOTO:13
-Choice:Oh no! Argh my face!
-Action:GOTO:12
-
-EntryID:9
-EntryText:  You rear back and kick as hard as you can, and are satisified to hear the wood of your new front door splintering as it swings in. There is a loud bark from the back of the house, and massive dog comes racing from the back. Its fur is matted in blood and it lunges at you.
-EntryText:  You start awake in bed, glance at the telegram again and try to push the nightmare aside.
-
-Choice:Your nerves rattled, but otherwise undetered you take a trip to your new home.
-Action:GOTO:1
+Choice:You gather your things and slip out into the rain, running to your car.
+Action:GOTO:20
 
 EntryID:10
-EntryText:  You tuck the glass bottle away.
-EntryAction:GRANT_ITEM:Glass Bottle:smallItemSample:smallItemSample:A small glass bottle with a slight sticky residue inside. You don't think you would drink from it, but it might be useful for something.
-EntryAction:ADD_FLAG:Glass Bottle
-Choice:Knock on the door.
-Action:GOTO:4
-Choice:Try to open the door.
-Action:GOTO:5
-Choice:Walk around back.
-Action:GOTO:3
+Note:Newspaper
 
-EntryID:11
-EntryText:  You walk up to the front door. It is closed.
-
-Choice:Knock on the door.
-Action:GOTO:4
-Choice:Try to open the door.
-Action:GOTO:5
-Choice:Walk around back.
-Action:GOTO:3
-
-EntryID:12
-EntryText:  You start awake in bed, glance at the telegram again and try to push the nightmare aside.
-
-Choice:Your nerves rattled, but otherwise undetered you take a trip to your new home.
-Action:GOTO:1
-
-EntryID:13
-EntryText:  You smash the bottle on the dog's head, and it slumps to the floor in front of you with a whimper.
-EntryAction:REMOVE_ITEM:Glass Bottle
-EntryText:  The room around you is a mess, but there is a door that leads to what looks like the basement stairs. It is awfully dark down there. 
-EntryText:  You proceed down the steps, but something brushes your ankle and you find yourself plummetting forward. 
-EntryText:  You start awake in bed, glance at the telegram again and try to push the nightmare aside.
-
-Choice:Your nerves rattled, but otherwise undetered you take a trip to your new home.
-Action:GOTO:1
+EntryID:20
+Note:Drive to house

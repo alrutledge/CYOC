@@ -1,0 +1,147 @@
+ActName:Act 0
+
+EntryID:-1
+EntryText:  You have gone insane. Your adventure has ended. Welcome to a padded room.
+
+EntryID:-2
+EntryText:  You collapse from your wounds, exhaustion, or pain. Your adventure has ended. Welcome to a pine box.
+
+EntryID:0
+EntryText:  You received a telegram last night. It said that an uncle you didn't know you had recently passed, and that you are now the proud owner of 15607 Old Hill Rd. 
+EntryText:  You've set aside some time to go out today and see your new home, hoping that it, or maybe something inside, will be worth something.
+
+Choice:Take the drive out to 15607 Old Hill Rd.
+Action:GOTO:1
+
+EntryID:1
+EntryText:  You are standing in front of a large house. The front door is closed in front of you. A path leads around one side to the back.
+
+Choice:Go to the front door.
+Action:REQUIREMENT_CHECK:HAVE_FLAG:Glass Bottle
+ActionCheckSuccess:GOTO:11
+ActionCheckFailure:GOTO:2
+Choice:Walk around back.
+Action:GOTO:3
+
+EntryID:2
+EntryText:  You walk up to the front door. It is closed. You find a glass bottle on the porch.
+
+Choice:Take the glass bottle.
+Action:GOTO:10
+Requirement:NOT_HAVE_FLAG:Glass Bottle
+Choice:Knock on the door.
+Action:GOTO:4
+Choice:Try to open the door.
+Action:GOTO:5
+Choice:Walk around back.
+Action:GOTO:3
+
+EntryID:3
+EntryText:  You walk around to the back and find a back door.
+
+Choice:Walk around front.
+Action:REQUIREMENT_CHECK:HAVE_FLAG:Glass Bottle
+ActionCheckSuccess:GOTO:11
+ActionCheckFailure:GOTO:2
+Choice:Try the back door.
+Action:GOTO:7
+
+EntryID:4
+EntryText:  You knock, but after a few minutes, no one comes to the door.
+
+Choice:Try to open the door.
+Action:GOTO:5
+Choice:Kick the door down.
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_PHYSICAL:40
+ActionCheckSuccess:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-5
+ActionCheckSuccess:GOTO:9
+ActionCheckFailure:GOTO:6
+Choice:Walk around back.
+Action:GOTO:3
+
+EntryID:5
+EntryText:  You reach for the handle and try to turn it, but it is locked.
+
+Choice:Knock on the door.
+Action:GOTO:4
+Choice:Kick the door down.
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_PHYSICAL:40
+ActionCheckSuccess:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-5
+ActionCheckSuccess:GOTO:9
+ActionCheckFailure:GOTO:6
+Choice:Walk around back.
+Action:GOTO:3
+
+EntryID:6
+EntryText:  You rear back and kick as hard as you can. The door doesn't budge, and your leg throbs in pain.
+EntryText:  <color=maroon>Current Physical -10</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-10
+
+Choice:Try to open the door with, you know, the handle.
+Action:GOTO:5
+Choice:Knock on the door.
+Action:GOTO:4
+Choice:Walk around back.
+Action:GOTO:3
+
+EntryID:7
+EntryText:  You reach for the knob and begin to turn it, when a scraping noise rattles the door on its frame. A huff of some sort, like breath or maybe a growl emits from under the crack of the door.
+
+Choice:Screw that, there is a dog or something in there. Walk back around front.
+Action:REQUIREMENT_CHECK:HAVE_FLAG:Glass Bottle
+ActionCheckSuccess:GOTO:11
+ActionCheckFailure:GOTO:2
+Choice:I can handle a dog. Open the door regardless.
+Action:GOTO:8
+
+EntryID:8
+EntryText:  You open the door and see the large dog standing on the other side. Its fur is matted in blood, and it bares its teeth at you before launching itself in your direction.
+Choice:Smash the bottle on the dog's head.
+Requirement:HAVE_ITEM:Glass Bottle
+Action:GOTO:13
+Choice:Oh no! Argh my face!
+Action:GOTO:12
+
+EntryID:9
+EntryText:  You rear back and kick as hard as you can, and are satisified to hear the wood of your new front door splintering as it swings in. There is a loud bark from the back of the house, and massive dog comes racing from the back. Its fur is matted in blood and it lunges at you.
+EntryText:  You start awake in bed, glance at the telegram again and try to push the nightmare aside.
+
+Choice:Your nerves rattled, but otherwise undetered you take a trip to your new home.
+Action:GOTO:1
+
+EntryID:10
+EntryText:  You tuck the glass bottle away.
+EntryAction:GRANT_ITEM:Glass Bottle:smallItemSample:smallItemSample:A small glass bottle with a slight sticky residue inside. You don't think you would drink from it, but it might be useful for something.
+EntryAction:ADD_FLAG:Glass Bottle
+Choice:Knock on the door.
+Action:GOTO:4
+Choice:Try to open the door.
+Action:GOTO:5
+Choice:Walk around back.
+Action:GOTO:3
+
+EntryID:11
+EntryText:  You walk up to the front door. It is closed.
+
+Choice:Knock on the door.
+Action:GOTO:4
+Choice:Try to open the door.
+Action:GOTO:5
+Choice:Walk around back.
+Action:GOTO:3
+
+EntryID:12
+EntryText:  You start awake in bed, glance at the telegram again and try to push the nightmare aside.
+
+Choice:Your nerves rattled, but otherwise undetered you take a trip to your new home.
+Action:GOTO:1
+
+EntryID:13
+EntryText:  You smash the bottle on the dog's head, and it slumps to the floor in front of you with a whimper.
+EntryAction:REMOVE_ITEM:Glass Bottle
+EntryText:  The room around you is a mess, but there is a door that leads to what looks like the basement stairs. It is awfully dark down there. 
+EntryText:  You proceed down the steps, but something brushes your ankle and you find yourself plummetting forward. 
+EntryText:  You start awake in bed, glance at the telegram again and try to push the nightmare aside.
+
+Choice:Your nerves rattled, but otherwise undetered you take a trip to your new home.
+Action:GOTO:1
