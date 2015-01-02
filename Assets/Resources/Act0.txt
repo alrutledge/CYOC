@@ -1,10 +1,20 @@
 ActName:Act 0
 
-EntryID:-1
-EntryText:  You have gone insane. Your adventure has ended. Welcome to a padded room.
-
 EntryID:-2
-EntryText:  You collapse from your wounds, exhaustion, or pain. Your adventure has ended. Welcome to a pine box.
+EntryText:  You collapse from your wounds, exhaustion, or pain. You are not really sure which. In the darkness that follows, you see cloaked men, and horrible things that can not possibly exist. You see the end of all times, or at least your end.
+EntryText:  
+EntryText:  Your adventure has ended. 
+EntryText:  
+EntryText:  Welcome to a pine box.
+
+
+EntryID:-1
+EntryText:  You have gone insane. Your mind reels from the impossibility of it all, then finally snaps. You see things that can not be possible.
+EntryText:  
+EntryText:  Your adventure has ended. 
+EntryText:  
+EntryText:  Welcome to a padded room.
+
 
 EntryID:0
 EntryText:  It is 1925. 
@@ -19,6 +29,7 @@ Action:GOTO:1
 Choice:Take the drive out to 15607 Old Hill Rd.
 Action:GOTO:20
 
+
 EntryID:1
 EntryText:  Two places within town immediately come to mind. The library and the Arkham Advertiser, the local newspaper. Either might have more information.
 EntryText:  At the library, you know you can pour over many old texts about Arkham and its surroundings. It would take some time, but nothing some dogged determination can't handle.
@@ -32,6 +43,7 @@ Action:GOTO:2
 Choice:The Arkham Advertiser is the better choice. If there is information to be had, reporters will know!
 Action:GOTO:10
 
+
 EntryID:2
 Note:Library
 EntryText:  You pull up outside the library and step out of your car, just as a thunderclap sounds overhead. Dark storm clouds have been gathering all morning and it looks like they will finally let loose the rain soon.
@@ -43,6 +55,7 @@ Choice:Continue
 Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_MENTAL:40
 ActionCheckSuccess:GOTO:3
 ActionCheckFailure:GOTO:4
+
 
 EntryID:3
 Note:Library Success
@@ -57,6 +70,7 @@ EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:2
 Choice:This was interesting, but its time to get out of here.
 Action:GOTO:5
 
+
 EntryID:4
 Note:Library Fail
 EntryText:  Try as you might, you can't seem to find anything very interesting about the house or the land surrounding it. You find yourself struggling to stay focused on the task and eventually give up in frustration. 
@@ -68,6 +82,7 @@ EntryAction:MODIFY_ATTRIBUTE:MAX_MENTAL:1
 
 Choice:This was a waste, time to get out of here.
 Action:GOTO:5
+
 
 EntryID:5
 EntryText:  As you reshelve the final book you turn to find a man standing in the shadows of the rack of books ahead of you. Shadows cover his features, and he slowly shakes his head. 
@@ -81,8 +96,94 @@ EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-1
 Choice:You gather your things and slip out into the rain, running to your car.
 Action:GOTO:20
 
+
 EntryID:10
-Note:Newspaper
+Note:Newspaper, non-reporter
+EntryText:  You pull up outside the building that houses the Arkham Advertiser, just as a thunderclap sounds overhead. Storm clouds have been gathering all morning and they finally let loose just as you step out of your car. 
+EntryText:  You race to the door, the rain slicking your hair to your head. As you get to the door a woman opens it for your from the inside and smiles, "Quickly, come in!" She laughs gently at your condition and waits for you to gather yourself before saying, "Welcome to the Arkham Advertiser. I'm Julie, the editor of the paper. What can I do for you?"
+
+Choice:Introduce yourself and tell her that you need information.
+Action:GOTO:11
+Choice:Make small talk to try and get on her good side.
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_SOCIAL:50
+ActionCheckSuccess:GOTO:18
+ActionCheckFailure:GOTO:19
+
+
+EntryID:11
+EntryText:  You introduce yourself then get to the point, "I'm looking for information on the area out Old Hill Road. I was hoping you might know something of the area."
+EntryText:  She nods curtly and leads you back, "Why are you interested in that area? It's very remote." She closes the door of her office behind you and sits down behind her desk.
+
+Choice:Tell her the truth.
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_SOCIAL:50
+ActionCheckSuccess:GOTO:12
+ActionCheckFailure:GOTO:13
+Choice:Make something up. 
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_SOCIAL:50
+ActionCheckSuccess:GOTO:14
+ActionCheckFailure:GOTO:15
+Action:GOTO:13
+
+
+EntryID:12
+EntryText:  You tell Julie the truth. "My uncle lived out there, and he recently passed."
+EntryText:  Julie gives you her best pity look, "I'm so sorry." You wave her off.
+EntryText:  "It's okay. I didn't really know him. The thing is, he left me the property, and I have no idea what I am getting into."
+
+Choice:You follow Julie to the archives.
+Action:GOTO:16
+
+
+EntryID:13
+EntryText:  You tell Julie the truth. "My uncle lived out there, and he recently passed."
+EntryText:  Julie starts to give you her best pity look, "I'm so sor-" 
+EntryText:  You cut her off. "I never met him, but he did leave me the property. I just want to know what I have."
+EntryText:  Julie looks you up and down a moment then shrugs, "I can't really say. I don't know anything about that area." She stands, "Now if you will excuse me, I have work to do."
+
+Choice:You leave Julie's office, dissappointed.
+Action:GOTO:17
+
+
+EntryID:14
+EntryText:  You lie to Julie. "I was taking a long drive out that direction the other day, and I saw an old house out there. I wondered what its story was."
+
+Choice:You follow Julie to the archives.
+Action:GOTO:16
+
+
+EntryID:15
+EntryText:  You lie to Julie. "I was taking a long drive out that direction the other day, and I saw an old house out there. I wondered what its story was."
+
+Choice:You leave Julie's office, dissappointed.
+Action:GOTO:17
+
+
+EntryID:16
+EntryText:  You follow Julie to the archive.
+
+Choice:Got the info!!!
+Action:GOTO:17
+
+
+EntryID:17
+EntryText:   Spooky thing!!!
+
+Choice:Run away!!!
+Action:GOTO:20
+
+
+EntryID:18
+EntryText:  "Thank you so much, you are too kind." You look around her office as she closes the door. "Nice office you have here, Julie. You must work very hard."
+
+Choice:You follow Julie to the archives.
+Action:GOTO:16
+
+
+EntryID:19
+EntryText:  "Thank you so much, you are too kind." You look around her office as she closes the door. "Nice office you have here, Julie. How's someone like you get this?"
+
+Choice:You head out to your car, dissappointed.
+Action:GOTO:17
 
 EntryID:20
 Note:Drive to house
