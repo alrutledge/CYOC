@@ -129,6 +129,8 @@ EntryID:12
 EntryText:  You tell Julie the truth. "My uncle lived out there, and he recently passed."
 EntryText:  Julie gives you her best pity look, "I'm so sorry." You wave her off.
 EntryText:  "It's okay. I didn't really know him. The thing is, he left me the property, and I have no idea what I am getting into."
+EntryText:  Julie nods, then leans back in her chair and taps her fingers on the edge of her desk. "As I said, the area is very remote. We could go and check in the archives though. Perhaps we can find something there."
+EntryText:  She stands and strides toward the door, grabbing an old massive set of keys on a large key ring from one corner of her desk.
 
 Choice:You follow Julie to the archives.
 Action:GOTO:16
@@ -146,6 +148,8 @@ Action:GOTO:17
 
 EntryID:14
 EntryText:  You lie to Julie. "I was taking a long drive out that direction the other day, and I saw an old house out there. I wondered what its story was."
+EntryText:  Julie nods slowly, "Strange place for a drive, but okay." She leans back in her chair and taps her fingers on the edge of her desk. "As I said, the area is very remote. We could go and check in the archives though. Perhaps we can find something there."
+EntryText:  She stands and strides toward the door, grabbing an old massive set of keys on a large key ring from one corner of her desk.
 
 Choice:You follow Julie to the archives.
 Action:GOTO:16
@@ -153,27 +157,50 @@ Action:GOTO:16
 
 EntryID:15
 EntryText:  You lie to Julie. "I was taking a long drive out that direction the other day, and I saw an old house out there. I wondered what its story was."
+EntryText:  Julie's eyebrows raise and she looks at you a long moment. "Strange place for a drive." She taps her fingers on the edge of her desk, then shrugs, "I wish I could help you. But that area is very remote. Not much news comes out of that area I am afraid."
+EntryText:  She stands and smiles at you. "I appreciate you coming in though. Now if you will excuse me. I have a paper to edit." She walks you to the door of her office, and closes it quietly behind you. 
 
 Choice:You leave Julie's office, dissappointed.
 Action:GOTO:17
 
 
 EntryID:16
-EntryText:  You follow Julie to the archive.
+EntryText:  The archive is in the basement, and Julie clicks on the lights as you head down. They don't really do much to dispel the gloom downstairs, but at least you don't run into things. Julie walks over to one door, and uses one of the keys on a massive keyring to unlatch the heavy old door. 
+EntryText:  Once it is open she slips in, clicking on another light, then turns to rows and rows of boxes. "Let's see. I think... ah yes. Here we go." She pulls a box off one shelf and starts leafing through things. "I remember there was something out there several years back. Had to do with the University." She flips through many sheefs of paper before finally stopping on one and handing it to you. "There you go."
+EntryText:  The article outlines how your uncle paid for an archaeological dig on his land. Apparently a prehistoric burial ground was located in the woods behind the house, and your uncle worked with Miskatonic University to have it excavated. The dig went well for a while, producing several rare artifacts, including a ceremonial mask. Things started to fall apart though, after an accident at the dig site left one worker dead, and a break in at Miskatonic University resulted in the theft of most of the major artifacts. Your Uncle pulled the plug after that.
 
-Choice:Got the info!!!
+Choice:Continue
+Action:GOTO:6
+
+
+EntryID:6
+EntryText:  Julie smiles, "I wish I had more for you, but that is really all the detail there is from then."
+EntryText:  You go over the article one more time, scanning for anything else that will tell you anything, but it is mostly generalities and reactions from locals and University officials.
+EntryText:  "I really appreciate this, Julie." You smile and hand her back the article. She refiles it, then clicks the light off as you both turn to walk out of the archives. 
+EntryText:  "I hope it was enough. I appreciate you stopping by, but I really need to get back to work." She offers you a hand which you take, and then turns to walk away.
+
+Choice:You head out.
 Action:GOTO:17
 
 
 EntryID:17
-EntryText:   Spooky thing!!!
+EntryText:  You step out into the rain and begin toward your car. Glancing to one side, you see a shadow slip back into an alleyway beside the paper. Something tells you, whoever it was, they were watching you.
+EntryText:  Slamming your car door shut, you start the car and drive passed the alley. Standing in the back of the alley, drenched in rain and covered in shadow is a hooded figure, watching you intently. You stop the car, and step out, determined to confront the man. 
+EntryText:  Lightning flashes, and in the brighter light, you swear that the man's face is covered in something. The eyes are massive, the lips curled in a snarl. It must be a mask. Right?
+EntryText:  As you eyes readjust to the light, you step forward, "You there!" You begin toward the figure just as they turn to one side, running from sight. You make the corner fast enough, feet splashing through the puddles as you run. 
+EntryText:  When you turn the corner though, no one is there. You look up the sides of the buildings, and back the way you came, but see no signs of the masked figure. 
 
-Choice:Run away!!!
+Choice:You take a breath, then head back to your car and out of the rain.
 Action:GOTO:20
 
 
 EntryID:18
 EntryText:  "Thank you so much, you are too kind." You look around her office as she closes the door. "Nice office you have here, Julie. You must work very hard."
+EntryText:  Julie smiles her appreciation and nods, "I do. It's not easy to get ahead in this business, but my family has owned the Advertiser for generations, so I guess it is just in my blood."
+EntryText:  You nod, "Well family business or not, I can tell you care for it." 
+EntryText:  "Enough about me, what can I do for you?" She settles into her office chair. 
+EntryText:  "I am interested in the history of the area out off of Old Hill Rd. I was hoping with your connections you might be able to help me."
+EntryText:  "I am familiar with the area, yes." She stands and grabs a large ring of keys off her desk. "Let's go down to the archives and see what I can dig up."
 
 Choice:You follow Julie to the archives.
 Action:GOTO:16
@@ -181,9 +208,133 @@ Action:GOTO:16
 
 EntryID:19
 EntryText:  "Thank you so much, you are too kind." You look around her office as she closes the door. "Nice office you have here, Julie. How's someone like you get this?"
+EntryText:  Julie frowns, "Like me?"
+EntryText:  You try to correct for your obvious mistake. "I just didn't expect the editor of the local paper to be..."
+EntryText:  Julie cuts you off, "My family has owned the paper for generations. I grew up here, and I'm the best one qualified to run it."
+EntryText:  "Of course, I didn't mean to offend. I was just surprised." Julie regards you a long moment before leaning back and sighing. 
+EntryText:  "It's alright. I get it a lot. I do have a lot of work to do though, so I am afraid you will have to excuse me." she stands and opens her office door, clearly ending the conversation.
 
-Choice:You head out to your car, dissappointed.
+Choice:You leave Julie's office, dissappointed at your lack of progress.
 Action:GOTO:17
 
+
 EntryID:20
-Note:Drive to house
+Note:Drive to house, rain stops, hear noise around back, front door or head around back?
+EntryText:  The drive takes a while. Old Hill Rd is the far outskirts of the county. The rain stops about five minutes before you pull up at the house, but the clouds stay gathered and low, making for a gloomy drive.
+EntryText:  Finally you pull up outside the house. The gate to the road is open, so you pull into the long drive. The gate itself is in need of repair. The stone pillars on either side are cracked, with masonry crumbling off the top of the right one. 
+EntryText:  You pass a tangle of trees, finally catching sight of the house itself. It is in about the same condition as the drive gate. Massive vines snake up the side of the house, bushes in desperate need of trimming crowd the base, and old trees, stretch toward the house as if trying to one day reach inside. 
+EntryText:  The drive ends in a small circle up front, with a seperate drive stretching around the house to the back. You park and step out, looking around. Behind the house you can here something going on. A rhythmic thud sounds now and again, as well as the clattering of something falling. The
+EntryText:  The front door stands ahead of you, shadowed by the old porch which sags slightly on one side. 
+
+Choice:Go to the front door.
+Action:GOTO:21
+Choice:Go around back to find out what the noise is.
+Action:GOTO:30
+
+
+EntryID:21
+Note:Front door, can try to open it, or knock.
+EntryText:  You step up onto the creaking floorboards of the front porch. Inside the house, you hear something scrambling around, then the deep barks of a what you assume is a large dog. 
+EntryText:  The door is fairly solid looking, though the entire house looks like it could use a coat of paint and some general maintenance. A massive knocker hangs on the door, the large metal ring set into the mouth of a gruesome looking gargoyle face.
+EntryText:  You could use the large old metal knocker on the door, though the dog has probably alerted anyone inside of your presence. You were not really expecting anyone to be here, but the dog is obviously being cared for by someone.
+EntryText:  You could also just try to open the door, dog or no dog.
+EntryText:  Finally you could still go around back and find out what the noise you were hearing back there was.
+
+Choice:Knock on the door.
+Action:GOTO:22
+Choice:Try to open the door.
+Action:GOTO:23
+Choice:Walk around back.
+Action:GOTO:30
+
+
+EntryID:22
+EntryText:  You reach up and grab the large metal ring and give it a few swift raps against the metal plate beneath the gargoyle head. The dog inside barks louder than before, as if the use of the knocker just angers it further.
+EntryText:  You wait several minutes, but no one comes to answer the door. The dog never gives up its attempts to scare you away though.
+
+Choice:Try to open the door. You can handle the dog.
+Action:GOTO:23
+Choice:Walk around back.
+Action:GOTO:30
+
+
+EntryID:23
+Note: Trying the handle
+EntryText:  You reach down for the handle, ignoring the deep sounds of the barking dog on the otherside of the door. You attempt to turn the knob, but nothing happens. 
+EntryText:  It's locked. 
+EntryText:  When you were notified of your inheritance, there was no real communication about actually taking ownership. You don't have a key.
+
+Choice:Try kicking the door down.
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_PHYSICAL:50
+ActionCheckSuccess:GOTO:24
+ActionCheckFailure:GOTO:25
+Choice:Knock on the door.
+Action:GOTO:22
+Choice:Walk around back.
+Action:GOTO:30
+
+
+EntryID:24
+Note:Kicking it down, dog attacks, caretaker comes in, grabs the dog, 
+EntryText:  You rear back and kick the door near the handle. The door is really solid, but the frame it is set in must not be, for it splinters and the door slams open. 
+EntryText:  It hurts for a moment, but you quickly get over it when you see the massive dog come lunging out of the darkness behind the door.
+EntryText:  You stumble back, falling off the porch with a yelp. Before you can react the dog is on you. You manage to thrust you arm in the way of its massive jaws, preventing it from biting your face off. 
+EntryText:  It sinks its teeth into your arm and begins to shake. You scream in pain and punch the dog in the side of the head over and over until it finally relents and lets go. 
+EntryText:  Just as it looks to be gathering steam for another lunge at you, a man behind it grabs its collar and yanks it backwards. He is older and gritty looking, carrying an axe in one hand, manhandling the massive dog with the other. He spits to one side then growls, "Wondering when you were going to show up."
+EntryText:  
+EntryText:  <color=maroon>Current Physical -10 (Dog Mauling)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-9
+EntryText:  <color=green>Max Physical +1 (Feat of Strength)</color>
+EntryAction:MODIFY_ATTRIBUTE:MAX_PHYSICAL:1
+
+Choice:Continue.
+Action:GOTO:31
+
+
+EntryID:25
+Note:Failed kicking it down
+EntryText:  You rear back and kick the door near the handle with all of your might. 
+EntryText:  Unfortunately that amount of might is not enought to even rattle this solid old door. 
+EntryText:  Pain shoots up through your leg, and you dance around a moment or two, until the throbbing in your knee and ankle stops.
+EntryText:  The dog continues to bark at you through the door.
+EntryText:  
+EntryText:  <color=maroon>Current Physical -1 (Pain)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-1
+
+Choice:Knock on the door.
+Action:GOTO:22
+Choice:Walk around back.
+Action:GOTO:30
+
+
+EntryID:30
+Note: Walk around back, see the caretaker cutting wood, interrupt him. He strides up...
+EntryText:  You walk around the back of the building along the secondary drive. Behind the house a small shack sits nestled against the forest, lights on inside. In front of the shack stands a man with an axe. 
+EntryText:  As you watch he sets a section of a log on large block of wood and then swings the axe. With a loud thunk, the axe splits the wood with ease and the two pieces of wood clatter to the earth on either side. Without missing a beat he yanks the axe out and repeats the process.
+EntryText:  With each sharp thwack of the axe, the man easily splits large logs with a practiced ease. You get the uneasy feeling you would like to never get on the business end of that axe. 
+EntryText:  You shudder at the gruesome thought, then call out, "Excuse me."
+EntryText:  He doesn't miss a beat, axe falling to split another log even though he is now looking at you. "What?"
+EntryText:  "I don't mean to intrude, but I need a word with you." He spits to one side of then chokes up on the axe and strides toward you. 
+EntryText:  You swallow then straighten your clothes and move to meet him.
+Choice:Continue.
+Action:GOTO:31
+
+
+EntryID:31
+Note: Talking to the caretaker. 
+EntryText:  "I'm James, the caretaker of the property." He sets the axe aside and looks you up and down. 
+EntryText:  You begin to introduce yourself, but he interrupts, "I know who you are. Who do you think sent you the telegram? Your uncle was a fair boss, and he left me the shack behind the house. I'll continue to take care of the house and grounds as best I can."
+EntryText:  Nodding you ask him, "What about the inside of the house? Who took care of that?" You stare up at the large building wondering what it was your uncle actually did.
+EntryText:  "That would just be you. Your uncle only had one really strict rule. No one in the house but himself. Ever. I've never set foot in the place. Don't see any reason to change that now. Besides. The place creeps me out." 
+EntryText:  In the distance there is a flash of lightning and the rumble of thunder. James stares at the sky over the top of the trees around the house. "I'll get the dog out of your way, and then you better get inside. There is a storm coming. You don't want to get caught unprepared. Oh, and here are the keys." He hands you a large set of keys to the house.
+EntryAction:GRANT_ITEM:House Keys:smallItemSample:smallItemSample:This set of keys is for the house at 15607 Old Hill Rd outside of Arkham, Massachusetts. They are sturdy, old keys, made for the old locks of the house. 
+
+Choice:Head inside before the storm comes.
+Action:GOTO:50
+
+EntryID:50
+Note: Exploring the house.
+EntryText:  The keys to your new home finally in hand, you step to the door and unlock it. 
+EntryText:  Meanwhile, James takes the dog by the collar and drags him toward the shack out back. The entire time the dog barks and growls in your direction. James cuffs it with his free hand, "Shut up." The dog doesn't seem to notice.
+EntryText:  You turn fro the two and step inside, looking around. The place has definitely seen better days.
+EntryText:  TO BE CONTINUED...

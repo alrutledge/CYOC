@@ -55,7 +55,7 @@ namespace Assets.Scripts.CYOC.UI
             m_characterSecondary = GameObject.Find("CharacterSecondary").GetComponent<Text>();
             m_characterTertiary = GameObject.Find("CharacterTertiary").GetComponent<Text>();
             m_introDescription = GameObject.Find("IntroInformation");
-            m_image = GameObject.Find("CharacterImage").GetComponent<Image>();
+            //m_image = GameObject.Find("CharacterImage").GetComponent<Image>();
             m_loadGameButon = GameObject.Find("LoadGameButton").GetComponent<Button>();
             m_characterInformation.SetActive(false);
             m_actSelect.SetActive(false);
@@ -90,7 +90,7 @@ namespace Assets.Scripts.CYOC.UI
             m_introDescription.SetActive(false);
             m_characterName.text = "Joseph Allred";
             m_characterProfession.text = "Professor";
-            m_characterDescription.text = "The Professor with the mostest...";
+            m_characterDescription.text = "  Professor Joseph Allred teaches history at Miskatonic University in Arkham, Massachusetts. He has been there a few months, having moved back to Arkham from being away for a long time.\n\n  A native of the town, Joseph left to get his degree, then travel abroad, and has only recently returned to settle down in his home town.\n\n  Joseph is highly intelligent, but prefers to spend his time looking back at what has come before him and not looking ahead at all the wonders the world has to offer.";
             m_characterAge.text = "48";
             m_characterInformation.SetActive(true);
             m_playersStats = new Dictionary<PlayerStat, int>();
@@ -101,7 +101,7 @@ namespace Assets.Scripts.CYOC.UI
             m_characterSecondary.text = "Social";
             m_characterTertiary.text = "Physical";
             m_startingInventory = new Dictionary<string, Item>();
-            Item startingItem = new Item("Local History Book", "A small tome on the history of the local area.", "book64", "book256");
+            Item startingItem = new Item("Local History Book", "This is a small tome on the history of the local area. Joseph picked this book up at the local bookstore, and has been carrying it around ever since. Carrying a book is comforting to Joseph, and he never knows when such knowledge about the area might prove useful.", "book64", "book256");
             m_startingInventory.Add(startingItem.Name, startingItem);
         }
 
@@ -110,7 +110,7 @@ namespace Assets.Scripts.CYOC.UI
             m_introDescription.SetActive(false);
             m_characterName.text = "Anne Delent";
             m_characterProfession.text = "Student";
-            m_characterDescription.text = "The Student with the mostest...";
+            m_characterDescription.text = "  Anne Delent is a student at Miskatonic University in Arkham Massachesetts. She is not native to Arkham, having moved her just to go to school. Her family has ties to the area though. Her mother was from Arkham, before she moved to Boston.\n\n  Excited about her time at Miskatonic University, Anne is an avid student, and making good grades. She has to study hard to keep her grades up, but often partakes in campus social activities.\n\n  Anne is very fit, participating in Track and Field and Tennis activities in High School and now at Miskatonic University.";
             m_characterAge.text = "22";
             m_characterInformation.SetActive(true);
             m_playersStats = new Dictionary<PlayerStat, int>();
@@ -121,7 +121,7 @@ namespace Assets.Scripts.CYOC.UI
             m_characterSecondary.text = "Social";
             m_characterTertiary.text = "Mental";
             m_startingInventory = new Dictionary<string, Item>();
-            Item startingItem = new Item("A tattered notebook", "Your favorite school notebook, great for taking notes.", "notebook64", "notebook256");
+            Item startingItem = new Item("A tattered notebook", "This is Anne's favorite school notebook, great for taking notes. She is an incessant note taker, always scribbling away in one of her many notebooks. Eventually the notebook will be full, but then she will just find another as note taking is just a part of who she is.", "notebook64", "notebook256");
             m_startingInventory.Add(startingItem.Name, startingItem);
         }
 
@@ -130,7 +130,7 @@ namespace Assets.Scripts.CYOC.UI
             m_introDescription.SetActive(false);
             m_characterName.text = "Stephen Mallory III";
             m_characterProfession.text = "Unemployed";
-            m_characterDescription.text = "The bachelor with the mostest...";
+            m_characterDescription.text = "  Stephen Mallory III was born into the influential and wealthy Mallory family. The Mallorys are old Arkham money, having property in Arkham, Massachusetts and Boston.\n\n  Like all of the Mallorys before him, Stephen is rich, but must keep up appearences and stick to protocols if he is to receive his monthly stipends.\n\n  Stephen is very much a socialite, and is often the life of the party at high end social gatherings in Arkham and Boston alike.";
             m_characterAge.text = "23";
             m_characterInformation.SetActive(true);
             m_playersStats = new Dictionary<PlayerStat, int>();
@@ -141,7 +141,7 @@ namespace Assets.Scripts.CYOC.UI
             m_characterSecondary.text = "Physical";
             m_characterTertiary.text = "Mental";
             m_startingInventory = new Dictionary<string, Item>();
-            Item startingItem = new Item("A silver flask", "Your best friend, always available when you need a nip.", "smallItemSample", "smallItemSample");
+            Item startingItem = new Item("A silver flask", "Stephen's father gave him this flask before he passed a few years ago. Stephen keeps it close to him always, ensuring that he has a reminder of his father with him, as well as a little liquid courage in case he needs a bit of a kick.", "smallItemSample", "smallItemSample");
             m_startingInventory.Add(startingItem.Name, startingItem);
         }
 
@@ -149,8 +149,8 @@ namespace Assets.Scripts.CYOC.UI
         {
             m_introDescription.SetActive(false);
             m_characterName.text = "Megan Ash";
-            m_characterProfession.text = "Reporter";
-            m_characterDescription.text = "The reporter with the mostest...";
+            m_characterProfession.text = "Photographer";
+            m_characterDescription.text = "  Megan Ash is a photographer, recently moved to Arkham Massachusetts to try to find out more about her family. Her father was from Arkham, but until just before his death he never talked about it. \n\n  Megan never goes anywhere without her camera. She loves her job, and freelances for both portrait photography and news photography when she can.\n\n  Back in Pittsburgh, where she grew up, Megan's work was becoming quite well known. If it hadn't been for her father's death, she would likely still be there, growing her clientele.";
             m_characterAge.text = "31";
             m_characterInformation.SetActive(true);
             m_playersStats = new Dictionary<PlayerStat, int>();
@@ -161,7 +161,7 @@ namespace Assets.Scripts.CYOC.UI
             m_characterSecondary.text = "Mental";
             m_characterTertiary.text = "Physical";
             m_startingInventory = new Dictionary<string, Item>();
-            Item startingItem = new Item("Camera", "A sturdy model that has made you quite a name.", "smallItemSample", "smallItemSample");
+            Item startingItem = new Item("Camera", "Megan's camera is a sturdy work horse of a camera. She takes it wherever she goes, and dotes on the thing like a pet or child. Afterall, her camera is her livelihood, and acquiring a replacement would not be cheap.", "smallItemSample", "smallItemSample");
             m_startingInventory.Add(startingItem.Name, startingItem);
 
         }
