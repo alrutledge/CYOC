@@ -17,6 +17,7 @@ EntryText:  Welcome to a padded room.
 
 
 EntryID:0
+EntryText:<i>Act 0, Part 1</i>
 EntryText:  It is 1925. 
 EntryText:  A telegram arrived for you late last night. An uncle you did not even know you had apparently passed recently. In his will, he left his entire estate to you.
 EntryText:  Apparently the estate consists of the home and lands at 15607 Old Hill Rd just outside of town. 
@@ -336,5 +337,41 @@ EntryID:50
 Note: Exploring the house.
 EntryText:  The keys to your new home finally in hand, you step to the door and unlock it. 
 EntryText:  Meanwhile, James takes the dog by the collar and drags him toward the shack out back. The entire time the dog barks and growls in your direction. James cuffs it with his free hand, "Shut up." The dog doesn't seem to notice.
-EntryText:  You turn fro the two and step inside, looking around. The place has definitely seen better days.
-EntryText:  TO BE CONTINUED...
+EntryText:  You turn from the two and step inside, looking around. The place has definitely seen better days.
+
+Choice:Continue
+Action:GOTO:51
+
+
+EntryID:51
+EntryText:<i>Act 0, Part 2</i>
+EntryText:  You are in the foyer. Off to one side is a sitting room, to the other a large study. Ahead of you there is 
+EntryText:  
+
+EntryID:55
+Note: Study
+
+EntryID:60
+Note: Sitting Room
+
+EntryID:65
+Note: Kitchen
+
+EntryID:70
+Note: Upstairs Landing
+
+EntryID:80
+Note: Spare Room
+
+EntryID:85
+Note: Master Bedroom
+
+EntryID:90
+Note: Dungeon
+
+EntryID:100
+Note: Hidden Study
+
+EntryID:120
+Note: Start of Part three Act 0
+EntryText:<i>Act 0, Part 3</i>
