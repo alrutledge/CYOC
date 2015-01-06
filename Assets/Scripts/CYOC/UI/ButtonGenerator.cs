@@ -30,7 +30,6 @@ namespace Assets.Scripts.CYOC.UI
             int count = 0;
             foreach(Choice choice in message.LoadedEntry.Choices)
             {
-                count++;
                 bool meetsAllRequirements = true;
                 foreach (ChoiceRequirement requirement in choice.Requirements)
                 {
@@ -41,12 +40,16 @@ namespace Assets.Scripts.CYOC.UI
                         break;
                     }
                 }
-                m_buttons[count-1].SetActive(true);
-                m_buttons[count - 1].GetComponent<Button>().interactable = meetsAllRequirements;
-                Text text = m_buttons[count-1].GetComponentInChildren<Text>();
-                text.text = choice.Text;
-                ChoiceButton choiceButtonComponent = m_buttons[count - 1].GetComponent<ChoiceButton>();
-                choiceButtonComponent.CurrentChoice = choice;
+                if(meetsAllRequirements)
+                {
+                    count++;
+                    m_buttons[count - 1].SetActive(true);
+                    Text text = m_buttons[count-1].GetComponentInChildren<Text>();
+                    text.text = choice.Text;
+                    ChoiceButton choiceButtonComponent = m_buttons[count - 1].GetComponent<ChoiceButton>();
+                    choiceButtonComponent.CurrentChoice = choice;
+                }
+                //m_buttons[count - 1].GetComponent<Button>().interactable = meetsAllRequirements;
             }
             
             for(int i = count;i<4; i++)

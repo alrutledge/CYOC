@@ -333,6 +333,7 @@ EntryAction:GRANT_ITEM:House Keys:smallItemSample:smallItemSample:This set of ke
 Choice:Head inside before the storm comes.
 Action:GOTO:50
 
+
 EntryID:50
 Note: Exploring the house.
 EntryText:  The keys to your new home finally in hand, you step to the door and unlock it. 
@@ -345,33 +346,522 @@ Action:GOTO:51
 
 EntryID:51
 EntryText:<i>Act 0, Part 2</i>
-EntryText:  You are in the foyer. Off to one side is a sitting room, to the other a large study. Ahead of you there is 
-EntryText:  
+EntryText:  You are in the foyer. Everything here is worn and old. The hardwood is scratched, the plaster is peeling from the walls, and the few bits of furniture are covered in dust, and in disrepair.
+EntryText:  The area is musty, and you can tell by the smell that the dog spends a good bit of time here. Tracks in the dust on the floor show patterns of traffic between the rooms, but in the corners the cobwebs and dust gather.
+EntryText:  Off to the left of the door is a sitting room, to the other side a large study. Ahead of you there is a massive staircase that leads up the second floor landing. A door besides the staircase hangs open and obviously leads to the back of the house. 
+
+Choice:Head into the sitting room. 
+Action:GOTO:60
+Choice:Go into the study.
+Action:GOTO:55
+Choice:Head up the stairs to the second floor landing.
+Action:GOTO:70
+Choice:Go through the door to back of the house. 
+Action:REQUIREMENT_CHECK:HAVE_FLAG:Knife Taken
+ActionCheckSuccess:GOTO:67
+ActionCheckFailure:GOTO:66
+
 
 EntryID:55
 Note: Study
+EntryText:  Unlike the other areas on the ground floor of the house, this room looks like it has actually been used. One wall is covered in built ins and a large fireplace. In front of it sits a large comfortable chair with a small side table.
+EntryText:  Beside the chair sits a small oil lamp. Its handle is well worn, and the lamp seems to have gotten plenty of use.
+EntryText:  The bookshelf built around the fireplace is mostly bare, but one section is covered in old books. Another shelf contains several jars and other knick knacks.  
+
+Choice:Light a fire in the fireplace.
+Action:GOTO:56
+Requirement:NOT_HAVE_FLAG:Fireplace Lit
+Choice:Take the lantern.
+Action:GOTO:57
+Requirement:NOT_HAVE_FLAG:Lantern Taken
+Choice:Examine the bookshelf.
+Action:GOTO:58
+Choice:Leave the study.
+Action:GOTO:51
+
+
+EntryID:56
+EntryText:  You spend a few minutes lighting a fire in the fireplace. It warms the room and lights it well. You almost feel comfortable for the first time today.
+EntryText:  Sitting down in the chair, you think over all that you have seen today. You know that the day is far from over, and you get the sense that you have just scratched the surface of what the house has to offer, and how owning it will change your life.
+EntryText:  After few more moments of rest you decide to continue your exploration of the house.
+EntryText:  
+EntryText:  <color=green>Current Physical +5 (Rest)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:5
+EntryText:  <color=green>Current Mental +5 (Rest)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:5
+EntryAction:ADD_FLAG:Fireplace Lit
+
+Choice:Take the lantern.
+Action:GOTO:57
+Requirement:NOT_HAVE_FLAG:Lantern Taken
+Choice:Examine the bookshelf.
+Action:GOTO:58
+Choice:Leave the study.
+Action:GOTO:51
+
+
+EntryID:57
+EntryText:  Knowing you have no other means to light your way, you decide to take the lantern with you. The handle is comfortable in your grip and almost feels familiar to you.
+EntryText:  
+EntryText:  <color=green>Acquired Lantern</color>
+EntryAction:ADD_FLAG:Lantern Taken
+EntryAction:GRANT_ITEM:Old Oil Lantern:smallOilLantern:largeOilLantern:This old oil lantern has been well used throughout its many years of service, that much is obvious. Its previous owner obviously took care of it though, as it seems to be in good working condition.
+
+Choice:Light a fire in the fireplace.
+Action:GOTO:56
+Requirement:NOT_HAVE_FLAG:Fireplace Lit
+Choice:Examine the bookshelf.
+Action:GOTO:58
+Choice:Leave the study.
+Action:GOTO:51
+
+
+EntryID:58
+EntryText:  You look through the things on the shelves. The jars contain a weird assortment of random things. Most of them look like animal parts, but the names of the animals you don't recognize. You pick one up and shake it slightly and the within the suspension inside, a claw of some sort rotates slowly. Another jar contains what looks to be some sort of eyeball. You tap it and the liquid inside sloshes slightly, causing the eyeball to rotate more toward you.
+EntryText:  You move on to the books, and begin to examine them. The collection of title is very odd. References to cryptozoology, mythology, as well as some classics and more modern fare mingle all together in an eclectic collection. The fiction all leans toward the dark side, certainly not the sort of thing you would choose to curl up next to the fire with. One book is older than the rest, and when you flip it open, you don't recognize the symbols that you see. 
+
+Choice:Examine the book further.
+Action:GOTO:59
+Choice:Light a fire in the fireplace.
+Action:GOTO:56
+Requirement:NOT_HAVE_FLAG:Fireplace Lit
+Choice:Take the lantern.
+Action:GOTO:57
+Requirement:NOT_HAVE_FLAG:Lantern Taken
+Choice:Leave the study.
+Action:GOTO:51
+
+
+EntryID:59
+EntryText:  You take the book over and sit down in the large chair. You imagine that your uncle must have sat here, probably with this very book. The fact that you never knew him and now own this whole place weighs on you for a bit, but then you push the thoughts aside and flip open the book again. 
+EntryText:  The symbols still make no sense to you, but you keep flipping through the book, interested nonetheless. In the middle of the book you find a larger page that folds out from the rest of the book. A massive symbol is drawn on the page, with three concentric circles on it. Arrows drawn on the circles indicate counterclockwise rotation on the outer most circle, clockwise rotation on the middle circle, and clockwise rotation on the inner circle. 
+EntryText:  In the middle of all the circles there are picture two ovals or sockets. The one on the left is filled in, the one on the right is empty.
+EntryText:  Finally there is a stick figure drawn with an arrow pointing away from it.
+EntryText:  Not having any idea what the whole book is about, much less the symbols, you fold the page back up and reshelve the book.
+
+Choice:Light a fire in the fireplace.
+Action:GOTO:56
+Requirement:NOT_HAVE_FLAG:Fireplace Lit
+Choice:Take the lantern.
+Action:GOTO:57
+Requirement:NOT_HAVE_FLAG:Lantern Taken
+Choice:Leave the study.
+Action:GOTO:51
+
 
 EntryID:60
+EntryText:  The sitting room is old, just like everything else in the house. Most of the furniture here is covered in old drop cloths. The cloths are in turn covered in layers of grime and dust. 
+EntryText:  The only thing not covered in grime or a dropcloth is an old phonograph in one corner of the room. A large dark stain covers one large section of the floor. 
+EntryText:  Doors lead out of here to the foyer at the front of the house and to the back of the house.
 Note: Sitting Room
 
+Choice:Head through the open door back to the foyer.
+Action:GOTO:51
+Choice:Go through the door to back of the house. 
+Action:REQUIREMENT_CHECK:HAVE_FLAG:Knife Taken
+ActionCheckSuccess:GOTO:67
+ActionCheckFailure:GOTO:66
+Choice:Check out the phonograph.
+Action:GOTO:61
+Requirement:NOT_HAVE_FLAG:Phonograph Examined
+
+
+EntryID:61
+EntryText:  The phonograph is several decades old. A single record without a label sits on the phonograph. Scratched into the center where a label might be are some crude symbols that look more like runes than letters.
+EntryText:  You check, and the phonograph is plugged in and getting power.
+EntryAction:ADD_FLAG:Phonograph Examined
+
+Choice:Leave the phonograph alone and go to the back of the house.
+Action:GOTO:66
+Choice:Leave the phonograph alone and go back into the foyer.
+Action:GOTO:51
+Choice:Turn the phonograph on and needle onto the record.
+Action:GOTO:62
+
+
+EntryID:62
+EntryText:  The recording is very scratchy. A man's voice is heard first.
+EntryText:  "Will you play for me?"
+EntryText:  A softer voice, female it would seem responds, "I would prefer not to. You know I don't like it."
+EntryText:  "Please, Caroline. Just one more time. For me." There is a long pause, then some rustling, before a piano begins to play. The tune is slow, and haunting at first. Then it begins to pick up in tempo.
+EntryText:  Caroline whimpers, as the playing seems to get harder. You can hear even through the rough sound of the recording the physical sound of the keys being hammered on. The tempo of the music gets faster, and faster.
+
+Choice:That's enough of that, turn it off.
+Action:GOTO:63
+Choice:Let it play. It is afterall, just music.
+Action:GOTO:64
+
+
+EntryID:63
+EntryText:  You yank the arm of the phonograph up, a scratching sound echos as the needle scrapes the record. 
+EntryText:  The silence that follows is almost too completely. The noise that moments ago filled the air seems almost preferable to the sudden silence. 
+EntryText:  You realize you had been holding your breath and let it out with a sigh, shaking from your head the thoughts of what you just heard.
+
+Choice:Head through the open door back to the foyer.
+Action:GOTO:51
+Choice:Go through the door to back of the house. 
+Action:REQUIREMENT_CHECK:HAVE_FLAG:Knife Taken
+ActionCheckSuccess:GOTO:67
+ActionCheckFailure:GOTO:66
+Action:GOTO:66
+
+
+EntryID:64
+EntryText:  You can hear now that Caroline is in physical pain as she continues to play. She hammers on the keys, and the music reaches a level of discord and frantic nature.
+EntryText:  Louder and louder, faster and faster it goes, when a howling wind is picked up by the recording. "You are doing it Caroline, keep playing!" yells the man's voice. 
+EntryText:  She screams over the howling wind and discordant cacophany of the piano. "No! Make it stop! I can't stop!" The howling wind ends with a massive roar, the piano falls silent, Caroline and the man both scream in terror.
+EntryText:  There is a horrid crunching noise, and the man's scream ends abruptly. The crunching noises continue along with horrid slurping noises.
+EntryText:  
+EntryText:  <color=maroon>Current Mental -5 (Fear)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
+EntryText:  <color=green>Mythos Knowledge +5 (Something is out there)</color>
+EntryAction:MODIFY_ATTRIBUTE:MYTHOS_KNOWLEDGE:5
+
+Choice:Oh god, no, turn it off.
+Action:GOTO:63
+Choice:You've heard this much, you might as well hear the end.
+Action:GOTO:65
+
+
 EntryID:65
+EntryText:  There is a low chuckle as the crunching and slurping continues. Caroline's voice is heard again, this time it is far more sultry and soothing, "There you go."
+EntryText:  "Eat up my darling. Enjoy the meal." She laughs low and begins to play the piano again, this time softley, and almost playfully. The crunching and slurping noises pause for and a soft mewling growl is heard. "Yes, I know. I tried to warn him. But he didn't listen. They never listen."
+EntryText:  You swallow hard as the recording ends with Caroline laughing, joined by a deep gutteral laugh. The needle finally reaches the end of the record and it begins to skip slowly, scratching noises coming from the phonograph as it continues to spin.
+EntryText:  Finally you reach up and lift the arm of the phonograph off, and turn the the phonograph off. Your eyes dart around the room, and you realize you've been holding your breath slightly so you let it out. 
+EntryText:  Then you see it. 
+EntryText:  In one corner one of the cloths rests over what could only be a piano. You look back down at the massive stain in area in front of the piano. Your mind revolts at the possibilities and you quickly flee the room back to the foyer, trying not to be sick.
+EntryText:  
+EntryText:  <color=maroon>Current Mental -5 (Disgust)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
+EntryText:  <color=green>Mythos Knowledge +5 (It can be controlled)</color>
+EntryAction:MODIFY_ATTRIBUTE:MYTHOS_KNOWLEDGE:5
+
+Choice:You race out through the open door back to the foyer.
+Action:GOTO:51
+
+
+EntryID:66
 Note: Kitchen
+EntryText:  You find yourself in the kitchen of the house. Most of the cupboard cabinets are open and bare. The few that are not you search through and find empty.
+EntryText:  Laying on the counter next to the sink is a large knife, but it is obviously not a kitchen knife. It has a wooden handle carved to look like an animal's paw. The wood looks very old and aged. Some sort of dark liquid has unevenly stained the wood in places.
+EntryText:  The blade of the knife is around eight inches long, with an edge on just one side. It sweeps back on the edge side to a sharp point. The back side of the blade has a groove in it. Caked in the groove is what looks to be dried blood. Perhaps that is what stained the handle as well. 
+EntryText:  From here you can head back into the foyer, or through the open door to the sitting room. There is also a door here that leads down into the basement.
+
+Choice:Take the knife.
+Action:GOTO:68
+Choice:Head back to the foyer.
+Action:GOTO:51
+Choice:Go through the open door to the sitting room.
+Action:GOTO:60
+Choice:Go down into the basement.
+Action:REQUIREMENT_CHECK:HAVE_ITEM:Old Oil Lantern
+ActionCheckSuccess:GOTO:90
+ActionCheckFailure:GOTO:69
+
+EntryID:67
+EntryText:  You find yourself in the kitchen of the house. Most of the cupboard cabinets are open and bare. The few that are not you search through and find empty.
+EntryText:  This is where you found the knife.
+EntryText:  From here you can head back into the foyer, or through the open door to the sitting room. There is also a door here that leads down into the basement.
+
+Choice:Head back to the foyer.
+Action:GOTO:51
+Choice:Go through the open door to the sitting room.
+Action:GOTO:60
+
+EntryID:68
+EntryText:  When you pick up the knife, you turn it over in your hands and give it a good long look. Something doesn't feel right about it, but you push that from your mind and tuck the knife away.
+
+Choice:Head back to the foyer.
+Action:GOTO:51
+Choice:Go through the open door to the sitting room.
+Action:GOTO:60
+Choice:Go down into the basement.
+Action:REQUIREMENT_CHECK:HAVE_ITEM:Old Oil Lantern
+ActionCheckSuccess:GOTO:90
+ActionCheckFailure:GOTO:69
+
+
+EntryID:69
+EntryText:  You open the door to the basement and stare down the steep steps into the darkness. You click the switch at the top of the steps and the light momentarily lights the stairs before a loud pop sounds and the light dims then quickly goes dark.
+EntryText:  With no other way to see down there, you close the basement door.
+
+Choice:Head back to the foyer.
+Action:GOTO:51
+Choice:Go through the open door to the sitting room.
+Action:GOTO:60
+
 
 EntryID:70
-Note: Upstairs Landing
+Note: Upstairs Landing, clock puzzle (TODO)
+
 
 EntryID:80
-Note: Spare Room
+Note: Spare Room, empty, spooky
+EntryText:  The spare room is lightly furnished, and obviously unused. The side table and dresser are covered with old drop cloths. The bed is not made, and missing its sheets. 
+EntryText:  The mattress of the bed has been slashed open in several places, and the insides are spilled out on the floor.
+
+Choice:Check the mattress stuff for anything.
+Action:GOTO:81
+Choice:Leave the room, there is nothing her worth investigating.
+Action:GOTO:70
+
+
+EntryID:81
+EntryText:  You reach down and begin digging through the stuffing. Several of the chunks of mattress stuffing are stained in an old dark color. 
+EntryText:  Withini all the stuffing you find a lump of something pulpy, and when you poke it, it begins to inch away. It's a massive maggot like creature, some six inches long and four inches around.
+EntryText:  The smell it gives off when it moves is revolting, and its flesh undulates as it inches away from you and back into the mass of stuffing.
+
+Choice:Trying not to get sick you leave the thing alone and leave the room.
+Action:GOTO:70
+
 
 EntryID:85
-Note: Master Bedroom
+Note: Master Bedroom, mirror, old book on endtable note "12-12 and stop" (TODO)
+
 
 EntryID:90
-Note: Dungeon
+Note: Basement
+EntryText:  You open the door to the basement and stare down the steep steps into the darkness. You click the switch at the top of the steps and the light momentarily lights the stairs before a loud pop sounds and the light dims then quickly goes dark. 
+EntryText:  Pulling the oil lantern out you light it and twist the knob to adjust the flame to the right height. Finally ready you head down the steps and into the basement. 
+EntryText:  Dust and dirt gathers in the gloomy corners of the basement, and a rat crawls quickly out of your light and through a hole in the wall. The room empty save a large metal door set in one wall.
+EntryText:  Stepping up to the door you see beside it a large decorative metal mechanism built into the wall. There are no handles or latches on the door. In the middle of the mechanism is a large metal skull with dark green crystals for eyes. The skulls mouth is open wide, and by lifting the lamp just right, you can see that there is a lever deep within the hole. You would have to reach almost your entire arm in to reach the lever. Slots line the bottom of the hole, and small holes like the top of it.
+EntryText:  Around the skull are three concentric rings. Each is cavered with decorative symbols. The outer ring seems to be decorated with symbols of the sun. The middle ring is decorated with symbols of the moon. The inner ring is decorated with fire symbols. Each of the rings has a small handle, and looks like they can spin either direction.
+
+Choice:Examine the eye crystals.
+Action:GOTO:91
+Choice:Examine the rings.
+Action:GOTO:96
+Choice:Reach in and pull the lever.
+Action:GOTO:107
+Choice:You feel a little too uneasy about this and decide to leave the basement.
+Action:GOTO:67
+
+
+EntryID:91
+EntryText:  Both of the eye crystals of the skull seem to be loose enough that you could probably take them out.
+
+Choice:Take the left eye crystal out.
+Action:GOTO:92
+Requirement:NOT_HAVE_FLAG:Basement Left Eye Removed
+Choice:Take the right eye crystal out.
+Action:GOTO:93
+Requirement:NOT_HAVE_FLAG:Basement Right Eye Removed
+Choice:Put the left eye crystal back in.
+Action:GOTO:94
+Requirement:HAVE_FLAG:Basement Left Eye Removed
+Choice:Put the right eye crystal back in.
+Action:GOTO:95
+Requirement:HAVE_FLAG:Basement Right Eye Removed
+Choice:Go back to examining the mechanism.
+Action:GOTO:97
+
+
+EntryID:92
+EntryText:  You pluck out the left eye crystal. There is an audible click from within the mechanism.
+EntryAction:ADD_FLAG:Basement Left Eye Removed
+
+Choice:Go back to examining the eye crystals.
+Action:GOTO:91
+Choice:Examine the rings.
+Action:GOTO:96
+Choice:Reach in and pull the lever.
+Action:GOTO:107
+Choice:You feel a little too uneasy about this and decide to leave the basement.
+Action:GOTO:67
+
+
+EntryID:93
+EntryText:  You pluck out the right eye crystal. There is an audible click from within the mechanism.
+EntryAction:ADD_FLAG:Basement Right Eye Removed
+
+Choice:Go back to examining the eye crystals.
+Action:GOTO:91
+Choice:Examine the rings.
+Action:GOTO:96
+Choice:Reach in and pull the lever.
+Action:GOTO:107
+Choice:You feel a little too uneasy about this and decide to leave the basement.
+Action:GOTO:67
+
+
+EntryID:94
+EntryText:  You put back in the left eye crystal. There is an audible click from within the mechanism.
+EntryAction:REMOVE_FLAG:Basement Left Eye Removed
+
+Choice:Go back to examining the eye crystals.
+Action:GOTO:91
+Choice:Examine the rings.
+Action:GOTO:96
+Choice:Reach in and pull the lever.
+Action:GOTO:107
+Choice:You feel a little too uneasy about this and decide to leave the basement.
+Action:GOTO:67
+
+
+EntryID:95
+EntryText:  You put back in the right eye crystal. There is an audible click from within the mechanism.
+EntryAction:REMOVE_FLAG:Basement Right Eye Removed
+
+Choice:Go back to examining the eye crystals.
+Action:GOTO:91
+Choice:Examine the rings.
+Action:GOTO:96
+Choice:Reach in and pull the lever.
+Action:GOTO:107
+Choice:You feel a little too uneasy about this and decide to leave the basement.
+Action:GOTO:67
+
+
+EntryID:96
+EntryText:  It certainly looks like the rings can be spun either clockwise or counter clockwise.
+
+Choice:Spin the outer sun ring.
+Action:GOTO:98
+Choice:Spin the middle moon ring.
+Action:GOTO:99
+Choice:Spin the inner flame ring.
+Action:GOTO:100
+Choice:Go back to examining the mechanism.
+Action:GOTO:97
+
+
+EntryID:97
+EntryText:  You look over the mechanism. The door is still closed. What's next?
+
+Choice:Examine the eye crystals.
+Action:GOTO:91
+Choice:Examine the rings.
+Action:GOTO:96
+Choice:Reach in and pull the lever.
+Action:GOTO:107
+Choice:You feel a little too uneasy about this and decide to leave the basement.
+Action:GOTO:67
+
+
+EntryID:98
+EntryText:  The outer ring depicts symbols of the sun. Which direction would you like to spin it?
+
+Choice:Spin the outer sun ring clockwise.
+Action:GOTO:101
+Choice:Spin the outer sun ring counter clockwise.
+Action:GOTO:102
+Choice:Go back to examining the mechanism.
+Action:GOTO:97
+
+
+EntryID:99
+EntryText:  The middle ring depicts symbols of the moon. Which direction would you like to spin it?
+
+Choice:Spin the middle moon ring clockwise.
+Action:GOTO:103
+Choice:Spin the middle moon ring counter clockwise.
+Action:GOTO:104
+Choice:Go back to examining the mechanism.
+Action:GOTO:97
+
 
 EntryID:100
-Note: Hidden Study
+EntryText:  The inner ring depicts symbols of flame. Which direction would you like to spin it?
+
+Choice:Spin the inner flame ring clockwise.
+Action:GOTO:105
+Choice:Spin the inner flame ring counter clockwise.
+Action:GOTO:106
+Choice:Go back to examining the mechanism.
+Action:GOTO:97
+
+
+EntryID:101
+EntryText:  You spin the outer sun ring clockwise until it stops. There is an audible click within the mechanism.
+EntryAction:REMOVE_FLAG:Basement Outer Counterclock
+Choice:Go back to examining the mechanism.
+Action:GOTO:97
+
+
+EntryID:102
+EntryText:  You spin the outer sun ring counter clockwise until it stops. There is an audible click within the mechanism.
+EntryAction:ADD_FLAG:Basement Outer Counterclock
+
+Choice:Go back to examining the mechanism.
+Action:GOTO:97
+
+
+EntryID:103
+EntryText:  You spin the middle moon ring clockwise until it stops. There is an audible click within the mechanism.
+EntryAction:ADD_FLAG:Basement Middle Clock
+
+Choice:Go back to examining the mechanism.
+Action:GOTO:97
+
+
+EntryID:104
+EntryText:  You spin the middle moon ring counter clockwise until it stops. There is an audible click within the mechanism.
+EntryAction:REMOVE_FLAG:Basement Middle Clock
+
+Choice:Go back to examining the mechanism.
+Action:GOTO:97
+
+
+EntryID:105
+EntryText:  You spin the inner flame ring clockwise until it stops. There is an audible click within the mechanism.
+EntryAction:ADD_FLAG:Basement Inner Clock
+
+Choice:Go back to examining the mechanism.
+Action:GOTO:97
+
+
+EntryID:106
+EntryText:  You spin the inner flame ring counter clockwise until it stops. There is an audible click within the mechanism.
+EntryAction:REMOVE_FLAG:Basement Inner Clock
+
+Choice:Go back to examining the mechanism.
+Action:GOTO:97
+
+
+EntryID:107
+EntryText:  You slide your hand and arm deep into the hole. You feel it pass through cobwebs and dusty, and think you may feel something move passed your hand. It is probably just your imagination though. 
+EntryText:  Your hand closes over the lever. It is a bit unnerving, since you can't see what is going on. Your entire hand and arm are stetched into the hole. You try not to think of the grooves and holes you saw lining the hole when you looked into it.
+
+Choice:No way. This is nuts. You leave the basement.
+Action:GOTO:67
+Choice:You think better of this and decide to reexamine the mechanism.
+Action:GOTO:97
+Choice:Confident that you have made the right choice, you pull the lever.
+Action:GOTO:108
+Choice:Or does it need to be pushed?
+Action:REQUIREMENT_CHECK:FLAGS:Basement Inner Clock,Basement Middle Clock,Basement Outer Counterclock,Basement Right Eye Removed,!Basement Left Eye Removed
+ActionCheckSuccess:GOTO:109
+ActionCheckFailure:GOTO:108
+
+
+EntryID:108
+EntryText:  There is a loud series of clicking then with a shink spikes jam down into the old piercing your arm in several places. You scream, and the pain is unbearable. You feel as if something is moving all over your arm. It feels as if bugs are crawling all over your arm, feasting on the blood spilling from the wounds. You try to pull free, but the spikes have your arm pinned in place!
+EntryText:  An agonizing few moments later, the spikes slide back up and you collapse in front of the door, holding your wounded arm. You scramble back and look down expecting to see insects all over your arm, but other than a bit of bruising your arm seems fine.
+EntryText:  <color=maroon>Current Mental -5 (Fear)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
+EntryText:  <color=maroon>Current Physical -5 (Pain)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-5
+
+Choice:Go back to examining the mechanism.
+Action:GOTO:97
+Choice:You are done with this door and decide to leave the basement.
+Action:GOTO:67
+
+EntryID:109
+Note: Vault (whats in it?) (TODO)
+EntryText: With a thunk the door slides open.
+
+
+EntryID:110
+Note: Dungeon, manacles (TODO)
+EntryText:  
+
 
 EntryID:120
+Note: Hidden Study, book, rattling of the windows, into act 3 (TODO)
+EntryText:  
+
+
+EntryID:130
 Note: Start of Part three Act 0
 EntryText:<i>Act 0, Part 3</i>

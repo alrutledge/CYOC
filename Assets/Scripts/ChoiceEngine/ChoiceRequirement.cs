@@ -12,7 +12,8 @@
         HAVE_ITEM,
         NOT_HAVE_ITEM,
         HAVE_FLAG,
-        NOT_HAVE_FLAG
+        NOT_HAVE_FLAG,
+        FLAGS
     }
 
     public class ChoiceRequirement

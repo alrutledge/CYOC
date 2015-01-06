@@ -193,8 +193,35 @@ namespace Assets.Scripts.ChoiceEngine
                         reply.RequirementMet = true;
                     }
                     break;
+                case ChoiceRequirementType.FLAGS:
+                    reply.RequirementMet = AllFlagsCorrect(message.Requirement.Requirement);
+                    break;
             }
             return reply;
+        }
+
+        private bool AllFlagsCorrect(string flagCollection)
+        {
+            string[] flags = flagCollection.Split(',');
+            bool allRequirementsMet = true;
+            foreach (string flag in flags)
+            {
+                if (flag.StartsWith("!"))
+                {
+                    if (m_player.Flags.ContainsKey(flag.Substring(1)))
+                    {
+                        allRequirementsMet = false;
+                    }
+                }
+                else
+                {
+                    if (!m_player.Flags.ContainsKey(flag))
+                    {
+                        allRequirementsMet = false;
+                    }
+                }
+            }
+            return allRequirementsMet;
         }
 
         private void OnEntryLoaded(GotoEntryCommand message)
