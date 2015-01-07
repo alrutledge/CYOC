@@ -11,6 +11,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Assets.Scripts.ChoiceEngine
 {
+
+    public enum PlayerStatus { GOOD, INSANE, DEAD }
     public class PlayerManager : MonoBehaviour
     {
 
@@ -37,6 +39,7 @@ namespace Assets.Scripts.ChoiceEngine
             MessageSystem.SubscribeQuery<SaveGameAnswer, SaveGameQuery>(gameObject, OnSaveGameQuery);
             MessageSystem.SubscribeQuery<RequirementReply, RequirementQuery>(gameObject, OnRequirementQuery);
             MessageSystem.SubscribeQuery<GetInventoryReply, GetInventoryQuery>(MessageSystem.ServiceContext, OnGetInventoryQuery);
+            MessageSystem.SubscribeQuery<GetPlayerStatusReply, GetPlayerStatusQuery>(MessageSystem.ServiceContext, OnGetPlayerStatusQuery);
         }
 
         private void OnDestroy()
@@ -50,6 +53,20 @@ namespace Assets.Scripts.ChoiceEngine
             MessageSystem.UnsubscribeQuery<SaveGameAnswer, SaveGameQuery>(gameObject, OnSaveGameQuery);
             MessageSystem.UnsubscribeQuery<RequirementReply, RequirementQuery>(gameObject, OnRequirementQuery);
             MessageSystem.UnsubscribeQuery<GetInventoryReply, GetInventoryQuery>(MessageSystem.ServiceContext, OnGetInventoryQuery);
+            MessageSystem.UnsubscribeQuery<GetPlayerStatusReply, GetPlayerStatusQuery>(MessageSystem.ServiceContext, OnGetPlayerStatusQuery);
+        }
+
+        private GetPlayerStatusReply OnGetPlayerStatusQuery(GetPlayerStatusQuery message)
+        {
+            if (m_player.Stats[PlayerStat.CURRENT_PHYSICAL] <= 0)
+            {
+                return new GetPlayerStatusReply(PlayerStatus.DEAD);
+            }
+            else if (m_player.Stats[PlayerStat.CURRENT_MENTAL] <= 0)
+            {
+                return new GetPlayerStatusReply(PlayerStatus.INSANE);
+            }
+            return new GetPlayerStatusReply(PlayerStatus.GOOD);
         }
 
         private void OnRemoveFlag(RemoveFlagCommand message)
@@ -80,10 +97,10 @@ namespace Assets.Scripts.ChoiceEngine
                 }
 
                 // check for insanity
-                if (m_player.Stats[PlayerStat.CURRENT_MENTAL] <=0)
-                {
-                    MessageSystem.BroadcastMessage(new DelayedGotoEntryCommand(-1));
-                }
+                //if (m_player.Stats[PlayerStat.CURRENT_MENTAL] <=0)
+                //{
+                //    MessageSystem.BroadcastMessage(new DelayedGotoEntryCommand(-1));
+                //}
             }
             else if (command.PlayerStat == PlayerStat.CURRENT_PHYSICAL)
             {
@@ -92,10 +109,10 @@ namespace Assets.Scripts.ChoiceEngine
                     m_player.Stats[command.PlayerStat] = m_player.Stats[PlayerStat.MAX_PHYSICAL];
                 }
                 // check for death
-                if (m_player.Stats[PlayerStat.CURRENT_PHYSICAL] <= 0)
-                {
-                    MessageSystem.BroadcastMessage(new DelayedGotoEntryCommand(-2));
-                }
+                //if (m_player.Stats[PlayerStat.CURRENT_PHYSICAL] <= 0)
+                //{
+                //    MessageSystem.BroadcastMessage(new DelayedGotoEntryCommand(-2));
+                //}
             }
             else if (command.PlayerStat == PlayerStat.CURRENT_SOCIAL)
             {
