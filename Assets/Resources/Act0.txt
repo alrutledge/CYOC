@@ -608,7 +608,7 @@ Action:GOTO:70
 
 EntryID:81
 EntryText:  You reach down and begin digging through the stuffing. Several of the chunks of mattress stuffing are stained in an old dark color. 
-EntryText:  Withini all the stuffing you find a lump of something pulpy, and when you poke it, it begins to inch away. It's a massive maggot like creature, some six inches long and four inches around.
+EntryText:  Within all the stuffing you find a lump of something pulpy, and when you poke it, it begins to inch away. It's a massive maggot like creature, some six inches long and four inches around.
 EntryText:  The smell it gives off when it moves is revolting, and its flesh undulates as it inches away from you and back into the mass of stuffing.
 
 Choice:Trying not to get sick you leave the thing alone and leave the room.
@@ -616,7 +616,72 @@ Action:GOTO:70
 
 
 EntryID:85
-Note: Master Bedroom, mirror, old book on endtable note "12-12 and stop" (TODO)
+Note: Master Bedroom, mirror, old book on endtable note "12-12 and stop"
+EntryText:  The master bedroom has obviously been well used and maintained. There is a large four poster bed, with covers and pillows still piled on top of. 
+EntryText:  Beside the bed is a small end table with a small book on it. 
+EntryText:  Against one wall is a large mirror, and windows look out over the backyard.
+
+Choice:Examine the mirror.
+Action:GOTO:86
+Choice:Examine the book on the end table.
+Action:GOTO:87
+Choice:Relax in the bed.
+Action:GOTO:88
+Requirement:NOT_HAVE_FLAG:Rested In Bed
+Choice:Head back out to the landing.
+Action:GOTO:70
+
+
+EntryID:86
+EntryText:  The large mirror is a good seven feet tall, and mounted to the wall. The edge of the mirror is iron and forged into the strange shapes.
+EntryText:  Unusual creatures, people in strange outfits, and other odd shapes are depicted in the decoration on the edge of the mirror.
+EntryText:  The mirror itself has a bit of a wave to the glass and is a bit clouded, so the reflection is a warped and darker version of reality.
+EntryText:  You study yourself in the darkened reflection and for a moment you find yourself smirking at the dark image. You imagine yourself a dark god, watching over his people. 
+EntryText:  Blinking the image out of your mind, you shake your head and turn away from the strange mirror.
+
+Choice:Examine the book on the end table.
+Action:GOTO:87
+Choice:Relax in the bed.
+Action:GOTO:88
+Requirement:NOT_HAVE_FLAG:Rested In Bed
+Choice:Head back out to the landing.
+Action:GOTO:70
+
+EntryID:87
+Note: Book
+EntryText:  The book seems to be a journal. Your uncle's name is written inside the cover. You flip through a few pages and begin to read, hoping to gleen information about your uncle.
+EntryText:  Most of the days detailed in the journal discuss your uncle doing research, or exploring the woods. He often refers to someone or something as 'them' but never elaborates on who they are.
+EntryText:  Whoever it is, they apparently scare your uncle, because he talks about installing protections from outsiders like 'them'. He talks of 'they' want what he acquired, and he rails against the unfairness enacted upon him by 'them' when all he wants is to be left alone.
+EntryText:  In one entry he even says if he dies, it will likely be at their hands.
+EntryText:  Tucked into the book is a small handwritten note. It is in a language you don't understand. Written beneath it in English seems to be a translation. It says, "I finally understand how time works. 12-12, stop."
+
+Choice:Examine the mirror.
+Action:GOTO:86
+Choice:Relax in the bed.
+Action:GOTO:88
+Requirement:NOT_HAVE_FLAG:Rested In Bed
+Choice:Head back out to the landing.
+Action:GOTO:70
+
+
+EntryID:88
+Note: Relax in bed
+EntryText:  You lay down in the bed, sighing in comfort. You reflext back on all that has happened to you today so far.
+EntryText:  As your eyes shut, you begin to doze off a bit. You see a large empty plane stretch out before you. When you turn to look behind you a massive stone structure with impossible angles sits before you. 
+EntryText:  A deep voice growls out a word you do not understand, it echos from within the impossible building. Your eyes snap open, and like that, the word escapes your memory.
+EntryText:  
+EntryText:  <color=green>Current Physical +5 (Rest)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:5
+EntryText:  <color=green>Current Mental +5 (Rest)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:5
+EntryAction:ADD_FLAG:Rested In Bed
+
+Choice:Examine the mirror.
+Action:GOTO:86
+Choice:Examine the book on the end table.
+Action:GOTO:87
+Choice:Head back out to the landing.
+Action:GOTO:70
 
 
 EntryID:90
