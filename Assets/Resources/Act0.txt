@@ -24,6 +24,7 @@ EntryText:  Apparently the estate consists of the home and lands at 15607 Old Hi
 EntryText:  As luck would have it, you had no other plans for the day, so you have decided that you should drive out there and examine your new property. 
 EntryText:  Maybe it, or something within, will be worth something to you. At least, you will be able to learn more about this uncle that you did not even know you had.
 EntryText:  As you pack your things for a day trip and get into your car, it occurs to you that perhaps before you go out to the house you could do a bit of research to find out more about the place.
+EntryAction:PLAY_MUSIC:SpiderEyes
 
 Choice:Research the house before going out there.
 Action:GOTO:1

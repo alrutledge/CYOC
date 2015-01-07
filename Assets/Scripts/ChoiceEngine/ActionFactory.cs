@@ -60,7 +60,13 @@ namespace Assets.Scripts.ChoiceEngine
                 case EntryActionType.REMOVE_FLAG:
                     action = new RemoveFlagAction(choiceParts[2]);
                     break;
-                default:
+				case EntryActionType.PLAY_MUSIC:
+					action = new PlayMusicAction(choiceParts[2]);
+				    break;
+				case EntryActionType.PLAY_SOUND:
+				    action = new PlaySoundAction(choiceParts[2]);
+				    break;
+				default:
                     action = null;
                     break;
             }

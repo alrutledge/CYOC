@@ -7,7 +7,9 @@
         REMOVE_ITEM,
         CHANGE_PICTURE,
         ADD_FLAG,
-        REMOVE_FLAG
+        REMOVE_FLAG,
+		PLAY_MUSIC,
+		PLAY_SOUND
     }
 
     public abstract class EntryAction
