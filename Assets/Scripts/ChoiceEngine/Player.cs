@@ -29,5 +29,7 @@ namespace Assets.Scripts.ChoiceEngine
 
         public int CurrentAct { get; set; }
         public int CurrentEntry { get; set; }
+
+        public bool PayingUser { get; set; }
     }
 }

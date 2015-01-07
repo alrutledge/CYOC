@@ -2,6 +2,7 @@
 using Assets.Scripts.ICG.Messaging;
 using Assets.Scripts.ChoiceEngine.Messages;
 using Assets.Scripts.ChoiceEngine.EntryActions;
+using Assets.Scripts.CYOC.UI.Messages;
 
 namespace Assets.Scripts.ChoiceEngine
 {
@@ -9,6 +10,7 @@ namespace Assets.Scripts.ChoiceEngine
     {
         private Act CurrentAct;
         private DelayedGotoEntryCommand m_delayedGotoEntry;
+        private int m_entriesLoaded = 0;
 
         private void Awake()
         {
@@ -42,6 +44,12 @@ namespace Assets.Scripts.ChoiceEngine
 
         private void LoadEntry(Entry entry, bool runActions = true)
         {
+            m_entriesLoaded++;
+            if (m_entriesLoaded >= 8)
+            {
+                m_entriesLoaded = 0;
+                MessageSystem.BroadcastMessage(new DisplayAdCommand());
+            }
             if (runActions)
             {
                 foreach (EntryAction action in entry.Actions)

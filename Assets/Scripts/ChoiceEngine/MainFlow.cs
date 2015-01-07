@@ -3,6 +3,7 @@ using System.Collections;
 using Assets.Scripts.ICG.Messaging;
 using Assets.Scripts.ChoiceEngine.Messages;
 using Assets.Scripts.CYOC.UI.Messages;
+using UnityEngine.UI;
 
 public class MainFlow : MonoBehaviour 
 {
@@ -11,6 +12,7 @@ public class MainFlow : MonoBehaviour
     private GameObject m_splashScreen;
     private GameObject m_exitGame;
     private GameObject m_characterSelect;
+    private Button m_turnOffAdsButton;
 
 	private void Awake () 
     {
@@ -19,6 +21,7 @@ public class MainFlow : MonoBehaviour
         m_splashScreen = GameObject.Find("SplashScreen");
         m_exitGame = GameObject.Find("ConfirmGameExitPanel");
         m_characterSelect = GameObject.Find("CharacterSelect");
+	    m_turnOffAdsButton = GameObject.Find("TurnOffAdsButton").GetComponent<Button>();
         MessageSystem.SubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
         MessageSystem.SubscribeMessage<ExitToMainMenuCommand>(MessageSystem.ServiceContext, OnExitToMainMenuCommand);
 	}
@@ -96,5 +99,11 @@ public class MainFlow : MonoBehaviour
     public void OnYesClicked()
     {
         Application.Quit();
+    }
+
+    public void OnTurnOffAdsClicked()
+    {
+        MessageSystem.BroadcastMessage(new TurnOffAdsCommand());
+        m_turnOffAdsButton.interactable = false;
     }
 }

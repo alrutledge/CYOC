@@ -242,6 +242,8 @@ namespace Assets.Scripts.ChoiceEngine
             m_player.CurrentAct = 0;
             m_player.CurrentEntry = 0;
             m_player.Flags = new Dictionary<string, bool>();
+            m_player.PayingUser = false;
+
             SetPlayerDescriptors();
             BroadcastStats();
             SerializePlayer();
