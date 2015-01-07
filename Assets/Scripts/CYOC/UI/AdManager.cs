@@ -53,7 +53,7 @@ namespace Assets.Scripts.CYOC.UI
         {
             if (Advertisement.isReady() && m_adsOn)
             {
-                Advertisement.Show();
+                Advertisement.Show("pictureZone");
             }
         }
 
