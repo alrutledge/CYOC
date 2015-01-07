@@ -17,5 +17,6 @@
         public EntryActionType Type { get; set; }
 
         public abstract void PerformAction();
+        public abstract bool AlwaysRun();
     }
 }

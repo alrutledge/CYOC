@@ -50,9 +50,9 @@ namespace Assets.Scripts.ChoiceEngine
                 m_entriesLoaded = 0;
                 MessageSystem.BroadcastMessage(new DisplayAdCommand());
             }
-            if (runActions)
+            foreach (EntryAction action in entry.Actions)
             {
-                foreach (EntryAction action in entry.Actions)
+                if (runActions || action.AlwaysRun())
                 {
                     action.PerformAction();
                 }

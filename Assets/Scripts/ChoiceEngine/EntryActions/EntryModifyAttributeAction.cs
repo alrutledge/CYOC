@@ -19,5 +19,10 @@ namespace Assets.Scripts.ChoiceEngine.EntryActions
         {
             MessageSystem.BroadcastMessage(new ModifyAttributeCommand(PlayerStat, Delta));
         }
+
+        public override bool AlwaysRun()
+        {
+            return false;
+        }
     }
 }

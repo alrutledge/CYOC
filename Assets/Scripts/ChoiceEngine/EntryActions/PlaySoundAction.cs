@@ -12,9 +12,15 @@ namespace Assets.Scripts.ChoiceEngine.EntryActions
 		{
 			Name = name;
 		}
+
 		public override void PerformAction()
 		{
 			//MessageSystem.BroadcastMessage(new PlaySoundCommand(Name));
 		}
+
+        public override bool AlwaysRun()
+        {
+            return true;
+        }
 	}
 }

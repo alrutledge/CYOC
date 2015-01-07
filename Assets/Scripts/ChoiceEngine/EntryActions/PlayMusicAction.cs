@@ -17,5 +17,10 @@ namespace Assets.Scripts.ChoiceEngine.EntryActions
 		{
 			MessageSystem.BroadcastMessage(new PlayMusicCommand(Name));
 		}
+
+        public override bool AlwaysRun()
+        {
+            return true;
+        }
 	}
 }

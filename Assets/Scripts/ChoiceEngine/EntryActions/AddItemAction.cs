@@ -22,5 +22,10 @@ namespace Assets.Scripts.ChoiceEngine.EntryActions
         {
             MessageSystem.BroadcastMessage(new InventoryItemAdded(Name, Description, SmallImage, LargeImage));
         }
+
+        public override bool AlwaysRun()
+        {
+            return false;
+        }
     }
 }

@@ -16,5 +16,10 @@ namespace Assets.Scripts.ChoiceEngine.EntryActions
         {
             MessageSystem.BroadcastMessage(new InventoryItemRemoved(Name));
         }
+
+        public override bool AlwaysRun()
+        {
+            return false;
+        }
     }
 }

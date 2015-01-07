@@ -7,6 +7,7 @@ using System.IO;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
+using Assets.Scripts.CYOC.UI.Messages;
 
 
 namespace Assets.Scripts.ChoiceEngine
@@ -286,6 +287,7 @@ namespace Assets.Scripts.ChoiceEngine
             SetPlayerDescriptors();
             BroadcastStats();
             MessageSystem.BroadcastMessage(new LoadActCommand("Act" + m_player.CurrentAct.ToString(), m_player.CurrentEntry));
+            MessageSystem.BroadcastMessage(new PlayMusicCommand("SpiderEyes"));
         }
 
         private void SetPlayerDescriptors()

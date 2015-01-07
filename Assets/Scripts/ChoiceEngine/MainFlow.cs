@@ -77,6 +77,7 @@ public class MainFlow : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         m_mainMenu.SetActive(true);
         m_splashScreen.SetActive(false);
+        MessageSystem.BroadcastMessage(new PlayMusicCommand("Awkward"));
     }
 
     private void OnActLoaded(ActLoadedMessage message)
@@ -89,6 +90,7 @@ public class MainFlow : MonoBehaviour
     {
         m_mainMenu.SetActive(true);
         m_gamePlay.SetActive(false);
+        MessageSystem.BroadcastMessage(new PlayMusicCommand("Awkward"));
     }
 
     public void OnNoClicked()

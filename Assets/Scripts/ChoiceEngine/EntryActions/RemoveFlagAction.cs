@@ -15,5 +15,10 @@ namespace Assets.Scripts.ChoiceEngine.EntryActions
         {
             MessageSystem.BroadcastMessage(new RemoveFlagCommand(Name));
         }
+
+        public override bool AlwaysRun()
+        {
+            return false;
+        }
     }
 }
