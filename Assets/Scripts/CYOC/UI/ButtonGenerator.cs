@@ -31,7 +31,7 @@ namespace Assets.Scripts.CYOC.UI
         {
             int count = 0;
             m_currentEntry = message.LoadedEntry.ID;
-            if (m_currentEntry > 0)
+            if (m_currentEntry >= 0)
             {
                 GetPlayerStatusReply statusReply = MessageSystem.BroadcastQuery<GetPlayerStatusReply, GetPlayerStatusQuery>(new GetPlayerStatusQuery());
                 if (statusReply == null) return;
