@@ -40,6 +40,7 @@ namespace Assets.Scripts.ChoiceEngine
         {
             CurrentAct = message.CurrentAct;
             LoadEntry(message.FirstEntry, false);
+			MessageSystem.BroadcastMessage(new PlayMusicCommand("SpiderEyes"));
         }
 
         private void LoadEntry(Entry entry, bool runActions = true)
