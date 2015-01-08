@@ -598,12 +598,14 @@ Note: Upstairs Landing, clock puzzle
 EntryText:  You are on the upstairs landing. A massive grandfather clock dominates the middle of the landing. It is dusty like the rest of the house, but seems to be in working condition.
 EntryText:  On either end of the landing there are doors leading to the master bedroom on one side, and the spare bedroom on the other side.
 
-Choice:(DEBUG)GO BEHIND THE CLOCK - PUZZLE
-Action:GOTO:110
+Choice:Examine the grandfather clock.
+Action:GOTO:130
 Choice:Head into the master bedroom.
 Action:GOTO:85
 Choice:Go into the spare room.
 Action:GOTO:80
+Choice:Go back down to the foyer.
+Action:GOTO:51
 
 
 EntryID:80
@@ -1128,11 +1130,93 @@ Action:GOTO:124
 Choice:Climb back up the ladder.
 Action:GOTO:70
 
+
 EntryID:130
+EntryText:  The grandfather clock is rather massive. It is seven feet of ancient carved wood, gears, pendulums, and fine craftsmanship. The carvings are very gothic in nature, and the face is very ornate.
+EntryText:  After studying it for a few minutes though, you realize that something is off about the pendulum. It seems to be swinging further to right than to the left. This makes every other tick of the clock slightly longer.
+EntryText:  The effect is maddening after a few moments, once you hear it, you can not unhear it, and all you can think of is how the clock is just not right.
+
+Choice:Examine the pendulum.
+Action:GOTO:131
+Choice:Examine the face.
+Action:GOTO:132
+Choice:Leave the clock alone.
+Action:GOTO:70
+
+
+EntrID:131
+EntryText:  The pendulum is easy enough to manipulate. You could grab it to stop it or start it swinging again.
+
+Choice:Ensure the pendulum is swinging.
+Action:GOTO:133
+Choice:Stop the pendulum from swinging any more.
+Action:REQUIREMENT_CHECK:FLAGS:Minute Hand at 12:Hour Hand at 12
+ActionCheckSuccess:GOTO:134
+ActionCheckFailure:GOTO:137
+Choice:Leave the clock alone.
+Action:GOTO:70
+
+
+EntryID:132
+EntryText:  The ornate face is easy to access by pulling open the glass cover that protects it. 
+
+Choice:Set the minute hand.
+Action:GOTO:135
+Choice:Set the hour hand.
+Action:GOTO:136
+Choice:Leave the clock alone.
+Action:GOTO:70
+
+
+EntryID:133
+EntryText:  You start the pendulum swinging again.
+
+Choice:Examine the face.
+Action:GOTO:132
+Choice:Leave the clock alone.
+Action:GOTO:70
+
+
+EntryID:134
+EntryText:  You stop the pendulum and suddenly the clock begins to sound. Thirteen times it chimes, and then with a low grinding noise, the clock slides out of the way, revealing a dark passage way down.
+
+Choice:Check out the passage.
+Action:GOTO:110
+Choice:Dark passages are scary, not going.
+Action:GOTO:70
+
+
+EntryID:135
+EntryText:  What do you want to set the minute hand to?
+
+Choice:Somewhere between 1 and 4
+Action:GOTO:137
+Choice:Somewhere between 5 and 8
+Action:GOTO:138
+Choice:Somewhere between 9 and 12
+Action:GOTO:139
+Choice:Leave the clock alone.
+Action:GOTO:70
+
+
+EntryID:136
+EntryText:  What do you want to set the hour hand to?
+
+Choice:Somewhere between 1 and 4
+Action:GOTO:140
+Choice:Somewhere between 5 and 8
+Action:GOTO:141
+Choice:Somewhere between 9 and 12
+Action:GOTO:142
+Choice:Leave the clock alone.
+Action:GOTO:70
+
+
+EntryID:160
 Note: Hidden Study, book, rattling of the windows, into act 3 (TODO)
 EntryText:  
 
 
-EntryID:150
+EntryID:170
 Note: Start of Part three Act 0
 EntryText:<i>Act 0, Part 3</i>
