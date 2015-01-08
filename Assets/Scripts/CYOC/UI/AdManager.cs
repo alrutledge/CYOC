@@ -33,14 +33,14 @@ namespace Assets.Scripts.CYOC.UI
                 m_adsOn = adStatus.AdsOn;
                 GameObject.Find("TurnOffAdsButton").GetComponent<Button>().interactable = false;
                 m_file.Close();
-            }
+            }            
         }
 
         private void Awake()
         {
             MessageSystem.SubscribeMessage<DisplayAdCommand>(MessageSystem.ServiceContext, OnDisplayAdCommand);
             MessageSystem.SubscribeMessage<TurnOffAdsCommand>(MessageSystem.ServiceContext, OnTurnOffAdsCommand);
-
+            
         }
         
         private void OnDestroy()

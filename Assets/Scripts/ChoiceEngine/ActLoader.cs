@@ -89,6 +89,10 @@ namespace Assets.Scripts.ChoiceEngine
                     requirement.Requirement = requirementParts[2];
                     m_currentChoice.Requirements.Add(requirement);
                 }
+                else if (line.StartsWith("END"))
+                {
+                    break;
+                }
             }
 
             MessageSystem.BroadcastMessage(new ActLoadedMessage(LoadedAct.Entries[command.EntryToLoad], LoadedAct));

@@ -8,8 +8,9 @@
         CHANGE_PICTURE,
         ADD_FLAG,
         REMOVE_FLAG,
-		PLAY_MUSIC,
-		PLAY_SOUND
+        PLAY_MUSIC,
+        PLAY_SOUND,
+        PLAY_ACT_ANIMATION
     }
 
     public abstract class EntryAction

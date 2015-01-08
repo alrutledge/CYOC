@@ -1,4 +1,4 @@
-ActName:Act 0
+ActName:Act 1 - Morning
 
 EntryID:-2
 EntryText:  You collapse from your wounds, exhaustion, or pain. You are not really sure which. In the darkness that follows, you see cloaked men, and horrible things that can not possibly exist. You see the end of all times, or at least your end.
@@ -17,206 +17,23 @@ EntryText:  Welcome to a padded room.
 
 
 EntryID:0
-EntryText:  It is 1925. 
-EntryText:  A telegram arrived for you late last night. An uncle you did not even know you had apparently passed recently. In his will, he left his entire estate to you.
-EntryText:  Apparently the estate consists of the home and lands at 15607 Old Hill Rd just outside of town. 
-EntryText:  As luck would have it, you had no other plans for the day, so you have decided that you should drive out there and examine your new property. 
+EntryText:  The year is 1925.  
+EntryText:  A telegram arrived for you late last night. It informed you of the death of Jerith Coleman, an uncle you did not even know you had. In his will, Jerith left his entire estate to you.
+EntryText:  Accord to the telegram, the estate consists of the home and lands at 15607 Old Hill Rd just outside of Arkham Massachussets. You live in Arkham, so it is a fairly short drive out to the area of Old Hill Road. 
+EntryText:  You are not familiar with the area, but you know where it is, and as luck would have it, you had no other plans for the day. Therefore, you decided that you should drive out there today and examine your new property. 
 EntryText:  Maybe it, or something within, will be worth something to you. At least, you will be able to learn more about this uncle that you did not even know you had.
-EntryText:  As you pack your things for a day trip and get into your car, it occurs to you that perhaps before you go out to the house you could do a bit of research to find out more about the place.
 EntryAction:PLAY_MUSIC:SpiderEyes
+EntryAction:PLAY_ACT_ANIMATION:GameIntro
 
-Choice:Research the house before going out there.
-Action:GOTO:1
+Choice__:Research the house before going out there.
+Action__ :GOTO:1
 Choice:Take the drive out to 15607 Old Hill Rd.
-Action:GOTO:20
-
+Action:GOTO:1
 
 EntryID:1
-EntryText:  Two places within town immediately come to mind. The library and the Arkham Advertiser, the local newspaper. Either might have more information.
-EntryText:  At the library, you know you can pour over many old texts about Arkham and its surroundings. It would take some time, but nothing some dogged determination can't handle.
-EntryText:  The Arkham Advertiser on the other hand means dealing with the local reporters, editors, or archivists. Getting them to give up information when there is no story to be had will take some convincing.
-EntryText:  Of course, you are burning daylight, and you have a bit of a drive ahead of you. Perhaps it would best to skip all this and head out to the house. After all, it is just a house, what more would you need to know than that?
+EntryText:  You begin the drive out to the house under overcast skies, and soon enough the heavens part and the rain begins to pour down. Your visibility is poor, and the road conditions worsen as you go.
+EntryText:  Old Hill Road cuts off a county road and you quickly find yourself creeping down what would better be called a muddy track rather than a road.
 
-Choice:Nevermind the research. You decide to head out to the house.
-Action:GOTO:20
-Choice:The library sounds up your speed with its dusty old tomes and research.
-Action:GOTO:2
-Choice:The Arkham Advertiser is the better choice. If there is information to be had, reporters will know!
-Action:GOTO:10
-
-
-EntryID:2
-Note:Library
-EntryText:  You pull up outside the library and step out of your car, just as a thunderclap sounds overhead. Dark storm clouds have been gathering all morning and it looks like they will finally let loose the rain soon.
-EntryText:  Managing to get inside just before the rain hits, you settle into to dig through the ancient books and periodicals. The hours go by, and most of what you find is rather dull. Nothing really sparks your interest immediately.
-EntryText:  You are reshelving a book on the history of Arkham and its surrounding areas when you get the feeling that something is watching you. You turn to look, but nothing is there but rows upon rows of books. 
-EntryText:  Shaking off the feeling you dive back into the search, hoping that something fruitful will turn up soon.
-
-Choice:Continue
-Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_MENTAL:40
-ActionCheckSuccess:GOTO:3
-ActionCheckFailure:GOTO:4
-
-
-EntryID:3
-Note:Library Success
-EntryText:  You find one interesting article tucked away in the archives. It is from five years back. Apparently your uncle paid a large sum to Miskatonic University for them to perform an archaeological dig on his land. 
-EntryText:  It turns out the land was a former native burial ground. The dig was mildly successful in uncovering several artifacts including a ceremonial mask. 
-EntryText:  Unfortunately, before the dig could be completed, things started going wrong. First there was an accident on the site. Then several of the key artifacts were stolen. Eventually your uncle decided to stop funding the dig.
-EntryText:  
-EntryText:  <color=green>Current and Max Mental +2 (Research)</color>
-EntryAction:MODIFY_ATTRIBUTE:MAX_MENTAL:2
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:2
-
-Choice:This was interesting, but its time to get out of here.
-Action:GOTO:5
-
-
-EntryID:4
-Note:Library Fail
-EntryText:  Try as you might, you can't seem to find anything very interesting about the house or the land surrounding it. You find yourself struggling to stay focused on the task and eventually give up in frustration. 
-EntryText:  
-EntryText:  <color=maroon>Current Mental -1 (Frustration)</color>
-EntryText:  <color=green>Max Mental +1 (Research)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-1
-EntryAction:MODIFY_ATTRIBUTE:MAX_MENTAL:1
-
-Choice:This was a waste, time to get out of here.
-Action:GOTO:5
-
-
-EntryID:5
-EntryText:  As you reshelve the final book you turn to find a man standing in the shadows of the rack of books ahead of you. Shadows cover his features, and he slowly shakes his head. 
-EntryText:  Lightning flashes, and when his face is illuminated, it is a horror to behold. The eyes are sunken in, the skin is taut, and his lips are pulled back in a snarl. You start back as the lightning flash fades and run into a librarian walking through the stacks.
-EntryText:  She starts as you bump into her and says, "Oh, terribly sorry. Are you alright?"
-EntryText:  You look back to where the figure was standing, but he is gone. Swallowing away the fear, you shake your head and straight your clothes, "Yes, fine, thank you. Excuse me." 
-EntryText:  
-EntryText:  <color=maroon>Current Mental -1 (Fear)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-1
-
-Choice:You gather your things and slip out into the rain, running to your car.
-Action:GOTO:20
-
-
-EntryID:10
-Note:Newspaper, non-reporter
-EntryText:  You pull up outside the building that houses the Arkham Advertiser, just as a thunderclap sounds overhead. Storm clouds have been gathering all morning and they finally let loose just as you step out of your car. 
-EntryText:  You race to the door, the rain slicking your hair to your head. As you get to the door a woman opens it for your from the inside and smiles, "Quickly, come in!" She laughs gently at your condition and waits for you to gather yourself before saying, "Welcome to the Arkham Advertiser. I'm Julie, the editor of the paper. What can I do for you?"
-
-Choice:Introduce yourself and tell her that you need information.
-Action:GOTO:11
-Choice:Make small talk to try and get on her good side.
-Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_SOCIAL:50
-ActionCheckSuccess:GOTO:18
-ActionCheckFailure:GOTO:19
-
-
-EntryID:11
-EntryText:  You introduce yourself then get to the point, "I'm looking for information on the area out Old Hill Road. I was hoping you might know something of the area."
-EntryText:  She nods curtly and leads you back, "Why are you interested in that area? It's very remote." She closes the door of her office behind you and sits down behind her desk.
-
-Choice:Tell her the truth.
-Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_SOCIAL:50
-ActionCheckSuccess:GOTO:12
-ActionCheckFailure:GOTO:13
-Choice:Make something up. 
-Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_SOCIAL:50
-ActionCheckSuccess:GOTO:14
-ActionCheckFailure:GOTO:15
-Action:GOTO:13
-
-
-EntryID:12
-EntryText:  You tell Julie the truth. "My uncle lived out there, and he recently passed."
-EntryText:  Julie gives you her best pity look, "I'm so sorry." You wave her off.
-EntryText:  "It's okay. I didn't really know him. The thing is, he left me the property, and I have no idea what I am getting into."
-EntryText:  Julie nods, then leans back in her chair and taps her fingers on the edge of her desk. "As I said, the area is very remote. We could go and check in the archives though. Perhaps we can find something there."
-EntryText:  She stands and strides toward the door, grabbing an old massive set of keys on a large key ring from one corner of her desk.
-
-Choice:You follow Julie to the archives.
-Action:GOTO:16
-
-
-EntryID:13
-EntryText:  You tell Julie the truth. "My uncle lived out there, and he recently passed."
-EntryText:  Julie starts to give you her best pity look, "I'm so sor-" 
-EntryText:  You cut her off. "I never met him, but he did leave me the property. I just want to know what I have."
-EntryText:  Julie looks you up and down a moment then shrugs, "I can't really say. I don't know anything about that area." She stands, "Now if you will excuse me, I have work to do."
-
-Choice:You leave Julie's office, disappointed.
-Action:GOTO:17
-
-
-EntryID:14
-EntryText:  You lie to Julie. "I was taking a long drive out that direction the other day, and I saw an old house out there. I wondered what its story was."
-EntryText:  Julie nods slowly, "Strange place for a drive, but okay." She leans back in her chair and taps her fingers on the edge of her desk. "As I said, the area is very remote. We could go and check in the archives though. Perhaps we can find something there."
-EntryText:  She stands and strides toward the door, grabbing an old massive set of keys on a large key ring from one corner of her desk.
-
-Choice:You follow Julie to the archives.
-Action:GOTO:16
-
-
-EntryID:15
-EntryText:  You lie to Julie. "I was taking a long drive out that direction the other day, and I saw an old house out there. I wondered what its story was."
-EntryText:  Julie's eyebrows raise and she looks at you a long moment. "Strange place for a drive." She taps her fingers on the edge of her desk, then shrugs, "I wish I could help you. But that area is very remote. Not much news comes out of that area I am afraid."
-EntryText:  She stands and smiles at you. "I appreciate you coming in though. Now if you will excuse me. I have a paper to edit." She walks you to the door of her office, and closes it quietly behind you. 
-
-Choice:You leave Julie's office, disappointed.
-Action:GOTO:17
-
-
-EntryID:16
-EntryText:  The archive is in the basement, and Julie clicks on the lights as you head down. They don't really do much to dispel the gloom downstairs, but at least you don't run into things. Julie walks over to one door, and uses one of the keys on a massive keyring to unlatch the heavy old door. 
-EntryText:  Once it is open she slips in, clicking on another light, then turns to rows and rows of boxes. "Let's see. I think... ah yes. Here we go." She pulls a box off one shelf and starts leafing through things. "I remember there was something out there several years back. Had to do with the University." She flips through many sheafs of paper before finally stopping on one and handing it to you. "There you go."
-EntryText:  The article outlines how your uncle paid for an archaeological dig on his land. Apparently a prehistoric burial ground was located in the woods behind the house, and your uncle worked with Miskatonic University to have it excavated. The dig went well for a while, producing several rare artifacts, including a ceremonial mask. Things started to fall apart though, after an accident at the dig site left one worker dead, and a break in at Miskatonic University resulted in the theft of most of the major artifacts. Your Uncle pulled the plug after that.
-
-Choice:Continue
-Action:GOTO:6
-
-
-EntryID:6
-EntryText:  Julie smiles, "I wish I had more for you, but that is really all the detail there is from then."
-EntryText:  You go over the article one more time, scanning for anything else that will tell you anything, but it is mostly generalities and reactions from locals and University officials.
-EntryText:  "I really appreciate this, Julie." You smile and hand her back the article. She refiles it, then clicks the light off as you both turn to walk out of the archives. 
-EntryText:  "I hope it was enough. I appreciate you stopping by, but I really need to get back to work." She offers you a hand which you take, and then turns to walk away.
-
-Choice:You head out.
-Action:GOTO:17
-
-
-EntryID:17
-EntryText:  You step out into the rain and begin toward your car. Glancing to one side, you see a shadow slip back into an alleyway beside the paper. Something tells you, whoever it was, they were watching you.
-EntryText:  Slamming your car door shut, you start the car and drive passed the alley. Standing in the back of the alley, drenched in rain and covered in shadow is a hooded figure, watching you intently. You stop the car, and step out, determined to confront the man. 
-EntryText:  Lightning flashes, and in the brighter light, you swear that the man's face is covered in something. The eyes are massive, the lips curled in a snarl. It must be a mask. Right?
-EntryText:  As you eyes readjust to the light, you step forward, "You there!" You begin toward the figure just as they turn to one side, running from sight. You make the corner fast enough, feet splashing through the puddles as you run. 
-EntryText:  When you turn the corner though, no one is there. You look up the sides of the buildings, and back the way you came, but see no signs of the masked figure. 
-
-Choice:You take a breath, then head back to your car and out of the rain.
-Action:GOTO:20
-
-
-EntryID:18
-EntryText:  "Thank you so much, you are too kind." You look around her office as she closes the door. "Nice office you have here, Julie. You must work very hard."
-EntryText:  Julie smiles her appreciation and nods, "I do. It's not easy to get ahead in this business, but my family has owned the Advertiser for generations, so I guess it is just in my blood."
-EntryText:  You nod, "Well family business or not, I can tell you care for it." 
-EntryText:  "Enough about me, what can I do for you?" She settles into her office chair. 
-EntryText:  "I am interested in the history of the area out off of Old Hill Rd. I was hoping with your connections you might be able to help me."
-EntryText:  "I am familiar with the area, yes." She stands and grabs a large ring of keys off her desk. "Let's go down to the archives and see what I can dig up."
-
-Choice:You follow Julie to the archives.
-Action:GOTO:16
-
-
-EntryID:19
-EntryText:  "Thank you so much, you are too kind." You look around her office as she closes the door. "Nice office you have here, Julie. How's someone like you get this?"
-EntryText:  Julie frowns, "Like me?"
-EntryText:  You try to correct for your obvious mistake. "I just didn't expect the editor of the local paper to be..."
-EntryText:  Julie cuts you off, "My family has owned the paper for generations. I grew up here, and I'm the best one qualified to run it."
-EntryText:  "Of course, I didn't mean to offend. I was just surprised." Julie regards you a long moment before leaning back and sighing. 
-EntryText:  "It's alright. I get it a lot. I do have a lot of work to do though, so I am afraid you will have to excuse me." she stands and opens her office door, clearly ending the conversation.
-
-Choice:You leave Julie's office, disappointed at your lack of progress.
-Action:GOTO:17
 
 
 EntryID:20
@@ -1218,3 +1035,195 @@ EntryText:
 EntryID:170
 Note: Start of Part three Act 0
 EntryText:  
+
+
+END
+
+
+
+EntryID:1
+EntryText:  Two places within town immediately come to mind. The library and the Arkham Advertiser, the local newspaper. Either might have more information.
+EntryText:  At the library, you know you can pour over many old texts about Arkham and its surroundings. It would take some time, but nothing some dogged determination can't handle.
+EntryText:  The Arkham Advertiser on the other hand means dealing with the local reporters, editors, or archivists. Getting them to give up information when there is no story to be had will take some convincing.
+EntryText:  Of course, you are burning daylight, and you have a bit of a drive ahead of you. Perhaps it would best to skip all this and head out to the house. After all, it is just a house, what more would you need to know than that?
+
+Choice:Nevermind the research. You decide to head out to the house.
+Action:GOTO:20
+Choice:The library sounds up your speed with its dusty old tomes and research.
+Action:GOTO:2
+Choice:The Arkham Advertiser is the better choice. If there is information to be had, reporters will know!
+Action:GOTO:10
+
+
+EntryID:2
+Note:Library
+EntryText:  You pull up outside the library and step out of your car, just as a thunderclap sounds overhead. Dark storm clouds have been gathering all morning and it looks like they will finally let loose the rain soon.
+EntryText:  Managing to get inside just before the rain hits, you settle into to dig through the ancient books and periodicals. The hours go by, and most of what you find is rather dull. Nothing really sparks your interest immediately.
+EntryText:  You are reshelving a book on the history of Arkham and its surrounding areas when you get the feeling that something is watching you. You turn to look, but nothing is there but rows upon rows of books. 
+EntryText:  Shaking off the feeling you dive back into the search, hoping that something fruitful will turn up soon.
+
+Choice:Continue
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_MENTAL:40
+ActionCheckSuccess:GOTO:3
+ActionCheckFailure:GOTO:4
+
+
+EntryID:3
+Note:Library Success
+EntryText:  You find one interesting article tucked away in the archives. It is from five years back. Apparently your uncle paid a large sum to Miskatonic University for them to perform an archaeological dig on his land. 
+EntryText:  It turns out the land was a former native burial ground. The dig was mildly successful in uncovering several artifacts including a ceremonial mask. 
+EntryText:  Unfortunately, before the dig could be completed, things started going wrong. First there was an accident on the site. Then several of the key artifacts were stolen. Eventually your uncle decided to stop funding the dig.
+EntryText:  
+EntryText:  <color=green>Current and Max Mental +2 (Research)</color>
+EntryAction:MODIFY_ATTRIBUTE:MAX_MENTAL:2
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:2
+
+Choice:This was interesting, but its time to get out of here.
+Action:GOTO:5
+
+
+EntryID:4
+Note:Library Fail
+EntryText:  Try as you might, you can't seem to find anything very interesting about the house or the land surrounding it. You find yourself struggling to stay focused on the task and eventually give up in frustration. 
+EntryText:  
+EntryText:  <color=maroon>Current Mental -1 (Frustration)</color>
+EntryText:  <color=green>Max Mental +1 (Research)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-1
+EntryAction:MODIFY_ATTRIBUTE:MAX_MENTAL:1
+
+Choice:This was a waste, time to get out of here.
+Action:GOTO:5
+
+
+EntryID:5
+EntryText:  As you reshelve the final book you turn to find a man standing in the shadows of the rack of books ahead of you. Shadows cover his features, and he slowly shakes his head. 
+EntryText:  Lightning flashes, and when his face is illuminated, it is a horror to behold. The eyes are sunken in, the skin is taut, and his lips are pulled back in a snarl. You start back as the lightning flash fades and run into a librarian walking through the stacks.
+EntryText:  She starts as you bump into her and says, "Oh, terribly sorry. Are you alright?"
+EntryText:  You look back to where the figure was standing, but he is gone. Swallowing away the fear, you shake your head and straight your clothes, "Yes, fine, thank you. Excuse me." 
+EntryText:  
+EntryText:  <color=maroon>Current Mental -1 (Fear)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-1
+
+Choice:You gather your things and slip out into the rain, running to your car.
+Action:GOTO:20
+
+
+EntryID:10
+Note:Newspaper, non-reporter
+EntryText:  You pull up outside the building that houses the Arkham Advertiser, just as a thunderclap sounds overhead. Storm clouds have been gathering all morning and they finally let loose just as you step out of your car. 
+EntryText:  You race to the door, the rain slicking your hair to your head. As you get to the door a woman opens it for your from the inside and smiles, "Quickly, come in!" She laughs gently at your condition and waits for you to gather yourself before saying, "Welcome to the Arkham Advertiser. I'm Julie, the editor of the paper. What can I do for you?"
+
+Choice:Introduce yourself and tell her that you need information.
+Action:GOTO:11
+Choice:Make small talk to try and get on her good side.
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_SOCIAL:50
+ActionCheckSuccess:GOTO:18
+ActionCheckFailure:GOTO:19
+
+
+EntryID:11
+EntryText:  You introduce yourself then get to the point, "I'm looking for information on the area out Old Hill Road. I was hoping you might know something of the area."
+EntryText:  She nods curtly and leads you back, "Why are you interested in that area? It's very remote." She closes the door of her office behind you and sits down behind her desk.
+
+Choice:Tell her the truth.
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_SOCIAL:50
+ActionCheckSuccess:GOTO:12
+ActionCheckFailure:GOTO:13
+Choice:Make something up. 
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_SOCIAL:50
+ActionCheckSuccess:GOTO:14
+ActionCheckFailure:GOTO:15
+Action:GOTO:13
+
+
+EntryID:12
+EntryText:  You tell Julie the truth. "My uncle lived out there, and he recently passed."
+EntryText:  Julie gives you her best pity look, "I'm so sorry." You wave her off.
+EntryText:  "It's okay. I didn't really know him. The thing is, he left me the property, and I have no idea what I am getting into."
+EntryText:  Julie nods, then leans back in her chair and taps her fingers on the edge of her desk. "As I said, the area is very remote. We could go and check in the archives though. Perhaps we can find something there."
+EntryText:  She stands and strides toward the door, grabbing an old massive set of keys on a large key ring from one corner of her desk.
+
+Choice:You follow Julie to the archives.
+Action:GOTO:16
+
+
+EntryID:13
+EntryText:  You tell Julie the truth. "My uncle lived out there, and he recently passed."
+EntryText:  Julie starts to give you her best pity look, "I'm so sor-" 
+EntryText:  You cut her off. "I never met him, but he did leave me the property. I just want to know what I have."
+EntryText:  Julie looks you up and down a moment then shrugs, "I can't really say. I don't know anything about that area." She stands, "Now if you will excuse me, I have work to do."
+
+Choice:You leave Julie's office, disappointed.
+Action:GOTO:17
+
+
+EntryID:14
+EntryText:  You lie to Julie. "I was taking a long drive out that direction the other day, and I saw an old house out there. I wondered what its story was."
+EntryText:  Julie nods slowly, "Strange place for a drive, but okay." She leans back in her chair and taps her fingers on the edge of her desk. "As I said, the area is very remote. We could go and check in the archives though. Perhaps we can find something there."
+EntryText:  She stands and strides toward the door, grabbing an old massive set of keys on a large key ring from one corner of her desk.
+
+Choice:You follow Julie to the archives.
+Action:GOTO:16
+
+
+EntryID:15
+EntryText:  You lie to Julie. "I was taking a long drive out that direction the other day, and I saw an old house out there. I wondered what its story was."
+EntryText:  Julie's eyebrows raise and she looks at you a long moment. "Strange place for a drive." She taps her fingers on the edge of her desk, then shrugs, "I wish I could help you. But that area is very remote. Not much news comes out of that area I am afraid."
+EntryText:  She stands and smiles at you. "I appreciate you coming in though. Now if you will excuse me. I have a paper to edit." She walks you to the door of her office, and closes it quietly behind you. 
+
+Choice:You leave Julie's office, disappointed.
+Action:GOTO:17
+
+
+EntryID:16
+EntryText:  The archive is in the basement, and Julie clicks on the lights as you head down. They don't really do much to dispel the gloom downstairs, but at least you don't run into things. Julie walks over to one door, and uses one of the keys on a massive keyring to unlatch the heavy old door. 
+EntryText:  Once it is open she slips in, clicking on another light, then turns to rows and rows of boxes. "Let's see. I think... ah yes. Here we go." She pulls a box off one shelf and starts leafing through things. "I remember there was something out there several years back. Had to do with the University." She flips through many sheafs of paper before finally stopping on one and handing it to you. "There you go."
+EntryText:  The article outlines how your uncle paid for an archaeological dig on his land. Apparently a prehistoric burial ground was located in the woods behind the house, and your uncle worked with Miskatonic University to have it excavated. The dig went well for a while, producing several rare artifacts, including a ceremonial mask. Things started to fall apart though, after an accident at the dig site left one worker dead, and a break in at Miskatonic University resulted in the theft of most of the major artifacts. Your Uncle pulled the plug after that.
+
+Choice:Continue
+Action:GOTO:6
+
+
+EntryID:6
+EntryText:  Julie smiles, "I wish I had more for you, but that is really all the detail there is from then."
+EntryText:  You go over the article one more time, scanning for anything else that will tell you anything, but it is mostly generalities and reactions from locals and University officials.
+EntryText:  "I really appreciate this, Julie." You smile and hand her back the article. She refiles it, then clicks the light off as you both turn to walk out of the archives. 
+EntryText:  "I hope it was enough. I appreciate you stopping by, but I really need to get back to work." She offers you a hand which you take, and then turns to walk away.
+
+Choice:You head out.
+Action:GOTO:17
+
+
+EntryID:17
+EntryText:  You step out into the rain and begin toward your car. Glancing to one side, you see a shadow slip back into an alleyway beside the paper. Something tells you, whoever it was, they were watching you.
+EntryText:  Slamming your car door shut, you start the car and drive passed the alley. Standing in the back of the alley, drenched in rain and covered in shadow is a hooded figure, watching you intently. You stop the car, and step out, determined to confront the man. 
+EntryText:  Lightning flashes, and in the brighter light, you swear that the man's face is covered in something. The eyes are massive, the lips curled in a snarl. It must be a mask. Right?
+EntryText:  As you eyes readjust to the light, you step forward, "You there!" You begin toward the figure just as they turn to one side, running from sight. You make the corner fast enough, feet splashing through the puddles as you run. 
+EntryText:  When you turn the corner though, no one is there. You look up the sides of the buildings, and back the way you came, but see no signs of the masked figure. 
+
+Choice:You take a breath, then head back to your car and out of the rain.
+Action:GOTO:20
+
+
+EntryID:18
+EntryText:  "Thank you so much, you are too kind." You look around her office as she closes the door. "Nice office you have here, Julie. You must work very hard."
+EntryText:  Julie smiles her appreciation and nods, "I do. It's not easy to get ahead in this business, but my family has owned the Advertiser for generations, so I guess it is just in my blood."
+EntryText:  You nod, "Well family business or not, I can tell you care for it." 
+EntryText:  "Enough about me, what can I do for you?" She settles into her office chair. 
+EntryText:  "I am interested in the history of the area out off of Old Hill Rd. I was hoping with your connections you might be able to help me."
+EntryText:  "I am familiar with the area, yes." She stands and grabs a large ring of keys off her desk. "Let's go down to the archives and see what I can dig up."
+
+Choice:You follow Julie to the archives.
+Action:GOTO:16
+
+
+EntryID:19
+EntryText:  "Thank you so much, you are too kind." You look around her office as she closes the door. "Nice office you have here, Julie. How's someone like you get this?"
+EntryText:  Julie frowns, "Like me?"
+EntryText:  You try to correct for your obvious mistake. "I just didn't expect the editor of the local paper to be..."
+EntryText:  Julie cuts you off, "My family has owned the paper for generations. I grew up here, and I'm the best one qualified to run it."
+EntryText:  "Of course, I didn't mean to offend. I was just surprised." Julie regards you a long moment before leaning back and sighing. 
+EntryText:  "It's alright. I get it a lot. I do have a lot of work to do though, so I am afraid you will have to excuse me." she stands and opens her office door, clearly ending the conversation.
+
+Choice:You leave Julie's office, disappointed at your lack of progress.
+Action:GOTO:17

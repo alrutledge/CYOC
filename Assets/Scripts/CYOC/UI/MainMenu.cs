@@ -186,7 +186,7 @@ namespace Assets.Scripts.CYOC.UI
 
             MessageSystem.BroadcastMessage(message);
             m_characterSelect.SetActive(false);
-            MessageSystem.BroadcastMessage(new LoadActCommand("Act0"));
+            MessageSystem.BroadcastMessage(new LoadActCommand("Act1"));
         }
 
         public void OnExitClicked()

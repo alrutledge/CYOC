@@ -12,6 +12,7 @@ public class MainFlow : MonoBehaviour
     private GameObject m_splashScreen;
     private GameObject m_exitGame;
     private GameObject m_characterSelect;
+    private GameObject m_actAnimation;
     private Button m_turnOffAdsButton;
 
 	private void Awake () 
@@ -21,23 +22,28 @@ public class MainFlow : MonoBehaviour
         m_splashScreen = GameObject.Find("SplashScreen");
         m_exitGame = GameObject.Find("ConfirmGameExitPanel");
         m_characterSelect = GameObject.Find("CharacterSelect");
+        m_actAnimation = GameObject.Find("ActAnimations");
 	    m_turnOffAdsButton = GameObject.Find("TurnOffAdsButton").GetComponent<Button>();
         MessageSystem.SubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
         MessageSystem.SubscribeMessage<ExitToMainMenuCommand>(MessageSystem.ServiceContext, OnExitToMainMenuCommand);
+        MessageSystem.SubscribeMessage<PrepareActAnimationCommand>(MessageSystem.ServiceContext, OnPrepareActAnimationCommand);
+        MessageSystem.SubscribeMessage<ActAnimationCompletedMessage>(MessageSystem.ServiceContext, OnActAnimationCompletedMessage);
 	}
 
     private void OnDestroy()
     {
         MessageSystem.UnsubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
         MessageSystem.UnsubscribeMessage<ExitToMainMenuCommand>(MessageSystem.ServiceContext, OnExitToMainMenuCommand);
+        MessageSystem.UnsubscribeMessage<PrepareActAnimationCommand>(MessageSystem.ServiceContext, OnPrepareActAnimationCommand);
+        MessageSystem.UnsubscribeMessage<ActAnimationCompletedMessage>(MessageSystem.ServiceContext, OnActAnimationCompletedMessage);
     }
-
-
+        
     private void Start()
     {
         m_mainMenu.SetActive(false);
         m_gamePlay.SetActive(false);
         m_exitGame.SetActive(false);
+        m_actAnimation.SetActive(false);
         StartCoroutine(RemoveSplashScreen(1.0f));
     }
 	
@@ -64,6 +70,14 @@ public class MainFlow : MonoBehaviour
         }
     }
 
+    IEnumerator RemoveSplashScreen(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        m_mainMenu.SetActive(true);
+        m_splashScreen.SetActive(false);
+        MessageSystem.BroadcastMessage(new PlayMusicCommand("Awkward"));
+    }
+
     public void OnExitClicked()
     {
         if (!m_exitGame.activeInHierarchy)
@@ -72,12 +86,17 @@ public class MainFlow : MonoBehaviour
         }
     }
 
-    IEnumerator RemoveSplashScreen(float waitTime)
+    private void OnActAnimationCompletedMessage(ActAnimationCompletedMessage message)
     {
-        yield return new WaitForSeconds(waitTime);
-        m_mainMenu.SetActive(true);
-        m_splashScreen.SetActive(false);
-        MessageSystem.BroadcastMessage(new PlayMusicCommand("Awkward"));
+        m_gamePlay.SetActive(true);
+        m_actAnimation.SetActive(false);
+    }
+
+    private void OnPrepareActAnimationCommand(PrepareActAnimationCommand message)
+    {
+        m_gamePlay.SetActive(false);
+        m_actAnimation.SetActive(true);
+        MessageSystem.BroadcastMessage(new PlayActAnimationCommand(message.Name));
     }
 
     private void OnActLoaded(ActLoadedMessage message)

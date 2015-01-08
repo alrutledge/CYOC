@@ -66,6 +66,9 @@ namespace Assets.Scripts.ChoiceEngine
 				case EntryActionType.PLAY_SOUND:
 				    action = new PlaySoundAction(choiceParts[2]);
 				    break;
+                case EntryActionType.PLAY_ACT_ANIMATION:
+                    action = new PlayActAnimationAction(choiceParts[2]);
+                    break;
 				default:
                     action = null;
                     break;

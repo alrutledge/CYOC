@@ -50,6 +50,7 @@ namespace Assets.Scripts.ChoiceEngine
                 m_entriesLoaded = 0;
                 MessageSystem.BroadcastMessage(new DisplayAdCommand());
             }
+            MessageSystem.BroadcastMessage(new EntryLoadedMessage(entry));
             foreach (EntryAction action in entry.Actions)
             {
                 if (runActions || action.AlwaysRun())
@@ -57,7 +58,6 @@ namespace Assets.Scripts.ChoiceEngine
                     action.PerformAction();
                 }
             }
-            MessageSystem.BroadcastMessage(new EntryLoadedMessage(entry));
         }
 
         private void Update()

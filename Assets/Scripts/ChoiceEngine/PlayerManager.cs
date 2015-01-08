@@ -257,7 +257,7 @@ namespace Assets.Scripts.ChoiceEngine
             m_player.Name = message.Name;
             m_player.Stats = message.Stats;
             m_player.Inventory = message.Inventory;
-            m_player.CurrentAct = 0;
+            m_player.CurrentAct = 1;
             m_player.CurrentEntry = 0;
             m_player.Flags = new Dictionary<string, bool>();
             m_player.PayingUser = false;
