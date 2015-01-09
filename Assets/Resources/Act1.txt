@@ -32,13 +32,15 @@ Action:GOTO:1
 
 EntryID:1
 EntryText:  You begin the drive out to the house under overcast skies, and soon enough the heavens part and the rain begins to pour down. Your visibility is poor, and the road conditions worsen as you go.
-EntryText:  Old Hill Road cuts off a county road and you quickly find yourself creeping down what would better be called a muddy track rather than a road.
+EntryText:  Old Hill Road cuts off a county road and you quickly find yourself creeping down what would better be called a muddy track than a road.
 
 
+Choice:Continue
+Action:GOTO:20
 
 EntryID:20
 Note:Drive to house, rain stops, hear noise around back, front door or head around back?
-EntryText:  The drive takes a while. Old Hill Rd is the far outskirts of the county. The rain stops about five minutes before you pull up at the house, but the clouds stay gathered and low, making for a gloomy drive.
+EntryText:  The rain finally stops about just before you pull up at the house, but the clouds stay gathered and low, making for a gloomy drive.
 EntryText:  Finally you pull up outside the house. The gate to the road is open, so you pull into the long drive. The gate itself is in need of repair. The stone pillars on either side are cracked, with masonry crumbling off the top of the right one. 
 EntryText:  You pass a tangle of trees, finally catching sight of the house itself. It is in about the same condition as the drive gate. Massive vines snake up the side of the house, bushes in desperate need of trimming crowd the base, and old trees, stretch toward the house as if trying to one day reach inside. 
 EntryText:  The drive ends in a small circle up front, with a separate drive stretching around the house to the back. You park and step out, looking around. Behind the house you can here something going on. A rhythmic thud sounds now and again, as well as the clattering of something falling. The
@@ -100,10 +102,8 @@ EntryText:  You stumble back, falling off the porch with a yelp. Before you can 
 EntryText:  It sinks its teeth into your arm and begins to shake. You scream in pain and punch the dog in the side of the head over and over until it finally relents and lets go. 
 EntryText:  Just as it looks to be gathering steam for another lunge at you, a man behind it grabs its collar and yanks it backwards. He is older and gritty looking, carrying an axe in one hand, manhandling the massive dog with the other. He spits to one side then growls, "Wondering when you were going to show up."
 EntryText:  
-EntryText:  <color=maroon>Current Physical -10 (Dog Mauling)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-9
-EntryText:  <color=green>Max Physical +1 (Feat of Strength)</color>
-EntryAction:MODIFY_ATTRIBUTE:MAX_PHYSICAL:1
+EntryText:  <color=maroon>Current Physical -25 (Dog Mauling)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-25
 
 Choice:Continue.
 Action:GOTO:31
@@ -116,8 +116,8 @@ EntryText:  Unfortunately that amount of might is not enough to even rattle this
 EntryText:  Pain shoots up through your leg, and you dance around a moment or two, until the throbbing in your knee and ankle stops.
 EntryText:  The dog continues to bark at you through the door.
 EntryText:  
-EntryText:  <color=maroon>Current Physical -1 (Pain)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-1
+EntryText:  <color=maroon>Current Physical -5 (Pain)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-5
 
 Choice:Knock on the door.
 Action:GOTO:22
@@ -201,10 +201,10 @@ EntryText:  You spend a few minutes lighting a fire in the fireplace. It warms t
 EntryText:  Sitting down in the chair, you think over all that you have seen today. You know that the day is far from over, and you get the sense that you have just scratched the surface of what the house has to offer, and how owning it will change your life.
 EntryText:  After few more moments of rest you decide to continue your exploration of the house.
 EntryText:  
-EntryText:  <color=green>Current Physical +5 (Rest)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:5
-EntryText:  <color=green>Current Mental +5 (Rest)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:5
+EntryText:  <color=green>Current Physical +25 (Rest)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:25
+EntryText:  <color=green>Current Mental +25 (Rest)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:25
 EntryAction:ADD_FLAG:Fireplace Lit
 
 Choice:Take the lantern.
@@ -328,10 +328,10 @@ EntryText:  Louder and louder, faster and faster it goes, when a howling wind is
 EntryText:  She screams over the howling wind and discordant cacophony of the piano. "No! Make it stop! I can't stop!" The howling wind ends with a massive roar, the piano falls silent, Caroline and the man both scream in terror.
 EntryText:  There is a horrid crunching noise, and the man's scream ends abruptly. The crunching noises continue along with horrid slurping noises.
 EntryText:  
-EntryText:  <color=maroon>Current Mental -5 (Fear)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
-EntryText:  <color=green>Mythos Knowledge +5 (Something is out there)</color>
-EntryAction:MODIFY_ATTRIBUTE:MYTHOS_KNOWLEDGE:5
+EntryText:  <color=maroon>Current Mental -15 (Fear)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-15
+EntryText:  <color=green>Mythos Knowledge +10 (Something is out there)</color>
+EntryAction:MODIFY_ATTRIBUTE:MYTHOS_KNOWLEDGE:10
 
 Choice:Oh god, no, turn it off.
 Action:GOTO:63
@@ -347,8 +347,8 @@ EntryText:  Finally you reach up and lift the arm of the phonograph off, and tur
 EntryText:  Then you see it. 
 EntryText:  In one corner one of the cloths rests over what could only be a piano. You look back down at the massive stain in area in front of the piano. Your mind revolts at the possibilities and you quickly flee the room back to the foyer, trying not to be sick.
 EntryText:  
-EntryText:  <color=maroon>Current Mental -5 (Disgust)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
+EntryText:  <color=maroon>Current Mental -10 (Disgust)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-10
 EntryText:  <color=green>Mythos Knowledge +5 (It can be controlled)</color>
 EntryAction:MODIFY_ATTRIBUTE:MYTHOS_KNOWLEDGE:5
 
@@ -499,10 +499,10 @@ EntryText:  You lay down in the bed, sighing in comfort. You reflect back on all
 EntryText:  As your eyes shut, you begin to doze off a bit. You see a large empty plane stretch out before you. When you turn to look behind you a massive stone structure with impossible angles sits before you. 
 EntryText:  A deep voice growls out a word you do not understand, it echoes from within the impossible building. Your eyes snap open, and like that, the word escapes your memory.
 EntryText:  
-EntryText:  <color=green>Current Physical +5 (Rest)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:5
-EntryText:  <color=green>Current Mental +5 (Rest)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:5
+EntryText:  <color=green>Current Physical +25 (Rest)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:25
+EntryText:  <color=green>Current Mental +25 (Rest)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:25
 EntryAction:ADD_FLAG:Rested In Bed
 
 Choice:Examine the mirror.
@@ -731,10 +731,10 @@ ActionCheckFailure:GOTO:108
 EntryID:108
 EntryText:  There is a loud series of clicking then with a 'shink' spikes jam down into the old piercing your arm in several places. You scream, and the pain is unbearable. You feel as if something is moving all over your arm. It feels as if bugs are crawling all over your arm, feasting on the blood spilling from the wounds. You try to pull free, but the spikes have your arm pinned in place!
 EntryText:  An agonizing few moments later, the spikes slide back up and you collapse in front of the door, holding your wounded arm. You scramble back and look down expecting to see insects all over your arm, but other than a bit of bruising your arm seems fine.
-EntryText:  <color=maroon>Current Mental -5 (Fear)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
-EntryText:  <color=maroon>Current Physical -10 (Pain)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-10
+EntryText:  <color=maroon>Current Mental -15 (Fear)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-15
+EntryText:  <color=maroon>Current Physical -15 (Pain)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-15
 
 Choice:Go back to examining the mechanism.
 Action:GOTO:97
@@ -770,8 +770,8 @@ EntryText:  In the opposite wall a large metal grate separates you from a second
 EntryText:  In one corner an old doll sits propped up, head lolled to one side. Its lifeless eyes stare in the direction of the grated doorway.
 EntryText:  The whole thing makes you uneasy.
 EntryText:  
-EntryText:  <color=maroon>Current Mental -1 (Unease)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-1
+EntryText:  <color=maroon>Current Mental -5 (Unease)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
 
 Choice:Examine the table.
 Action:GOTO:113
@@ -806,8 +806,8 @@ EntryText:  Then you notice that the doll has moved. Its not in the corner any m
 EntryText:  
 EntryText:  <color=maroon>Current Mental -5 (Fear)</color>
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
-EntryText:  <color=maroon>Current Physical -5 (Pain)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-5
+EntryText:  <color=maroon>Current Physical -15 (Pain)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-15
 
 Choice:Run for the grated doorway.
 Action:GOTO:115
@@ -858,10 +858,10 @@ EntryText:  More children's laughter rings out, and you glance back at the doll.
 EntryText:  You realize you took your eyes off the manacles too late. They slap around your wrists, the spikes piercing your skin. Your screams echo through the chamber, mixing with the laughter of the children.
 EntryText:  The manacles pull hard at you, pulling you back to the against the wall.
 EntryText:  
-EntryText:  <color=maroon>Current Mental -5 (Fear)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
-EntryText:  <color=maroon>Current Physical -15 (Pain)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-15
+EntryText:  <color=maroon>Current Mental -15 (Fear)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-15
+EntryText:  <color=maroon>Current Physical -25 (Pain)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-25
 
 Choice:Continue
 Action:GOTO:123
@@ -880,10 +880,10 @@ EntryText:  You pull as hard as you can, and manage to wrench the knife up out o
 EntryText:  The time it took was too costly though. The manacles slam around your wrists, the spikes piercing your skin. Your screams echo through the chamber, mixing with the laughter of the children.
 EntryText:  The manacles pull hard at you, pulling you back to the against the wall.
 EntryText:  
-EntryText:  <color=maroon>Current Mental -5 (Fear)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
-EntryText:  <color=maroon>Current Physical -15 (Pain)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-15
+EntryText:  <color=maroon>Current Mental -15 (Fear)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-15
+EntryText:  <color=maroon>Current Physical -25 (Pain)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-25
 
 Choice:Continue
 Action:GOTO:123
@@ -935,8 +935,8 @@ EntryText:  You go over and look at the doll. It is a cloth body doll, with a wo
 EntryText:  The body of the doll is stained and worn, the stuffing inside has compacted over the years, so now the skin of the doll hangs far looser than it should. 
 EntryText:  Something about the doll just gives you the creeps. It could be the old faded paint, or the worn stained body. Or maybe it is the fact that it is a doll, in what looks to be a dungeon. Either way, you decide to leave it be.
 EntryText:  
-EntryText:  <color=maroon>Current Mental -1 (Creepy)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-1
+EntryText:  <color=maroon>Current Mental -5 (Creepy)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
 
 Choice:Examine the table.
 Action:GOTO:113
@@ -1073,10 +1073,6 @@ Note:Library Success
 EntryText:  You find one interesting article tucked away in the archives. It is from five years back. Apparently your uncle paid a large sum to Miskatonic University for them to perform an archaeological dig on his land. 
 EntryText:  It turns out the land was a former native burial ground. The dig was mildly successful in uncovering several artifacts including a ceremonial mask. 
 EntryText:  Unfortunately, before the dig could be completed, things started going wrong. First there was an accident on the site. Then several of the key artifacts were stolen. Eventually your uncle decided to stop funding the dig.
-EntryText:  
-EntryText:  <color=green>Current and Max Mental +2 (Research)</color>
-EntryAction:MODIFY_ATTRIBUTE:MAX_MENTAL:2
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:2
 
 Choice:This was interesting, but its time to get out of here.
 Action:GOTO:5
@@ -1086,10 +1082,8 @@ EntryID:4
 Note:Library Fail
 EntryText:  Try as you might, you can't seem to find anything very interesting about the house or the land surrounding it. You find yourself struggling to stay focused on the task and eventually give up in frustration. 
 EntryText:  
-EntryText:  <color=maroon>Current Mental -1 (Frustration)</color>
-EntryText:  <color=green>Max Mental +1 (Research)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-1
-EntryAction:MODIFY_ATTRIBUTE:MAX_MENTAL:1
+EntryText:  <color=maroon>Current Mental -5 (Frustration)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
 
 Choice:This was a waste, time to get out of here.
 Action:GOTO:5
@@ -1101,8 +1095,8 @@ EntryText:  Lightning flashes, and when his face is illuminated, it is a horror 
 EntryText:  She starts as you bump into her and says, "Oh, terribly sorry. Are you alright?"
 EntryText:  You look back to where the figure was standing, but he is gone. Swallowing away the fear, you shake your head and straight your clothes, "Yes, fine, thank you. Excuse me." 
 EntryText:  
-EntryText:  <color=maroon>Current Mental -1 (Fear)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-1
+EntryText:  <color=maroon>Current Mental -5 (Fear)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
 
 Choice:You gather your things and slip out into the rain, running to your car.
 Action:GOTO:20
