@@ -1,5 +1,6 @@
 ActName:Act 1 - Morning
 
+
 EntryID:-2
 EntryText:  You collapse from your wounds, exhaustion, or pain. You are not really sure which. In the darkness that follows, you see cloaked men, and horrible things that can not possibly exist. You see the end of all times, or at least your end.
 EntryText:  
@@ -18,32 +19,33 @@ EntryText:  Welcome to a padded room.
 
 EntryID:0
 EntryText:  The year is 1925.  
-EntryText:  A telegram arrived for you late last night. It informed you of the death of Jerith Coleman, an uncle you did not even know you had. In his will, Jerith left his entire estate to you.
+EntryText:  A telegram arrived for you late last night. It informed you of the death of Gerith Coleman, an uncle you did not even know you had. In his will, Jerith left his entire estate to you.
 EntryText:  Accord to the telegram, the estate consists of the home and lands at 15607 Old Hill Rd just outside of Arkham Massachussets. You live in Arkham, so it is a fairly short drive out to the area of Old Hill Road. 
 EntryText:  You are not familiar with the area, but you know where it is, and as luck would have it, you had no other plans for the day. Therefore, you decided that you should drive out there today and examine your new property. 
 EntryText:  Maybe it, or something within, will be worth something to you. At least, you will be able to learn more about this uncle that you did not even know you had.
 EntryAction:PLAY_MUSIC:SpiderEyes
 EntryAction:PLAY_ACT_ANIMATION:GameIntro
 
-Choice__:Research the house before going out there.
-Action__ :GOTO:1
 Choice:Take the drive out to 15607 Old Hill Rd.
 Action:GOTO:1
+
 
 EntryID:1
 EntryText:  You begin the drive out to the house under overcast skies, and soon enough the heavens part and the rain begins to pour down. Your visibility is poor, and the road conditions worsen as you go.
 EntryText:  Old Hill Road cuts off a county road and you quickly find yourself creeping down what would better be called a muddy track than a road.
-
+EntryText:  The trees to either side of the road reach out over the muddy track. They do nothing to really protect from the rain in their current leafless state in late autumn.
+EntryText:  Now and then a wind picks up, blowing some of the fallen leaves across the road. Its the only real movement you've seen in some time. No one seems to care to come out this way, and you have seen another car for last several miles.
 
 Choice:Continue
 Action:GOTO:20
 
+
 EntryID:20
 Note:Drive to house, rain stops, hear noise around back, front door or head around back?
-EntryText:  The rain finally stops about just before you pull up at the house, but the clouds stay gathered and low, making for a gloomy drive.
-EntryText:  Finally you pull up outside the house. The gate to the road is open, so you pull into the long drive. The gate itself is in need of repair. The stone pillars on either side are cracked, with masonry crumbling off the top of the right one. 
-EntryText:  You pass a tangle of trees, finally catching sight of the house itself. It is in about the same condition as the drive gate. Massive vines snake up the side of the house, bushes in desperate need of trimming crowd the base, and old trees, stretch toward the house as if trying to one day reach inside. 
-EntryText:  The drive ends in a small circle up front, with a separate drive stretching around the house to the back. You park and step out, looking around. Behind the house you can here something going on. A rhythmic thud sounds now and again, as well as the clattering of something falling. The
+EntryText:  The rain finally stops just before you pull up at the house, but the clouds stay gathered and low.
+EntryText:  You pull up at the address. A long driveway through an open gate leads back to the house. The gate itself is in need of repair. The stone pillars on either side are cracked, with masonry crumbling off the top of the right one. With a bit of a sigh you pull into the drive and pass the old gate.
+EntryText:  The drive runs through a tangle of trees, and you finally catch sight of the house itself. It is in about the same condition as the drive gate. Massive vines snake up the side of the house, bushes in desperate need of trimming crowd the base, and old trees, stretch toward the house as if trying to one day reach inside. 
+EntryText:  In front of the house the drive ends in a small circular parking area, with a separate drive stretching around the house to the back. You park and step out, looking around. Behind the house you can here something going on. A rhythmic thud sounds now and again, as well as the clattering of something falling. The
 EntryText:  The front door stands ahead of you, shadowed by the old porch which sags slightly on one side. 
 
 Choice:Go to the front door.
@@ -80,14 +82,13 @@ Action:GOTO:30
 
 EntryID:23
 Note: Trying the handle
-EntryText:  You reach down for the handle, ignoring the deep sounds of the barking dog on the other side of the door. You attempt to turn the knob, but nothing happens. 
-EntryText:  It's locked. 
-EntryText:  When you were notified of your inheritance, there was no real communication about actually taking ownership. You don't have a key.
+EntryText:  You reach down for the handle, ignoring the deep sounds of the barking dog on the other side of the door.  
+EntryText:  A quick check reveals that the front door is locked. 
+EntryText:  When you were notified of your inheritance, there was no real communication about actually taking ownership. You don't have a key, and really have no idea how you will get one.
+EntryText:  You walk over to one of the windows on the porch and cup your hands against it, trying to see inside. It's no use, you can't see in through the grime on the window. Even if you could, you think you see that the curtains inside are closed.
 
 Choice:Try kicking the door down.
-Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_PHYSICAL:50
-ActionCheckSuccess:GOTO:24
-ActionCheckFailure:GOTO:25
+Action:GOTO:24
 Choice:Knock on the door.
 Action:GOTO:22
 Choice:Walk around back.
@@ -102,27 +103,10 @@ EntryText:  You stumble back, falling off the porch with a yelp. Before you can 
 EntryText:  It sinks its teeth into your arm and begins to shake. You scream in pain and punch the dog in the side of the head over and over until it finally relents and lets go. 
 EntryText:  Just as it looks to be gathering steam for another lunge at you, a man behind it grabs its collar and yanks it backwards. He is older and gritty looking, carrying an axe in one hand, manhandling the massive dog with the other. He spits to one side then growls, "Wondering when you were going to show up."
 EntryText:  
-EntryText:  <color=maroon>Current Physical -25 (Dog Mauling)</color>
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-25
 
 Choice:Continue.
 Action:GOTO:31
-
-
-EntryID:25
-Note:Failed kicking it down
-EntryText:  You rear back and kick the door near the handle with all of your might. 
-EntryText:  Unfortunately that amount of might is not enough to even rattle this solid old door. 
-EntryText:  Pain shoots up through your leg, and you dance around a moment or two, until the throbbing in your knee and ankle stops.
-EntryText:  The dog continues to bark at you through the door.
-EntryText:  
-EntryText:  <color=maroon>Current Physical -5 (Pain)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-5
-
-Choice:Knock on the door.
-Action:GOTO:22
-Choice:Walk around back.
-Action:GOTO:30
 
 
 EntryID:30
@@ -134,18 +118,26 @@ EntryText:  You shudder at the gruesome thought, then call out, "Excuse me."
 EntryText:  He doesn't miss a beat, axe falling to split another log even though he is now looking at you. "What?"
 EntryText:  "I don't mean to intrude, but I need a word with you." He spits to one side of then chokes up on the axe and strides toward you. 
 EntryText:  You swallow then straighten your clothes and move to meet him.
+
 Choice:Continue.
 Action:GOTO:31
 
 
 EntryID:31
 Note: Talking to the caretaker. 
-EntryText:  "I'm James, the caretaker of the property." He sets the axe aside and looks you up and down. 
-EntryText:  You begin to introduce yourself, but he interrupts, "I know who you are. Who do you think sent you the telegram? Your uncle was a fair boss, and he left me the shack behind the house. I'll continue to take care of the house and grounds as best I can."
+EntryText:  The man frowns at you, then sighs, "I'm James, the caretaker of the property." He sets the axe aside and looks you up and down. 
+EntryText:  You begin to introduce yourself, but he interrupts, "I know who you are. Who do you think sent you the telegram?" He studies you a moment longer then turns away, "Welcome to your new house."
+EntryText:  "Thanks, I guess..." You are not sure what to say next, so you add, "I really didn't know my uncle at all..."
+EntryText:  James turns back to look at you again, then shrugs slightly. "He was a fair boss, and he left me the shack behind the house. I'll continue to take care of the house and grounds as best I can."
+
+Choice:Continue.
+Action:GOTO:32
+
+
+EntryID:32
 EntryText:  Nodding you ask him, "What about the inside of the house? Who took care of that?" You stare up at the large building wondering what it was your uncle actually did.
 EntryText:  "That would just be you. Your uncle only had one really strict rule. No one in the house but himself. Ever. I've never set foot in the place. Don't see any reason to change that now. Besides. The place creeps me out." 
 EntryText:  In the distance there is a flash of lightning and the rumble of thunder. James stares at the sky over the top of the trees around the house. "I'll get the dog out of your way, and then you better get inside. There is a storm coming. You don't want to get caught unprepared. Oh, and here are the keys." He hands you a large set of keys to the house.
-EntryAction:GRANT_ITEM:House Keys:smallItemSample:smallItemSample:This set of keys is for the house at 15607 Old Hill Rd outside of Arkham, Massachusetts. They are sturdy, old keys, made for the old locks of the house. 
 
 Choice:Head inside before the storm comes.
 Action:GOTO:50
@@ -153,9 +145,11 @@ Action:GOTO:50
 
 EntryID:50
 Note: Exploring the house.
-EntryText:  The keys to your new home finally in hand, you step to the door and unlock it. 
-EntryText:  Meanwhile, James takes the dog by the collar and drags him toward the shack out back. The entire time the dog barks and growls in your direction. James cuffs it with his free hand, "Shut up." The dog doesn't seem to notice.
-EntryText:  You turn from the two and step inside, looking around. The place has definitely seen better days.
+EntryText:  The keys to your new home finally in hand, you step to the door. 
+EntryText:  You turn from the two and look to the door. 
+EntryText:  You look down at the set of keys and have to try one or two before you find one that finally fits the lock. You have to work at it a moment, as the old lock sticks, but finally you get it open. 
+EntryText:  James takes the dog by the collar and drags him toward the shack out back. The entire time the dog barks and growls in your direction. James cuffs it with his free hand, "Shut up." The dog doesn't seem to notice.
+EntryText:  Finally, you step inside, looking around. The place has definitely seen better days.
 
 Choice:Continue
 Action:GOTO:51
@@ -164,7 +158,7 @@ Action:GOTO:51
 EntryID:51
 EntryText:  You are in the foyer. Everything here is worn and old. The hardwood is scratched, the plaster is peeling from the walls, and the few bits of furniture are covered in dust, and in disrepair.
 EntryText:  The area is musty, and you can tell by the smell that the dog spends a good bit of time here. Tracks in the dust on the floor show patterns of traffic between the rooms, but in the corners the cobwebs and dust gather.
-EntryText:  Off to the left of the door is a sitting room, to the other side a large study. Ahead of you there is a massive staircase that leads up the second floor landing. A door besides the staircase hangs open and obviously leads to the back of the house. 
+EntryText:  Off to the left of the door is a sitting room, to the other side a large study. Ahead of you there is a massive staircase that leads up the second floor landing. A door beside the staircase hangs open and obviously leads to the back of the house. 
 
 Choice:Head into the sitting room. 
 Action:GOTO:60
@@ -184,7 +178,7 @@ EntryText:  Unlike the other areas on the ground floor of the house, this room l
 EntryText:  Beside the chair sits a small oil lamp. Its handle is well worn, and the lamp seems to have gotten plenty of use.
 EntryText:  The bookshelf built around the fireplace is mostly bare, but one section is covered in old books. Another shelf contains several jars and other knick knacks.  
 
-Choice:Light a fire in the fireplace.
+Choice:Light a fire in the fireplace and have a rest.
 Action:GOTO:56
 Requirement:NOT_HAVE_FLAG:Fireplace Lit
 Choice:Take the lantern.
@@ -201,9 +195,7 @@ EntryText:  You spend a few minutes lighting a fire in the fireplace. It warms t
 EntryText:  Sitting down in the chair, you think over all that you have seen today. You know that the day is far from over, and you get the sense that you have just scratched the surface of what the house has to offer, and how owning it will change your life.
 EntryText:  After few more moments of rest you decide to continue your exploration of the house.
 EntryText:  
-EntryText:  <color=green>Current Physical +25 (Rest)</color>
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:25
-EntryText:  <color=green>Current Mental +25 (Rest)</color>
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:25
 EntryAction:ADD_FLAG:Fireplace Lit
 
@@ -267,92 +259,57 @@ Action:GOTO:51
 
 EntryID:60
 EntryText:  The sitting room is old, just like everything else in the house. Most of the furniture here is covered in old drop cloths. The cloths are in turn covered in layers of grime and dust. 
-EntryText:  The only thing not covered in grime or a drop cloth is an old phonograph in one corner of the room. A large dark stain covers one large section of the floor. 
-EntryText:  Doors lead out of here to the foyer at the front of the house and to the back of the house.
+EntryText:  The only thing not covered in grime or a drop cloth are several old paintings that line one wall. The first painting depicts a man, the second painting a woman, and third painting a young girl.
+EntryText:  A door leads out of here to the foyer.
 Note: Sitting Room
 
+Choice:Examine the painting of the man.
+Action:GOTO:61
+Choice:Examine the painting of the woman.
+Action:GOTO:62
+Choice:Examine the painting of the young girl.
+Action:GOTO:63
 Choice:Head through the open door back to the foyer.
 Action:GOTO:51
-Choice:Go through the door to back of the house. 
-Action:REQUIREMENT_CHECK:HAVE_FLAG:Knife Taken
-ActionCheckSuccess:GOTO:67
-ActionCheckFailure:GOTO:66
-Choice:Check out the phonograph.
-Action:GOTO:61
-Requirement:NOT_HAVE_FLAG:Phonograph Examined
 
 
 EntryID:61
-EntryText:  The phonograph is several decades old. A single record without a label sits on the phonograph. Scratched into the center where a label might be are some crude symbols that look more like runes than letters.
-EntryText:  You check, and the phonograph is plugged in and getting power.
-EntryAction:ADD_FLAG:Phonograph Examined
+EntryText:  The painting is a decade or two old. The plaque on the frame below it reads "Gerith Coleman", your uncle. 
+EntryText:  He is in a well tailored suit, and holding a pipe. He looks very studious and serious, staring out into the room as if watching over his old house.
+EntryText:  Not for the first time today you wonder who Gerith Coleman was, and what he was like. Why did your parents never talk of your uncle?
 
-Choice:Leave the phonograph alone and go to the back of the house.
-Action:GOTO:66
-Choice:Leave the phonograph alone and go back into the foyer.
-Action:GOTO:51
-Choice:Turn the phonograph on and needle onto the record.
+Choice:Examine the painting of the woman.
 Action:GOTO:62
+Choice:Examine the painting of the young girl.
+Action:GOTO:63
+Choice:Head through the open door back to the foyer.
+Action:GOTO:51
 
 
 EntryID:62
-EntryText:  The recording is very scratchy. A man's voice is heard first.
-EntryText:  "Will you play for me?"
-EntryText:  A softer voice, female it would seem responds, "I would prefer not to. You know I don't like it."
-EntryText:  "Please, Caroline. Just one more time. For me." There is a long pause, then some rustling, before a piano begins to play. The tune is slow, and haunting at first. Then it begins to pick up in tempo.
-EntryText:  Caroline whimpers, as the playing seems to get harder. You can hear even through the rough sound of the recording the physical sound of the keys being hammered on. The tempo of the music gets faster, and faster.
+EntryText:  This painting is well taken care of. Unlike the other two, there is very little dirt or dust on the frame or the glass. 
+EntryText:  The subject is a younger woman. By the clothing she is wearing, a nice dress, but a bit outdated, you can tell the painting is a few decades old. She is a pretty woman, and seems very happy in the portrait.
+EntryText:  A plaque is attached to the frame that reads "Anne Coleman, loving wife". 
+EntryText:  This must have been your aunt. She must have passed before your uncle for the house to have gone to you. For a moment you wonder what happened to her.
 
-Choice:That's enough of that, turn it off.
+Choice:Examine the painting of the man.
+Action:GOTO:61
+Choice:Examine the painting of the young girl.
 Action:GOTO:63
-Choice:Let it play. It is after all, just music.
-Action:GOTO:64
+Choice:Head through the open door back to the foyer.
+Action:GOTO:51
 
 
 EntryID:63
-EntryText:  You yank the arm of the phonograph up, a scratching sound echoes as the needle scrapes the record. 
-EntryText:  The silence that follows is almost too completely. The noise that moments ago filled the air seems almost preferable to the sudden silence. 
-EntryText:  You realize you had been holding your breath and let it out with a sigh, shaking from your head the thoughts of what you just heard.
+EntryText:  This painting looks to be about the same age as the painting of the woman, so several decades old. It has been cared for, but still there is some dust and grime on it. 
+EntryText:  Depicted in the painting is a young girl, about the age of six. She is dressed in a fine dress, and in one arm she cradles a doll. Both the girl and the doll seem to be staring out at something. Whatever it was seems to have amused the girl, for she has a slight smirk on her face.
+EntryText:  Attached to the frame is a small plaque that reads, "Caroline Coleman". Perhaps this was your aunt and uncle's daughter? If so, you wonder what happened to her such that she was not given the house on your uncle's passing. She would have been your cousin. Another relative you did not even know existed. Why did your parents keep this whole part of your family from you?
 
+Choice:Examine the painting of the man.
+Action:GOTO:61
+Choice:Examine the painting of the woman.
+Action:GOTO:62
 Choice:Head through the open door back to the foyer.
-Action:GOTO:51
-Choice:Go through the door to back of the house. 
-Action:REQUIREMENT_CHECK:HAVE_FLAG:Knife Taken
-ActionCheckSuccess:GOTO:67
-ActionCheckFailure:GOTO:66
-Action:GOTO:66
-
-
-EntryID:64
-EntryText:  You can hear now that Caroline is in physical pain as she continues to play. She hammers on the keys, and the music reaches a level of discord and frantic nature.
-EntryText:  Louder and louder, faster and faster it goes, when a howling wind is picked up by the recording. "You are doing it Caroline, keep playing!" yells the man's voice. 
-EntryText:  She screams over the howling wind and discordant cacophony of the piano. "No! Make it stop! I can't stop!" The howling wind ends with a massive roar, the piano falls silent, Caroline and the man both scream in terror.
-EntryText:  There is a horrid crunching noise, and the man's scream ends abruptly. The crunching noises continue along with horrid slurping noises.
-EntryText:  
-EntryText:  <color=maroon>Current Mental -15 (Fear)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-15
-EntryText:  <color=green>Mythos Knowledge +10 (Something is out there)</color>
-EntryAction:MODIFY_ATTRIBUTE:MYTHOS_KNOWLEDGE:10
-
-Choice:Oh god, no, turn it off.
-Action:GOTO:63
-Choice:You've heard this much, you might as well hear the end.
-Action:GOTO:65
-
-
-EntryID:65
-EntryText:  There is a low chuckle as the crunching and slurping continues. Caroline's voice is heard again, this time it is far more sultry and soothing, "There you go."
-EntryText:  "Eat up my darling. Enjoy the meal." She laughs low and begins to play the piano again, this time softly, and almost playfully. The crunching and slurping noises pause for and a soft mewling growl is heard. "Yes, I know. I tried to warn him. But he didn't listen. They never listen."
-EntryText:  You swallow hard as the recording ends with Caroline laughing, joined by a deep guttural laugh. The needle finally reaches the end of the record and it begins to skip slowly, scratching noises coming from the phonograph as it continues to spin.
-EntryText:  Finally you reach up and lift the arm of the phonograph off, and turn the the phonograph off. Your eyes dart around the room, and you realize you've been holding your breath slightly so you let it out. 
-EntryText:  Then you see it. 
-EntryText:  In one corner one of the cloths rests over what could only be a piano. You look back down at the massive stain in area in front of the piano. Your mind revolts at the possibilities and you quickly flee the room back to the foyer, trying not to be sick.
-EntryText:  
-EntryText:  <color=maroon>Current Mental -10 (Disgust)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-10
-EntryText:  <color=green>Mythos Knowledge +5 (It can be controlled)</color>
-EntryAction:MODIFY_ATTRIBUTE:MYTHOS_KNOWLEDGE:5
-
-Choice:You race out through the open door back to the foyer.
 Action:GOTO:51
 
 
@@ -367,12 +324,11 @@ Choice:Take the knife.
 Action:GOTO:68
 Choice:Head back to the foyer.
 Action:GOTO:51
-Choice:Go through the open door to the sitting room.
-Action:GOTO:60
 Choice:Go down into the basement.
 Action:REQUIREMENT_CHECK:HAVE_ITEM:Old Oil Lantern
-ActionCheckSuccess:GOTO:90
-ActionCheckFailure:GOTO:69
+ActionCheckSuccess:GOTO:89
+ActionCheckFailure:GOTO:160
+
 
 EntryID:67
 EntryText:  You find yourself in the kitchen of the house. Most of the cupboard cabinets are open and bare. The few that are not you search through and find empty.
@@ -384,6 +340,7 @@ Action:GOTO:51
 Choice:Go through the open door to the sitting room.
 Action:GOTO:60
 
+
 EntryID:68
 EntryText:  When you pick up the knife, you turn it over in your hands and give it a good long look. Something doesn't feel right about it, but you push that from your mind and tuck the knife away.
 EntryAction:GRANT_ITEM:Ancient Knife:smallKnife:largeKnife:This very old knife has a wooden handle carved to look like an animal's paw. The wood looks very old and aged. Some sort of dark liquid has unevenly stained the wood in places. The blade of the knife is around eight inches long, with an edge on just one side. It sweeps back on the edge side to a sharp point. The back side of the blade has a groove in it. Caked in the groove is what looks to be dried blood. Perhaps that is what stained the handle as well. 
@@ -394,29 +351,17 @@ Choice:Go through the open door to the sitting room.
 Action:GOTO:60
 Choice:Go down into the basement.
 Action:REQUIREMENT_CHECK:HAVE_ITEM:Old Oil Lantern
-ActionCheckSuccess:GOTO:90
-ActionCheckFailure:GOTO:69
-
-
-EntryID:69
-EntryText:  You open the door to the basement and stare down the steep steps into the darkness. You click the switch at the top of the steps and the light momentarily lights the stairs before a loud pop sounds and the light dims then quickly goes dark.
-EntryText:  With no other way to see down there, you close the basement door.
-
-Choice:Head back to the foyer.
-Action:GOTO:51
-Choice:Go through the open door to the sitting room.
-Action:GOTO:60
+ActionCheckSuccess:GOTO:89
+ActionCheckFailure:GOTO:160
 
 
 EntryID:70
 Note: Upstairs Landing, clock puzzle
-EntryText:  You are on the upstairs landing. A massive grandfather clock dominates the middle of the landing. It is dusty like the rest of the house, but seems to be in working condition.
+EntryText:  You are on the upstairs landing. Besides a small table in the center of the wall covered in dust and cobwebs, there is nothing really here.
 EntryText:  On either end of the landing there are doors leading to the master bedroom on one side, and the spare bedroom on the other side.
 
-Choice:Examine the grandfather clock.
-Action:GOTO:130
 Choice:Head into the master bedroom.
-Action:GOTO:85
+Action:GOTO:150
 Choice:Go into the spare room.
 Action:GOTO:80
 Choice:Go back down to the foyer.
@@ -425,99 +370,90 @@ Action:GOTO:51
 
 EntryID:80
 Note: Spare Room, empty, spooky
-EntryText:  The spare room is lightly furnished, and obviously unused. The side table and dresser are covered with old drop cloths. The bed is not made, and missing its sheets. 
+EntryText:  The spare room is obviously unused. Various pieces of furniture are about, all covered by old drop cloths.
 EntryText:  The mattress of the bed has been slashed open in several places, and the stuffing and springs are spilled out on the floor.
+EntryText:  An old phonograph sits in one corner of the room. A large dark stain covers one large section of the floor. 
 
-Choice:Check the mattress debris for anything.
-Action:GOTO:81
 Choice:Leave the room, there is nothing her worth investigating.
 Action:GOTO:70
+Choice:Check out the phonograph.
+Action:GOTO:81
+Requirement:NOT_HAVE_FLAG:Phonograph Examined
 
 
 EntryID:81
-EntryText:  You reach down and begin digging through the stuffing and twisted metal springs. Several of the chunks of mattress stuffing are stained in an old dark color. 
-EntryText:  Within all the stuffing you find a lump of something pulpy, and when you poke it, it begins to inch away. It's a massive maggot like creature, some six inches long and four inches around.
-EntryText:  The smell it gives off when it moves is revolting, and its flesh undulates as it inches away from you and back into the mass of stuffing.
+EntryText:  The phonograph is several decades old. A single record without a label sits on the phonograph. Scratched into the center where a label might be are some crude symbols that look more like runes than letters.
+EntryText:  You check, and the phonograph is plugged in and getting power.
+EntryAction:ADD_FLAG:Phonograph Examined
 
-Choice:Trying not to get sick you leave the thing alone and leave the room.
+Choice:Leave the phonograph alone and head back to the landing.
 Action:GOTO:70
+Choice:Turn the phonograph on and needle onto the record.
+Action:GOTO:82
+
+
+EntryID:82
+EntryText:  The recording is very scratchy. A man's voice is heard first.
+EntryText:  "Will you play for me?"
+EntryText:  A softer voice, female it would seem responds, "I would prefer not to. You know I don't like it."
+EntryText:  "Please, Caroline. Just one more time. For me." There is a long pause, then some rustling, before a piano begins to play. The tune is slow, and haunting at first. Then it begins to pick up in tempo.
+EntryText:  Caroline whimpers, as the playing seems to get harder. You can hear even through the rough sound of the recording the physical sound of the keys being hammered on. The tempo of the music gets faster, and faster.
+
+Choice:That's enough of that, turn it off.
+Action:GOTO:83
+Choice:Let it play. It is after all, just music.
+Action:GOTO:84
+
+
+EntryID:83
+EntryText:  You yank the arm of the phonograph up, a scratching sound echoes as the needle scrapes the record. 
+EntryText:  The silence that follows is almost too completely. The noise that moments ago filled the air seems almost preferable to the sudden silence. 
+EntryText:  You realize you had been holding your breath and let it out with a sigh, shaking from your head the thoughts of what you just heard.
+
+Choice:Head through the open door back to the landing.
+Action:GOTO:70
+
+
+EntryID:84
+EntryText:  You can hear now that Caroline is in physical pain as she continues to play. She hammers on the keys, and the music reaches a level of discord and frantic nature.
+EntryText:  Louder and louder, faster and faster it goes, when a howling wind is picked up by the recording. "You are doing it Caroline, keep playing!" yells the man's voice. 
+EntryText:  She screams over the howling wind and discordant cacophony of the piano. "No! Make it stop! I can't stop!" The howling wind ends with a massive roar, the piano falls silent, Caroline and the man both scream in terror.
+EntryText:  There is a horrid crunching noise, and the man's scream ends abruptly. The crunching noises continue along with horrid slurping noises.
+EntryText:  
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-15
+EntryAction:MODIFY_ATTRIBUTE:MYTHOS_KNOWLEDGE:10
+
+Choice:Oh god, no, turn it off.
+Action:GOTO:83
+Choice:You've heard this much, you might as well hear the end.
+Action:GOTO:85
 
 
 EntryID:85
-Note: Master Bedroom, mirror, old book on end table note "12-12 and stop"
-EntryText:  The master bedroom has obviously been well used and maintained. There is a large four poster bed, with covers and pillows still piled on top of. 
-EntryText:  Beside the bed is a small end table with a small book on it. 
-EntryText:  Against one wall is a large mirror, and windows look out over the backyard.
-
-Choice:Examine the mirror.
-Action:GOTO:86
-Choice:Examine the book on the end table.
-Action:GOTO:87
-Choice:Relax in the bed.
-Action:GOTO:88
-Requirement:NOT_HAVE_FLAG:Rested In Bed
-Choice:Head back out to the landing.
-Action:GOTO:70
-
-
-EntryID:86
-EntryText:  The large mirror is a good seven feet tall, and mounted to the wall. The edge of the mirror is iron and forged into the strange shapes.
-EntryText:  Unusual creatures, people in strange outfits, and other odd shapes are depicted in the decoration on the edge of the mirror.
-EntryText:  The mirror itself has a bit of a wave to the glass and is a bit clouded, so the reflection is a warped and darker version of reality.
-EntryText:  You study yourself in the darkened reflection and for a moment you find yourself smirking at the dark image. You imagine yourself a dark god, watching over his people. 
-EntryText:  Blinking the image out of your mind, you shake your head and turn away from the strange mirror.
-
-Choice:Examine the book on the end table.
-Action:GOTO:87
-Choice:Relax in the bed.
-Action:GOTO:88
-Requirement:NOT_HAVE_FLAG:Rested In Bed
-Choice:Head back out to the landing.
-Action:GOTO:70
-
-
-EntryID:87
-Note: Book
-EntryText:  The book seems to be a journal. Your uncle's name is written inside the cover. You flip through a few pages and begin to read, hoping to glean information about your uncle.
-EntryText:  Most of the days detailed in the journal discuss your uncle doing research, or exploring the woods. He often refers to someone or something as 'them' but never elaborates on who they are.
-EntryText:  Whoever it is, they apparently scare your uncle, because he talks about installing protections from outsiders like 'them'. He talks of 'they' want what he acquired, and he rails against the unfairness enacted upon him by 'them' when all he wants is to be left alone.
-EntryText:  In one entry he even says if he dies, it will likely be at their hands.
-EntryText:  Tucked into the book is a small handwritten note. It is in a language you don't understand. Written beneath it in English seems to be a translation. It says, "I finally understand how time works. 12-12, stop."
-
-Choice:Examine the mirror.
-Action:GOTO:86
-Choice:Relax in the bed.
-Action:GOTO:88
-Requirement:NOT_HAVE_FLAG:Rested In Bed
-Choice:Head back out to the landing.
-Action:GOTO:70
-
-
-EntryID:88
-Note: Relax in bed
-EntryText:  You lay down in the bed, sighing in comfort. You reflect back on all that has happened to you today so far.
-EntryText:  As your eyes shut, you begin to doze off a bit. You see a large empty plane stretch out before you. When you turn to look behind you a massive stone structure with impossible angles sits before you. 
-EntryText:  A deep voice growls out a word you do not understand, it echoes from within the impossible building. Your eyes snap open, and like that, the word escapes your memory.
+EntryText:  There is a low chuckle as the crunching and slurping continues. Caroline's voice is heard again, this time it is far more sultry and soothing, "There you go."
+EntryText:  "Eat up my darling. Enjoy the meal." She laughs low and begins to play the piano again, this time softly, and almost playfully. The crunching and slurping noises pause for and a soft mewling growl is heard. "Yes, I know. I tried to warn him. But he didn't listen. They never listen."
+EntryText:  You swallow hard as the recording ends with Caroline laughing, joined by a deep guttural laugh. The needle finally reaches the end of the record and it begins to skip slowly, scratching noises coming from the phonograph as it continues to spin.
+EntryText:  Finally you reach up and lift the arm of the phonograph off, and turn the the phonograph off. Your eyes dart around the room, and you realize you've been holding your breath slightly so you let it out. 
+EntryText:  Then you see it. 
+EntryText:  In one corner one of the cloths rests over what could only be a piano. You look back down at the massive stain in area in front of the piano. Your mind revolts at the possibilities and you quickly flee the room back to the foyer, trying not to be sick.
 EntryText:  
-EntryText:  <color=green>Current Physical +25 (Rest)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:25
-EntryText:  <color=green>Current Mental +25 (Rest)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:25
-EntryAction:ADD_FLAG:Rested In Bed
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-10
+EntryAction:MODIFY_ATTRIBUTE:MYTHOS_KNOWLEDGE:5
 
-Choice:Examine the mirror.
-Action:GOTO:86
-Choice:Examine the book on the end table.
-Action:GOTO:87
-Choice:Head back out to the landing.
+Choice:You race out through the open door back to the landing.
 Action:GOTO:70
 
 
-EntryID:90
+EntryID:89
 Note: Basement
 EntryText:  You open the door to the basement and stare down the steep steps into the darkness. You click the switch at the top of the steps and the light momentarily lights the stairs before a loud pop sounds and the light dims then quickly goes dark. 
 EntryText:  Pulling the oil lantern out you light it and twist the knob to adjust the flame to the right height. Finally ready you head down the steps and into the basement. 
 EntryText:  Dust and dirt gathers in the gloomy corners of the basement, and a rat crawls quickly out of your light and through a hole in the wall. The room empty save a large metal door set in one wall.
+
+Choice:Continue.
+Action:GOTO:90 
+
+EntryID:90
 EntryText:  Stepping up to the door you see beside it a large decorative metal mechanism built into the wall. There are no handles or latches on the door. In the middle of the mechanism is a large metal skull with dark green crystals for eyes. The skulls mouth is open wide, and by lifting the lamp just right, you can see that there is a lever deep within the hole. You would have to reach almost your entire arm in to reach the lever. Slots line the bottom of the hole, and small holes like the top of it.
 EntryText:  Around the skull are three concentric rings. Each is carved with decorative symbols. The outer ring seems to be decorated with symbols of the sun. The middle ring is decorated with symbols of the moon. The inner ring is decorated with fire symbols. Each of the rings has a small handle, and looks like they can spin either direction.
 
@@ -731,9 +667,8 @@ ActionCheckFailure:GOTO:108
 EntryID:108
 EntryText:  There is a loud series of clicking then with a 'shink' spikes jam down into the old piercing your arm in several places. You scream, and the pain is unbearable. You feel as if something is moving all over your arm. It feels as if bugs are crawling all over your arm, feasting on the blood spilling from the wounds. You try to pull free, but the spikes have your arm pinned in place!
 EntryText:  An agonizing few moments later, the spikes slide back up and you collapse in front of the door, holding your wounded arm. You scramble back and look down expecting to see insects all over your arm, but other than a bit of bruising your arm seems fine.
-EntryText:  <color=maroon>Current Mental -15 (Fear)</color>
+EntryText:  
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-15
-EntryText:  <color=maroon>Current Physical -15 (Pain)</color>
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-15
 
 Choice:Go back to examining the mechanism.
@@ -741,9 +676,275 @@ Action:GOTO:97
 Choice:You are done with this door and decide to leave the basement.
 Action:GOTO:67
 
+
 EntryID:109
 Note: Vault (whats in it?) (TODO)
 EntryText: With a thunk the door slides open.
+
+
+EntryID:150
+Note: Master Bedroom, mirror, old book on end table note "12-12 and stop"
+EntryText:  The master bedroom has obviously been well used and maintained. There is a large four poster bed, with covers and pillows still piled on top of. 
+EntryText:  Beside the bed is a small end table with a small book on it. 
+EntryText:  Against one wall is a large mirror, and windows look out over the backyard.
+
+Choice:Examine the mirror.
+Action:GOTO:151
+Choice:Examine the book on the end table.
+Action:GOTO:152
+Choice:Relax in the bed.
+Action:GOTO:153
+Requirement:NOT_HAVE_FLAG:Rested In Bed
+Choice:Head back out to the landing.
+Action:GOTO:70
+
+
+EntryID:151
+EntryText:  The large mirror is a good seven feet tall, and mounted to the wall. The edge of the mirror is iron and forged into the strange shapes.
+EntryText:  Unusual creatures, people in strange outfits, and other odd shapes are depicted in the decoration on the edge of the mirror.
+EntryText:  The mirror itself has a bit of a wave to the glass and is a bit clouded, so the reflection is a warped and darker version of reality.
+EntryText:  You study yourself in the darkened reflection and for a moment you find yourself smirking at the dark image. You imagine yourself a dark god, watching over his people. 
+EntryText:  Blinking the image out of your mind, you shake your head and turn away from the strange mirror.
+
+Choice:Examine the book on the end table.
+Action:GOTO:152
+Choice:Relax in the bed.
+Action:GOTO:153
+Requirement:NOT_HAVE_FLAG:Rested In Bed
+Choice:Head back out to the landing.
+Action:GOTO:70
+
+
+EntryID:152
+Note: Book
+EntryText:  The book seems to be a journal. Your uncle's name is written inside the cover. You flip through a few pages and begin to read, hoping to glean information about your uncle.
+EntryText:  Most of the days detailed in the journal discuss your uncle doing research, or exploring the woods. He often refers to someone or something as 'them' but never elaborates on who they are.
+EntryText:  Whoever it is, they apparently scare your uncle, because he talks about installing protections from outsiders like 'them'. He talks of 'they' want what he acquired, and he rails against the unfairness enacted upon him by 'them' when all he wants is to be left alone.
+EntryText:  In one entry he even says if he dies, it will likely be at their hands.
+EntryText:  Tucked into the book is a small handwritten note. It is in a language you don't understand. Written beneath it in English seems to be a translation. It says, "I finally understand how time works. 12-12, stop."
+
+Choice:Examine the mirror.
+Action:GOTO:151
+Choice:Relax in the bed.
+Action:GOTO:153
+Requirement:NOT_HAVE_FLAG:Rested In Bed
+Choice:Head back out to the landing.
+Action:GOTO:70
+
+
+EntryID:153
+Note: Relax in bed
+EntryText:  You lay down in the bed, sighing in comfort. You reflect back on all that has happened to you today so far.
+EntryText:  As your eyes shut, you begin to doze off a bit. You see a large empty plane stretch out before you. When you turn to look behind you a massive stone structure with impossible angles sits before you. 
+EntryText:  A deep voice growls out a word you do not understand, it echoes from within the impossible building. Your eyes snap open, and like that, the word escapes your memory.
+EntryText:  
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:25
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:25
+EntryAction:ADD_FLAG:Rested In Bed
+
+Choice:Examine the mirror.
+Action:GOTO:151
+Choice:Examine the book on the end table.
+Action:GOTO:152
+Choice:Head back out to the landing.
+Action:GOTO:70
+
+
+EntryID:160
+EntryText:  You open the door to the basement and stare down the steep steps into the darkness. You click the switch at the top of the steps and the light momentarily lights the stairs before a loud pop sounds and the light dims then quickly goes dark.
+EntryText:  With no other way to see down there, you close the basement door.
+
+Choice:Head back to the foyer.
+Action:GOTO:51
+Choice:Go through the open door to the sitting room.
+Action:GOTO:60
+
+
+
+END
+
+
+
+EntryID:1
+EntryText:  Two places within town immediately come to mind. The library and the Arkham Advertiser, the local newspaper. Either might have more information.
+EntryText:  At the library, you know you can pour over many old texts about Arkham and its surroundings. It would take some time, but nothing some dogged determination can't handle.
+EntryText:  The Arkham Advertiser on the other hand means dealing with the local reporters, editors, or archivists. Getting them to give up information when there is no story to be had will take some convincing.
+EntryText:  Of course, you are burning daylight, and you have a bit of a drive ahead of you. Perhaps it would best to skip all this and head out to the house. After all, it is just a house, what more would you need to know than that?
+
+Choice:Nevermind the research. You decide to head out to the house.
+Action:GOTO:20
+Choice:The library sounds up your speed with its dusty old tomes and research.
+Action:GOTO:2
+Choice:The Arkham Advertiser is the better choice. If there is information to be had, reporters will know!
+Action:GOTO:10
+
+
+EntryID:2
+Note:Library
+EntryText:  You pull up outside the library and step out of your car, just as a thunderclap sounds overhead. Dark storm clouds have been gathering all morning and it looks like they will finally let loose the rain soon.
+EntryText:  Managing to get inside just before the rain hits, you settle into to dig through the ancient books and periodicals. The hours go by, and most of what you find is rather dull. Nothing really sparks your interest immediately.
+EntryText:  You are reshelving a book on the history of Arkham and its surrounding areas when you get the feeling that something is watching you. You turn to look, but nothing is there but rows upon rows of books. 
+EntryText:  Shaking off the feeling you dive back into the search, hoping that something fruitful will turn up soon.
+
+Choice:Continue
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_MENTAL:40
+ActionCheckSuccess:GOTO:3
+ActionCheckFailure:GOTO:4
+
+
+EntryID:3
+Note:Library Success
+EntryText:  You find one interesting article tucked away in the archives. It is from five years back. Apparently your uncle paid a large sum to Miskatonic University for them to perform an archaeological dig on his land. 
+EntryText:  It turns out the land was a former native burial ground. The dig was mildly successful in uncovering several artifacts including a ceremonial mask. 
+EntryText:  Unfortunately, before the dig could be completed, things started going wrong. First there was an accident on the site. Then several of the key artifacts were stolen. Eventually your uncle decided to stop funding the dig.
+
+Choice:This was interesting, but its time to get out of here.
+Action:GOTO:5
+
+
+EntryID:4
+Note:Library Fail
+EntryText:  Try as you might, you can't seem to find anything very interesting about the house or the land surrounding it. You find yourself struggling to stay focused on the task and eventually give up in frustration. 
+EntryText:  
+EntryText:  <color=maroon>Current Mental -5 (Frustration)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
+
+Choice:This was a waste, time to get out of here.
+Action:GOTO:5
+
+
+EntryID:5
+EntryText:  As you reshelve the final book you turn to find a man standing in the shadows of the rack of books ahead of you. Shadows cover his features, and he slowly shakes his head. 
+EntryText:  Lightning flashes, and when his face is illuminated, it is a horror to behold. The eyes are sunken in, the skin is taut, and his lips are pulled back in a snarl. You start back as the lightning flash fades and run into a librarian walking through the stacks.
+EntryText:  She starts as you bump into her and says, "Oh, terribly sorry. Are you alright?"
+EntryText:  You look back to where the figure was standing, but he is gone. Swallowing away the fear, you shake your head and straight your clothes, "Yes, fine, thank you. Excuse me." 
+EntryText:  
+EntryText:  <color=maroon>Current Mental -5 (Fear)</color>
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
+
+Choice:You gather your things and slip out into the rain, running to your car.
+Action:GOTO:20
+
+
+EntryID:10
+Note:Newspaper, non-reporter
+EntryText:  You pull up outside the building that houses the Arkham Advertiser, just as a thunderclap sounds overhead. Storm clouds have been gathering all morning and they finally let loose just as you step out of your car. 
+EntryText:  You race to the door, the rain slicking your hair to your head. As you get to the door a woman opens it for your from the inside and smiles, "Quickly, come in!" She laughs gently at your condition and waits for you to gather yourself before saying, "Welcome to the Arkham Advertiser. I'm Julie, the editor of the paper. What can I do for you?"
+
+Choice:Introduce yourself and tell her that you need information.
+Action:GOTO:11
+Choice:Make small talk to try and get on her good side.
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_SOCIAL:50
+ActionCheckSuccess:GOTO:18
+ActionCheckFailure:GOTO:19
+
+
+EntryID:11
+EntryText:  You introduce yourself then get to the point, "I'm looking for information on the area out Old Hill Road. I was hoping you might know something of the area."
+EntryText:  She nods curtly and leads you back, "Why are you interested in that area? It's very remote." She closes the door of her office behind you and sits down behind her desk.
+
+Choice:Tell her the truth.
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_SOCIAL:50
+ActionCheckSuccess:GOTO:12
+ActionCheckFailure:GOTO:13
+Choice:Make something up. 
+Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_SOCIAL:50
+ActionCheckSuccess:GOTO:14
+ActionCheckFailure:GOTO:15
+Action:GOTO:13
+
+
+EntryID:12
+EntryText:  You tell Julie the truth. "My uncle lived out there, and he recently passed."
+EntryText:  Julie gives you her best pity look, "I'm so sorry." You wave her off.
+EntryText:  "It's okay. I didn't really know him. The thing is, he left me the property, and I have no idea what I am getting into."
+EntryText:  Julie nods, then leans back in her chair and taps her fingers on the edge of her desk. "As I said, the area is very remote. We could go and check in the archives though. Perhaps we can find something there."
+EntryText:  She stands and strides toward the door, grabbing an old massive set of keys on a large key ring from one corner of her desk.
+
+Choice:You follow Julie to the archives.
+Action:GOTO:16
+
+
+EntryID:13
+EntryText:  You tell Julie the truth. "My uncle lived out there, and he recently passed."
+EntryText:  Julie starts to give you her best pity look, "I'm so sor-" 
+EntryText:  You cut her off. "I never met him, but he did leave me the property. I just want to know what I have."
+EntryText:  Julie looks you up and down a moment then shrugs, "I can't really say. I don't know anything about that area." She stands, "Now if you will excuse me, I have work to do."
+
+Choice:You leave Julie's office, disappointed.
+Action:GOTO:17
+
+
+EntryID:14
+EntryText:  You lie to Julie. "I was taking a long drive out that direction the other day, and I saw an old house out there. I wondered what its story was."
+EntryText:  Julie nods slowly, "Strange place for a drive, but okay." She leans back in her chair and taps her fingers on the edge of her desk. "As I said, the area is very remote. We could go and check in the archives though. Perhaps we can find something there."
+EntryText:  She stands and strides toward the door, grabbing an old massive set of keys on a large key ring from one corner of her desk.
+
+Choice:You follow Julie to the archives.
+Action:GOTO:16
+
+
+EntryID:15
+EntryText:  You lie to Julie. "I was taking a long drive out that direction the other day, and I saw an old house out there. I wondered what its story was."
+EntryText:  Julie's eyebrows raise and she looks at you a long moment. "Strange place for a drive." She taps her fingers on the edge of her desk, then shrugs, "I wish I could help you. But that area is very remote. Not much news comes out of that area I am afraid."
+EntryText:  She stands and smiles at you. "I appreciate you coming in though. Now if you will excuse me. I have a paper to edit." She walks you to the door of her office, and closes it quietly behind you. 
+
+Choice:You leave Julie's office, disappointed.
+Action:GOTO:17
+
+
+EntryID:16
+EntryText:  The archive is in the basement, and Julie clicks on the lights as you head down. They don't really do much to dispel the gloom downstairs, but at least you don't run into things. Julie walks over to one door, and uses one of the keys on a massive keyring to unlatch the heavy old door. 
+EntryText:  Once it is open she slips in, clicking on another light, then turns to rows and rows of boxes. "Let's see. I think... ah yes. Here we go." She pulls a box off one shelf and starts leafing through things. "I remember there was something out there several years back. Had to do with the University." She flips through many sheafs of paper before finally stopping on one and handing it to you. "There you go."
+EntryText:  The article outlines how your uncle paid for an archaeological dig on his land. Apparently a prehistoric burial ground was located in the woods behind the house, and your uncle worked with Miskatonic University to have it excavated. The dig went well for a while, producing several rare artifacts, including a ceremonial mask. Things started to fall apart though, after an accident at the dig site left one worker dead, and a break in at Miskatonic University resulted in the theft of most of the major artifacts. Your Uncle pulled the plug after that.
+
+Choice:Continue
+Action:GOTO:6
+
+
+EntryID:6
+EntryText:  Julie smiles, "I wish I had more for you, but that is really all the detail there is from then."
+EntryText:  You go over the article one more time, scanning for anything else that will tell you anything, but it is mostly generalities and reactions from locals and University officials.
+EntryText:  "I really appreciate this, Julie." You smile and hand her back the article. She refiles it, then clicks the light off as you both turn to walk out of the archives. 
+EntryText:  "I hope it was enough. I appreciate you stopping by, but I really need to get back to work." She offers you a hand which you take, and then turns to walk away.
+
+Choice:You head out.
+Action:GOTO:17
+
+
+EntryID:17
+EntryText:  You step out into the rain and begin toward your car. Glancing to one side, you see a shadow slip back into an alleyway beside the paper. Something tells you, whoever it was, they were watching you.
+EntryText:  Slamming your car door shut, you start the car and drive passed the alley. Standing in the back of the alley, drenched in rain and covered in shadow is a hooded figure, watching you intently. You stop the car, and step out, determined to confront the man. 
+EntryText:  Lightning flashes, and in the brighter light, you swear that the man's face is covered in something. The eyes are massive, the lips curled in a snarl. It must be a mask. Right?
+EntryText:  As you eyes readjust to the light, you step forward, "You there!" You begin toward the figure just as they turn to one side, running from sight. You make the corner fast enough, feet splashing through the puddles as you run. 
+EntryText:  When you turn the corner though, no one is there. You look up the sides of the buildings, and back the way you came, but see no signs of the masked figure. 
+
+Choice:You take a breath, then head back to your car and out of the rain.
+Action:GOTO:20
+
+
+EntryID:18
+EntryText:  "Thank you so much, you are too kind." You look around her office as she closes the door. "Nice office you have here, Julie. You must work very hard."
+EntryText:  Julie smiles her appreciation and nods, "I do. It's not easy to get ahead in this business, but my family has owned the Advertiser for generations, so I guess it is just in my blood."
+EntryText:  You nod, "Well family business or not, I can tell you care for it." 
+EntryText:  "Enough about me, what can I do for you?" She settles into her office chair. 
+EntryText:  "I am interested in the history of the area out off of Old Hill Rd. I was hoping with your connections you might be able to help me."
+EntryText:  "I am familiar with the area, yes." She stands and grabs a large ring of keys off her desk. "Let's go down to the archives and see what I can dig up."
+
+Choice:You follow Julie to the archives.
+Action:GOTO:16
+
+
+EntryID:19
+EntryText:  "Thank you so much, you are too kind." You look around her office as she closes the door. "Nice office you have here, Julie. How's someone like you get this?"
+EntryText:  Julie frowns, "Like me?"
+EntryText:  You try to correct for your obvious mistake. "I just didn't expect the editor of the local paper to be..."
+EntryText:  Julie cuts you off, "My family has owned the paper for generations. I grew up here, and I'm the best one qualified to run it."
+EntryText:  "Of course, I didn't mean to offend. I was just surprised." Julie regards you a long moment before leaning back and sighing. 
+EntryText:  "It's alright. I get it a lot. I do have a lot of work to do though, so I am afraid you will have to excuse me." she stands and opens her office door, clearly ending the conversation.
+
+Choice:You leave Julie's office, disappointed at your lack of progress.
+Action:GOTO:17
 
 
 EntryID:110
@@ -946,6 +1147,9 @@ Choice:Climb back up the ladder.
 Action:GOTO:70
 
 
+Choice__:Examine the grandfather clock.
+Action__:GOTO:130
+
 EntryID:130
 EntryText:  The grandfather clock is rather massive. It is seven feet of ancient carved wood, gears, pendulums, and fine craftsmanship. The carvings are very gothic in nature, and the face is very ornate.
 EntryText:  After studying it for a few minutes though, you realize that something is off about the pendulum. It seems to be swinging further to right than to the left. This makes every other tick of the clock slightly longer.
@@ -1026,198 +1230,3 @@ Action:GOTO:142
 Choice:Leave the clock alone.
 Action:GOTO:70
 
-
-EntryID:160
-Note: Hidden Study, book, rattling of the windows, into act 3 (TODO)
-EntryText:  
-
-
-EntryID:170
-Note: Start of Part three Act 0
-EntryText:  
-
-
-END
-
-
-
-EntryID:1
-EntryText:  Two places within town immediately come to mind. The library and the Arkham Advertiser, the local newspaper. Either might have more information.
-EntryText:  At the library, you know you can pour over many old texts about Arkham and its surroundings. It would take some time, but nothing some dogged determination can't handle.
-EntryText:  The Arkham Advertiser on the other hand means dealing with the local reporters, editors, or archivists. Getting them to give up information when there is no story to be had will take some convincing.
-EntryText:  Of course, you are burning daylight, and you have a bit of a drive ahead of you. Perhaps it would best to skip all this and head out to the house. After all, it is just a house, what more would you need to know than that?
-
-Choice:Nevermind the research. You decide to head out to the house.
-Action:GOTO:20
-Choice:The library sounds up your speed with its dusty old tomes and research.
-Action:GOTO:2
-Choice:The Arkham Advertiser is the better choice. If there is information to be had, reporters will know!
-Action:GOTO:10
-
-
-EntryID:2
-Note:Library
-EntryText:  You pull up outside the library and step out of your car, just as a thunderclap sounds overhead. Dark storm clouds have been gathering all morning and it looks like they will finally let loose the rain soon.
-EntryText:  Managing to get inside just before the rain hits, you settle into to dig through the ancient books and periodicals. The hours go by, and most of what you find is rather dull. Nothing really sparks your interest immediately.
-EntryText:  You are reshelving a book on the history of Arkham and its surrounding areas when you get the feeling that something is watching you. You turn to look, but nothing is there but rows upon rows of books. 
-EntryText:  Shaking off the feeling you dive back into the search, hoping that something fruitful will turn up soon.
-
-Choice:Continue
-Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_MENTAL:40
-ActionCheckSuccess:GOTO:3
-ActionCheckFailure:GOTO:4
-
-
-EntryID:3
-Note:Library Success
-EntryText:  You find one interesting article tucked away in the archives. It is from five years back. Apparently your uncle paid a large sum to Miskatonic University for them to perform an archaeological dig on his land. 
-EntryText:  It turns out the land was a former native burial ground. The dig was mildly successful in uncovering several artifacts including a ceremonial mask. 
-EntryText:  Unfortunately, before the dig could be completed, things started going wrong. First there was an accident on the site. Then several of the key artifacts were stolen. Eventually your uncle decided to stop funding the dig.
-
-Choice:This was interesting, but its time to get out of here.
-Action:GOTO:5
-
-
-EntryID:4
-Note:Library Fail
-EntryText:  Try as you might, you can't seem to find anything very interesting about the house or the land surrounding it. You find yourself struggling to stay focused on the task and eventually give up in frustration. 
-EntryText:  
-EntryText:  <color=maroon>Current Mental -5 (Frustration)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
-
-Choice:This was a waste, time to get out of here.
-Action:GOTO:5
-
-
-EntryID:5
-EntryText:  As you reshelve the final book you turn to find a man standing in the shadows of the rack of books ahead of you. Shadows cover his features, and he slowly shakes his head. 
-EntryText:  Lightning flashes, and when his face is illuminated, it is a horror to behold. The eyes are sunken in, the skin is taut, and his lips are pulled back in a snarl. You start back as the lightning flash fades and run into a librarian walking through the stacks.
-EntryText:  She starts as you bump into her and says, "Oh, terribly sorry. Are you alright?"
-EntryText:  You look back to where the figure was standing, but he is gone. Swallowing away the fear, you shake your head and straight your clothes, "Yes, fine, thank you. Excuse me." 
-EntryText:  
-EntryText:  <color=maroon>Current Mental -5 (Fear)</color>
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-5
-
-Choice:You gather your things and slip out into the rain, running to your car.
-Action:GOTO:20
-
-
-EntryID:10
-Note:Newspaper, non-reporter
-EntryText:  You pull up outside the building that houses the Arkham Advertiser, just as a thunderclap sounds overhead. Storm clouds have been gathering all morning and they finally let loose just as you step out of your car. 
-EntryText:  You race to the door, the rain slicking your hair to your head. As you get to the door a woman opens it for your from the inside and smiles, "Quickly, come in!" She laughs gently at your condition and waits for you to gather yourself before saying, "Welcome to the Arkham Advertiser. I'm Julie, the editor of the paper. What can I do for you?"
-
-Choice:Introduce yourself and tell her that you need information.
-Action:GOTO:11
-Choice:Make small talk to try and get on her good side.
-Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_SOCIAL:50
-ActionCheckSuccess:GOTO:18
-ActionCheckFailure:GOTO:19
-
-
-EntryID:11
-EntryText:  You introduce yourself then get to the point, "I'm looking for information on the area out Old Hill Road. I was hoping you might know something of the area."
-EntryText:  She nods curtly and leads you back, "Why are you interested in that area? It's very remote." She closes the door of her office behind you and sits down behind her desk.
-
-Choice:Tell her the truth.
-Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_SOCIAL:50
-ActionCheckSuccess:GOTO:12
-ActionCheckFailure:GOTO:13
-Choice:Make something up. 
-Action:REQUIREMENT_CHECK:ATTRIBUTE_CURRENT_SOCIAL:50
-ActionCheckSuccess:GOTO:14
-ActionCheckFailure:GOTO:15
-Action:GOTO:13
-
-
-EntryID:12
-EntryText:  You tell Julie the truth. "My uncle lived out there, and he recently passed."
-EntryText:  Julie gives you her best pity look, "I'm so sorry." You wave her off.
-EntryText:  "It's okay. I didn't really know him. The thing is, he left me the property, and I have no idea what I am getting into."
-EntryText:  Julie nods, then leans back in her chair and taps her fingers on the edge of her desk. "As I said, the area is very remote. We could go and check in the archives though. Perhaps we can find something there."
-EntryText:  She stands and strides toward the door, grabbing an old massive set of keys on a large key ring from one corner of her desk.
-
-Choice:You follow Julie to the archives.
-Action:GOTO:16
-
-
-EntryID:13
-EntryText:  You tell Julie the truth. "My uncle lived out there, and he recently passed."
-EntryText:  Julie starts to give you her best pity look, "I'm so sor-" 
-EntryText:  You cut her off. "I never met him, but he did leave me the property. I just want to know what I have."
-EntryText:  Julie looks you up and down a moment then shrugs, "I can't really say. I don't know anything about that area." She stands, "Now if you will excuse me, I have work to do."
-
-Choice:You leave Julie's office, disappointed.
-Action:GOTO:17
-
-
-EntryID:14
-EntryText:  You lie to Julie. "I was taking a long drive out that direction the other day, and I saw an old house out there. I wondered what its story was."
-EntryText:  Julie nods slowly, "Strange place for a drive, but okay." She leans back in her chair and taps her fingers on the edge of her desk. "As I said, the area is very remote. We could go and check in the archives though. Perhaps we can find something there."
-EntryText:  She stands and strides toward the door, grabbing an old massive set of keys on a large key ring from one corner of her desk.
-
-Choice:You follow Julie to the archives.
-Action:GOTO:16
-
-
-EntryID:15
-EntryText:  You lie to Julie. "I was taking a long drive out that direction the other day, and I saw an old house out there. I wondered what its story was."
-EntryText:  Julie's eyebrows raise and she looks at you a long moment. "Strange place for a drive." She taps her fingers on the edge of her desk, then shrugs, "I wish I could help you. But that area is very remote. Not much news comes out of that area I am afraid."
-EntryText:  She stands and smiles at you. "I appreciate you coming in though. Now if you will excuse me. I have a paper to edit." She walks you to the door of her office, and closes it quietly behind you. 
-
-Choice:You leave Julie's office, disappointed.
-Action:GOTO:17
-
-
-EntryID:16
-EntryText:  The archive is in the basement, and Julie clicks on the lights as you head down. They don't really do much to dispel the gloom downstairs, but at least you don't run into things. Julie walks over to one door, and uses one of the keys on a massive keyring to unlatch the heavy old door. 
-EntryText:  Once it is open she slips in, clicking on another light, then turns to rows and rows of boxes. "Let's see. I think... ah yes. Here we go." She pulls a box off one shelf and starts leafing through things. "I remember there was something out there several years back. Had to do with the University." She flips through many sheafs of paper before finally stopping on one and handing it to you. "There you go."
-EntryText:  The article outlines how your uncle paid for an archaeological dig on his land. Apparently a prehistoric burial ground was located in the woods behind the house, and your uncle worked with Miskatonic University to have it excavated. The dig went well for a while, producing several rare artifacts, including a ceremonial mask. Things started to fall apart though, after an accident at the dig site left one worker dead, and a break in at Miskatonic University resulted in the theft of most of the major artifacts. Your Uncle pulled the plug after that.
-
-Choice:Continue
-Action:GOTO:6
-
-
-EntryID:6
-EntryText:  Julie smiles, "I wish I had more for you, but that is really all the detail there is from then."
-EntryText:  You go over the article one more time, scanning for anything else that will tell you anything, but it is mostly generalities and reactions from locals and University officials.
-EntryText:  "I really appreciate this, Julie." You smile and hand her back the article. She refiles it, then clicks the light off as you both turn to walk out of the archives. 
-EntryText:  "I hope it was enough. I appreciate you stopping by, but I really need to get back to work." She offers you a hand which you take, and then turns to walk away.
-
-Choice:You head out.
-Action:GOTO:17
-
-
-EntryID:17
-EntryText:  You step out into the rain and begin toward your car. Glancing to one side, you see a shadow slip back into an alleyway beside the paper. Something tells you, whoever it was, they were watching you.
-EntryText:  Slamming your car door shut, you start the car and drive passed the alley. Standing in the back of the alley, drenched in rain and covered in shadow is a hooded figure, watching you intently. You stop the car, and step out, determined to confront the man. 
-EntryText:  Lightning flashes, and in the brighter light, you swear that the man's face is covered in something. The eyes are massive, the lips curled in a snarl. It must be a mask. Right?
-EntryText:  As you eyes readjust to the light, you step forward, "You there!" You begin toward the figure just as they turn to one side, running from sight. You make the corner fast enough, feet splashing through the puddles as you run. 
-EntryText:  When you turn the corner though, no one is there. You look up the sides of the buildings, and back the way you came, but see no signs of the masked figure. 
-
-Choice:You take a breath, then head back to your car and out of the rain.
-Action:GOTO:20
-
-
-EntryID:18
-EntryText:  "Thank you so much, you are too kind." You look around her office as she closes the door. "Nice office you have here, Julie. You must work very hard."
-EntryText:  Julie smiles her appreciation and nods, "I do. It's not easy to get ahead in this business, but my family has owned the Advertiser for generations, so I guess it is just in my blood."
-EntryText:  You nod, "Well family business or not, I can tell you care for it." 
-EntryText:  "Enough about me, what can I do for you?" She settles into her office chair. 
-EntryText:  "I am interested in the history of the area out off of Old Hill Rd. I was hoping with your connections you might be able to help me."
-EntryText:  "I am familiar with the area, yes." She stands and grabs a large ring of keys off her desk. "Let's go down to the archives and see what I can dig up."
-
-Choice:You follow Julie to the archives.
-Action:GOTO:16
-
-
-EntryID:19
-EntryText:  "Thank you so much, you are too kind." You look around her office as she closes the door. "Nice office you have here, Julie. How's someone like you get this?"
-EntryText:  Julie frowns, "Like me?"
-EntryText:  You try to correct for your obvious mistake. "I just didn't expect the editor of the local paper to be..."
-EntryText:  Julie cuts you off, "My family has owned the paper for generations. I grew up here, and I'm the best one qualified to run it."
-EntryText:  "Of course, I didn't mean to offend. I was just surprised." Julie regards you a long moment before leaning back and sighing. 
-EntryText:  "It's alright. I get it a lot. I do have a lot of work to do though, so I am afraid you will have to excuse me." she stands and opens her office door, clearly ending the conversation.
-
-Choice:You leave Julie's office, disappointed at your lack of progress.
-Action:GOTO:17
