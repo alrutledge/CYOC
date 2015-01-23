@@ -43,10 +43,10 @@ Action:GOTO:20
 EntryID:20
 Note:Drive to house, rain stops, hear noise around back, front door or head around back?
 EntryText:  The rain finally stops just before you pull up at the house, but the clouds stay gathered and low.
-EntryText:  You pull up at the address. A long driveway through an open gate leads back to the house. The gate itself is in need of repair. The stone pillars on either side are cracked, with masonry crumbling off the top of the right one. With a bit of a sigh you pull into the drive and pass the old gate.
-EntryText:  The drive runs through a tangle of trees, and you finally catch sight of the house itself. It is in about the same condition as the drive gate. Massive vines snake up the side of the house, bushes in desperate need of trimming crowd the base, and old trees, stretch toward the house as if trying to one day reach inside. 
-EntryText:  In front of the house the drive ends in a small circular parking area, with a separate drive stretching around the house to the back. You park and step out, looking around. Behind the house you can here something going on. A rhythmic thud sounds now and again, as well as the clattering of something falling. The
-EntryText:  The front door stands ahead of you, shadowed by the old porch which sags slightly on one side. 
+EntryText:  You pull up at the address. A long driveway through an open gate leads back to the house. The gate itself is in desperate need of repair. The stone pillars on either side are cracked, with masonry crumbling off the top of the right one. With a bit of a sigh you pull into the drive.
+EntryText:  Driving through a tangle of trees, you finally catch sight of the house itself. It's in about the same condition as the drive gate. Massive vines snake up the side of the house with bushes in desperate need of trimming crowd the base. Old trees stretch toward the house as if trying to reach inside. 
+EntryText:  In front of the house is a small circular parking area, with a separate drive stretching around the back. You park and step out, looking around. Behind the house you can here something going on. A rhythmic thud sounds now and again, as well as the clattering of something falling.
+EntryText:  The front door stands ahead of you, shadowed by the  sagging old porch. 
 
 Choice:Go to the front door.
 Action:GOTO:21
