@@ -14,6 +14,7 @@ namespace Assets.Scripts.ChoiceEngine.EntryActions
 
         public override void PerformAction()
         {
+            MessageSystem.BroadcastMessage(new SupressEntriesCommand(true));
             MessageSystem.BroadcastMessage(new PrepareActAnimationCommand(Name));
         }
 

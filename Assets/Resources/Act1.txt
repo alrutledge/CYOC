@@ -46,7 +46,7 @@ EntryText:  The rain finally stops just before you pull up at the house, but the
 EntryText:  You pull up at the address. A long driveway through an open gate leads back to the house. The gate itself is in desperate need of repair. The stone pillars on either side are cracked, with masonry crumbling off the top of the right one. With a bit of a sigh you pull into the drive.
 EntryText:  Driving through a tangle of trees, you finally catch sight of the house itself. It's in about the same condition as the drive gate. Massive vines snake up the side of the house with bushes in desperate need of trimming crowd the base. Old trees stretch toward the house as if trying to reach inside. 
 EntryText:  In front of the house is a small circular parking area, with a separate drive stretching around the back. You park and step out, looking around. Behind the house you can here something going on. A rhythmic thud sounds now and again, as well as the clattering of something falling.
-EntryText:  The front door stands ahead of you, shadowed by the  sagging old porch. 
+EntryText:  The front door stands ahead of you, shadowed by the sagging old porch. 
 
 Choice:Go to the front door.
 Action:GOTO:21
@@ -193,20 +193,51 @@ Action:GOTO:51
 EntryID:56
 EntryText:  You spend a few minutes lighting a fire in the fireplace. It warms the room and lights it well. You almost feel comfortable for the first time today.
 EntryText:  Sitting down in the chair, you think over all that you have seen today. You know that the day is far from over, and you get the sense that you have just scratched the surface of what the house has to offer, and how owning it will change your life.
-EntryText:  After few more moments of rest you decide to continue your exploration of the house.
+EntryText:  After few moments of contemplation, your eyelids get heavy and drift off to sleep.
+
+Choice:Continue.
+Action:GOTO:561
+
+EntryID:561
+EntryText:  You find yourself standing on the bow of a large steam ship. The water churns below you, parting to let the ship glide through. Ahead fog and mist make it hard to see. 
+EntryText:  The ship suddenly lurches and you are thrown into the railing ahead of you. When you grab the rail to steady yourself, you don't recognize the hands you see. The left hand has a large scar across the back and the hands are older than yours. You also don't recognize the clothing you are wearing.
+EntryText:  The ships horn sounds, a loud crashing noise that makes you clap your hands over your ears. There are yells and cries from elsewhere on the ship. Then you hear it, a roar, or a yell or something... undescribable coming from in front of the ship. 
+EntryText:  Looking out you see the sea is boiling and forthing and jutting forth from it some 100 yards before the ship is a massive form, at least a hundred feet high sticking up from the water. Its huge head is shaped like an octopus. It body looks like that of a large person, with dark greenish skin. Massive wings jut from it's back. 
+
+Choice:Flee from the sight in front of you.
+Action:GOTO:562
+Choice:Watch the creature.
+Action:GOTO:563
+
+EntryID:562
+EntryText:  Turning to flee you see men all staring up at the thing. In the middle of them all is a young woman who is smiling up at the creature, a look of rapture on her face. You stumble forward and grab a hold of her shoulders and shake her as she begins to laugh out loud. 
+EntryText:  A voice that is not your own cries out from your mouth, "Caroline, we must flee this place!"
+EntryText:  She shakes her head and grabs your hands, "Why father, isn't it the most beautiful thing you have ever seen?"
+EntryText:  You turn to look again at the creature. A mighty arm swings forth, smashing into the water and the ship. As the wave crashes over you and the ship begins to list you start and wake up, still sitting in the chair. 
+EntryText:  The fire crackles in the fireplace. Looking down at your hand, for a moment you think you can see the scar, then the moment passes and your hand looks like your own once more.
+
 EntryText:  
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:25
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:25
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-15
 EntryAction:ADD_FLAG:Fireplace Lit
 
-Choice:Take the lantern.
-Action:GOTO:57
-Requirement:NOT_HAVE_FLAG:Lantern Taken
-Choice:Examine the bookshelf.
-Action:GOTO:58
 Choice:Leave the study.
 Action:GOTO:51
 
+EntryID:563
+EntryText:  You laugh out loud gazing up at the marvelous, strange, and alien creature in front of you. You grip the rail and will yourself to stare at it, study it, even though every fiber of your being is telling you to run.
+EntryText:  A hand is placed over yours and you look over to see a young woman standing beside you. A look of happiness is etched into her face, and you can't help think it is the first time you have seen her happy in a long time. 
+EntryText:  She smiles at you and then turns back to the creature. "Why father, isn't it the most beautiful thing you have ever seen?"
+EntryText:  You turn to look again at the creature. A mighty arm swings forth, smashing into the water and the ship. As the wave crashes over you and the ship begins to list you start and wake up, still sitting in the chair. 
+EntryText:  The fire crackles in the fireplace. Looking down at your hand, for a moment you think you can see the scar, then the moment passes and your hand looks like your own once more.
+
+EntryText:  
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:25
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-15
+EntryAction:ADD_FLAG:Fireplace Lit
+
+Choice:Leave the study.
+Action:GOTO:51
 
 EntryID:57
 EntryText:  Knowing you have no other means to light your way, you decide to take the lantern with you. The handle is comfortable in your grip and almost feels familiar to you.
@@ -225,8 +256,8 @@ Action:GOTO:51
 
 
 EntryID:58
-EntryText:  You look through the things on the shelves. The jars contain a weird assortment of random things. Most of them look like animal parts, but the names of the animals you don't recognize. You pick one up and shake it slightly and the within the suspension inside, a claw of some sort rotates slowly. Another jar contains what looks to be some sort of eyeball. You tap it and the liquid inside sloshes slightly, causing the eyeball to rotate more toward you.
-EntryText:  You move on to the books, and begin to examine them. The collection of title is very odd. References to cryptozoology, mythology, as well as some classics and more modern fare mingle all together in an eclectic collection. The fiction all leans toward the dark side, certainly not the sort of thing you would choose to curl up next to the fire with. One book is older than the rest, and when you flip it open, you don't recognize the symbols that you see. 
+EntryText:  You look through the things on the shelves. The jars contain a weird assortment of random things. Most of them look like animal parts, but the names of the animals you don't recognize. You pick one up and shake it slightly and the within the suspension, a claw of some sort rotates slowly into view. Another jar contains what looks to be some sort of eyeball. You tap it and the liquid inside sloshes slightly, causing the eyeball to rotate more toward you.
+EntryText:  You move on to the books, and begin to examine them. The collection of title is very odd. References to cryptozoology, mythology, as well as some classics and more modern fare mingle all together in an eclectic collection. The fiction all leans toward the dark side, certainly not the sort of thing you would choose to curl up next to the fire with. One book is older than the rest, and when you flip it open, you don't recognize the symbols that you see within. The pictures inside are of animals you have never seen the like of.
 
 Choice:Examine the book further.
 Action:GOTO:59
@@ -242,10 +273,9 @@ Action:GOTO:51
 
 EntryID:59
 EntryText:  You take the book over and sit down in the large chair. You imagine that your uncle must have sat here, probably with this very book. The fact that you never knew him and now own this whole place weighs on you for a bit, but then you push the thoughts aside and flip open the book again. 
-EntryText:  The symbols still make no sense to you, but you keep flipping through the book, interested nonetheless. In the middle of the book you find a larger page that folds out from the rest of the book. A massive symbol is drawn on the page, with three concentric circles on it. Arrows drawn on the circles indicate counterclockwise rotation on the outer most circle, clockwise rotation on the middle circle, and clockwise rotation on the inner circle. 
-EntryText:  In the middle of all the circles there are picture two ovals or sockets. The one on the left is filled in, the one on the right is empty.
-EntryText:  Finally there is a stick figure drawn with an arrow pointing away from it.
-EntryText:  Not having any idea what the whole book is about, much less the symbols, you fold the page back up and reshelve the book.
+EntryText:  The symbols still make no sense to you, but you keep flipping through the book, interested nonetheless. The creatures still look alien to you. Finally on one page you find writing that you can read scribbled in the margin next to a large creature which appears to have an octopus for a head.
+EntryText:  The note in the margin reads, "The great old ones, like this Cthulhu are considered by most to be nothing but dark stories to scare people. I wonder at the power he is considered to have, and the alien mind he must possess. My research into him continues." 
+EntryText:  Not having any idea what the whole book is about, much less the symbols, you close it and reshelve the book.
 
 Choice:Light a fire in the fireplace.
 Action:GOTO:56
@@ -275,7 +305,7 @@ Action:GOTO:51
 
 EntryID:61
 EntryText:  The painting is a decade or two old. The plaque on the frame below it reads "Gerith Coleman", your uncle. 
-EntryText:  He is in a well tailored suit, and holding a pipe. He looks very studious and serious, staring out into the room as if watching over his old house.
+EntryText:  He is in a well tailored suit, and holding a pipe. There is a long scar on the back of his hand. He looks very studious and serious, staring out into the room as if watching over his old house.
 EntryText:  Not for the first time today you wonder who Gerith Coleman was, and what he was like. Why did your parents never talk of your uncle?
 
 Choice:Examine the painting of the woman.
@@ -395,7 +425,7 @@ Action:GOTO:82
 EntryID:82
 EntryText:  The recording is very scratchy. A man's voice is heard first.
 EntryText:  "Will you play for me?"
-EntryText:  A softer voice, female it would seem responds, "I would prefer not to. You know I don't like it."
+EntryText:  A softer voice, female it would seem responds, "I would prefer not to, Reggie. You know I don't like it."
 EntryText:  "Please, Caroline. Just one more time. For me." There is a long pause, then some rustling, before a piano begins to play. The tune is slow, and haunting at first. Then it begins to pick up in tempo.
 EntryText:  Caroline whimpers, as the playing seems to get harder. You can hear even through the rough sound of the recording the physical sound of the keys being hammered on. The tempo of the music gets faster, and faster.
 
@@ -660,7 +690,7 @@ Choice:Confident that you have made the right choice, you pull the lever.
 Action:GOTO:108
 Choice:Or does it need to be pushed?
 Action:REQUIREMENT_CHECK:FLAGS:Basement Inner Clock,Basement Middle Clock,Basement Outer Counterclock,Basement Right Eye Removed,!Basement Left Eye Removed
-ActionCheckSuccess:GOTO:109
+ActionCheckSuccess:GOTO:170
 ActionCheckFailure:GOTO:108
 
 
@@ -675,11 +705,6 @@ Choice:Go back to examining the mechanism.
 Action:GOTO:97
 Choice:You are done with this door and decide to leave the basement.
 Action:GOTO:67
-
-
-EntryID:109
-Note: Vault (whats in it?) (TODO)
-EntryText: With a thunk the door slides open.
 
 
 EntryID:150
@@ -704,7 +729,34 @@ EntryText:  The large mirror is a good seven feet tall, and mounted to the wall.
 EntryText:  Unusual creatures, people in strange outfits, and other odd shapes are depicted in the decoration on the edge of the mirror.
 EntryText:  The mirror itself has a bit of a wave to the glass and is a bit clouded, so the reflection is a warped and darker version of reality.
 EntryText:  You study yourself in the darkened reflection and for a moment you find yourself smirking at the dark image. You imagine yourself a dark god, watching over his people. 
-EntryText:  Blinking the image out of your mind, you shake your head and turn away from the strange mirror.
+EntryText:  Blinking the image out of your mind, you shake your head, wondering where that came from.
+
+Choice:Continue to examine the mirror.
+Action:GOTO:1511
+Choice:Examine the book on the end table.
+Action:GOTO:152
+Choice:Relax in the bed.
+Action:GOTO:153
+Requirement:NOT_HAVE_FLAG:Rested In Bed
+Choice:Head back out to the landing.
+Action:GOTO:70
+
+EntryID:1511
+EntryText:  You stroke the side of the mirror, examining the fine metal work even if you don't recognize the strange creatures.
+EntryText:  With a start you realize you pricked yourself on a sharp bit of metal. Quickly you stuff your finger into your mouth, tasting the coppery tiny bit of blood, sucking on it a bit before pulling your finger back out and waving it through the air, willing the pain away.
+EntryText:  You look at the side of the mirror where you pricked yourself and see a small drop of blood on the sharp little point of a small creatures fangs. The blood dissappears into the creatures mouth, rolling out of sight. You begin to feel slightly uneasy, as if the world is shifting. You grab a different part of the mirror to hold yourself steady, and feel the metal moving beneath your hand. 
+EntryText:  Starting, you pull your hand back and see the whole edge of the mirror, all the tiny creatures are all moving, writhing about in a strange mass of arms, tentacles, wings, and crying little heads. 
+
+Choice:Continue
+Action:GOTO:1512
+
+EntryID:1512
+EntryText: Frightened you stumble back and stare in horror, then look at the reflection and are frozen by what you see. Standing in the mirror is a tall older man, and a young woman. She is straightening his tie, as they both gaze in the mirror. You can feel her presence behind and beside you, you almost feel the heat of her skin as she reaches her arms around you to adjust your tie. 
+EntryText:  You reach a hand up and pat her hand in thanks. A large scar runs the length of the back of your hand. It's not your hand and it's not your face. It's not you in the mirror! None of this is right.
+EntryText:  Shutting your eyes you grab your head, and tear at your hair slightly. What is going on? How is this possible.
+EntryText:  When you open your eyes again, the mirror is still and your own reflection is staring back at you. The book still sits near the bed, and the door back to the rest of the house still looms beside you.
+EntryText:  
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-10
 
 Choice:Examine the book on the end table.
 Action:GOTO:152
@@ -721,7 +773,23 @@ EntryText:  The book seems to be a journal. Your uncle's name is written inside 
 EntryText:  Most of the days detailed in the journal discuss your uncle doing research, or exploring the woods. He often refers to someone or something as 'them' but never elaborates on who they are.
 EntryText:  Whoever it is, they apparently scare your uncle, because he talks about installing protections from outsiders like 'them'. He talks of 'they' want what he acquired, and he rails against the unfairness enacted upon him by 'them' when all he wants is to be left alone.
 EntryText:  In one entry he even says if he dies, it will likely be at their hands.
-EntryText:  Tucked into the book is a small handwritten note. It is in a language you don't understand. Written beneath it in English seems to be a translation. It says, "I finally understand how time works. 12-12, stop."
+EntryText:  In the middle of the book you find a large folded piece of paper.
+
+Choice:Examine the mirror.
+Action:GOTO:151
+Choice:Relax in the bed.
+Action:GOTO:153
+Requirement:NOT_HAVE_FLAG:Rested In Bed
+Choice:Head back out to the landing.
+Action:GOTO:70
+Choice:Examine the folded piece of paper.
+Action:GOTO:1521
+
+
+EntryID:1521
+EntryText:  You unfold it and examine it. A massive symbol is drawn on the page, with three concentric circles on it. Arrows drawn on the circles indicate counterclockwise rotation on the outer most circle, clockwise rotation on the middle circle, and clockwise rotation on the inner circle. 
+EntryText:  In the middle of all the circles there are picture two ovals or sockets. The one on the left is filled in, the one on the right is empty.
+EntryText:  Finally there is a stick figure drawn with an arrow pointing away from it.
 
 Choice:Examine the mirror.
 Action:GOTO:151
@@ -735,11 +803,50 @@ Action:GOTO:70
 EntryID:153
 Note: Relax in bed
 EntryText:  You lay down in the bed, sighing in comfort. You reflect back on all that has happened to you today so far.
-EntryText:  As your eyes shut, you begin to doze off a bit. You see a large empty plane stretch out before you. When you turn to look behind you a massive stone structure with impossible angles sits before you. 
-EntryText:  A deep voice growls out a word you do not understand, it echoes from within the impossible building. Your eyes snap open, and like that, the word escapes your memory.
-EntryText:  
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:25
-EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:25
+EntryText:  Owning a home in the country was never your plan, but here you are. Your uncle seems like he was very eclectic, and his family maybe even more so. There are too many bits and pieces so far and not enough to really put it all together yet.
+EntryText:  As your mind drifts, you become more and more relaxed. Your eyes slowly shut and you drift easily to sleep.
+
+Choice:Continue
+Action:GOTO:1531
+
+
+EntryID:1531
+EntryText:  The dream is of darkness. The nothing is overpowering and you begin to panic. You should see something. You are alive, why is the darkness so complete?
+EntryText:  A voice growls out a single word in a low tone, "Rl'yeh." A pin prick of light in the darkness shines bright then expands slowly to show an ancient and alien city. 
+EntryText:  The city is built of strange angles and bizarre shapes that make your mind race and hurt. They are not logical or possible. Fish swim through the streets and a massive shark darts about making a meal of anything it can catch. You realize the city is in the depths of the ocean, no wonder it is so dark. 
+EntryText:  You catch sight of bubbles drifting up from the depths that go from a trickle to a broil of activity that scares off the ocean life.
+
+Choice:Follow the light
+Action:GOTO:1532
+Choice:Swim away from the light
+Action:GOTO:1535
+
+
+EntryID:1532
+EntryText:  The light slowly drifts down through the darkness and into the city, down between massive odd buildings it drifts and you follow. Fish flit out of the way and the source of the bubbles from below becomes obvious. In the middle of a massive city plaza there is a giant door set into the stone, and it is opening. 
+EntryText:  The light darts into the roil of bubbles, and again you follow down into the depths passed the massive door in the ground.
+EntryText:  What lies beneath is a massive creature that seems to be slumbering. Its head is like an octopus, its body is massive and bulbous. Wings float forth from its back. It seems to be sleeping.
+
+Choice:Continue.
+Action:GOTO:1533
+
+
+EntryID:1533
+EntryText:  You float closer and closer to the thing, watching as it tentacles slowly play through the water, drifting to and fro. The shark from above swims passed you, and passed the light. You watch it slowly drift closer and closer to the beast, seemingly unafraid.  Suddenly the shark disentegrates in a sudden puff of bone and blood as if it just ran into something that obliterated it utterly. 
+EntryText:  You can not help but gasp when the shark is destroyed. Water rushes into your mouth, you gag, you feel as if you are going to drown.
+EntryText:  The massive slumbering creature senses your distress, though you do not know how something as small as you could disturb something so big. Its eyes snap open and there is a howling wail that pierces the water. You struggle to turn and swim away. The tentacles lash out grabbing for you.
+
+Choice:Swim faster, faster!
+Action:GOTO:1534
+
+
+EntryID:1534
+EntryText:  You swim as fast as you can, its no use though. The tentacles grab you and pull you back.
+EntryText:  Starting, you wake up, bolting upright and screaming in terror, sure you are about to be crushed beneath the ocean by the massive beast. You catch sight of yourself in the large mirror, you look like you are dripping wet. Your hair is matted to your head, seaweed dangles from your shoulders. 
+EntryText:  Screaming in terror you stand up quickly, feeling your clothing and tearing at where you saw the seaweed. You find yourself to be perfectly dry. There is no seaweed. When you look back at the mirror now you are dry as a bone. You swallow away the fear and look back at the bed, shaking your head slightly. 
+EntryText:
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:15
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-15
 EntryAction:ADD_FLAG:Rested In Bed
 
 Choice:Examine the mirror.
@@ -748,6 +855,38 @@ Choice:Examine the book on the end table.
 Action:GOTO:152
 Choice:Head back out to the landing.
 Action:GOTO:70
+
+
+EntryID:1535
+EntryText:  You turn and swim away from the light and into the darkness. You hear a low rumbling and something brushes against your leg. 
+EntryText:  Panic begins to grip you, and you feel pain as something grabs you, razor sharp teeth lash at you, and you are tossed about like a rag doll. It must be a shark attack!
+EntryText:  As quickly as it began the attack ends. The pain receeds and you see the light drifting downward in the distance.
+EntryText:
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-15
+Choice:Follow the light
+Action:GOTO:1532
+Choice:Swim away from the light
+Action:GOTO:1536
+
+
+EntryID:1536
+EntryText:  You persist in swimming away from the light. This time the attack is faster, and more fearsome. You feel lances of pain stabbing through each of your limbs as you are bit, and released over and over again.
+EntryText:
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-30
+
+Choice:Follow the light
+Action:GOTO:1532
+Choice:Continue to swim away from the light
+Action:GOTO:1537
+
+
+EntryID:1537
+EntryText:  You continue to swim away from the light, hoping that whatever has attacked you has had enough. Pain sears through your midsection as the shark grabs you one last time. This time it does not let go and tosses you left and right, tearing at your flesh and guts.
+EntryText:
+EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-100
+
+Choice:Follow the light
+Action:GOTO:1532
 
 
 EntryID:160
@@ -761,6 +900,89 @@ Action:GOTO:60
 
 
 
+EntryID:170
+Note: Vault (whats in it?) (TODO)
+EntryText:  With a thunk the door slides open. The room ahead of you is dominated by a massive statue some seven feet tall. It is of a sitting creature whose head looks like an octopus. Its body is vaguely human shaped, and wings sprout from its back. 
+EntryText:  Before the statue sits a small dias on which rests a book that is opened to somewhere in the middle.
+
+Choice:Examine the statue.
+Action:GOTO:171
+Choice:Examine the book.
+Action:GOTO:172
+
+
+EntryID:171
+EntryText:  The statue is alien to behold and your mind revolts even at looking at it. You force your steps forward though, and bend down to read the plaque mounted to the front of the statue.
+EntryText:  It reads, "All hail Cthulhu, the slumbering old one, god of gods and bringing of all things life and death."
+
+Choice:Examine the book.
+Action:GOTO:172
+
+
+EntryID:172
+EntryText:  The book is a journal, and it details a search for something. It is open to a page. The page reads, "I have finally found what I have been looking for. For ages the greath Cthulhu has slept within the depths. Long have I sought the means by which I might wake him.
+EntryText:  Some called me fool for trying, but when my Christian faith did nothing to protect my loving wife, and brought me no solace in the years after her death, I found I had to turn somewhere. So I have turned to the Great Old Ones, and Cthulhu is the greatest among them.
+EntryText:  He will reward me when I awaken him, he will grant me my heart's desire."
+
+Choice:Continue reading.
+Action:GOTO:173
+
+EntryID:173
+EntryText:  The journal continues, "There was only one thing that was missing. Only one thing I still needed, and soon it will be within my grasp."
+EntryText:  "I only need the heir," your vision tunnels and your heart begins to race. There in the same script is your name. Whoever wrote this mad text is looking for you. You stumble away from the dias, mind racing, trying to comprehend. What do you have to do with this insanity? Why are you the key to whatever this madman desires? You have never heard of Cthulhu before today.
+EntryText:  You hear footstep above you. Someone is in the house. You turn and run from the basement, passed the vault door, trying to put distance between you and the mad statue. You flee up the stairs and out of the kitchen into the foyer.
+
+Choice:Flee the house
+Action:GOTO:174
+Choice:Search for whoever is in the house.
+Action:GOTO:174
+
+EntryID:174
+EntryText:  You run into the foyer, and see a figure standing on the stairs. They are dressed in a massive robe with a mask over their face. They rasp out, "The heir!" and point a gloved hand in your direction.
+
+Choice:Flee out of the house!
+Action:GOTO:175
+Choice:Attack the intruder!
+Action:GOTO:176
+
+EntryID:175
+EntryText:  You spin toward the door and grab at the handle, but find it locked. You fumble with the latch, hearing heavy footsteps on the stairs. The figure growls, "You are needed hear, heir!"
+EntryText:  Glancing over your shoulder you see them closing on you, reaching for you.
+
+Choice:Get out of there while you still can!
+Action:GOTO:177
+Choice:Attack the intruder!
+Action:GOTO:176
+
+
+EntryID:176
+EntryText:  You lash out at the robed figure, but they back hand you with strength ten times that you expected. You crumple against the door, the figure looming over you.
+EntryText:  Suddenly you hear a key in the lock, from outside, you hear the dog barking, and James' voice, "Are you okay in there?"
+EntryText:  The robed figure growls something under its breath and turns and dissappears into the back part of the house. The door opens and you scramble out, pulling it closed quickly behind you. 
+
+Choice:Continue
+Action:GOTO:178
+
+EntryID:177
+EntryText:  You grab the latch and quickly unlock the door and throw it open. Scrambling through you slam it closed behind you and off the porch. James comes running around the side of the house following the dog which is barking its head off. "Are you okay?"
+
+Choice:Continue
+Action:GOTO:178
+
+
+EntryID:178
+EntryText:  You run from the house, yelling at James, "Someone is in there!" Your mind reels, trying to take in everything that just happened. Panting for breath you lean on your car as James, axe in hand steps up and throws the door open. The dog scrambles into the house barking its head off. 
+EntryText:  Minutes later, James comes out, dragging the barking dog with him. "Sorry, whoever or whatever it was is gone now. The back door wasn't locked up, so maybe they got out that way while we were out here." He shrugs a bit, but looks like he is telling you the truth. Besides, if James had it out for you, his axe and dog could have let him act on it long ago.
+EntryText:  You sigh and nod, "Fine. Lock the place up, I need to head into town, but I'll be back." Someone in town will help you shed some light on this. After all you uncle worked at the university in town. Perhaps the library or local newspaper will have information that can help. Either way, you need some supplies, and some help, then you'll be back.
+EntryText:  James smiles ever so slightly and nods, "Very well, but don't stay in town too long. It will be dark by the time you return."
+
+Choice:End Act 1 - The Morning
+Action:GOTO:179
+
+
+EntryID:179
+EntryText:
+EntryAction:PLAY_ACT_ANIMATION:Act1End
 END
 
 

@@ -11,19 +11,23 @@ namespace Assets.Scripts.ChoiceEngine
         private Act CurrentAct;
         private DelayedGotoEntryCommand m_delayedGotoEntry;
         private int m_entriesLoaded = 0;
+        private bool m_entriesSurpressed = false;
+        private Entry m_queuedEntry;
 
         private void Awake()
         {
             MessageSystem.SubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
             MessageSystem.SubscribeMessage<GotoEntryCommand>(MessageSystem.ServiceContext, OnGotoEntryCommand);
             MessageSystem.SubscribeMessage<DelayedGotoEntryCommand>(MessageSystem.ServiceContext, OnDelayedGotoEntryCommand);
+            MessageSystem.SubscribeMessage<SupressEntriesCommand>(MessageSystem.ServiceContext, OnSupressEntriesCommand);
         }
-        
+                
         private void OnDestroy()
         {
             MessageSystem.UnsubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
             MessageSystem.UnsubscribeMessage<GotoEntryCommand>(MessageSystem.ServiceContext, OnGotoEntryCommand);
             MessageSystem.UnsubscribeMessage<DelayedGotoEntryCommand>(MessageSystem.ServiceContext, OnDelayedGotoEntryCommand);
+            MessageSystem.UnsubscribeMessage<SupressEntriesCommand>(MessageSystem.ServiceContext, OnSupressEntriesCommand);
         }
 
         private void OnDelayedGotoEntryCommand(DelayedGotoEntryCommand message)
@@ -42,6 +46,15 @@ namespace Assets.Scripts.ChoiceEngine
             LoadEntry(message.FirstEntry, false);
         }
 
+        private void OnSupressEntriesCommand(SupressEntriesCommand message)
+        {
+            m_entriesSurpressed = message.Active;
+            if (!m_entriesSurpressed)
+            {
+                MessageSystem.BroadcastMessage(new EntryLoadedMessage(m_queuedEntry));
+            }
+        }
+
         private void LoadEntry(Entry entry, bool runActions = true)
         {
             m_entriesLoaded++;
@@ -50,13 +63,20 @@ namespace Assets.Scripts.ChoiceEngine
                 m_entriesLoaded = 0;
                 MessageSystem.BroadcastMessage(new DisplayAdCommand());
             }
-            MessageSystem.BroadcastMessage(new EntryLoadedMessage(entry));
             foreach (EntryAction action in entry.Actions)
             {
                 if (runActions || action.AlwaysRun())
                 {
                     action.PerformAction();
                 }
+            }
+            if (!m_entriesSurpressed)
+            {
+                MessageSystem.BroadcastMessage(new EntryLoadedMessage(entry));
+            }
+            else
+            {
+                m_queuedEntry = entry;
             }
         }
 

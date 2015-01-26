@@ -90,6 +90,7 @@ public class MainFlow : MonoBehaviour
     {
         m_gamePlay.SetActive(true);
         m_actAnimation.SetActive(false);
+        MessageSystem.BroadcastMessage(new SupressEntriesCommand(false));
     }
 
     private void OnPrepareActAnimationCommand(PrepareActAnimationCommand message)
