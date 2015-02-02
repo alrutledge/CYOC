@@ -24,6 +24,9 @@ namespace Assets.Scripts.ChoiceEngine
                 case ChoiceActionType.MODIFY_ATTRIBUTE:
                     action = new ChoiceModifyAttributeAction((PlayerStat)System.Enum.Parse(typeof(PlayerStat), choiceParts[2]), System.Int32.Parse(choiceParts[3]));
                     break;
+                case ChoiceActionType.LOAD_ACT:
+                    action = new LoadActAction(System.Int32.Parse(choiceParts[2]));
+                    break;
                 default:
                     action = null;
                     break;

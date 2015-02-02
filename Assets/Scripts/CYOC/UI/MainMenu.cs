@@ -84,13 +84,35 @@ namespace Assets.Scripts.CYOC.UI
             //m_introDescription.SetActive(true);
             //m_characterInformation.SetActive(false);
 
-
             m_playersStats = new Dictionary<PlayerStat, int>();
             m_playersStats[PlayerStat.MAX_MENTAL] = 100;
             m_playersStats[PlayerStat.MAX_PHYSICAL] = 100;
             m_startingInventory = new Dictionary<string, Item>();
-            SelectCharacterPressed();
+
+
+            m_loadGameButon.interactable = true;
+            CharacterSelectedMessage message = new CharacterSelectedMessage();
+
+            //message.Name = m_characterName.text;
+            //message.Profession = m_characterProfession.text;
+            //message.Description = m_characterDescription.text;
+            //message.Age = System.Int32.Parse(m_characterAge.text);
+
+            m_playersStats[PlayerStat.CURRENT_MENTAL] = m_playersStats[PlayerStat.MAX_MENTAL];
+            m_playersStats[PlayerStat.CURRENT_PHYSICAL] = m_playersStats[PlayerStat.MAX_PHYSICAL];
+            //m_playersStats[PlayerStat.CURRENT_SOCIAL] = m_playersStats[PlayerStat.MAX_SOCIAL];
+            m_playersStats[PlayerStat.MYTHOS_KNOWLEDGE] = 0;
+
+            message.Stats = m_playersStats;
+            message.Inventory = m_startingInventory;
+
+            MessageSystem.BroadcastMessage(message);
+            m_actSelect.SetActive(true);
+            m_main.SetActive(false);
         }
+
+
+        
 
         public void ProfessorPressed()
         {

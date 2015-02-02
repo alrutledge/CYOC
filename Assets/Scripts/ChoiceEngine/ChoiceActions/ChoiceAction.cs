@@ -6,7 +6,8 @@
         MODIFY_ATTRIBUTE,
         GRANT_GEAR,
         REMOVE_GEAR,
-        REQUIREMENT_CHECK
+        REQUIREMENT_CHECK,
+        LOAD_ACT
     }
 
     public abstract class ChoiceAction

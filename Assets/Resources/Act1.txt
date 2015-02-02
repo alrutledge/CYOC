@@ -977,12 +977,8 @@ EntryText:  You sigh and nod, "Fine. Lock the place up, I need to head into town
 EntryText:  James smiles ever so slightly and nods, "Very well, but don't stay in town too long. It will be dark by the time you return."
 
 Choice:End Act 1 - The Morning
-Action:GOTO:179
+Action:LOAD_ACT:2
 
-
-EntryID:179
-EntryText:
-EntryAction:PLAY_ACT_ANIMATION:Act1End
 END
 
 
