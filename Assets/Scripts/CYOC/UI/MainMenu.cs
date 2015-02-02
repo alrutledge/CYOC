@@ -77,7 +77,7 @@ namespace Assets.Scripts.CYOC.UI
             MessageSystem.BroadcastMessage(new LoadGameCommand());
         }
 
-        public void NewPressed()
+        public void NewPressed(int actNumber)
         {
             //m_characterSelect.SetActive(true);
             //m_main.SetActive(false);
@@ -107,8 +107,9 @@ namespace Assets.Scripts.CYOC.UI
             message.Inventory = m_startingInventory;
 
             MessageSystem.BroadcastMessage(message);
-            m_actSelect.SetActive(true);
+            m_actSelect.SetActive(false);
             m_main.SetActive(false);
+            MessageSystem.BroadcastMessage(new LoadActCommand("Act" + actNumber.ToString()));
         }
 
 
