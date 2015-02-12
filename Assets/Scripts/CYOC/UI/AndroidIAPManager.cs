@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.ICG.Messaging;
+﻿using Assets.Scripts.CYOC.UI.Messages;
+using Assets.Scripts.ICG.Messaging;
 using UnityEngine;
 
 namespace Assets.Scripts.CYOC.UI
@@ -41,11 +42,10 @@ namespace Assets.Scripts.CYOC.UI
 
             if (result.isSuccess)
             {
-                Debug.Log("Billing init complete inventory contains: " + AndroidInAppPurchaseManager.instance.inventory.purchases.Count + " products");
-            }
-            else
-            {
-                Debug.Log(result.response.ToString() + " " + result.message);
+                foreach (GooglePurchaseTemplate purchase in AndroidInAppPurchaseManager.instance.inventory.purchases)
+                {
+                    MessageSystem.BroadcastMessage(new InAppPurchaseMessage(purchase.SKU));
+                }
             }
         }
 
