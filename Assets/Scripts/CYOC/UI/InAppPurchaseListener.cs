@@ -9,9 +9,7 @@ namespace Assets.Scripts.CYOC.UI
     public class InAppPurchaseListener : MonoBehaviour
     {
         public Text LinkedTextBox;
-        public Button LinkedButton;
         public int ActNumber;
-        public MainMenu Menu;
         public List<string> SKUToListenFor;
 
         private void Awake()
@@ -26,18 +24,33 @@ namespace Assets.Scripts.CYOC.UI
 
         private void OnInAppPurchaseMessage(InAppPurchaseMessage message)
         {
-            if (SKUToListenFor.Contains(message.SKU))
+            bool purchased = false;
+            bool act2Purchased = false;
+            bool act3Purchased = false;
+            foreach(GooglePurchaseTemplate purchase in message.Inventory)
+            {
+                if (SKUToListenFor.Contains(purchase.SKU))
+                {
+                    purchased = true;
+                }
+                if (purchase.SKU == "com.incharactergames.cyoc.act2")
+                {
+                    act2Purchased = true;
+                }
+                else if (purchase.SKU == "com.incharactergames.cyoc.act3")
+                {
+                    act3Purchased = true;
+                }
+            }
+            if (ActNumber == 0 && act2Purchased && act3Purchased) // Special case for buy all acts.
+            {
+                purchased = true;
+            }
+            if (purchased)
             {
                 LinkedTextBox.text = "Owned";
-                LinkedButton.onClick.RemoveAllListeners();
-                LinkedButton.onClick.AddListener(() => ActPressed());
-                MessageSystem.UnsubscribeMessage<InAppPurchaseMessage>(MessageSystem.ServiceContext, OnInAppPurchaseMessage);
             }
         }
 
-        private void ActPressed()
-        {
-            Menu.NewPressed(ActNumber);
-        }
     }
 }

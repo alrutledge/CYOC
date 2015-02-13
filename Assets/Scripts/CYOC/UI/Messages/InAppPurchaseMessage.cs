@@ -1,11 +1,12 @@
-﻿namespace Assets.Scripts.CYOC.UI.Messages
+﻿using System.Collections.Generic;
+namespace Assets.Scripts.CYOC.UI.Messages
 {
     public class InAppPurchaseMessage
     {
-        public string SKU { get; set; }
-        public InAppPurchaseMessage(string sku)
+        public List<GooglePurchaseTemplate> Inventory { get; set; }
+        public InAppPurchaseMessage(List<GooglePurchaseTemplate> inventory)
         {
-            SKU = sku;
+            Inventory = inventory;
         }
     }
 }

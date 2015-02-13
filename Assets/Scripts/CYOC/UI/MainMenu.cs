@@ -12,16 +12,22 @@ namespace Assets.Scripts.CYOC.UI
     public class MainMenu : MonoBehaviour
     {
         private GameObject m_main;
+        private Image m_mainPanel;
         private GameObject m_credits;
         private Animator m_creditAnimations;
         private Button m_loadGameButon;
 
         private Dictionary<PlayerStat, int> m_playersStats;
         private Dictionary<string, Item> m_startingInventory;
+        private int m_actLoading;
+        private bool m_loadPressed;
+        private bool m_newPressed;
+        private float m_newAlpha;
 
         private void Awake()
         {
             MessageSystem.SubscribeMessage<ExitToMainMenuCommand>(MessageSystem.ServiceContext, OnExitToMainMenuCommand);
+            m_newAlpha = 1f;
         }
         
         private void OnDestroy()
@@ -34,6 +40,7 @@ namespace Assets.Scripts.CYOC.UI
             m_main = GameObject.Find("Main");
             m_credits = GameObject.Find("CreditContainer");
             m_credits.SetActive(false);
+            m_mainPanel = GameObject.Find("MainPanel").GetComponent<Image>();
             m_creditAnimations = GameObject.Find("MainMenu").GetComponent<Animator>();
             m_loadGameButon = GameObject.Find("LoadGameButton").GetComponent<Button>();
 
@@ -50,12 +57,32 @@ namespace Assets.Scripts.CYOC.UI
 
         public void LoadPressed()
         {
+            m_loadPressed = true;
+            m_newAlpha = 0f;
+        }
+
+        public void LoadFinished()
+        {
+            Color color = m_mainPanel.color;
+            color.a = 1.0f;
+            m_mainPanel.color = color;
+            m_loadPressed = false;
             MessageSystem.BroadcastMessage(new LoadGameCommand());
         }
 
         public void NewPressed(int actNumber)
         {
+            m_actLoading = actNumber;
+            m_newPressed = true;
+            m_newAlpha = 0f;
+        }
 
+        private void NewFinished(int actNumber)
+        {
+            Color color = m_mainPanel.color;
+            color.a = 1.0f;
+            m_mainPanel.color = color;
+            m_newPressed = false;
             m_playersStats = new Dictionary<PlayerStat, int>();
             m_playersStats[PlayerStat.MAX_MENTAL] = 100;
             m_playersStats[PlayerStat.MAX_PHYSICAL] = 100;
@@ -118,6 +145,23 @@ namespace Assets.Scripts.CYOC.UI
                 {
                     OnExitClicked();
                 }
+            }
+            if (m_newPressed || m_loadPressed)
+            {
+                Color color = m_mainPanel.color;
+                color.a = Mathf.Lerp(color.a, m_newAlpha, 0.0f * Time.deltaTime);
+                if (color.a <= 0.01f)
+                {
+                    if (m_loadPressed)
+                    {
+                        LoadFinished();
+                    }
+                    if (m_newPressed)
+                    {
+                        NewFinished(m_actLoading);
+                    }
+                }
+                m_mainPanel.color = color;
             }
         }
 
