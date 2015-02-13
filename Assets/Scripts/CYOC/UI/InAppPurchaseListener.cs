@@ -39,6 +39,5 @@ namespace Assets.Scripts.CYOC.UI
         {
             Menu.NewPressed(ActNumber);
         }
-
     }
 }

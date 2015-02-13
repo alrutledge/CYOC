@@ -11,9 +11,6 @@ public class MainFlow : MonoBehaviour
     private GameObject m_gamePlay;
     private GameObject m_splashScreen;
     private GameObject m_exitGame;
-    private GameObject m_characterSelect;
-    //private GameObject m_actAnimation;
-    //private Button m_turnOffAdsButton;
 
 	private void Awake () 
     {
@@ -21,9 +18,6 @@ public class MainFlow : MonoBehaviour
         m_gamePlay = GameObject.Find("GamePlay");
         m_splashScreen = GameObject.Find("SplashScreen");
         m_exitGame = GameObject.Find("ConfirmGameExitPanel");
-        m_characterSelect = GameObject.Find("CharacterSelect");
-        //m_actAnimation = GameObject.Find("ActAnimations");
-	    //m_turnOffAdsButton = GameObject.Find("TurnOffAdsButton").GetComponent<Button>();
         MessageSystem.SubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
         MessageSystem.SubscribeMessage<ExitToMainMenuCommand>(MessageSystem.ServiceContext, OnExitToMainMenuCommand);
         MessageSystem.SubscribeMessage<PrepareActAnimationCommand>(MessageSystem.ServiceContext, OnPrepareActAnimationCommand);
@@ -43,7 +37,6 @@ public class MainFlow : MonoBehaviour
         m_mainMenu.SetActive(false);
         m_gamePlay.SetActive(false);
         m_exitGame.SetActive(false);
-        //m_actAnimation.SetActive(false);
         StartCoroutine(RemoveSplashScreen(1.0f));
     }
 	
@@ -51,11 +44,7 @@ public class MainFlow : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(m_characterSelect.activeInHierarchy)
-            {
-
-            }
-            else if (m_gamePlay.activeInHierarchy)
+            if (m_gamePlay.activeInHierarchy)
             {
 
             }
@@ -89,14 +78,12 @@ public class MainFlow : MonoBehaviour
     private void OnActAnimationCompletedMessage(ActAnimationCompletedMessage message)
     {
         m_gamePlay.SetActive(true);
-        //m_actAnimation.SetActive(false);
         MessageSystem.BroadcastMessage(new SupressEntriesCommand(false));
     }
 
     private void OnPrepareActAnimationCommand(PrepareActAnimationCommand message)
     {
         m_gamePlay.SetActive(false);
-        //m_actAnimation.SetActive(true);
         MessageSystem.BroadcastMessage(new PlayActAnimationCommand(message.Name));
     }
 
@@ -123,9 +110,4 @@ public class MainFlow : MonoBehaviour
         Application.Quit();
     }
 
-    //public void OnTurnOffAdsClicked()
-    //{
-    //    MessageSystem.BroadcastMessage(new TurnOffAdsCommand());
-    //    m_turnOffAdsButton.interactable = false;
-    //}
 }

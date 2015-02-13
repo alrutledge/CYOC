@@ -6,8 +6,11 @@ namespace Assets.Scripts.CYOC.UI
 {
     class AndroidIAPManager : MonoBehaviour
     {
+        private GameObject m_confirmAct1PurchasePanel;
+
         private void Awake()
         {
+            m_confirmAct1PurchasePanel = GameObject.Find("ConfirmPurchasePanel");
             //MessageSystem.SubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
         }
 
@@ -18,6 +21,7 @@ namespace Assets.Scripts.CYOC.UI
 
         private void Start()
         {
+            m_confirmAct1PurchasePanel.SetActive(false);
             AndroidInAppPurchaseManager.ActionProductPurchased += OnProductPurchased;
             AndroidInAppPurchaseManager.ActionProductConsumed += OnProductConsumed;
             AndroidInAppPurchaseManager.ActionBillingSetupFinished += OnBillingConnected;
@@ -32,14 +36,17 @@ namespace Assets.Scripts.CYOC.UI
                 AndroidInAppPurchaseManager.instance.retrieveProducDetails();
                 AndroidInAppPurchaseManager.ActionRetrieveProducsFinished += OnRetriveProductsFinised;
             }
-
-            Debug.Log("Connection Responce: " + result.response.ToString() + " " + result.message);
         }
 
         private void OnRetriveProductsFinised(BillingResult result)
         {
             AndroidInAppPurchaseManager.ActionRetrieveProducsFinished -= OnRetriveProductsFinised;
 
+            CheckPurchases(result);
+        }
+
+        private static void CheckPurchases(BillingResult result)
+        {
             if (result.isSuccess)
             {
                 foreach (GooglePurchaseTemplate purchase in AndroidInAppPurchaseManager.instance.inventory.purchases)
@@ -49,14 +56,37 @@ namespace Assets.Scripts.CYOC.UI
             }
         }
 
-        private void OnProductConsumed(BillingResult obj)
+        private void OnProductConsumed(BillingResult result)
         {
-            throw new System.NotImplementedException();
+            CheckPurchases(result);
         }
 
-        private void OnProductPurchased(BillingResult obj)
+        private void OnProductPurchased(BillingResult result)
         {
-            throw new System.NotImplementedException();
+            CheckPurchases(result);
+        }
+
+        public void PurchaseAct2ButtonPressed()
+        {
+            AndroidInAppPurchaseManager.instance.purchase("com.incharactergames.cyoc.act2");
+        }
+
+        public void PurchaseAct3ButtonPressed()
+        {
+            AndroidInAppPurchaseManager.instance.purchase("com.incharactergames.cyoc.act3");
+        }
+
+        public void PurchaseAllActsButtonPressed()
+        {
+            AndroidInAppPurchaseManager.instance.purchase("com.incharactergames.cyoc.allacts");
+        }
+
+        public void ConsumeAllPurchases()
+        {
+            foreach (GooglePurchaseTemplate purchase in AndroidInAppPurchaseManager.instance.inventory.purchases)
+            {
+                AndroidInAppPurchaseManager.instance.consume(purchase.SKU);
+            }
         }
     }
 }

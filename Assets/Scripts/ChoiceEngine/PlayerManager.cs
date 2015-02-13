@@ -18,19 +18,11 @@ namespace Assets.Scripts.ChoiceEngine
     {
 
         private Player m_player;
-        private Text m_description;
-        private Text m_age;
-        private Text m_profession;
-        private Text m_name;
         private BinaryFormatter m_formatter = new BinaryFormatter();
         private FileStream m_file;
 
         private void Awake()
         {
-            m_name = GameObject.Find("CharacterPanelName").GetComponent<Text>();
-            m_age = GameObject.Find("CharacterPanelAge").GetComponent<Text>();
-            m_description = GameObject.Find("CharacterPanelDescription").GetComponent<Text>();
-            m_profession = GameObject.Find("CharacterPanelProfession").GetComponent<Text>();
             MessageSystem.SubscribeMessage<CharacterSelectedMessage>(MessageSystem.ServiceContext, OnCharacterSelected);
             MessageSystem.SubscribeMessage<LoadGameCommand>(MessageSystem.ServiceContext, OnLoadGame);
             MessageSystem.SubscribeMessage<GotoEntryCommand>(MessageSystem.ServiceContext, OnEntryLoaded);
@@ -262,7 +254,6 @@ namespace Assets.Scripts.ChoiceEngine
             m_player.Flags = new Dictionary<string, bool>();
             m_player.PayingUser = false;
 
-            SetPlayerDescriptors();
             BroadcastStats();
             SerializePlayer();
         }
@@ -284,19 +275,12 @@ namespace Assets.Scripts.ChoiceEngine
             m_file = File.Open(Application.persistentDataPath + "/savegame.dat", FileMode.Open);
             m_player = (Player) m_formatter.Deserialize(m_file);
             m_file.Close();
-            SetPlayerDescriptors();
             BroadcastStats();
             MessageSystem.BroadcastMessage(new LoadActCommand("Act" + m_player.CurrentAct.ToString(), m_player.CurrentEntry));
             MessageSystem.BroadcastMessage(new PlayMusicCommand("SpiderEyes"));
         }
 
-        private void SetPlayerDescriptors()
-        {
-            m_age.text = m_player.Age.ToString();
-            m_description.text = m_player.Description;
-            m_profession.text = m_player.Profession;
-            m_name.text = m_player.Name;
-        }
+
 
         private void BroadcastStats()
         {
