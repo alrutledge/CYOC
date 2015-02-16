@@ -7,7 +7,8 @@
         GRANT_GEAR,
         REMOVE_GEAR,
         REQUIREMENT_CHECK,
-        LOAD_ACT
+        LOAD_ACT,
+        END_GAME
     }
 
     public abstract class ChoiceAction

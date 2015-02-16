@@ -8,6 +8,9 @@ EntryText:  Your adventure has ended.
 EntryText:  
 EntryText:  Welcome to a pine box.
 
+Choice:The End
+Action:END_GAME
+
 
 EntryID:-1
 EntryText:  You have gone insane. Your mind reels from the impossibility of it all, then finally snaps. You see things that can not be possible.
@@ -16,6 +19,8 @@ EntryText:  Your adventure has ended.
 EntryText:  
 EntryText:  Welcome to a padded room.
 
+Choice:The End
+Action:END_GAME
 
 EntryID:0
 EntryText:  The year is 1925.  
@@ -244,7 +249,6 @@ EntryText:  Knowing you have no other means to light your way, you decide to tak
 EntryText:  
 EntryText:  <color=green>Acquired Lantern</color>
 EntryAction:ADD_FLAG:Lantern Taken
-EntryAction:GRANT_ITEM:Old Oil Lantern:smallOilLantern:largeOilLantern:This old oil lantern has been well used throughout its many years of service, that much is obvious. Its previous owner obviously took care of it though, as it seems to be in good working condition.
 
 Choice:Light a fire in the fireplace.
 Action:GOTO:56
@@ -355,7 +359,7 @@ Action:GOTO:68
 Choice:Head back to the foyer.
 Action:GOTO:51
 Choice:Go down into the basement.
-Action:REQUIREMENT_CHECK:HAVE_ITEM:Old Oil Lantern
+Action:REQUIREMENT_CHECK:HAVE_FLAG:Lantern Taken
 ActionCheckSuccess:GOTO:89
 ActionCheckFailure:GOTO:160
 
@@ -373,14 +377,14 @@ Action:GOTO:60
 
 EntryID:68
 EntryText:  When you pick up the knife, you turn it over in your hands and give it a good long look. Something doesn't feel right about it, but you push that from your mind and tuck the knife away.
-EntryAction:GRANT_ITEM:Ancient Knife:smallKnife:largeKnife:This very old knife has a wooden handle carved to look like an animal's paw. The wood looks very old and aged. Some sort of dark liquid has unevenly stained the wood in places. The blade of the knife is around eight inches long, with an edge on just one side. It sweeps back on the edge side to a sharp point. The back side of the blade has a groove in it. Caked in the groove is what looks to be dried blood. Perhaps that is what stained the handle as well. 
+EntryAction:ADD_FLAG:Knife Taken
 
 Choice:Head back to the foyer.
 Action:GOTO:51
 Choice:Go through the open door to the sitting room.
 Action:GOTO:60
 Choice:Go down into the basement.
-Action:REQUIREMENT_CHECK:HAVE_ITEM:Old Oil Lantern
+Action:REQUIREMENT_CHECK:HAVE_FLAG:Lantern Taken
 ActionCheckSuccess:GOTO:89
 ActionCheckFailure:GOTO:160
 
@@ -414,6 +418,7 @@ Requirement:NOT_HAVE_FLAG:Phonograph Examined
 EntryID:81
 EntryText:  The phonograph is several decades old. A single record without a label sits on the phonograph. Scratched into the center where a label might be are some crude symbols that look more like runes than letters.
 EntryText:  You check, and the phonograph is plugged in and getting power.
+
 EntryAction:ADD_FLAG:Phonograph Examined
 
 Choice:Leave the phonograph alone and head back to the landing.
@@ -1208,7 +1213,7 @@ EntryText:  Noting were all the troughs lead you push the table, and after a gru
 
 Choice:Use the knife to cut yourself and feed the hole some blood.
 Action:GOTO:114
-Requirement:HAVE_ITEM:Ancient Knife
+Requirement:HAVE_FLAG:Ancient Knife
 Choice:Examine the manacles.
 Action:GOTO:124
 Choice:Examine the doll.

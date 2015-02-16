@@ -117,11 +117,11 @@ namespace Assets.Scripts.CYOC.UI
             }
             if (purchased)
             {
-                ActPressed(2);
+                ActPressed(3);
             }
             else
             {
-                AndroidInAppPurchaseManager.instance.purchase("com.incharactergames.cyoc.act2");
+                AndroidInAppPurchaseManager.instance.purchase("com.incharactergames.cyoc.act3");
             }
         }
 
