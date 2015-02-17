@@ -764,7 +764,7 @@ EntryText:  Shutting your eyes you grab your head, and tear at your hair slightl
 EntryText:  When you open your eyes again, the mirror is still and your own reflection is staring back at you. The book still sits near the bed, and the door back to the rest of the house still looms beside you.
 EntryText:  
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-10
-EntryAction:Add_FLAG:Saw the Mirror's Vision
+EntryAction:ADD_FLAG:Saw the Mirror's Vision
 
 Choice:Examine the book on the end table.
 Action:GOTO:152
