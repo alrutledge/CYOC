@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using Assets.Scripts.ChoiceEngine;
 using Assets.Scripts.ICG.Messaging;
 using Assets.Scripts.ChoiceEngine.Messages;
@@ -11,6 +11,10 @@ namespace Assets.Scripts.CYOC.UI
 	{
 		public PlayerStat PlayerStatistic;
 		public int TriggerValue;
+		public List <Text> ThingsToChange; 
+		public Font FullSanity;
+		public Font VeryInsane;
+
 		
 		private void Awake()
 		{
@@ -35,6 +39,10 @@ namespace Assets.Scripts.CYOC.UI
 			
 			if (message.StatChanged == PlayerStatistic && message.NewValue <= TriggerValue) 
 			{
+				foreach(Text textToChange in ThingsToChange)
+				{
+					textToChange.font = VeryInsane;
+				}
 	
 			}
 		}	
