@@ -240,6 +240,7 @@ EntryText:
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:25
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-15
 EntryAction:ADD_FLAG:Fireplace Lit
+EntryAction:ADD_FLAG:Dreamt of Cthulhu
 
 Choice:Leave the study.
 Action:GOTO:51
@@ -474,6 +475,7 @@ EntryText:  In one corner one of the cloths rests over what could only be a pian
 EntryText:  
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-10
 EntryAction:MODIFY_ATTRIBUTE:MYTHOS_KNOWLEDGE:5
+EntryAction:ADD_FLAG:Heard Caroline's Recording
 
 Choice:You race out through the open door back to the landing.
 Action:GOTO:70
@@ -762,6 +764,7 @@ EntryText:  Shutting your eyes you grab your head, and tear at your hair slightl
 EntryText:  When you open your eyes again, the mirror is still and your own reflection is staring back at you. The book still sits near the bed, and the door back to the rest of the house still looms beside you.
 EntryText:  
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-10
+EntryAction:Add_FLAG:Saw the Mirror's Vision
 
 Choice:Examine the book on the end table.
 Action:GOTO:152
@@ -853,6 +856,7 @@ EntryText:
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:15
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-15
 EntryAction:ADD_FLAG:Rested In Bed
+EntryAction:ADD_FLAG:Dreamt of Rl'yeh
 
 Choice:Examine the mirror.
 Action:GOTO:151
@@ -909,6 +913,7 @@ EntryID:170
 Note: Vault (whats in it?) (TODO)
 EntryText:  With a thunk the door slides open. The room ahead of you is dominated by a massive statue some seven feet tall. It is of a sitting creature whose head looks like an octopus. Its body is vaguely human shaped, and wings sprout from its back. 
 EntryText:  Before the statue sits a small dias on which rests a book that is opened to somewhere in the middle.
+EntryAction:ADD_FLAG:Entered the Vault
 
 Choice:Examine the statue.
 Action:GOTO:171
@@ -951,7 +956,7 @@ Choice:Attack the intruder!
 Action:GOTO:176
 
 EntryID:175
-EntryText:  You spin toward the door and grab at the handle, but find it locked. You fumble with the latch, hearing heavy footsteps on the stairs. The figure growls, "You are needed hear, heir!"
+EntryText:  You spin toward the door and grab at the handle, but find it locked. You fumble with the latch, hearing heavy footsteps on the stairs. The figure growls, "You are needed here, you are the heir!"
 EntryText:  Glancing over your shoulder you see them closing on you, reaching for you.
 
 Choice:Get out of there while you still can!
