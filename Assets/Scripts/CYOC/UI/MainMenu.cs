@@ -27,12 +27,15 @@ namespace Assets.Scripts.CYOC.UI
         private void Awake()
         {
             MessageSystem.SubscribeMessage<ExitToMainMenuCommand>(MessageSystem.ServiceContext, OnExitToMainMenuCommand);
+            MessageSystem.SubscribeMessage<ClearSaveGameCommand>(MessageSystem.ServiceContext, OnClearSaveGameCommand);
+            
             m_newAlpha = 1f;
         }
         
         private void OnDestroy()
         {
             MessageSystem.UnsubscribeMessage<ExitToMainMenuCommand>(MessageSystem.ServiceContext, OnExitToMainMenuCommand);
+            MessageSystem.UnsubscribeMessage<ClearSaveGameCommand>(MessageSystem.ServiceContext, OnClearSaveGameCommand);
         }
 
         void Start()
@@ -55,6 +58,11 @@ namespace Assets.Scripts.CYOC.UI
             }
         }
 
+        private void OnClearSaveGameCommand(ClearSaveGameCommand message)
+        {
+            m_loadGameButon.interactable = false;
+        }
+
         public void LoadPressed()
         {
             m_loadPressed = true;
@@ -63,11 +71,16 @@ namespace Assets.Scripts.CYOC.UI
 
         public void LoadFinished()
         {
-            Color color = m_mainPanel.color;
-            color.a = 1.0f;
-            m_mainPanel.color = color;
+            SetAlpha(1.0f, m_mainPanel.color);
             m_loadPressed = false;
             MessageSystem.BroadcastMessage(new LoadGameCommand());
+        }
+
+        private void SetAlpha(float alpha, Color inputColor)
+        {
+            Color color = inputColor;
+            color.a = alpha;
+            inputColor = color;
         }
 
         public void NewPressed(int actNumber)
@@ -79,9 +92,8 @@ namespace Assets.Scripts.CYOC.UI
 
         private void NewFinished(int actNumber)
         {
-            Color color = m_mainPanel.color;
-            color.a = 1.0f;
-            m_mainPanel.color = color;
+            SetAlpha(1.0f, m_mainPanel.color);
+
             m_newPressed = false;
             m_playersStats = new Dictionary<PlayerStat, int>();
             m_playersStats[PlayerStat.MAX_MENTAL] = 100;
@@ -104,9 +116,6 @@ namespace Assets.Scripts.CYOC.UI
             MessageSystem.BroadcastMessage(new LoadActCommand("Act" + actNumber.ToString()));
         }
 
-
-  
-            
         public void SelectCharacterPressed()
         {
             m_loadGameButon.interactable = true;

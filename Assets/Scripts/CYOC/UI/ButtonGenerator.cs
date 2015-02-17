@@ -89,6 +89,18 @@ namespace Assets.Scripts.CYOC.UI
                     choiceButtonComponent.CurrentChoice = choice;
                 }
             }
+            else
+            {
+                foreach (Choice choice in message.LoadedEntry.Choices)
+                {
+                    count++;
+                    m_buttons[count - 1].SetActive(true);
+                    Text text = m_buttons[count - 1].GetComponentInChildren<Text>();
+                    text.text = choice.Text;
+                    ChoiceButton choiceButtonComponent = m_buttons[count - 1].GetComponent<ChoiceButton>();
+                    choiceButtonComponent.CurrentChoice = choice;
+                }
+            }
             for (int i = count; i < 4; i++)
             {
                 count++;

@@ -29,6 +29,7 @@ namespace Assets.Scripts.ChoiceEngine
             MessageSystem.SubscribeMessage<ModifyAttributeCommand>(MessageSystem.ServiceContext, OnModifyAttributeCommand);
             MessageSystem.SubscribeMessage<AddFlagCommand>(MessageSystem.ServiceContext, OnAddFlag);
             MessageSystem.SubscribeMessage<RemoveFlagCommand>(MessageSystem.ServiceContext, OnRemoveFlag);
+            MessageSystem.SubscribeMessage<ClearSaveGameCommand>(MessageSystem.ServiceContext, OnClearSaveGameCommand);
             MessageSystem.SubscribeQuery<SaveGameAnswer, SaveGameQuery>(gameObject, OnSaveGameQuery);
             MessageSystem.SubscribeQuery<RequirementReply, RequirementQuery>(gameObject, OnRequirementQuery);
             MessageSystem.SubscribeQuery<GetInventoryReply, GetInventoryQuery>(MessageSystem.ServiceContext, OnGetInventoryQuery);
@@ -43,12 +44,13 @@ namespace Assets.Scripts.ChoiceEngine
             MessageSystem.UnsubscribeMessage<ModifyAttributeCommand>(MessageSystem.ServiceContext, OnModifyAttributeCommand);
             MessageSystem.UnsubscribeMessage<AddFlagCommand>(MessageSystem.ServiceContext, OnAddFlag);
             MessageSystem.UnsubscribeMessage<RemoveFlagCommand>(MessageSystem.ServiceContext, OnRemoveFlag);
+            MessageSystem.UnsubscribeMessage<ClearSaveGameCommand>(MessageSystem.ServiceContext, OnClearSaveGameCommand);
             MessageSystem.UnsubscribeQuery<SaveGameAnswer, SaveGameQuery>(gameObject, OnSaveGameQuery);
             MessageSystem.UnsubscribeQuery<RequirementReply, RequirementQuery>(gameObject, OnRequirementQuery);
             MessageSystem.UnsubscribeQuery<GetInventoryReply, GetInventoryQuery>(MessageSystem.ServiceContext, OnGetInventoryQuery);
             MessageSystem.UnsubscribeQuery<GetPlayerStatusReply, GetPlayerStatusQuery>(MessageSystem.ServiceContext, OnGetPlayerStatusQuery);
         }
-
+        
         private GetPlayerStatusReply OnGetPlayerStatusQuery(GetPlayerStatusQuery message)
         {
             if (m_player.Stats[PlayerStat.CURRENT_PHYSICAL] <= 0)
@@ -88,12 +90,6 @@ namespace Assets.Scripts.ChoiceEngine
                 {
                     m_player.Stats[command.PlayerStat] = m_player.Stats[PlayerStat.MAX_MENTAL];
                 }
-
-                // check for insanity
-                //if (m_player.Stats[PlayerStat.CURRENT_MENTAL] <=0)
-                //{
-                //    MessageSystem.BroadcastMessage(new DelayedGotoEntryCommand(-1));
-                //}
             }
             else if (command.PlayerStat == PlayerStat.CURRENT_PHYSICAL)
             {
@@ -101,11 +97,6 @@ namespace Assets.Scripts.ChoiceEngine
                 {
                     m_player.Stats[command.PlayerStat] = m_player.Stats[PlayerStat.MAX_PHYSICAL];
                 }
-                // check for death
-                //if (m_player.Stats[PlayerStat.CURRENT_PHYSICAL] <= 0)
-                //{
-                //    MessageSystem.BroadcastMessage(new DelayedGotoEntryCommand(-2));
-                //}
             }
             else if (command.PlayerStat == PlayerStat.CURRENT_SOCIAL)
             {
@@ -117,7 +108,7 @@ namespace Assets.Scripts.ChoiceEngine
 
             if (initialStat != m_player.Stats[command.PlayerStat])
             {
-                MessageSystem.BroadcastMessage(new PlayerStatChangedMessage(command.PlayerStat, m_player.Stats[command.PlayerStat]));
+                MessageSystem.BroadcastMessage(new PlayerStatChangedMessage(command.PlayerStat, m_player.Stats[command.PlayerStat], m_player.Stats[command.PlayerStat] - initialStat));
             }
 
         }
@@ -280,13 +271,16 @@ namespace Assets.Scripts.ChoiceEngine
             MessageSystem.BroadcastMessage(new PlayMusicCommand("SpiderEyes"));
         }
 
-
+        private void OnClearSaveGameCommand(ClearSaveGameCommand message)
+        {
+            File.Delete(Application.persistentDataPath + "/savegame.dat");
+        }
 
         private void BroadcastStats()
         {
             foreach(KeyValuePair<PlayerStat, int> kvp in m_player.Stats)
             {
-                MessageSystem.BroadcastMessage(new PlayerStatChangedMessage(kvp.Key, kvp.Value));
+                MessageSystem.BroadcastMessage(new PlayerStatChangedMessage(kvp.Key, kvp.Value, 0));
             }
         }
 

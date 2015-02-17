@@ -27,6 +27,9 @@ namespace Assets.Scripts.ChoiceEngine
                 case ChoiceActionType.LOAD_ACT:
                     action = new LoadActAction(System.Int32.Parse(choiceParts[2]));
                     break;
+                case ChoiceActionType.END_GAME:
+                    action = new EndGameAction();
+                    break;
                 default:
                     action = null;
                     break;
