@@ -11,30 +11,44 @@ namespace Assets.Scripts.CYOC.UI
 	{
 		public PlayerStat PlayerStatistic;
 		public int TriggerValue;
-		private Image m_image;
+		public Color flashColor = new Color (1f, 0f, 0f, 0.1f);
+		public Image damageImage;
+		public Image m_splat;
+		public float flashSpeed = 10f;
 		private Color m_color;
 		private float seconds = 3;
-		private bool renderSplat = false;
+		private bool damaged;
 		
 		private void Awake()
 		{
-			m_image = GetComponent<Image> ();
+			m_splat = GetComponent<Image> ();
+			damageImage = GetComponent<Image> ();
 			MessageSystem.SubscribeMessage<PlayerStatChangedMessage>(MessageSystem.ServiceContext, OnStatChanged);
 		}
 
 		private void Update()
 		{
-			if (renderSplat) 
+			if (damaged) 
 			{
-				seconds -= 1 * Time.deltaTime;
-				if (seconds >= 0) 
-				{
-					m_color = m_image.color; 
-					m_color.a = m_color.a - ((1f/seconds) * Time.deltaTime);
-					m_image.color = m_color;
-					Debug.Log(m_color.a);
-				}
+
+				//seconds -= 1 * Time.deltaTime;
+				damageImage.color = flashColor;
+				m_splat.color = flashColor;
+				//if (seconds >= 0) 
+				//{
+				//	m_color = m_splat.color; 
+				//	m_color.a = m_color.a - ((1f / seconds) * Time.deltaTime);
+				//	m_splat.color = m_color;
+				//}
 			}
+			else
+			{
+			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+			m_splat.color = Color.Lerp (m_splat.color, Color.clear, flashSpeed *  Time.deltaTime);
+
+			}
+			damaged = false;
+
 		}
 
 		private void OnDestroy()
@@ -44,19 +58,20 @@ namespace Assets.Scripts.CYOC.UI
 		
 		private void OnStatChanged(PlayerStatChangedMessage message)
 		{
-			//if (message.StatChanged == PlayerStatistic && message.NewValue > TriggerValue)
-			//{
-				//m_color = m_image.color;
-				//m_color.a = 0f;
-				//m_image.color = m_color;
-			//}
+			if (message.StatChanged == PlayerStatistic && message.NewValue > TriggerValue)
+			{
+				m_color = m_splat.color;
+				m_color.a = 0f;
+				m_splat.color = m_color;
+			}
 
 			if (message.StatChanged == PlayerStatistic && message.NewValue <= TriggerValue) 
 			{
-				renderSplat =  true;
-				m_color = m_image.color;
+				damaged =  true;
+				m_color = m_splat.color;
 				m_color.a = 1.0f;
-				m_image.color = m_color;
+				m_splat.color = m_color;
+				damageImage.color = flashColor;
 			}
 		}
 	}
