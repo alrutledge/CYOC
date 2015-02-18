@@ -9,14 +9,10 @@ namespace Assets.Scripts.CYOC.UI
 {
 	public class HealthSplatterController : MonoBehaviour
 	{
-		public PlayerStat PlayerStatistic;
-		public int TriggerValue;
 		public Color flashColor;
         public Color clearColor;
-		public Image Splat;
+		public Image FlashImage;
 		public float flashSpeed = 10f;
-		private Color m_color;
-		private float seconds = 3;
 		private bool damaged = false;
 		
 		private void Awake()
@@ -29,7 +25,7 @@ namespace Assets.Scripts.CYOC.UI
 			if (damaged) 
 			{
 
-                Splat.color = flashColor;
+                FlashImage.color = flashColor;
 				damaged = false;
                 //damaged = false;
 				//m_splat.color = flashColor;
@@ -44,7 +40,7 @@ namespace Assets.Scripts.CYOC.UI
 			}
 			else
 			{
-                Splat.color = Color.Lerp(Splat.color, clearColor, flashSpeed * Time.deltaTime);
+                FlashImage.color = Color.Lerp(FlashImage.color, clearColor, flashSpeed * Time.deltaTime);
 			    //m_splat.color = Color.Lerp (m_splat.color, Color.clear, flashSpeed *  Time.deltaTime);
 			}
 
@@ -64,13 +60,13 @@ namespace Assets.Scripts.CYOC.UI
             //    m_splat.color = m_color;
             //}
 
-			if (message.StatChanged == PlayerStatistic && message.NewValue <= TriggerValue) 
+			if (message.StatChanged == PlayerStat.CURRENT_PHYSICAL && message.Delta < 0) 
 			{
 				damaged =  true;
                 //m_color = m_splat.color;
                 //m_color.a = 1.0f;
                 //m_splat.color = m_color;
-                Splat.color = flashColor;
+                FlashImage.color = flashColor;
 			}
 		}
 	}
