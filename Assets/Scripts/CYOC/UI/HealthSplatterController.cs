@@ -13,10 +13,8 @@ namespace Assets.Scripts.CYOC.UI
 		public int TriggerValue;
 		public Color flashColor;
         public Color clearColor;
-		public Image DamageImage;
 		public Image Splat;
 		public float flashSpeed = 10f;
-
 		private Color m_color;
 		private float seconds = 3;
 		private bool damaged = false;
@@ -31,8 +29,9 @@ namespace Assets.Scripts.CYOC.UI
 			if (damaged) 
 			{
 
-                DamageImage.color = flashColor;
-                damaged = false;
+                Splat.color = flashColor;
+				damaged = false;
+                //damaged = false;
 				//m_splat.color = flashColor;
 
                 //seconds -= 1 * Time.deltaTime;
@@ -45,7 +44,7 @@ namespace Assets.Scripts.CYOC.UI
 			}
 			else
 			{
-                DamageImage.color = Color.Lerp(DamageImage.color, clearColor, flashSpeed * Time.deltaTime);
+                Splat.color = Color.Lerp(Splat.color, clearColor, flashSpeed * Time.deltaTime);
 			    //m_splat.color = Color.Lerp (m_splat.color, Color.clear, flashSpeed *  Time.deltaTime);
 			}
 
@@ -71,7 +70,7 @@ namespace Assets.Scripts.CYOC.UI
                 //m_color = m_splat.color;
                 //m_color.a = 1.0f;
                 //m_splat.color = m_color;
-                DamageImage.color = flashColor;
+                Splat.color = flashColor;
 			}
 		}
 	}
