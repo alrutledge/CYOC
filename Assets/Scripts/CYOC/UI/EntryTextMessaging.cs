@@ -10,6 +10,7 @@ namespace Assets.Scripts.CYOC.UI
 {
     public class EntryTextMessaging : MonoBehaviour
     {
+        public bool WithImageText;
         private Text EntryText;
         private List<PlayerStatChangedMessage> m_statChangesCache = new List<PlayerStatChangedMessage>();
 
@@ -38,33 +39,41 @@ namespace Assets.Scripts.CYOC.UI
 
         private void OnEntryLoaded(EntryLoadedMessage message)
         {
-            EntryText.text = message.LoadedEntry.Text;
-
-            if (m_statChangesCache.Count > 0)
+            if ((message.LoadedEntry.ImageResource != null && WithImageText)||
+                (message.LoadedEntry.ImageResource == null && !WithImageText))
             {
-                EntryText.text += "\n";
-                foreach (PlayerStatChangedMessage statMessage in m_statChangesCache)
+                EntryText.text = message.LoadedEntry.Text;
+                
+                if (m_statChangesCache.Count > 0)
                 {
-                    string stat = "";
-                    if (statMessage.StatChanged == ChoiceEngine.PlayerStat.CURRENT_MENTAL)
+                    EntryText.text += "\n";
+                    foreach (PlayerStatChangedMessage statMessage in m_statChangesCache)
                     {
-                        stat = "Sanity";
+                        string stat = "";
+                        if (statMessage.StatChanged == ChoiceEngine.PlayerStat.CURRENT_MENTAL)
+                        {
+                            stat = "Sanity";
+                        }
+                        else
+                        {
+                            stat = "Health";
+                        }
+                        if (statMessage.Delta > 0)
+                        {
+                            EntryText.text += "<color=green>" + stat + " raised " + statMessage.Delta + "%</color>\n";
+                        }
+                        else
+                        {
+                            EntryText.text += "<color=red>" + stat + " lowered " + (Math.Abs(statMessage.Delta)) + "%</color>\n";
+                        }
                     }
-                    else
-                    {
-                        stat = "Health";
-                    }
-                    if (statMessage.Delta > 0)
-                    {
-                        EntryText.text += "<color=green>" + stat + " raised " + statMessage.Delta + "%</color>\n";
-                    }
-                    else
-                    {
-                        EntryText.text += "<color=red>" + stat + " lowered " + (Math.Abs(statMessage.Delta)) + "%</color>\n";
-                    }
-                }
 
-                m_statChangesCache.Clear();
+                    m_statChangesCache.Clear();
+                }
+            }
+            else
+            {
+                EntryText.text = "";
             }
         }
     }

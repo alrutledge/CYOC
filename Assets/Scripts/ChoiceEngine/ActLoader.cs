@@ -50,6 +50,11 @@ namespace Assets.Scripts.ChoiceEngine
                     m_currentEntry.Text += line.Substring(line.IndexOf(':') + 1)+"\n";
                 }
 
+                else if (line.StartsWith("EntryImage:"))
+                {
+                    m_currentEntry.ImageResource = line.Substring(line.IndexOf(':') + 1);
+                }
+
                 else if (line.StartsWith("EntryAction:"))
                 {
                     string[] choiceParts = line.Split(':');
