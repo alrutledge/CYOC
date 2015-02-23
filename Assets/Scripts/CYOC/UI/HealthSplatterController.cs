@@ -12,8 +12,12 @@ namespace Assets.Scripts.CYOC.UI
 		public Color flashColor;
         public Color clearColor;
 		public Image FlashImage;
+		public Image bloodSplatOne;
 		public float flashSpeed = 10f;
+		public float TriggerValue;
+		public Color m_color;
 		private bool damaged = false;
+
 		
 		private void Awake()
 		{
@@ -53,12 +57,7 @@ namespace Assets.Scripts.CYOC.UI
 		
 		private void OnStatChanged(PlayerStatChangedMessage message)
 		{
-            //if (message.StatChanged == PlayerStatistic && message.NewValue > TriggerValue)
-            //{
-            //    m_color = m_splat.color;
-            //    m_color.a = 0f;
-            //    m_splat.color = m_color;
-            //}
+
 
 			if (message.StatChanged == PlayerStat.CURRENT_PHYSICAL && message.Delta < 0) 
 			{
@@ -68,6 +67,21 @@ namespace Assets.Scripts.CYOC.UI
                 //m_splat.color = m_color;
                 FlashImage.color = flashColor;
 			}
-		}
+
+			if (message.StatChanged == PlayerStat.CURRENT_PHYSICAL && message.NewValue >= TriggerValue)
+			{
+			    m_color = bloodSplatOne.color;
+			    m_color.a = 1.0f;
+			    bloodSplatOne.color = m_color;
+			}
+
+			else if (message.StatChanged == PlayerStat.CURRENT_PHYSICAL && message.NewValue < TriggerValue)
+			{
+				m_color = bloodSplatOne.color;
+				m_color.a = 0.0f;
+				bloodSplatOne.color = m_color;
+			}
+
 	}
+}
 }

@@ -10,10 +10,13 @@ namespace Assets.Scripts.CYOC.UI
 	public class SanityEffectController : MonoBehaviour
 	{
 		public PlayerStat PlayerStatistic;
-		public int TriggerValue;
+		public int TriggerValueOne;
 		public List <Text> ThingsToChange; 
 		public Font FullSanity;
-		public Font VeryInsane;
+		public Font SanityLossOne;
+		public Font SanityLossTwo;
+		public Font SanityLossThree;
+		public Font Insane;
 
 		
 		private void Awake()
@@ -33,18 +36,40 @@ namespace Assets.Scripts.CYOC.UI
 		
 		private void OnStatChanged(PlayerStatChangedMessage message)
 		{
-			if (message.StatChanged == PlayerStatistic && message.NewValue > TriggerValue)
+			if (message.StatChanged == PlayerStatistic && message.NewValue > TriggerValueOne)
 			{
+			
 			}
 			
-			if (message.StatChanged == PlayerStatistic && message.NewValue <= TriggerValue) 
+			if (message.StatChanged == PlayerStatistic && message.NewValue <= TriggerValueOne/4) 
 			{
-				foreach(Text textToChange in ThingsToChange)
+				foreach (Text textToChange in ThingsToChange) 
 				{
-					textToChange.font = VeryInsane;
+					textToChange.font = Insane;
 				}
-	
 			}
+			else if (message.StatChanged == PlayerStatistic && message.NewValue < TriggerValueOne/3) 
+			{
+				foreach (Text textToChange in ThingsToChange) 
+				{
+					textToChange.font = SanityLossOne;
+				}
+			} 
+			else if (message.StatChanged == PlayerStatistic && message.NewValue <= TriggerValueOne/2)
+			{
+				foreach (Text textToChange in ThingsToChange) 
+				{
+					textToChange.font = SanityLossTwo;
+				}
+			}
+			else
+			{
+					foreach (Text textToChange in ThingsToChange) 
+					{
+					textToChange.font = FullSanity;
+					}
+				}
+
 		}	
 	}
 }
