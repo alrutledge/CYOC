@@ -955,6 +955,7 @@ Choice:Search for whoever is in the house.
 Action:GOTO:174
 
 EntryID:174
+EntryImage:cultist512
 EntryText:  You run into the foyer, and see a figure standing on the stairs. They are dressed in a massive robe with a mask over their face. They rasp out, "The heir!" and point a gloved hand in your direction.
 
 Choice:Flee out of the house!
