@@ -15,7 +15,7 @@ namespace Assets.Scripts.ChoiceEngine.EntryActions
 
 		public override void PerformAction()
 		{
-			//MessageSystem.BroadcastMessage(new PlaySoundCommand(Name));
+			MessageSystem.BroadcastMessage(new PlaySoundCommand(Name));
 		}
 
         public override bool AlwaysRun()

@@ -75,6 +75,9 @@ namespace Assets.Scripts.ChoiceEngine
                 case EntryActionType.PLAY_ACT_ANIMATION:
                     action = new PlayActAnimationAction(choiceParts[2]);
                     break;
+				case EntryActionType.CHANGE_FONT:
+					action = new ChangeFontAction(choiceParts[2]);
+					break;
 				default:
                     action = null;
                     break;

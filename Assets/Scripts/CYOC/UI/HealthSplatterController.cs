@@ -37,7 +37,7 @@ namespace Assets.Scripts.CYOC.UI
 			if (message.StatChanged == PlayerStat.CURRENT_PHYSICAL && message.NewValue <= TriggerValue)
 			{
 			    m_color = bloodSplatOne.color;
-			    m_color.a = 1.0f;
+			    m_color.a = .35f;
 			    bloodSplatOne.color = m_color;
 			}
 

@@ -5,6 +5,7 @@ using Assets.Scripts.ChoiceEngine.Messages;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System;
+using Assets.Scripts.ChoiceEngine;
 
 namespace Assets.Scripts.CYOC.UI
 {
@@ -19,6 +20,7 @@ namespace Assets.Scripts.CYOC.UI
             EntryText = gameObject.GetComponent<Text>();
             MessageSystem.SubscribeMessage<EntryLoadedMessage>(MessageSystem.ServiceContext, OnEntryLoaded);
             MessageSystem.SubscribeMessage<PlayerStatChangedMessage>(MessageSystem.ServiceContext, OnPlayerStatChangedMessage);
+			MessageSystem.SubscribeMessage<ChangeFontCommand>(MessageSystem.ServiceContext, OnChangeFontCommand);
         }
 
         private void OnDestroy()
@@ -26,6 +28,12 @@ namespace Assets.Scripts.CYOC.UI
             MessageSystem.UnsubscribeMessage<EntryLoadedMessage>(MessageSystem.ServiceContext, OnEntryLoaded);
             MessageSystem.UnsubscribeMessage<PlayerStatChangedMessage>(MessageSystem.ServiceContext, OnPlayerStatChangedMessage);
         }
+
+		private void OnChangeFontCommand (ChangeFontCommand message)
+		{
+			Font toUse = Resources.Load(message.Name, typeof(Font))as Font;
+			EntryText.font = toUse;
+		}
 
         private void OnPlayerStatChangedMessage(PlayerStatChangedMessage message)
         {

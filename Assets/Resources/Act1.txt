@@ -7,17 +7,39 @@ EntryText:
 EntryText:  Your adventure has ended. 
 EntryText:  
 EntryText:  Welcome to a pine box.
+EntryAction:PLAY_MUSIC:sadend
 
 Choice:The End
 Action:END_GAME
 
 
 EntryID:-1
-EntryText:  You have gone insane. Your mind reels from the impossibility of it all, then finally snaps. You see things that can not be possible.
 EntryText:  
-EntryText:  Your adventure has ended. 
+EntryText:    They had come from the stars, and had brought Their images with Them
+EntryText:
+EntryText:	Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn 
+EntryText:  Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn 
+EntryText:  Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn  
+EntryText:  Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn 
+EntryText:  Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn 
+EntryText:	Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn 
+EntryText:  Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn 
+EntryText:  Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn  
+EntryText:  Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn 
+EntryText:  Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn 
+EntryAction:PLAY_MUSIC:fullterrortransition
+
+Choice:Continue
+Action:GOTO:-3
+
+EntryID:-3
+EntryText:  In a brief moment of clarity, you realise you have gone insane. Your mind has snapped from the impossibility of it all. You see things that can not be possible. 
 EntryText:  
-EntryText:  Welcome to a padded room.
+EntryText:  And as the voices return, you realise your adventure is over.
+EntryText:  
+EntryText:  
+EntryAction:PLAY_MUSIC:sadend
+EntryAction:CHANGE_FONT:effloresce antique
 
 Choice:The End
 Action:END_GAME
@@ -130,7 +152,7 @@ EntryText:  You shudder at the gruesome thought, then call out, "Excuse me."
 EntryText:  He doesn't miss a beat, axe falling to split another log even though he is now looking at you. "What?"
 EntryText:  "I don't mean to intrude, but I need a word with you." He spits to one side of then chokes up on the axe and strides toward you. 
 EntryText:  You swallow then straighten your clothes and move to meet him.
-
+EntryAction:PLAY_SOUND:axe
 Choice:Continue.
 Action:GOTO:31
 

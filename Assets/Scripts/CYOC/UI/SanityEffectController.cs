@@ -41,7 +41,7 @@ namespace Assets.Scripts.CYOC.UI
 			
 			}
 			
-			if (message.StatChanged == PlayerStatistic && message.NewValue <= TriggerValueOne/4) 
+			if (message.StatChanged == PlayerStatistic && message.NewValue <= TriggerValueOne/100) 
 			{
 				foreach (Text textToChange in ThingsToChange) 
 				{

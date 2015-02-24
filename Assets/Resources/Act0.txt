@@ -14,6 +14,14 @@ EntryText:
 EntryText:  Your adventure has ended. 
 EntryText:  
 EntryText:  Welcome to a padded room.
+Action:GOTO:-3
+
+EntryID:-3
+EntryText: Test
+EntryText:  
+EntryText:   only a test
+EntryText:  
+EntryText:  
 
 
 EntryID:0
