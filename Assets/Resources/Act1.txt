@@ -486,7 +486,6 @@ EntryText:  She screams over the howling wind and discordant cacophony of the pi
 EntryText:  There is a horrid crunching noise, and the man's scream ends abruptly. The crunching noises continue along with horrid slurping noises.
 EntryText:  
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-15
-EntryAction:MODIFY_ATTRIBUTE:MYTHOS_KNOWLEDGE:10
 
 Choice:Oh god, no, turn it off.
 Action:GOTO:83
@@ -503,7 +502,6 @@ EntryText:  Then you see it.
 EntryText:  In one corner one of the cloths rests over what could only be a piano. You look back down at the massive stain in area in front of the piano. Your mind revolts at the possibilities and you quickly flee the room back to the foyer, trying not to be sick.
 EntryText:  
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-10
-EntryAction:MODIFY_ATTRIBUTE:MYTHOS_KNOWLEDGE:5
 EntryAction:ADD_FLAG:Heard Caroline's Recording
 
 Choice:You race out through the open door back to the landing.
@@ -1015,6 +1013,7 @@ EntryText:  You run from the house, yelling at James, "Someone is in there!" You
 EntryText:  Minutes later, James comes out, dragging the barking dog with him. "Sorry, whoever or whatever it was is gone now. The back door wasn't locked up, so maybe they got out that way while we were out here." He shrugs a bit, but looks like he is telling you the truth. Besides, if James had it out for you, his axe and dog could have let him act on it long ago.
 EntryText:  You sigh and nod, "Fine. Lock the place up, I need to head into town, but I'll be back." Someone in town will help you shed some light on this. After all you uncle worked at the university in town. Perhaps the library or local newspaper will have information that can help. Either way, you need some supplies, and some help, then you'll be back.
 EntryText:  James smiles ever so slightly and nods, "Very well, but don't stay in town too long. It will be dark by the time you return."
+EntryAction:ADD_FLAG:Completed Act 1
 
 Choice:End Act 1 - The Morning
 Action:LOAD_ACT:2
