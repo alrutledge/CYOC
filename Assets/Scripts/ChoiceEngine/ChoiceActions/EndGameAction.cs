@@ -9,6 +9,8 @@ namespace Assets.Scripts.ChoiceEngine.ChoiceActions
         public override void PerformAction()
         {
             MessageSystem.BroadcastMessage(new ClearSaveGameCommand());
+
+            // TODO: Show the scoring screen instead of the following...
             MessageSystem.BroadcastMessage(new ExitToMainMenuCommand());
         }
     }

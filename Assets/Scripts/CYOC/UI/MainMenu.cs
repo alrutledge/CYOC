@@ -124,7 +124,6 @@ namespace Assets.Scripts.CYOC.UI
 
             m_playersStats[PlayerStat.CURRENT_MENTAL] = m_playersStats[PlayerStat.MAX_MENTAL];
             m_playersStats[PlayerStat.CURRENT_PHYSICAL] = m_playersStats[PlayerStat.MAX_PHYSICAL];
-            m_playersStats[PlayerStat.MYTHOS_KNOWLEDGE] = 0;
 
             message.Stats = m_playersStats;
             message.Inventory = m_startingInventory;
