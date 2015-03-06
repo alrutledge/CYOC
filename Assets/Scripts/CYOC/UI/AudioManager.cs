@@ -9,12 +9,13 @@ namespace Assets.Scripts.CYOC.UI
 {
 	public class AudioManager : MonoBehaviour 
 	{
-		private AudioSource m_audioSource;
-		//private AudioSource m_audioSource2;
+		private AudioSource m_soundEffectAudioSource;
+		private AudioSource m_musicAudioSource;
 
 		private void Start()
 		{
-			m_audioSource = GameObject.Find("Music").GetComponent<AudioSource>();
+            m_musicAudioSource = GameObject.Find("Music").GetComponent<AudioSource>();
+            m_soundEffectAudioSource = GameObject.Find("SoundEffects").GetComponent<AudioSource>();
 		}
 
 		private void Awake() 
@@ -31,18 +32,22 @@ namespace Assets.Scripts.CYOC.UI
 
 		private void OnPlayMusicCommand(PlayMusicCommand command)
 		{
-			if (m_audioSource.isPlaying)
+            if (m_musicAudioSource.isPlaying)
 			{
-				m_audioSource.Stop();
+                m_musicAudioSource.Stop();
 			}
-			m_audioSource.clip = Resources.Load(command.ClipName, typeof(AudioClip)) as AudioClip;
-			m_audioSource.Play();
+            m_musicAudioSource.clip = Resources.Load(command.ClipName, typeof(AudioClip)) as AudioClip;
+            m_musicAudioSource.Play();
 		}
 
 		private void OnPlaySoundCommand(PlaySoundCommand command)
-		{
-			m_audioSource.clip = Resources.Load(command.SoundClipName, typeof(AudioClip)) as AudioClip;
-			m_audioSource.Play();
+        {
+            if (m_soundEffectAudioSource.isPlaying)
+            {
+                m_soundEffectAudioSource.Stop();
+            }
+            m_soundEffectAudioSource.clip = Resources.Load(command.SoundClipName, typeof(AudioClip)) as AudioClip;
+            m_soundEffectAudioSource.Play();
 		}
 	}
 }
