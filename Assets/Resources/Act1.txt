@@ -2,6 +2,7 @@ ActName:Act 1 - Morning
 
 
 EntryID:-2
+EntryImage:death_graphic
 EntryText:  You collapse from your wounds, exhaustion, or pain. You are not really sure which. In the darkness that follows, you see cloaked men, and horrible things that can not possibly exist. You see the end of all times, or at least your end.
 EntryText:  
 EntryText:  Your adventure has ended. 
@@ -33,6 +34,7 @@ Choice:Continue
 Action:GOTO:-3
 
 EntryID:-3
+EntryImage:insanity_graphic
 EntryText:  In a brief moment of clarity, you realise you have gone insane. Your mind has snapped from the impossibility of it all. You see things that can not be possible. 
 EntryText:  
 EntryText:  And as the voices return, you realise your adventure is over.
