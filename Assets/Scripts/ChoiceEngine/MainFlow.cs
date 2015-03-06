@@ -11,11 +11,13 @@ public class MainFlow : MonoBehaviour
     private GameObject m_gamePlay;
     private GameObject m_splashScreen;
     private GameObject m_exitGame;
+    private GameObject m_endPanel;
 
 	private void Awake () 
     {
         m_mainMenu = GameObject.Find("MainMenu");
         m_gamePlay = GameObject.Find("GamePlay");
+        m_endPanel = GameObject.Find("EndPanel");
         m_splashScreen = GameObject.Find("SplashScreen");
         m_exitGame = GameObject.Find("ConfirmGameExitPanel");
         MessageSystem.SubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
@@ -37,6 +39,7 @@ public class MainFlow : MonoBehaviour
         m_mainMenu.SetActive(false);
         m_gamePlay.SetActive(false);
         m_exitGame.SetActive(false);
+        m_endPanel.SetActive(false);
         StartCoroutine(RemoveSplashScreen(1.0f));
     }
 	
