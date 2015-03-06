@@ -518,7 +518,14 @@ Choice:Continue.
 Action:GOTO:90 
 
 EntryID:90
-EntryText:  Stepping up to the door you see beside it a large decorative metal mechanism built into the wall. There are no handles or latches on the door. In the middle of the mechanism is a large metal skull with dark green crystals for eyes. The skulls mouth is open wide, and by lifting the lamp just right, you can see that there is a lever deep within the hole. You would have to reach almost your entire arm in to reach the lever. Slots line the bottom of the hole, and small holes like the top of it.
+EntryImage:skull_puzzle
+EntryText:  Stepping up to the door you see beside it a large decorative metal mechanism built into the wall. There are no handles or latches on the door. In the middle of the mechanism is a large metal skull with dark green crystals for eyes. The skulls mouth is open wide, and by lifting the lamp just right, you can see that there is a lever deep within the hole. You would have to reach almost your entire arm in to reach the lever. Slots line the bottom of the hole, and small holes line the top of it.
+
+Choice:Continue
+Action:GOTO:9100
+
+EntryID:9100
+EntryImage:skull_puzzle
 EntryText:  Around the skull are three concentric rings. Each is carved with decorative symbols. The outer ring seems to be decorated with symbols of the sun. The middle ring is decorated with symbols of the moon. The inner ring is decorated with fire symbols. Each of the rings has a small handle, and looks like they can spin either direction.
 
 Choice:Examine the eye crystals.
