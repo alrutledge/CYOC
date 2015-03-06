@@ -30,6 +30,9 @@ namespace Assets.Scripts.ChoiceEngine
                 case ChoiceActionType.END_GAME:
                     action = new EndGameAction();
                     break;
+                case ChoiceActionType.STOP_SOUND:
+                    action = new StopSoundEffectAction();
+                    break;
                 default:
                     action = null;
                     break;

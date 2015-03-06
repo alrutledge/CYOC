@@ -22,14 +22,17 @@ namespace Assets.Scripts.CYOC.UI
 		{
 			MessageSystem.SubscribeMessage<PlayMusicCommand>(MessageSystem.ServiceContext, OnPlayMusicCommand);
 			MessageSystem.SubscribeMessage<PlaySoundCommand>(MessageSystem.ServiceContext, OnPlaySoundCommand);
+            MessageSystem.SubscribeMessage<StopSoundEffectCommand>(MessageSystem.ServiceContext, OnStopSoundEffectCommand);
+            
 		}
 
 		private void OnDestroy()
 		{
 			MessageSystem.UnsubscribeMessage<PlayMusicCommand>(MessageSystem.ServiceContext, OnPlayMusicCommand);
-			MessageSystem.UnsubscribeMessage<PlaySoundCommand>(MessageSystem.ServiceContext, OnPlaySoundCommand);
+            MessageSystem.UnsubscribeMessage<PlaySoundCommand>(MessageSystem.ServiceContext, OnPlaySoundCommand);
+            MessageSystem.UnsubscribeMessage<StopSoundEffectCommand>(MessageSystem.ServiceContext, OnStopSoundEffectCommand);
 		}
-
+        
 		private void OnPlayMusicCommand(PlayMusicCommand command)
 		{
             if (m_musicAudioSource.isPlaying)
@@ -49,5 +52,13 @@ namespace Assets.Scripts.CYOC.UI
             m_soundEffectAudioSource.clip = Resources.Load(command.SoundClipName, typeof(AudioClip)) as AudioClip;
             m_soundEffectAudioSource.Play();
 		}
+
+        private void OnStopSoundEffectCommand(StopSoundEffectCommand message)
+        {
+            if (m_soundEffectAudioSource.isPlaying)
+            {
+                m_soundEffectAudioSource.Stop();
+            }
+        }
 	}
 }

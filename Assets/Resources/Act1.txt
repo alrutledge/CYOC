@@ -158,6 +158,7 @@ EntryText:  You swallow then straighten your clothes and move to meet him.
 EntryAction:PLAY_SOUND:axe
 Choice:Continue.
 Action:GOTO:31
+Action:STOP_SOUND
 
 
 EntryID:31

@@ -8,7 +8,8 @@
         REMOVE_GEAR,
         REQUIREMENT_CHECK,
         LOAD_ACT,
-        END_GAME
+        END_GAME,
+        STOP_SOUND
     }
 
     public abstract class ChoiceAction
