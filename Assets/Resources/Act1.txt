@@ -504,7 +504,7 @@ EntryText:  Then you see it.
 EntryText:  In one corner one of the cloths rests over what could only be a piano. You look back down at the massive stain in area in front of the piano. Your mind revolts at the possibilities and you quickly flee the room back to the foyer, trying not to be sick.
 EntryText:  
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-10
-EntryAction:ADD_FLAG:Heard Caroline's Recording
+EntryAction:ADD_FLAG:Heard Carolines Recording
 
 Choice:You race out through the open door back to the landing.
 Action:GOTO:70
@@ -800,7 +800,7 @@ EntryText:  Shutting your eyes you grab your head, and tear at your hair slightl
 EntryText:  When you open your eyes again, the mirror is still and your own reflection is staring back at you. The book still sits near the bed, and the door back to the rest of the house still looms beside you.
 EntryText:  
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-10
-EntryAction:ADD_FLAG:Saw the Mirror's Vision
+EntryAction:ADD_FLAG:Saw the Mirrors Vision
 
 Choice:Examine the book on the end table.
 Action:GOTO:152
@@ -892,7 +892,7 @@ EntryText:
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:15
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_MENTAL:-15
 EntryAction:ADD_FLAG:Rested In Bed
-EntryAction:ADD_FLAG:Dreamt of Rl'yeh
+EntryAction:ADD_FLAG:Dreamt of Rlyeh
 
 Choice:Examine the mirror.
 Action:GOTO:151

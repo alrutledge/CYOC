@@ -1,4 +1,4 @@
-ActName:Act 0
+ActName:Act 2 - Afternoon
 
 EntryID:-2
 EntryText:  You collapse from your wounds, exhaustion, or pain. You are not really sure which. In the darkness that follows, you see cloaked men, and horrible things that can not possibly exist. You see the end of all times, or at least your end.
@@ -6,6 +6,9 @@ EntryText:
 EntryText:  Your adventure has ended. 
 EntryText:  
 EntryText:  Welcome to a pine box.
+
+Choice:The End
+Action:END_GAME
 
 
 EntryID:-1
@@ -15,18 +18,18 @@ EntryText:  Your adventure has ended.
 EntryText:  
 EntryText:  Welcome to a padded room.
 
+Choice:The End
+Action:END_GAME
+
 
 EntryID:0
 EntryText:  Act2
 
 END
 
-EntryText:  A telegram arrived for you late last night. An uncle you did not even know you had apparently passed recently. In his will, he left his entire estate to you.
-EntryText:  Apparently the estate consists of the home and lands at 15607 Old Hill Rd just outside of town. 
-EntryText:  As luck would have it, you had no other plans for the day, so you have decided that you should drive out there and examine your new property. 
-EntryText:  Maybe it, or something within, will be worth something to you. At least, you will be able to learn more about this uncle that you did not even know you had.
-EntryText:  As you pack your things for a day trip and get into your car, it occurs to you that perhaps before you go out to the house you could do a bit of research to find out more about the place.
+
 EntryAction:PLAY_MUSIC:SpiderEyes
+EntryAction:PLAY_ACT_ANIMATION:GameIntro
 
 Choice:Research the house before going out there.
 Action:GOTO:1

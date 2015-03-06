@@ -19,7 +19,7 @@ public class MainFlow : MonoBehaviour
         m_mainMenu = GameObject.Find("MainMenu");
         m_gamePlay = GameObject.Find("GamePlay");
         m_endPanel = GameObject.Find("EndPanel");
-        m_mainPanel = GameObject.Find("MainPanel");
+        m_mainPanel = GameObject.Find("MainGamePanel");
         m_splashScreen = GameObject.Find("SplashScreen");
         m_exitGame = GameObject.Find("ConfirmGameExitPanel");
         MessageSystem.SubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);

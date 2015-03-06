@@ -8,7 +8,7 @@ namespace Assets.Scripts.ChoiceEngine
 {
     public class GameManager : MonoBehaviour
     {
-        private Act CurrentAct;
+        private Act m_currentAct;
         private DelayedGotoEntryCommand m_delayedGotoEntry;
         private int m_entriesLoaded = 0;
         private bool m_entriesSurpressed = false;
@@ -20,6 +20,7 @@ namespace Assets.Scripts.ChoiceEngine
             MessageSystem.SubscribeMessage<GotoEntryCommand>(MessageSystem.ServiceContext, OnGotoEntryCommand);
             MessageSystem.SubscribeMessage<DelayedGotoEntryCommand>(MessageSystem.ServiceContext, OnDelayedGotoEntryCommand);
             MessageSystem.SubscribeMessage<SupressEntriesCommand>(MessageSystem.ServiceContext, OnSupressEntriesCommand);
+            MessageSystem.SubscribeQuery<GetCurrentActReply, GetCurrentActQuery>(MessageSystem.ServiceContext, OnGetCurrentAct);
         }
                 
         private void OnDestroy()
@@ -28,6 +29,12 @@ namespace Assets.Scripts.ChoiceEngine
             MessageSystem.UnsubscribeMessage<GotoEntryCommand>(MessageSystem.ServiceContext, OnGotoEntryCommand);
             MessageSystem.UnsubscribeMessage<DelayedGotoEntryCommand>(MessageSystem.ServiceContext, OnDelayedGotoEntryCommand);
             MessageSystem.UnsubscribeMessage<SupressEntriesCommand>(MessageSystem.ServiceContext, OnSupressEntriesCommand);
+            MessageSystem.UnsubscribeQuery<GetCurrentActReply, GetCurrentActQuery>(MessageSystem.ServiceContext, OnGetCurrentAct);
+        }
+
+        private GetCurrentActReply OnGetCurrentAct(GetCurrentActQuery message)
+        {
+            return new GetCurrentActReply(m_currentAct);
         }
 
         private void OnDelayedGotoEntryCommand(DelayedGotoEntryCommand message)
@@ -37,12 +44,12 @@ namespace Assets.Scripts.ChoiceEngine
 
         private void OnGotoEntryCommand(GotoEntryCommand message)
         {
-            LoadEntry(CurrentAct.Entries[message.ID]);
+            LoadEntry(m_currentAct.Entries[message.ID]);
         }
 
         private void OnActLoaded(ActLoadedMessage message)
         {
-            CurrentAct = message.CurrentAct;
+            m_currentAct = message.CurrentAct;
             LoadEntry(message.FirstEntry, false);
         }
 
