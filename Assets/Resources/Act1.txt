@@ -138,7 +138,8 @@ EntryText:  It hurts for a moment, but you quickly get over it when you see the 
 EntryText:  You stumble back, falling off the porch with a yelp. Before you can react the dog is on you. You manage to thrust you arm in the way of its massive jaws, preventing it from biting your face off. 
 EntryText:  It sinks its teeth into your arm and begins to shake. You scream in pain and punch the dog in the side of the head over and over until it finally relents and lets go. 
 EntryText:  Just as it looks to be gathering steam for another lunge at you, a man behind it grabs its collar and yanks it backwards. He is older and gritty looking, carrying an axe in one hand, manhandling the massive dog with the other. He spits to one side then growls, "Wondering when you were going to show up."
-EntryText:  
+EntryText:
+EntryAction:PLAY_SOUND:doorbash  
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-25
 
 Choice:Continue.
