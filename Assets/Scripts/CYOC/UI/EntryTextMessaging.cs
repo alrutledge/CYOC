@@ -72,7 +72,7 @@ namespace Assets.Scripts.CYOC.UI
                         }
                         else
                         {
-                            EntryText.text += "<color=red>" + stat + " lowered " + (Math.Abs(statMessage.Delta)) + "%</color>\n";
+                            EntryText.text += "<color=#750000>" + stat + " lowered " + (Math.Abs(statMessage.Delta)) + "%</color>\n";
                         }
                     }
 
