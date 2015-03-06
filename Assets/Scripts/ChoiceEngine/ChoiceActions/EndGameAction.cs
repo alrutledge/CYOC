@@ -11,7 +11,9 @@ namespace Assets.Scripts.ChoiceEngine.ChoiceActions
             MessageSystem.BroadcastMessage(new ClearSaveGameCommand());
 
             // TODO: Show the scoring screen instead of the following...
-            MessageSystem.BroadcastMessage(new ExitToMainMenuCommand());
+            MessageSystem.BroadcastMessage(new ShowActEndCommand());
+
+            //MessageSystem.BroadcastMessage(new ExitToMainMenuCommand());
         }
     }
 }

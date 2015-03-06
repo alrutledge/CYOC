@@ -11,17 +11,22 @@ public class MainFlow : MonoBehaviour
     private GameObject m_gamePlay;
     private GameObject m_splashScreen;
     private GameObject m_exitGame;
+    private GameObject m_endPanel;
+    private GameObject m_mainPanel;
 
 	private void Awake () 
     {
         m_mainMenu = GameObject.Find("MainMenu");
         m_gamePlay = GameObject.Find("GamePlay");
+        m_endPanel = GameObject.Find("EndPanel");
+        m_mainPanel = GameObject.Find("MainPanel");
         m_splashScreen = GameObject.Find("SplashScreen");
         m_exitGame = GameObject.Find("ConfirmGameExitPanel");
         MessageSystem.SubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
         MessageSystem.SubscribeMessage<ExitToMainMenuCommand>(MessageSystem.ServiceContext, OnExitToMainMenuCommand);
         MessageSystem.SubscribeMessage<PrepareActAnimationCommand>(MessageSystem.ServiceContext, OnPrepareActAnimationCommand);
         MessageSystem.SubscribeMessage<ActAnimationCompletedMessage>(MessageSystem.ServiceContext, OnActAnimationCompletedMessage);
+        MessageSystem.SubscribeMessage<ShowActEndCommand>(MessageSystem.ServiceContext, OnShowActEndCommand);
 	}
 
     private void OnDestroy()
@@ -30,6 +35,13 @@ public class MainFlow : MonoBehaviour
         MessageSystem.UnsubscribeMessage<ExitToMainMenuCommand>(MessageSystem.ServiceContext, OnExitToMainMenuCommand);
         MessageSystem.UnsubscribeMessage<PrepareActAnimationCommand>(MessageSystem.ServiceContext, OnPrepareActAnimationCommand);
         MessageSystem.UnsubscribeMessage<ActAnimationCompletedMessage>(MessageSystem.ServiceContext, OnActAnimationCompletedMessage);
+        MessageSystem.UnsubscribeMessage<ShowActEndCommand>(MessageSystem.ServiceContext, OnShowActEndCommand);
+    }
+
+    private void OnShowActEndCommand(ShowActEndCommand message)
+    {
+        m_endPanel.SetActive(true);
+        m_mainPanel.SetActive(false);
     }
         
     private void Start()
@@ -37,6 +49,7 @@ public class MainFlow : MonoBehaviour
         m_mainMenu.SetActive(false);
         m_gamePlay.SetActive(false);
         m_exitGame.SetActive(false);
+        m_endPanel.SetActive(false);
         StartCoroutine(RemoveSplashScreen(1.0f));
     }
 	
@@ -97,6 +110,8 @@ public class MainFlow : MonoBehaviour
     {
         m_mainMenu.SetActive(true);
         m_gamePlay.SetActive(false);
+        m_endPanel.SetActive(false);
+        m_mainPanel.SetActive(true);
         MessageSystem.BroadcastMessage(new PlayMusicCommand("Awkward"));
     }
 
