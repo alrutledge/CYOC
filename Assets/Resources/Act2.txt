@@ -24,6 +24,8 @@ Action:END_GAME
 
 EntryID:0
 EntryText:  Act2
+EntryAction:PLAY_MUSIC:SpiderEyes
+EntryAction:PLAY_ACT_ANIMATION:Act2Intro
 
 END
 

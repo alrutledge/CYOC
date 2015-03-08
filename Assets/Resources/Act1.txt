@@ -833,8 +833,9 @@ Action:GOTO:1521
 
 
 EntryID:1521
-EntryText:  You unfold it and examine it. A massive symbol is drawn on the page, with three concentric circles on it. Arrows drawn on the circles indicate counterclockwise rotation on the outer most circle, clockwise rotation on the middle circle, and clockwise rotation on the inner circle. 
-EntryText:  In the middle of all the circles there are picture two ovals or sockets. The one on the left is filled in, the one on the right is empty.
+EntryImage:clue
+EntryText:  You unfold and examine it. It is a sketch of three concentric circles. Arrows drawn on the circles indicate counterclockwise rotation on the outer most circle, clockwise rotation on the middle circle, and clockwise rotation on the inner circle. 
+EntryText:  In the middle of the circles are drawn two ovals. The one on the left is filled in, the one on the right is empty.
 EntryText:  Finally there is a stick figure drawn with an arrow pointing away from it.
 
 Choice:Examine the mirror.
@@ -1027,7 +1028,7 @@ EntryText:  James smiles ever so slightly and nods, "Very well, but don't stay i
 EntryAction:ADD_FLAG:Completed Act 1
 
 Choice:End Act 1 - The Morning
-Action:LOAD_ACT:2
+Action:END_GAME
 
 END
 
