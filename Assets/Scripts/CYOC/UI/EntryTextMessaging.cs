@@ -27,6 +27,7 @@ namespace Assets.Scripts.CYOC.UI
         {
             MessageSystem.UnsubscribeMessage<EntryLoadedMessage>(MessageSystem.ServiceContext, OnEntryLoaded);
             MessageSystem.UnsubscribeMessage<PlayerStatChangedMessage>(MessageSystem.ServiceContext, OnPlayerStatChangedMessage);
+            MessageSystem.UnsubscribeMessage<ChangeFontCommand>(MessageSystem.ServiceContext, OnChangeFontCommand);
         }
 
 		private void OnChangeFontCommand (ChangeFontCommand message)

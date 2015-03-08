@@ -54,22 +54,21 @@ namespace Assets.Scripts.CYOC.UI
 				{
 					textToChange.font = SanityLossOne;
 				}
-			} 
-			else if (message.StatChanged == PlayerStatistic && message.NewValue <= TriggerValueOne/2)
-			{
-				foreach (Text textToChange in ThingsToChange) 
-				{
-					textToChange.font = SanityLossTwo;
-				}
 			}
-			else
-			{
-					foreach (Text textToChange in ThingsToChange) 
-					{
-					textToChange.font = FullSanity;
-					}
-				}
-
+            else if (message.StatChanged == PlayerStatistic && message.NewValue <= TriggerValueOne / 2)
+            {
+                foreach (Text textToChange in ThingsToChange)
+                {
+                    textToChange.font = SanityLossTwo;
+                }
+            }
+            else
+            {
+                foreach (Text textToChange in ThingsToChange)
+                {
+                    textToChange.font = FullSanity;
+                }
+            }
 		}	
 	}
 }
