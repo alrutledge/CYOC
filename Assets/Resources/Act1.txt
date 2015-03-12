@@ -139,7 +139,6 @@ EntryText:  You stumble back, falling off the porch with a yelp. Before you can 
 EntryText:  It sinks its teeth into your arm and begins to shake. You scream in pain and punch the dog in the side of the head over and over until it finally relents and lets go. 
 EntryText:  Just as it looks to be gathering steam for another lunge at you, a man behind it grabs its collar and yanks it backwards. He is older and gritty looking, carrying an axe in one hand, manhandling the massive dog with the other. He spits to one side then growls, "Wondering when you were going to show up."
 EntryText:
-EntryAction:PLAY_SOUND:doorbash
 EntryAction:MODIFY_ATTRIBUTE:CURRENT_PHYSICAL:-25
 
 Choice:Continue.
@@ -155,7 +154,6 @@ EntryText:  You shudder at the gruesome thought, then call out, "Excuse me."
 EntryText:  He doesn't miss a beat, axe falling to split another log even though he is now looking at you. "What?"
 EntryText:  "I don't mean to intrude, but I need a word with you." He spits to one side of then chokes up on the axe and strides toward you. 
 EntryText:  You swallow then straighten your clothes and move to meet him.
-EntryAction:PLAY_SOUND:axe
 Choice:Continue.
 Action:GOTO:31
 Action:STOP_SOUND
