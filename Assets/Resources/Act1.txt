@@ -234,16 +234,25 @@ EntryText:  After few moments of contemplation, your eyelids get heavy and drift
 Choice:Continue.
 Action:GOTO:561
 
+
 EntryID:561
 EntryText:  You find yourself standing on the bow of a large steam ship. The water churns below you, parting to let the ship glide through. Ahead fog and mist make it hard to see. 
 EntryText:  The ship suddenly lurches and you are thrown into the railing ahead of you. When you grab the rail to steady yourself, you don't recognize the hands you see. The left hand has a large scar across the back and the hands are older than yours. You also don't recognize the clothing you are wearing.
 EntryText:  The ships horn sounds, a loud crashing noise that makes you clap your hands over your ears. There are yells and cries from elsewhere on the ship. Then you hear it, a roar, or a yell or something... undescribable coming from in front of the ship. 
+
+Choice:Continue
+Action:GOTO:5610
+
+
+EntryID:5610
+EntryImage:cthulhu
 EntryText:  Looking out you see the sea is boiling and forthing and jutting forth from it some 100 yards before the ship is a massive form, at least a hundred feet high sticking up from the water. Its huge head is shaped like an octopus. It body looks like that of a large person, with dark greenish skin. Massive wings jut from it's back. 
 
 Choice:Flee from the sight in front of you.
 Action:GOTO:562
 Choice:Watch the creature.
 Action:GOTO:563
+
 
 EntryID:562
 EntryText:  Turning to flee you see men all staring up at the thing. In the middle of them all is a young woman who is smiling up at the creature, a look of rapture on her face. You stumble forward and grab a hold of her shoulders and shake her as she begins to laugh out loud. 
@@ -382,11 +391,24 @@ Action:GOTO:51
 EntryID:66
 Note: Kitchen
 EntryText:  You find yourself in the kitchen of the house. Most of the cupboard cabinets are open and bare. The few that are not you search through and find empty.
-EntryText:  Laying on the counter next to the sink is a large knife, but it is obviously not a kitchen knife. It has a wooden handle carved to look like an animal's paw. The wood looks very old and aged. Some sort of dark liquid has unevenly stained the wood in places.
-EntryText:  The blade of the knife is around eight inches long, with an edge on just one side. It sweeps back on the edge side to a sharp point. The back side of the blade has a groove in it. Caked in the groove is what looks to be dried blood. Perhaps that is what stained the handle as well. 
+EntryText:  Laying on the counter next to the sink is a large knife.
 EntryText:  From here you can head back into the foyer, or through the open door to the sitting room. There is also a door here that leads down into the basement.
 
-Choice:Take the knife.
+Choice:Examine the knife
+Choice:GOTO:660
+Choice:Head back to the foyer.
+Action:GOTO:51
+Choice:Go down into the basement.
+Action:REQUIREMENT_CHECK:HAVE_FLAG:Lantern Taken
+ActionCheckSuccess:GOTO:89
+ActionCheckFailure:GOTO:160
+
+EntryID:660
+EntryImage:knife
+EntryText:You step over and look at the knife. It has a wooden handle carved to look like an animal's paw. The wood looks very old and aged. Some sort of dark liquid has unevenly stained the wood in places.
+EntryText:  The blade of the knife is around eight inches long, with an edge on just one side. It sweeps back on the edge side to a sharp point. The back side of the blade has a groove in it. Caked in the groove is what looks to be dried blood. Perhaps that is what stained the handle as well. 
+
+Take the knife.
 Action:GOTO:68
 Choice:Head back to the foyer.
 Action:GOTO:51
@@ -408,6 +430,7 @@ Action:GOTO:60
 
 
 EntryID:68
+EntryImage:knife
 EntryText:  When you pick up the knife, you turn it over in your hands and give it a good long look. Something doesn't feel right about it, but you push that from your mind and tuck the knife away.
 EntryAction:ADD_FLAG:Knife Taken
 
