@@ -211,7 +211,7 @@ ActionCheckFailure:GOTO:66
 EntryID:55
 Note: Study
 EntryText:  Unlike the other areas on the ground floor of the house, this room looks like it has actually been used. One wall is covered in built ins and a large fireplace. In front of it sits a large comfortable chair with a small side table.
-EntryText:  Beside the chair sits a small oil lamp. Its handle is well worn, and the lamp seems to have gotten plenty of use.
+EntryText:  Beside the chair sits a small oil lantern. Its handle is well worn, and the it seems to have gotten plenty of use.
 EntryText:  The bookshelf built around the fireplace is mostly bare, but one section is covered in old books. Another shelf contains several jars and other knick knacks.  
 
 Choice:Light a fire in the fireplace and have a rest.
@@ -246,7 +246,7 @@ Action:GOTO:5610
 
 EntryID:5610
 EntryImage:cthulhu
-EntryText:  Looking out you see the sea is boiling and forthing and jutting forth from it some 100 yards before the ship is a massive form, at least a hundred feet high sticking up from the water. Its huge head is shaped like an octopus. It body looks like that of a large person, with dark greenish skin. Massive wings jut from it's back. 
+EntryText:  Looking out you see the sea is boiling and forthing and jutting forth from it some 100 yards before the ship is a massive form, at least a hundred feet high sticking up from the water. Its huge head is vaguely octopus shaped. It body looks vaguely human, with dark greenish skin.  
 
 Choice:Flee from the sight in front of you.
 Action:GOTO:562
@@ -546,7 +546,7 @@ Action:GOTO:90
 
 EntryID:90
 EntryImage:skull_puzzle
-EntryText:  Stepping up to the door you see beside it a large decorative metal mechanism built into the wall. There are no handles or latches on the door. In the middle of the mechanism is a large metal skull with dark green crystals for eyes. The skulls mouth is open wide, and by lifting the lamp just right, you can see that there is a lever deep within the hole. You would have to reach almost your entire arm in to reach the lever. Slots line the bottom of the hole, and small holes line the top of it.
+EntryText:  Stepping up to the door you see beside it a large decorative metal mechanism built into the wall. There are no handles or latches on the door. In the middle of the mechanism is a large metal skull with dark green crystals for eyes. The skulls mouth is open wide, and by lifting the lantern just right, you can see that there is a lever deep within the hole. You would have to reach almost your entire arm in to reach the lever. Slots line the bottom of the hole, and small holes line the top of it.
 
 Choice:Continue
 Action:GOTO:9100
@@ -1257,7 +1257,7 @@ Action:GOTO:70
 
 EntryID:112
 Note: Dungeon, manacles (TODO)
-EntryText:  You fire up the old oil lantern and begin down the ladder. It is slow going, having to hold the lantern and make your way down at the same time, but you manage without spilling the oil from the lamp or burning yourself. When you get to the bottom of the shaft you see it opens up behind you, and turn slowly around.
+EntryText:  You fire up the old oil lantern and begin down the ladder. It is slow going, having to hold the lantern and make your way down at the same time, but you manage without spilling the oil from the lantern or burning yourself. When you get to the bottom of the shaft you see it opens up behind you, and turn slowly around.
 EntryText:  The stone chamber before you makes your skin crawl just by looking at it. Dark stains mar the stone surface in various locations. A massive table, stained dark and crusted with unknown substances sits in the middle of the room. Mounted onto the corner of the table are sets of metal cuffs. In one wall, manacles are attached to a large metal ring. The inside of the manacles are set with two inch spikes, and crusted with more dark stains.
 EntryText:  In the opposite wall a large metal grate separates you from a second ladder. 
 EntryText:  In one corner an old doll sits propped up, head lolled to one side. Its lifeless eyes stare in the direction of the grated doorway.
