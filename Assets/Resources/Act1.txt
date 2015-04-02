@@ -63,7 +63,7 @@ EntryID:1
 EntryText:  You begin the drive out to the house under overcast skies, and soon enough the heavens part and the rain begins to pour down. Your visibility is poor, and the road conditions worsen as you go.
 EntryText:  Old Hill Road cuts off a county road and you quickly find yourself creeping down what would better be called a muddy track than a road.
 EntryText:  The trees to either side of the road reach out over the muddy track. They do nothing to really protect from the rain in their current leafless state in late autumn.
-EntryText:  Now and then a wind picks up, blowing some of the fallen leaves across the road. Its the only real movement you've seen in some time. No one seems to care to come out this way, and you have seen another car for last several miles.
+EntryText:  Now and then a wind picks up, blowing some of the fallen leaves across the road. Its the only real movement you've seen in some time. No one seems to care to come out this way, and you have not seen another car for the last several miles.
 
 Choice:Continue
 Action:GOTO:20
@@ -172,7 +172,7 @@ Action:GOTO:32
 
 EntryID:32
 EntryText:  Nodding you ask him, "What about the inside of the house? Who took care of that?" You stare up at the large building wondering what it was your uncle actually did.
-EntryText:  "That would just be you. Your uncle only had one really strict rule. No one in the house but himself. Ever. I've never set foot in the place. Don't see any reason to change that now. Besides. The place creeps me out." 
+EntryText:  "That would just be you. Your uncle only had one really strict rule. No one in the house without him. Ever. I only ever open to the door to let the dog in and out. Don't see any reason to change that now. Besides. The place creeps me out." 
 EntryText:  In the distance there is a flash of lightning and the rumble of thunder. James stares at the sky over the top of the trees around the house. "I'll get the dog out of your way, and then you better get inside. There is a storm coming. You don't want to get caught unprepared. Oh, and here are the keys." He hands you a large set of keys to the house.
 
 Choice:Head inside before the storm comes.
@@ -395,7 +395,7 @@ EntryText:  Laying on the counter next to the sink is a large knife.
 EntryText:  From here you can head back into the foyer, or through the open door to the sitting room. There is also a door here that leads down into the basement.
 
 Choice:Examine the knife
-Choice:GOTO:660
+Action:GOTO:660
 Choice:Head back to the foyer.
 Action:GOTO:51
 Choice:Go down into the basement.
@@ -406,9 +406,9 @@ ActionCheckFailure:GOTO:160
 EntryID:660
 EntryImage:knife
 EntryText:You step over and look at the knife. It has a wooden handle carved to look like an animal's paw. The wood looks very old and aged. Some sort of dark liquid has unevenly stained the wood in places.
-EntryText:  The blade of the knife is around eight inches long, with an edge on just one side. It sweeps back on the edge side to a sharp point. The back side of the blade has a groove in it. Caked in the groove is what looks to be dried blood. Perhaps that is what stained the handle as well. 
+EntryText:  The blade of the knife is around eight inches long, with an edge on just one side. It sweeps back on the edge side to a sharp point. The back side of the blade has a groove in it. Caked in the groove is what looks to be dried blood.
 
-Take the knife.
+Choice:Take the knife.
 Action:GOTO:68
 Choice:Head back to the foyer.
 Action:GOTO:51
@@ -425,8 +425,10 @@ EntryText:  From here you can head back into the foyer, or through the open door
 
 Choice:Head back to the foyer.
 Action:GOTO:51
-Choice:Go through the open door to the sitting room.
-Action:GOTO:60
+Choice:Go down into the basement.
+Action:REQUIREMENT_CHECK:HAVE_FLAG:Lantern Taken
+ActionCheckSuccess:GOTO:89
+ActionCheckFailure:GOTO:160
 
 
 EntryID:68
@@ -962,10 +964,10 @@ EntryID:160
 EntryText:  You open the door to the basement and stare down the steep steps into the darkness. You click the switch at the top of the steps and the light momentarily lights the stairs before a loud pop sounds and the light dims then quickly goes dark.
 EntryText:  With no other way to see down there, you close the basement door.
 
-Choice:Head back to the foyer.
-Action:GOTO:51
-Choice:Go through the open door to the sitting room.
-Action:GOTO:60
+Choice:Continue
+Action:REQUIREMENT_CHECK:HAVE_FLAG:Knife Taken
+ActionCheckSuccess:GOTO:67
+ActionCheckFailure:GOTO:66
 
 
 

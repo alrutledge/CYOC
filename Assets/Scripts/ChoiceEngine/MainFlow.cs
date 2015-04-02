@@ -13,6 +13,7 @@ public class MainFlow : MonoBehaviour
     private GameObject m_exitGame;
     private GameObject m_endPanel;
     private GameObject m_mainPanel;
+    private GameObject m_credits;
 
 	private void Awake () 
     {
@@ -22,6 +23,7 @@ public class MainFlow : MonoBehaviour
         m_mainPanel = GameObject.Find("MainGamePanel");
         m_splashScreen = GameObject.Find("SplashScreen");
         m_exitGame = GameObject.Find("ConfirmGameExitPanel");
+        m_credits = GameObject.Find("CreditContainer");
         MessageSystem.SubscribeMessage<ActLoadedMessage>(MessageSystem.ServiceContext, OnActLoaded);
         MessageSystem.SubscribeMessage<ExitToMainMenuCommand>(MessageSystem.ServiceContext, OnExitToMainMenuCommand);
         MessageSystem.SubscribeMessage<PrepareActAnimationCommand>(MessageSystem.ServiceContext, OnPrepareActAnimationCommand);
@@ -57,7 +59,7 @@ public class MainFlow : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (m_gamePlay.activeInHierarchy)
+            if (m_gamePlay.activeInHierarchy || m_credits.activeInHierarchy)
             {
 
             }

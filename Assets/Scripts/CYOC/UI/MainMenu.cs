@@ -149,7 +149,11 @@ namespace Assets.Scripts.CYOC.UI
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (!m_main.activeInHierarchy)
+                if (m_credits.activeInHierarchy)
+                {
+                    CreditsFinished();
+                }
+                else if (!m_main.activeInHierarchy)
                 {
                     OnExitClicked();
                 }
